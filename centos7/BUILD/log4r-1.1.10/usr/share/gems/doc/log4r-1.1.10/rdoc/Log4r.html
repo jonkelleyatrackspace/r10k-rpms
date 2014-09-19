@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Log4r - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-NDC">NDC</a>
+      <li><a href="#label-Other+Info">Other Info</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/log4r/GDC.rb
+    <li>lib/log4r/MDC.rb
+    <li>lib/log4r/NDC.rb
+    <li>lib/log4r/base.rb
+    <li>lib/log4r/config.rb
+    <li>lib/log4r/configurator.rb
+    <li>lib/log4r/formatter/formatter.rb
+    <li>lib/log4r/formatter/log4jxmlformatter.rb
+    <li>lib/log4r/formatter/patternformatter.rb
+    <li>lib/log4r/lib/drbloader.rb
+    <li>lib/log4r/lib/xmlloader.rb
+    <li>lib/log4r/logevent.rb
+    <li>lib/log4r/logger.rb
+    <li>lib/log4r/loggerfactory.rb
+    <li>lib/log4r/logserver.rb
+    <li>lib/log4r/outputter/consoleoutputters.rb
+    <li>lib/log4r/outputter/datefileoutputter.rb
+    <li>lib/log4r/outputter/emailoutputter.rb
+    <li>lib/log4r/outputter/fileoutputter.rb
+    <li>lib/log4r/outputter/iooutputter.rb
+    <li>lib/log4r/outputter/outputter.rb
+    <li>lib/log4r/outputter/outputterfactory.rb
+    <li>lib/log4r/outputter/remoteoutputter.rb
+    <li>lib/log4r/outputter/rollingfileoutputter.rb
+    <li>lib/log4r/outputter/scribeoutputter.rb
+    <li>lib/log4r/outputter/staticoutputter.rb
+    <li>lib/log4r/outputter/syslogoutputter.rb
+    <li>lib/log4r/outputter/udpoutputter.rb
+    <li>lib/log4r/repository.rb
+    <li>lib/log4r/staticlogger.rb
+    <li>lib/log4r/version.rb
+    <li>lib/log4r/yamlconfigurator.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="./lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Log4r.html">Log4r</a>
+  
+    <li><a href="./Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="./Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="./Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="./Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="./Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="./Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="./Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="./Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="./Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="./Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="./Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="./Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="./Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="./Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="./Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="./Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="./Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="./Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="./Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="./Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="./Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="./Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="./Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="./Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="./Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="./Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="./Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="./Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="./Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="./Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="./Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="./Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="./Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="./Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="./Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="./Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Log4r</h1>
+
+  <div id="description" class="description">
+    
+<h1 id="label-NDC"><a href="Log4r/NDC.html">NDC</a><span><a href="#label-NDC">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>The <a href="Log4r/NDC.html">NDC</a> class implements a copy of the Nested
+Diagnostic Context, which is part of the Apache Log4j library.  Nested
+Diagnostic Contexts were derived from Neil Harrison&#39;s article on
+“Patterns for Logging Diagnostic Messages”, part of the book “Pattern
+Languages of Program Design 3” edited by Martin et al.</p>
+
+<p>NDCs in <a href="Log4r.html">Log4r</a> are thread safe.</p>
+
+<p>NDCs in log4r are close enough to NDCs in Log4j that I include its
+documentation directly:</p>
+
+<p>… A Nested Diagnostic Context, or <a href="Log4r/NDC.html">NDC</a> in
+short, is an instrument to distinguish interleaved log output from
+different sources. Log output is typically interleaved when a server
+handles multiple clients near-simultaneously.</p>
+
+<p>Interleaved log output can still be meaningful if each log entry from
+different contexts had a distinctive stamp. This is where NDCs come into
+play.</p>
+
+<p>Note that NDCs are managed on a per thread basis. <a
+href="Log4r/NDC.html">NDC</a> operations such as push, pop(), clear(),
+getDepth() and setMaxDepth(int) affect the <a href="Log4r/NDC.html">NDC</a>
+of the current thread only. NDCs of other threads remain unaffected. …</p>
+
+<p>An important difference between NDCs in <a href="Log4r.html">Log4r</a> vs
+Log4j is that you do not have to called <a
+href="Log4r/NDC.html#method-c-remove">Log4r::NDC.remove</a> when exiting a
+thread.</p>
+
+<p>This class will automatically create Thread specific storage for the 
+current thread on the first call to any of its methods, i.e.</p>
+
+<pre>NDC.push( &quot;client accept&quot; );</pre>
+
+<p>New threads may inherit the <a href="Log4r/NDC.html">NDC</a> of the parent
+thread by making use of the clone_stack() and inherit() methods.  By
+default, the <a href="Log4r/NDC.html">NDC</a> is not inherited
+automatically.  This is unlike MDCs, which will inherit from the main
+thread.</p>
+
+<h2 id="label-Other+Info">Other Info<span><a href="#label-Other+Info">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<dl class="rdoc-list note-list"><dt>Version
+<dd>
+<p>$Id$</p>
+</dd><dt>Author
+<dd>
+<p>Colby Gutierrez-Kraybill &lt;colby(at)astro.berkeley.edu&gt;</p>
+</dd></dl>
+<dl class="rdoc-list note-list"><dt>Version
+<dd>
+<p>$Id$</p>
+</dd></dl>
+
+<p>TODO: catch unparsed parameters #{FOO} and die</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ALL">ALL
+        
+        <dd class="description">
+        
+      
+        <dt id="GDCNAME">GDCNAME
+        
+        <dd class="description">
+        
+      
+        <dt id="HAVE_REXML">HAVE_REXML
+        
+        <dd class="description">
+        
+      
+        <dt id="HAVE_ROMP">HAVE_ROMP
+        
+        <dd class="description">
+        
+      
+        <dt id="LNAMES">LNAMES
+        
+        <dd class="description">
+        
+      
+        <dt id="Log4rVersion">Log4rVersion
+        
+        <dd class="description">
+        
+      
+        <dt id="MDCNAME">MDCNAME
+        
+        <dd class="description">
+        
+      
+        <dt id="MDCNAMEMAXDEPTH">MDCNAMEMAXDEPTH
+        
+        <dd class="description">
+        
+      
+        <dt id="NDCDEFAULTMAXDEPTH">NDCDEFAULTMAXDEPTH
+        
+        <dd class="description">
+        
+      
+        <dt id="NDCNAME">NDCNAME
+        
+        <dd class="description">
+        
+      
+        <dt id="NDCNAMEMAXDEPTH">NDCNAMEMAXDEPTH
+        
+        <dd class="description">
+        
+      
+        <dt id="SYSLOGNAMES">SYSLOGNAMES
+        
+        <dd class="description">
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

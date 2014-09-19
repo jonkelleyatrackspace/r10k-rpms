@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"valid_keys:ETI")R10K::Settings::Container#valid_keys;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] valid_keys;To:RDoc::Markup::Verbatim;	[I"W@return [Set<Symbol>] All valid keys defined on the container or parent container.;T:@format0:
+@fileI"#lib/r10k/settings/container.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Settings::Container;FcRDoc::NormalClass0

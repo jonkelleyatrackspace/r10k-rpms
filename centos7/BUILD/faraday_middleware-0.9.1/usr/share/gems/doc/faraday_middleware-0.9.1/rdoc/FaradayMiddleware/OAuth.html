@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class FaradayMiddleware::OAuth - faraday_middleware-0.9.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday_middleware/request/oauth.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">FaradayMiddleware::Faraday::Middleware
+  
+</nav>
+
+    
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-body_params">#body_params</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-include_body_params-3F">#include_body_params?</a>
+    
+    <li ><a href="#method-i-oauth_header">#oauth_header</a>
+    
+    <li ><a href="#method-i-oauth_options">#oauth_options</a>
+    
+    <li ><a href="#method-i-sign_request-3F">#sign_request?</a>
+    
+    <li ><a href="#method-i-signature_params">#signature_params</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Addressable.html">Addressable</a>
+  
+    <li><a href="../Addressable/URI.html">Addressable::URI</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../FaradayMiddleware.html">FaradayMiddleware</a>
+  
+    <li><a href="../FaradayMiddleware/Caching.html">FaradayMiddleware::Caching</a>
+  
+    <li><a href="../FaradayMiddleware/Chunked.html">FaradayMiddleware::Chunked</a>
+  
+    <li><a href="../FaradayMiddleware/EncodeJson.html">FaradayMiddleware::EncodeJson</a>
+  
+    <li><a href="../FaradayMiddleware/Faraday.html">FaradayMiddleware::Faraday</a>
+  
+    <li><a href="../FaradayMiddleware/FollowRedirects.html">FaradayMiddleware::FollowRedirects</a>
+  
+    <li><a href="../FaradayMiddleware/Instrumentation.html">FaradayMiddleware::Instrumentation</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify/Hashie.html">FaradayMiddleware::Mashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/MethodOverride.html">FaradayMiddleware::MethodOverride</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OptionsExtension.html">FaradayMiddleware::OptionsExtension</a>
+  
+    <li><a href="../FaradayMiddleware/ParseDates.html">FaradayMiddleware::ParseDates</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson/MimeTypeFix.html">FaradayMiddleware::ParseJson::MimeTypeFix</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/RackCompatible.html">FaradayMiddleware::RackCompatible</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify/Hashie.html">FaradayMiddleware::Rashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/RedirectLimitReached.html">FaradayMiddleware::RedirectLimitReached</a>
+  
+    <li><a href="../FaradayMiddleware/ResponseMiddleware.html">FaradayMiddleware::ResponseMiddleware</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FaradayMiddleware::OAuth</h1>
+
+  <div id="description" class="description">
+    
+<p>Public: Uses the simple_oauth library to sign requests according the <a
+href="OAuth.html">OAuth</a> protocol.</p>
+
+<p>The options for this middleware are forwarded to SimpleOAuth::Header:
+:consumer_key, :consumer_secret, :token, :token_secret. All these
+parameters are optional.</p>
+
+<p>The signature is added to the “Authorization” HTTP request header. If the
+value for this header already exists, it is not overriden.</p>
+
+<p>If no Content-Type header is specified, this middleware assumes that
+request body parameters should be included while signing the request.
+Otherwise, it only includes them if the Content-Type is
+“application/x-www-form-urlencoded”, as per <a href="OAuth.html">OAuth</a>
+1.0.</p>
+
+<p>For better performance while signing requests, this middleware should be
+positioned before UrlEncoded middleware on the stack, but after any other
+body-encoding middleware (such as <a
+href="EncodeJson.html">EncodeJson</a>).</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-body_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">body_params</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="body_params-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">body_params</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_body_params?</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+      <span class="ruby-identifier">parse_nested_query</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-operator">||</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- body_params-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- body_params-method -->
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:request_headers</span>][<span class="ruby-constant">AUTH_HEADER</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">oauth_header</span>(<span class="ruby-identifier">env</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sign_request?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- call-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- call-method -->
+
+    
+      <div id="method-i-include_body_params-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_body_params?</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_body_params-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_body_params?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-comment"># see RFC 5849, section 3.4.1.3.1 for details</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-identifier">type</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:request_headers</span>][<span class="ruby-constant">CONTENT_TYPE</span>]) <span class="ruby-keyword">or</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">TYPE_URLENCODED</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- include_body_params-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- include_body_params-3F-method -->
+
+    
+      <div id="method-i-oauth_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">oauth_header</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="oauth_header-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">oauth_header</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-constant">SimpleOAuth</span><span class="ruby-operator">::</span><span class="ruby-constant">Header</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:method</span>],
+                          <span class="ruby-identifier">env</span>[<span class="ruby-value">:url</span>].<span class="ruby-identifier">to_s</span>,
+                          <span class="ruby-identifier">signature_params</span>(<span class="ruby-identifier">body_params</span>(<span class="ruby-identifier">env</span>)),
+                          <span class="ruby-identifier">oauth_options</span>(<span class="ruby-identifier">env</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- oauth_header-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- oauth_header-method -->
+
+    
+      <div id="method-i-oauth_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">oauth_options</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="oauth_options-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">oauth_options</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">extra</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:request</span>][<span class="ruby-value">:oauth</span>] <span class="ruby-keyword">and</span> <span class="ruby-identifier">extra</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">extra</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">extra</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- oauth_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- oauth_options-method -->
+
+    
+      <div id="method-i-sign_request-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign_request?</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sign_request-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign_request?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">env</span>[<span class="ruby-value">:request</span>].<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:oauth</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sign_request-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sign_request-3F-method -->
+
+    
+      <div id="method-i-signature_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signature_params</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="signature_params-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/request/oauth.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signature_params</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span> <span class="ruby-operator">:</span>
+    <span class="ruby-identifier">params</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:content_type</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- signature_params-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- signature_params-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

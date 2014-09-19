@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"environment_names:ETI"AR10K::Task::Deployment::DeployEnvironments#environment_names;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I""@!attribute environment_names;To:RDoc::Markup::Verbatim;	[I"G@return [Array<String>] A list of environments to deploy, by name.;T:@format0:
+@fileI" lib/r10k/task/deployment.rb;T:0@omit_headings_from_table_of_contents_below0F@I"/R10K::Task::Deployment::DeployEnvironments;FcRDoc::NormalClass0

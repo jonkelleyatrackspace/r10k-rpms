@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class SystemUniversal - systemu-2.5.2 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/systemu.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-quote">::quote</a>
+    
+    <li ><a href="#method-c-version">::version</a>
+    
+    <li ><a href="#method-i-child_program">#child_program</a>
+    
+    <li ><a href="#method-i-child_setup">#child_setup</a>
+    
+    <li ><a href="#method-i-getopts">#getopts</a>
+    
+    <li ><a href="#method-i-new_thread">#new_thread</a>
+    
+    <li ><a href="#method-i-quietly">#quietly</a>
+    
+    <li ><a href="#method-i-quote">#quote</a>
+    
+    <li ><a href="#method-i-relay">#relay</a>
+    
+    <li ><a href="#method-i-systemu">#systemu</a>
+    
+    <li ><a href="#method-i-tmpdir">#tmpdir</a>
+    
+    <li ><a href="#method-i-version">#version</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./SystemUniversal.html">SystemUniversal</a>
+  
+    <li><a href="./SystemUniversal/Config.html">SystemUniversal::Config</a>
+  
+    <li><a href="./SystemUniversal/RbConfig.html">SystemUniversal::RbConfig</a>
+  
+    <li><a href="./SystemUniversal/StreamReader.html">SystemUniversal::StreamReader</a>
+  
+    <li><a href="./SystemUniversal/status.html">SystemUniversal::status</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class SystemUniversal</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description"><p>constants</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(argv, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>instance methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">getopt</span> = <span class="ruby-identifier">getopts</span> <span class="ruby-identifier">opts</span>
+
+  <span class="ruby-ivar">@argv</span> = <span class="ruby-identifier">argv</span>
+  <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
+
+  <span class="ruby-ivar">@stdin</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-string">&#39;stdin&#39;</span>, <span class="ruby-string">&#39;in&#39;</span>, <span class="ruby-string">&#39;0&#39;</span>, <span class="ruby-value">0</span>] ]
+  <span class="ruby-ivar">@stdout</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-string">&#39;stdout&#39;</span>, <span class="ruby-string">&#39;out&#39;</span>, <span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-value">1</span>] ]
+  <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-string">&#39;stderr&#39;</span>, <span class="ruby-string">&#39;err&#39;</span>, <span class="ruby-string">&#39;2&#39;</span>, <span class="ruby-value">2</span>] ]
+  <span class="ruby-ivar">@env</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;env&#39;</span> ]
+  <span class="ruby-ivar">@cwd</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;cwd&#39;</span> ]
+
+  <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;host&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">host</span> ]
+  <span class="ruby-ivar">@ppid</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;ppid&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ppid</span> ]
+  <span class="ruby-ivar">@pid</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;pid&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">pid</span> ]
+  <span class="ruby-ivar">@ruby</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-string">&#39;ruby&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ruby</span> ]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote</span><span
+            class="method-args">(*words)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quote-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">words</span>)
+  <span class="ruby-identifier">words</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">inspect</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- quote-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- quote-method -->
+
+    
+      <div id="method-c-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">SystemUniversal</span>.<span class="ruby-identifier">version</span>() <span class="ruby-constant">SystemUniversal</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- version-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- version-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-child_program" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">child_program</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="child_program-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">child_program</span> <span class="ruby-identifier">config</span>
+  <span class="ruby-value">&lt;&lt;-program
+    # encoding: utf-8
+
+    PIPE = STDOUT.dup
+    begin
+      config = Marshal.load(IO.read(&#39;#{ config }&#39;))
+
+      argv = config[&#39;argv&#39;]
+      env = config[&#39;env&#39;]
+      cwd = config[&#39;cwd&#39;]
+      stdin = config[&#39;stdin&#39;]
+      stdout = config[&#39;stdout&#39;]
+      stderr = config[&#39;stderr&#39;]
+
+      Dir.chdir cwd if cwd
+      env.each{|k,v| ENV[k.to_s] = v.to_s} if env
+
+      STDIN.reopen stdin
+      STDOUT.reopen stdout
+      STDERR.reopen stderr
+
+      PIPE.puts &quot;pid: \#{ Process.pid }&quot;
+      PIPE.flush                        ### the process is ready yo!
+      PIPE.close
+
+      exec *argv
+    rescue Exception =&gt; e
+      PIPE.write Marshal.dump(e) rescue nil
+      exit 42
+    end
+  program</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- child_program-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- child_program-method -->
+
+    
+      <div id="method-i-child_setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">child_setup</span><span
+            class="method-args">(tmp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="child_setup-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">child_setup</span> <span class="ruby-identifier">tmp</span>
+  <span class="ruby-identifier">stdin</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-string">&#39;stdin&#39;</span>))
+  <span class="ruby-identifier">stdout</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-string">&#39;stdout&#39;</span>))
+  <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-string">&#39;stderr&#39;</span>))
+  <span class="ruby-identifier">program</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-string">&#39;program&#39;</span>))
+  <span class="ruby-identifier">config</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">tmp</span>, <span class="ruby-string">&#39;config&#39;</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stdin</span>
+    <span class="ruby-identifier">open</span>(<span class="ruby-identifier">stdin</span>, <span class="ruby-string">&#39;w&#39;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relay</span> <span class="ruby-ivar">@stdin</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">f</span>}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-identifier">stdin</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-identifier">stdout</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">touch</span> <span class="ruby-identifier">stderr</span>
+
+  <span class="ruby-identifier">c</span> = {}
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;argv&#39;</span>] = <span class="ruby-ivar">@argv</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;env&#39;</span>] = <span class="ruby-ivar">@env</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;cwd&#39;</span>] = <span class="ruby-ivar">@cwd</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stdin&#39;</span>] = <span class="ruby-identifier">stdin</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stdout&#39;</span>] = <span class="ruby-identifier">stdout</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stderr&#39;</span>] = <span class="ruby-identifier">stderr</span>
+  <span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;program&#39;</span>] = <span class="ruby-identifier">program</span>
+  <span class="ruby-identifier">open</span>(<span class="ruby-identifier">config</span>, <span class="ruby-string">&#39;w&#39;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">f</span>)}
+
+  <span class="ruby-identifier">open</span>(<span class="ruby-identifier">program</span>, <span class="ruby-string">&#39;w&#39;</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">child_program</span>(<span class="ruby-identifier">config</span>)}
+
+  <span class="ruby-identifier">c</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- child_setup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- child_setup-method -->
+
+    
+      <div id="method-i-getopts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getopts</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getopts-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getopts</span> <span class="ruby-identifier">opts</span> = {}
+  <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keys</span>, <span class="ruby-identifier">default</span>, <span class="ruby-identifier">ignored</span> = <span class="ruby-identifier">args</span>
+    <span class="ruby-identifier">catch</span>(<span class="ruby-value">:opt</span>) <span class="ruby-keyword">do</span>
+      [<span class="ruby-identifier">keys</span>].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+        [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">intern</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">throw</span> <span class="ruby-value">:opt</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">key</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">default</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getopts-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getopts-method -->
+
+    
+      <div id="method-i-new_thread" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_thread</span><span
+            class="method-args">(cid, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_thread-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new_thread</span> <span class="ruby-identifier">cid</span>, <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">q</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cid</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cid</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+    <span class="ruby-identifier">current</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">q</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">cid</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">q</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new_thread-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new_thread-method -->
+
+    
+      <div id="method-i-quietly" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quietly</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quietly-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quietly</span>
+  <span class="ruby-identifier">v</span> = <span class="ruby-identifier">$VERBOSE</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">v</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- quietly-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- quietly-method -->
+
+    
+      <div id="method-i-quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quote-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote</span> <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-constant">SystemUniversal</span>.<span class="ruby-identifier">quote</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- quote-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- quote-method -->
+
+    
+      <div id="method-i-relay" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relay</span><span
+            class="method-args">(srcdst)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="relay-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">srcdst</span>
+  <span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-identifier">ignored</span> = <span class="ruby-identifier">srcdst</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-string">&#39;read&#39;</span>
+    <span class="ruby-keyword">while</span>((<span class="ruby-identifier">buf</span> = <span class="ruby-identifier">src</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">8192</span>))); <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>; <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:each_line</span>)
+      <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each_line</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- relay-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- relay-method -->
+
+    
+      <div id="method-i-systemu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">systemu</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="systemu-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">systemu</span>
+  <span class="ruby-identifier">tmpdir</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tmp</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-identifier">child_setup</span> <span class="ruby-identifier">tmp</span>
+    <span class="ruby-identifier">status</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">thread</span> = <span class="ruby-keyword">nil</span>
+
+      <span class="ruby-identifier">quietly</span>{
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span> <span class="ruby-node">&quot;#{ quote(@ruby) } #{ quote(c[&#39;program&#39;]) }&quot;</span>, <span class="ruby-string">&#39;r+&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pipe</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">line</span> = <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">gets</span>
+          <span class="ruby-keyword">case</span> <span class="ruby-identifier">line</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^pid: \d+$/</span>
+              <span class="ruby-identifier">cid</span> = <span class="ruby-constant">Integer</span> <span class="ruby-identifier">line</span>[<span class="ruby-regexp">/\d+/</span>]
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">begin</span>
+                <span class="ruby-identifier">buf</span> = <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">read</span>
+                <span class="ruby-identifier">buf</span> = <span class="ruby-node">&quot;#{ line }#{ buf }&quot;</span>
+                <span class="ruby-identifier">e</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">buf</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+              <span class="ruby-keyword">rescue</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;systemu: Error - process interrupted!\n#{ buf }\n&quot;</span>
+              <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">thread</span> = <span class="ruby-identifier">new_thread</span> <span class="ruby-identifier">cid</span>, <span class="ruby-ivar">@block</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@block</span>
+          <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+      }
+      <span class="ruby-identifier">status</span> = <span class="ruby-identifier">$?</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">thread</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">status</span>
+            <span class="ruby-identifier">attr</span> <span class="ruby-string">&#39;thread&#39;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">status</span>.<span class="ruby-identifier">instance_eval</span>{ <span class="ruby-ivar">@thread</span> = <span class="ruby-identifier">thread</span> }
+        <span class="ruby-keyword">rescue</span>
+          <span class="ruby-value">42</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stdout</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@stderr</span>
+      <span class="ruby-identifier">open</span>(<span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stdout&#39;</span>]){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">f</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@stdout</span>} <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stdout</span>
+      <span class="ruby-identifier">open</span>(<span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stderr&#39;</span>]){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">f</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@stderr</span>} <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stderr</span>
+      <span class="ruby-identifier">status</span>
+    <span class="ruby-keyword">else</span>
+      [<span class="ruby-identifier">status</span>, <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stdout&#39;</span>]), <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">c</span>[<span class="ruby-string">&#39;stderr&#39;</span>])]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- systemu-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- systemu-method -->
+
+    
+      <div id="method-i-tmpdir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tmpdir</span><span
+            class="method-args">(d = Dir.tmpdir, max = 42, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tmpdir-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tmpdir</span> <span class="ruby-identifier">d</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">tmpdir</span>, <span class="ruby-identifier">max</span> = <span class="ruby-value">42</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">-1</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">loop</span>{
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+    <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">d</span>, <span class="ruby-node">&quot;systemu_#{ @host }_#{ @ppid }_#{ @pid }_#{ rand }_#{ i += 1 }&quot;</span>
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-identifier">tmp</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EEXIST</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">max</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">break</span>(
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-identifier">b</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">tmp</span>
+        <span class="ruby-keyword">ensure</span>
+          <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">SystemU</span>.<span class="ruby-identifier">turd</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">tmp</span>
+      <span class="ruby-keyword">end</span>
+    )
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- tmpdir-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- tmpdir-method -->
+
+    
+      <div id="method-i-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File lib/systemu.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">version</span>() <span class="ruby-constant">SystemUniversal</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- version-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- version-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

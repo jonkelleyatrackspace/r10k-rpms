@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"aliases:ETI"Cri::Command#aliases;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"K@return [Array<String>] A list of aliases for this command that can be;To:RDoc::Markup::Verbatim;	[I" used to invoke this command;T:@format0:
+@fileI"lib/cri/command.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Cri::Command;FcRDoc::NormalClass0

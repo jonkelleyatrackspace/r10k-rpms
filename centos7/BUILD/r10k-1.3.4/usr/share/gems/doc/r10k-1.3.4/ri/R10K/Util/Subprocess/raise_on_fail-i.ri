@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"raise_on_fail:ETI")R10K::Util::Subprocess#raise_on_fail;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"#@!attribute [rw] raise_on_fail;To:RDoc::Markup::Verbatim;	[I"GDetermine whether #execute raises an error when the command exits
+;TI""with a non-zero exit status.
+;TI"@return [true, false];T:@format0:
+@fileI" lib/r10k/util/subprocess.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Util::Subprocess;FcRDoc::NormalClass0

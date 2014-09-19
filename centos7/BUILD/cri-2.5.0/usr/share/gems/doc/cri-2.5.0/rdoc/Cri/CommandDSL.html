@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Cri::CommandDSL - cri-2.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cri/command_dsl.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_option">#add_option</a>
+    
+    <li ><a href="#method-i-aliases">#aliases</a>
+    
+    <li ><a href="#method-i-be_hidden">#be_hidden</a>
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-description">#description</a>
+    
+    <li ><a href="#method-i-flag">#flag</a>
+    
+    <li ><a href="#method-i-forbidden">#forbidden</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-opt">#opt</a>
+    
+    <li ><a href="#method-i-option">#option</a>
+    
+    <li ><a href="#method-i-optional">#optional</a>
+    
+    <li ><a href="#method-i-required">#required</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-runner">#runner</a>
+    
+    <li ><a href="#method-i-subcommand">#subcommand</a>
+    
+    <li ><a href="#method-i-summary">#summary</a>
+    
+    <li ><a href="#method-i-usage">#usage</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../NEWS_md.html">NEWS</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cri.html">Cri</a>
+  
+    <li><a href="../Cri/ArgumentArray.html">Cri::ArgumentArray</a>
+  
+    <li><a href="../Cri/Command.html">Cri::Command</a>
+  
+    <li><a href="../Cri/Command/OptionParserPartitioningDelegate.html">Cri::Command::OptionParserPartitioningDelegate</a>
+  
+    <li><a href="../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../Cri/CommandRunner.html">Cri::CommandRunner</a>
+  
+    <li><a href="../Cri/CoreExtensions.html">Cri::CoreExtensions</a>
+  
+    <li><a href="../Cri/CoreExtensions/String.html">Cri::CoreExtensions::String</a>
+  
+    <li><a href="../Cri/Error.html">Cri::Error</a>
+  
+    <li><a href="../Cri/HelpRenderer.html">Cri::HelpRenderer</a>
+  
+    <li><a href="../Cri/NoHelpAvailableError.html">Cri::NoHelpAvailableError</a>
+  
+    <li><a href="../Cri/NotImplementedError.html">Cri::NotImplementedError</a>
+  
+    <li><a href="../Cri/OptionParser.html">Cri::OptionParser</a>
+  
+    <li><a href="../Cri/OptionParser/IllegalOptionError.html">Cri::OptionParser::IllegalOptionError</a>
+  
+    <li><a href="../Cri/OptionParser/OptionRequiresAnArgumentError.html">Cri::OptionParser::OptionRequiresAnArgumentError</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Cri::CommandDSL</h1>
+
+  <div id="description" class="description">
+    
+<p>The command DSL is a class that is used for building and modifying
+commands.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(command=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Cri::Command, nil] command The command to modify, or nil if a</p>
+
+<pre>new command should be created</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">command</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@command</span> = <span class="ruby-identifier">command</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-aliases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">aliases</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the command aliases.</p>
+
+<p>@param [String, Symbol, Array] args The new command aliases</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="aliases-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">aliases</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">aliases</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- aliases-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- aliases-method -->
+
+    
+      <div id="method-i-be_hidden" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">be_hidden</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Marks the command as hidden. Hidden commands do not show up in the list of
+subcommands of the parent command, unless –verbose is passed (or `:verbose
+=&gt; true` is passed to the {Cri::Command#help} method). This can be used
+to mark commands as deprecated.</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="be_hidden-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">be_hidden</span>
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">hidden</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- be_hidden-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- be_hidden-method -->
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Cri::Command] The built command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-ivar">@command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- command-method -->
+
+    
+      <div id="method-i-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the command description.</p>
+
+<p>@param [String] arg The new command description</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- description-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- description-method -->
+
+    
+      <div id="method-i-flag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flag</span><span
+            class="method-args">(short, long, desc, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a new option with a forbidden argument to the command. If a block is
+given, it will be executed when the option is successfully parsed.</p>
+
+<p>@param [String, Symbol, nil] short The short option name</p>
+
+<p>@param [String, Symbol, nil] long The long option name</p>
+
+<p>@param [String] desc The option description</p>
+
+<p>@return [void]</p>
+
+<p>@see {#option}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flag-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flag</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-value">:forbidden</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- flag-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="CommandDSL.html#method-i-forbidden">forbidden</a>
+        </div>
+        
+
+        
+      </div><!-- flag-method -->
+
+    
+      <div id="method-i-forbidden" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">forbidden</span><span
+            class="method-args">(short, long, desc, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="CommandDSL.html#method-i-flag">flag</a>
+        </div>
+        
+      </div><!-- forbidden-method -->
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the command name.</p>
+
+<p>@param [String] arg The new command name</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- name-method -->
+
+    
+      <div id="method-i-opt" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">opt</span><span
+            class="method-args">(short, long, desc, params={}, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="CommandDSL.html#method-i-option">option</a>
+        </div>
+        
+      </div><!-- opt-method -->
+
+    
+      <div id="method-i-option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">option</span><span
+            class="method-args">(short, long, desc, params={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a new option to the command. If a block is given, it will be executed
+when the option is successfully parsed.</p>
+
+<p>@param [String, Symbol, nil] short The short option name</p>
+
+<p>@param [String, Symbol, nil] long The long option name</p>
+
+<p>@param [String] desc The option description</p>
+
+<p>@option params [:forbidden, :required, :optional] :argument Whether the</p>
+
+<pre>argument is forbidden, required or optional</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="option-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">params</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">requiredness</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:argument</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:forbidden</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">requiredness</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- option-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="CommandDSL.html#method-i-opt">opt</a>
+        </div>
+        
+
+        
+      </div><!-- option-method -->
+
+    
+      <div id="method-i-optional" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">optional</span><span
+            class="method-args">(short, long, desc, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a new option with an optional argument to the command. If a block is
+given, it will be executed when the option is successfully parsed.</p>
+
+<p>@param [String, Symbol, nil] short The short option name</p>
+
+<p>@param [String, Symbol, nil] long The long option name</p>
+
+<p>@param [String] desc The option description</p>
+
+<p>@return [void]</p>
+
+<p>@see {#option}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="optional-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">optional</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-value">:optional</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- optional-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- optional-method -->
+
+    
+      <div id="method-i-required" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required</span><span
+            class="method-args">(short, long, desc, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a new option with a required argument to the command. If a block is
+given, it will be executed when the option is successfully parsed.</p>
+
+<p>@param [String, Symbol, nil] short The short option name</p>
+
+<p>@param [String, Symbol, nil] long The long option name</p>
+
+<p>@param [String] desc The option description</p>
+
+<p>@return [void]</p>
+
+<p>@see {#option}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="required-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">required</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-value">:required</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- required-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- required-method -->
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the run block to the given block. The given block should have two or
+three arguments (options, arguments, and optionally the command). Calling
+this will override existing run block or runner declarations (using {#run}
+and {#runner}, respectively).</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">!=</span> <span class="ruby-value">2</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">!=</span> <span class="ruby-value">3</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;The block given to Cri::Command#run expects two or three args&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">block</span> = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+      <div id="method-i-runner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runner</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines the runner class for this command. Calling this will override
+existing run block or runner declarations (using {#run} and {#runner},
+respectively).</p>
+
+<p>@param [Class&lt;CommandRunner&gt;] klass The command runner class
+(subclass</p>
+
+<pre>of {CommandRunner}) that is used for executing this command.</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="runner-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">runner</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">run</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span>).<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- runner-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- runner-method -->
+
+    
+      <div id="method-i-subcommand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subcommand</span><span
+            class="method-args">(command=nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a subcommand to the current command. The command can either be given
+explicitly, or a block can be given that defines the command.</p>
+
+<p>@param [Cri::Command, nil] command The command to add as a subcommand,</p>
+
+<pre>or nil if the block should be used to define the command that will be
+added as a subcommand</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subcommand-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subcommand</span>(<span class="ruby-identifier">command</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">define</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">add_command</span>(<span class="ruby-identifier">command</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- subcommand-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- subcommand-method -->
+
+    
+      <div id="method-i-summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summary</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the command summary.</p>
+
+<p>@param [String] arg The new command summary</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="summary-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">summary</span> = <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- summary-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- summary-method -->
+
+    
+      <div id="method-i-usage" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">usage</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the command usage. The usage should not include the “usage:” prefix,
+nor should it include the command names of the supercommand.</p>
+
+<p>@param [String] arg The new command usage</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="usage-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">usage</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">usage</span> = <span class="ruby-identifier">arg</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- usage-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- usage-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-add_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_option</span><span
+            class="method-args">(short, long, desc, argument, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_option-source">
+            <pre><span class="ruby-comment"># File lib/cri/command_dsl.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">argument</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">short</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">long</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;short and long options cannot both be nil&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">option_definitions</span> <span class="ruby-operator">&lt;&lt;</span> {
+    <span class="ruby-value">:short</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">short</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">short</span>.<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-value">:long</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">long</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">long</span>.<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-value">:desc</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desc</span>,
+    <span class="ruby-value">:argument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">argument</span>,
+    <span class="ruby-value">:block</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">block</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_option-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_option-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

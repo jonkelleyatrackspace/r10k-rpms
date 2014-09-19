@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Cri::HelpRenderer - cri-2.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cri/help_renderer.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-append_description">#append_description</a>
+    
+    <li ><a href="#method-i-append_option_group">#append_option_group</a>
+    
+    <li ><a href="#method-i-append_options">#append_options</a>
+    
+    <li ><a href="#method-i-append_subcommands">#append_subcommands</a>
+    
+    <li ><a href="#method-i-append_summary">#append_summary</a>
+    
+    <li ><a href="#method-i-append_usage">#append_usage</a>
+    
+    <li ><a href="#method-i-format_opt_def">#format_opt_def</a>
+    
+    <li ><a href="#method-i-render">#render</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../NEWS_md.html">NEWS</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cri.html">Cri</a>
+  
+    <li><a href="../Cri/ArgumentArray.html">Cri::ArgumentArray</a>
+  
+    <li><a href="../Cri/Command.html">Cri::Command</a>
+  
+    <li><a href="../Cri/Command/OptionParserPartitioningDelegate.html">Cri::Command::OptionParserPartitioningDelegate</a>
+  
+    <li><a href="../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../Cri/CommandRunner.html">Cri::CommandRunner</a>
+  
+    <li><a href="../Cri/CoreExtensions.html">Cri::CoreExtensions</a>
+  
+    <li><a href="../Cri/CoreExtensions/String.html">Cri::CoreExtensions::String</a>
+  
+    <li><a href="../Cri/Error.html">Cri::Error</a>
+  
+    <li><a href="../Cri/HelpRenderer.html">Cri::HelpRenderer</a>
+  
+    <li><a href="../Cri/NoHelpAvailableError.html">Cri::NoHelpAvailableError</a>
+  
+    <li><a href="../Cri/NotImplementedError.html">Cri::NotImplementedError</a>
+  
+    <li><a href="../Cri/OptionParser.html">Cri::OptionParser</a>
+  
+    <li><a href="../Cri/OptionParser/IllegalOptionError.html">Cri::OptionParser::IllegalOptionError</a>
+  
+    <li><a href="../Cri/OptionParser/OptionRequiresAnArgumentError.html">Cri::OptionParser::OptionRequiresAnArgumentError</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Cri::HelpRenderer</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cmd, params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">params</span>={})
+  <span class="ruby-ivar">@cmd</span>        = <span class="ruby-identifier">cmd</span>
+  <span class="ruby-ivar">@is_verbose</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:verbose</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-identifier">append_summary</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">append_usage</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">append_description</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">append_subcommands</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">append_options</span>(<span class="ruby-identifier">text</span>)
+
+  <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- render-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- render-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-append_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_description</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_description-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_description</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;description&quot;</span>.<span class="ruby-identifier">formatted_as_title</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">wrap_and_indent</span>(<span class="ruby-value">78</span>, <span class="ruby-value">4</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_description-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_description-method -->
+
+    
+      <div id="method-i-append_option_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_option_group</span><span
+            class="method-args">(text, name, defs, length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_option_group-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_option_group</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">defs</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">defs</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{name}&quot;</span>.<span class="ruby-identifier">formatted_as_title</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-identifier">ordered_defs</span> = <span class="ruby-identifier">defs</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>[<span class="ruby-value">:short</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span>[<span class="ruby-value">:long</span>] }
+  <span class="ruby-identifier">ordered_defs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt_def</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">format_opt_def</span>(<span class="ruby-identifier">opt_def</span>, <span class="ruby-identifier">length</span>)
+    <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_option_group-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_option_group-method -->
+
+    
+      <div id="method-i-append_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_options</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_options-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_options</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">groups</span> = { <span class="ruby-string">&#39;options&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">option_definitions</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">supercommand</span>
+    <span class="ruby-identifier">groups</span>[<span class="ruby-node">&quot;options for #{@cmd.supercommand.name}&quot;</span>] = <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">supercommand</span>.<span class="ruby-identifier">global_option_definitions</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:+</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>[<span class="ruby-value">:long</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> }.<span class="ruby-identifier">max</span>
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">defs</span> = <span class="ruby-identifier">groups</span>[<span class="ruby-identifier">name</span>]
+    <span class="ruby-identifier">append_option_group</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">defs</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_options-method -->
+
+    
+      <div id="method-i-append_subcommands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_subcommands</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_subcommands-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_subcommands</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">subcommands</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">supercommand</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;subcommands&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;commands&#39;</span>).<span class="ruby-identifier">formatted_as_title</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-identifier">shown_subcommands</span> = <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">subcommands</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">c</span>.<span class="ruby-identifier">hidden?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@is_verbose</span> }
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">shown_subcommands</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">formatted_as_command</span>.<span class="ruby-identifier">size</span> }.<span class="ruby-identifier">max</span>
+
+  <span class="ruby-comment"># Command</span>
+  <span class="ruby-identifier">shown_subcommands</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">name</span> }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-node">&quot;    %-#{length+4}s %s\n&quot;</span>,
+      <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">formatted_as_command</span>,
+      <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">summary</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Hidden notice</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@is_verbose</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">subcommands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">shown_subcommands</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">diff</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;    (1 hidden command omitted; show it with --verbose)\n&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;    (#{diff} hidden commands omitted; show them with --verbose)\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_subcommands-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_subcommands-method -->
+
+    
+      <div id="method-i-append_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_summary</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_summary-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_summary</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">summary</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;name&quot;</span>.<span class="ruby-identifier">formatted_as_title</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;    #{@cmd.name.formatted_as_command} - #{@cmd.summary}&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;    aliases: &quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">formatted_as_command</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_summary-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_summary-method -->
+
+    
+      <div id="method-i-append_usage" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_usage</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append_usage-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_usage</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">usage</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">path</span> = [ <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">supercommand</span> ]
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">path</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">supercommand</span>) <span class="ruby-keyword">until</span> <span class="ruby-identifier">path</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">formatted_usage</span> = <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">usage</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^([^\s]+)/</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">formatted_as_command</span> }
+  <span class="ruby-identifier">full_usage</span> = <span class="ruby-identifier">path</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">formatted_as_command</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; &#39;</span> }.<span class="ruby-identifier">join</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">formatted_usage</span>
+
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;usage&quot;</span>.<span class="ruby-identifier">formatted_as_title</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">full_usage</span>.<span class="ruby-identifier">wrap_and_indent</span>(<span class="ruby-value">78</span>, <span class="ruby-value">4</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_usage-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_usage-method -->
+
+    
+      <div id="method-i-format_opt_def" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_opt_def</span><span
+            class="method-args">(opt_def, length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_opt_def-source">
+            <pre><span class="ruby-comment"># File lib/cri/help_renderer.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_opt_def</span>(<span class="ruby-identifier">opt_def</span>, <span class="ruby-identifier">length</span>)
+  <span class="ruby-identifier">opt_text</span> = <span class="ruby-identifier">sprintf</span>(
+      <span class="ruby-node">&quot;    %-2s %-#{length+6}s&quot;</span>,
+      <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:short</span>] <span class="ruby-operator">?</span> (<span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:short</span>]) <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>,
+      <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:long</span>]  <span class="ruby-operator">?</span> (<span class="ruby-string">&#39;--&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:long</span>]) <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">opt_text</span>.<span class="ruby-identifier">formatted_as_option</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_opt_def-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_opt_def-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

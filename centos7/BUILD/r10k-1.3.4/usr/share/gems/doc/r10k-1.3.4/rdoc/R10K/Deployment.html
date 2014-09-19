@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class R10K::Deployment - r10k-1.3.4 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/r10k/deployment.rb
+    <li>lib/r10k/deployment/basedir.rb
+    <li>lib/r10k/deployment/config.rb
+    <li>lib/r10k/deployment/config/loader.rb
+    <li>lib/r10k/deployment/environment.rb
+    <li>lib/r10k/deployment/source.rb
+    <li>lib/r10k/task/deployment.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-load_config">::load_config</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-environments">#environments</a>
+    
+    <li ><a href="#method-i-fetch_sources">#fetch_sources</a>
+    
+    <li ><a href="#method-i-load_environments">#load_environments</a>
+    
+    <li ><a href="#method-i-load_sources">#load_sources</a>
+    
+    <li ><a href="#method-i-preload-21">#preload!</a>
+    
+    <li ><a href="#method-i-sources">#sources</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cri.html">Cri</a>
+  
+    <li><a href="../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../R10K.html">R10K</a>
+  
+    <li><a href="../R10K/CLI.html">R10K::CLI</a>
+  
+    <li><a href="../R10K/CLI/Deploy.html">R10K::CLI::Deploy</a>
+  
+    <li><a href="../R10K/CLI/Deploy/Display.html">R10K::CLI::Deploy::Display</a>
+  
+    <li><a href="../R10K/CLI/Deploy/Environment.html">R10K::CLI::Deploy::Environment</a>
+  
+    <li><a href="../R10K/CLI/Deploy/Module.html">R10K::CLI::Deploy::Module</a>
+  
+    <li><a href="../R10K/CLI/Environment.html">R10K::CLI::Environment</a>
+  
+    <li><a href="../R10K/CLI/Environment/Deploy.html">R10K::CLI::Environment::Deploy</a>
+  
+    <li><a href="../R10K/CLI/Environment/List.html">R10K::CLI::Environment::List</a>
+  
+    <li><a href="../R10K/CLI/Environment/Stale.html">R10K::CLI::Environment::Stale</a>
+  
+    <li><a href="../R10K/CLI/Module.html">R10K::CLI::Module</a>
+  
+    <li><a href="../R10K/CLI/Module/Deploy.html">R10K::CLI::Module::Deploy</a>
+  
+    <li><a href="../R10K/CLI/Module/List.html">R10K::CLI::Module::List</a>
+  
+    <li><a href="../R10K/CLI/Puppetfile.html">R10K::CLI::Puppetfile</a>
+  
+    <li><a href="../R10K/CLI/Puppetfile/Check.html">R10K::CLI::Puppetfile::Check</a>
+  
+    <li><a href="../R10K/CLI/Puppetfile/Install.html">R10K::CLI::Puppetfile::Install</a>
+  
+    <li><a href="../R10K/CLI/Puppetfile/Purge.html">R10K::CLI::Puppetfile::Purge</a>
+  
+    <li><a href="../R10K/CLI/Synchronize.html">R10K::CLI::Synchronize</a>
+  
+    <li><a href="../R10K/CLI/Version.html">R10K::CLI::Version</a>
+  
+    <li><a href="../R10K/Deployment.html">R10K::Deployment</a>
+  
+    <li><a href="../R10K/Deployment/Basedir.html">R10K::Deployment::Basedir</a>
+  
+    <li><a href="../R10K/Deployment/Config.html">R10K::Deployment::Config</a>
+  
+    <li><a href="../R10K/Deployment/Config/ConfigError.html">R10K::Deployment::Config::ConfigError</a>
+  
+    <li><a href="../R10K/Deployment/Config/Loader.html">R10K::Deployment::Config::Loader</a>
+  
+    <li><a href="../R10K/Deployment/Environment.html">R10K::Deployment::Environment</a>
+  
+    <li><a href="../R10K/Deployment/Source.html">R10K::Deployment::Source</a>
+  
+    <li><a href="../R10K/Environment.html">R10K::Environment</a>
+  
+    <li><a href="../R10K/Environment/Base.html">R10K::Environment::Base</a>
+  
+    <li><a href="../R10K/Environment/Git.html">R10K::Environment::Git</a>
+  
+    <li><a href="../R10K/Environment/SVN.html">R10K::Environment::SVN</a>
+  
+    <li><a href="../R10K/Execution.html">R10K::Execution</a>
+  
+    <li><a href="../R10K/ExecutionFailure.html">R10K::ExecutionFailure</a>
+  
+    <li><a href="../R10K/Git.html">R10K::Git</a>
+  
+    <li><a href="../R10K/Git/Alternates.html">R10K::Git::Alternates</a>
+  
+    <li><a href="../R10K/Git/Cache.html">R10K::Git::Cache</a>
+  
+    <li><a href="../R10K/Git/Commit.html">R10K::Git::Commit</a>
+  
+    <li><a href="../R10K/Git/GitError.html">R10K::Git::GitError</a>
+  
+    <li><a href="../R10K/Git/Head.html">R10K::Git::Head</a>
+  
+    <li><a href="../R10K/Git/Ref.html">R10K::Git::Ref</a>
+  
+    <li><a href="../R10K/Git/RemoteHead.html">R10K::Git::RemoteHead</a>
+  
+    <li><a href="../R10K/Git/Repository.html">R10K::Git::Repository</a>
+  
+    <li><a href="../R10K/Git/Tag.html">R10K::Git::Tag</a>
+  
+    <li><a href="../R10K/Git/UnresolvableRefError.html">R10K::Git::UnresolvableRefError</a>
+  
+    <li><a href="../R10K/Git/WorkingDir.html">R10K::Git::WorkingDir</a>
+  
+    <li><a href="../R10K/InstanceCache.html">R10K::InstanceCache</a>
+  
+    <li><a href="../R10K/KeyedFactory.html">R10K::KeyedFactory</a>
+  
+    <li><a href="../R10K/KeyedFactory/DuplicateImplementationError.html">R10K::KeyedFactory::DuplicateImplementationError</a>
+  
+    <li><a href="../R10K/KeyedFactory/UnknownImplementationError.html">R10K::KeyedFactory::UnknownImplementationError</a>
+  
+    <li><a href="../R10K/Logging.html">R10K::Logging</a>
+  
+    <li><a href="../R10K/Module.html">R10K::Module</a>
+  
+    <li><a href="../R10K/Module/Base.html">R10K::Module::Base</a>
+  
+    <li><a href="../R10K/Module/Forge.html">R10K::Module::Forge</a>
+  
+    <li><a href="../R10K/Module/Git.html">R10K::Module::Git</a>
+  
+    <li><a href="../R10K/Module/Metadata.html">R10K::Module::Metadata</a>
+  
+    <li><a href="../R10K/Module/SVN.html">R10K::Module::SVN</a>
+  
+    <li><a href="../R10K/ModuleRepository.html">R10K::ModuleRepository</a>
+  
+    <li><a href="../R10K/ModuleRepository/Forge.html">R10K::ModuleRepository::Forge</a>
+  
+    <li><a href="../R10K/Puppetfile.html">R10K::Puppetfile</a>
+  
+    <li><a href="../R10K/Puppetfile/DSL.html">R10K::Puppetfile::DSL</a>
+  
+    <li><a href="../R10K/R10KError.html">R10K::R10KError</a>
+  
+    <li><a href="../R10K/Registry.html">R10K::Registry</a>
+  
+    <li><a href="../R10K/SVN.html">R10K::SVN</a>
+  
+    <li><a href="../R10K/SVN/Remote.html">R10K::SVN::Remote</a>
+  
+    <li><a href="../R10K/SVN/WorkingDir.html">R10K::SVN::WorkingDir</a>
+  
+    <li><a href="../R10K/SemVer.html">R10K::SemVer</a>
+  
+    <li><a href="../R10K/Settings.html">R10K::Settings</a>
+  
+    <li><a href="../R10K/Settings/Container.html">R10K::Settings::Container</a>
+  
+    <li><a href="../R10K/Settings/Container/InvalidKey.html">R10K::Settings::Container::InvalidKey</a>
+  
+    <li><a href="../R10K/Settings/Mixin.html">R10K::Settings::Mixin</a>
+  
+    <li><a href="../R10K/Settings/Mixin/ClassMethods.html">R10K::Settings::Mixin::ClassMethods</a>
+  
+    <li><a href="../R10K/Settings/Mixin/InstanceMethods.html">R10K::Settings::Mixin::InstanceMethods</a>
+  
+    <li><a href="../R10K/Source.html">R10K::Source</a>
+  
+    <li><a href="../R10K/Source/Base.html">R10K::Source::Base</a>
+  
+    <li><a href="../R10K/Source/Git.html">R10K::Source::Git</a>
+  
+    <li><a href="../R10K/Source/Git/BranchName.html">R10K::Source::Git::BranchName</a>
+  
+    <li><a href="../R10K/Source/SVN.html">R10K::Source::SVN</a>
+  
+    <li><a href="../R10K/Source/SVN/BranchName.html">R10K::Source::SVN::BranchName</a>
+  
+    <li><a href="../R10K/Task.html">R10K::Task</a>
+  
+    <li><a href="../R10K/Task/Base.html">R10K::Task::Base</a>
+  
+    <li><a href="../R10K/Task/Deployment.html">R10K::Task::Deployment</a>
+  
+    <li><a href="../R10K/Task/Deployment/DeployEnvironments.html">R10K::Task::Deployment::DeployEnvironments</a>
+  
+    <li><a href="../R10K/Task/Deployment/DeployModules.html">R10K::Task::Deployment::DeployModules</a>
+  
+    <li><a href="../R10K/Task/Deployment/Display.html">R10K::Task::Deployment::Display</a>
+  
+    <li><a href="../R10K/Task/Deployment/PurgeEnvironments.html">R10K::Task::Deployment::PurgeEnvironments</a>
+  
+    <li><a href="../R10K/Task/Deployment/SharedBehaviors.html">R10K::Task::Deployment::SharedBehaviors</a>
+  
+    <li><a href="../R10K/Task/Environment.html">R10K::Task::Environment</a>
+  
+    <li><a href="../R10K/Task/Environment/Deploy.html">R10K::Task::Environment::Deploy</a>
+  
+    <li><a href="../R10K/Task/Module.html">R10K::Task::Module</a>
+  
+    <li><a href="../R10K/Task/Module/Sync.html">R10K::Task::Module::Sync</a>
+  
+    <li><a href="../R10K/Task/Puppetfile.html">R10K::Task::Puppetfile</a>
+  
+    <li><a href="../R10K/Task/Puppetfile/DeployModules.html">R10K::Task::Puppetfile::DeployModules</a>
+  
+    <li><a href="../R10K/Task/Puppetfile/Purge.html">R10K::Task::Puppetfile::Purge</a>
+  
+    <li><a href="../R10K/Task/Puppetfile/Sync.html">R10K::Task::Puppetfile::Sync</a>
+  
+    <li><a href="../R10K/TaskRunner.html">R10K::TaskRunner</a>
+  
+    <li><a href="../R10K/Util.html">R10K::Util</a>
+  
+    <li><a href="../R10K/Util/CoreExt.html">R10K::Util::CoreExt</a>
+  
+    <li><a href="../R10K/Util/CoreExt/HashExt.html">R10K::Util::CoreExt::HashExt</a>
+  
+    <li><a href="../R10K/Util/CoreExt/HashExt/SymbolizeKeys.html">R10K::Util::CoreExt::HashExt::SymbolizeKeys</a>
+  
+    <li><a href="../R10K/Util/Platform.html">R10K::Util::Platform</a>
+  
+    <li><a href="../R10K/Util/Purgeable.html">R10K::Util::Purgeable</a>
+  
+    <li><a href="../R10K/Util/Subprocess.html">R10K::Util::Subprocess</a>
+  
+    <li><a href="../R10K/Util/Subprocess/IO.html">R10K::Util::Subprocess::IO</a>
+  
+    <li><a href="../R10K/Util/Subprocess/POSIX.html">R10K::Util::Subprocess::POSIX</a>
+  
+    <li><a href="../R10K/Util/Subprocess/POSIX/IO.html">R10K::Util::Subprocess::POSIX::IO</a>
+  
+    <li><a href="../R10K/Util/Subprocess/POSIX/Runner.html">R10K::Util::Subprocess::POSIX::Runner</a>
+  
+    <li><a href="../R10K/Util/Subprocess/Result.html">R10K::Util::Subprocess::Result</a>
+  
+    <li><a href="../R10K/Util/Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>
+  
+    <li><a href="../R10K/Util/Subprocess/SubprocessError.html">R10K::Util::Subprocess::SubprocessError</a>
+  
+    <li><a href="../R10K/Util/Subprocess/Windows.html">R10K::Util::Subprocess::Windows</a>
+  
+    <li><a href="../R10K/Util/Subprocess/Windows/IO.html">R10K::Util::Subprocess::Windows::IO</a>
+  
+    <li><a href="../R10K/Util/Subprocess/Windows/Runner.html">R10K::Util::Subprocess::Windows::Runner</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class R10K::Deployment</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-load_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_config</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a deployment object based on a config</p>
+
+<p>@param path [String] The path to the deployment config @return
+[R10K::Deployment] The deployment loaded with the given config</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_config-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">config</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span><span class="ruby-operator">::</span><span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_config-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_config-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-environments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">environments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lazily load all environments</p>
+
+<p>This instantiates the @_environments instance variable, but should not be
+used directly as it could be legitimately unset if we&#39;re doing lazy
+loading.</p>
+
+<p>@return [Array&lt;R10K::Environment::Base&gt;] All enviroments across</p>
+
+<pre>all sources</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="environments-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">environments</span>
+  <span class="ruby-identifier">load_environments</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_environments</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_environments</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- environments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- environments-method -->
+
+    
+      <div id="method-i-fetch_sources" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_sources</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Deployment.html#method-i-preload-21">preload!</a>
+        </div>
+        
+      </div><!-- fetch_sources-method -->
+
+    
+      <div id="method-i-preload-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">preload!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="preload-21-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">preload!</span>
+  <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:preload!</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- preload-21-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Deployment.html#method-i-fetch_sources">fetch_sources</a>
+        </div>
+        
+
+        
+      </div><!-- preload-21-method -->
+
+    
+      <div id="method-i-sources" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sources</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lazily load all sources</p>
+
+<p>This instantiates the @_sources instance variable, but should not be used
+directly as it could be legitimately unset if we&#39;re doing lazy loading.</p>
+
+<p>@return [Array&lt;R10K::Source::Base&gt;] All repository sources</p>
+
+<pre>specified in the config</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sources-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sources</span>
+  <span class="ruby-identifier">load_sources</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_sources</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_sources</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sources-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sources-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-load_environments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_environments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_environments-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_environments</span>
+  <span class="ruby-ivar">@_environments</span> = []
+  <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">source</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@_environments</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">environments</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_environments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_environments-method -->
+
+    
+      <div id="method-i-load_sources" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_sources</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_sources-source">
+            <pre><span class="ruby-comment"># File lib/r10k/deployment.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_sources</span>
+  <span class="ruby-identifier">sources</span> = <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">setting</span>(<span class="ruby-value">:sources</span>)
+  <span class="ruby-ivar">@_sources</span> = <span class="ruby-identifier">sources</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">hash</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span>.<span class="ruby-identifier">from_hash</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_sources-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_sources-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

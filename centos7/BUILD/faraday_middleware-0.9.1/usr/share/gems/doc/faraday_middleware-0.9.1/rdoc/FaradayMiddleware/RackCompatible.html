@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class FaradayMiddleware::RackCompatible - faraday_middleware-0.9.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday_middleware/rack_compatible.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-finalize_response">#finalize_response</a>
+    
+    <li ><a href="#method-i-headers_to_rack">#headers_to_rack</a>
+    
+    <li ><a href="#method-i-prepare_env">#prepare_env</a>
+    
+    <li ><a href="#method-i-restore_env">#restore_env</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Addressable.html">Addressable</a>
+  
+    <li><a href="../Addressable/URI.html">Addressable::URI</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../FaradayMiddleware.html">FaradayMiddleware</a>
+  
+    <li><a href="../FaradayMiddleware/Caching.html">FaradayMiddleware::Caching</a>
+  
+    <li><a href="../FaradayMiddleware/Chunked.html">FaradayMiddleware::Chunked</a>
+  
+    <li><a href="../FaradayMiddleware/EncodeJson.html">FaradayMiddleware::EncodeJson</a>
+  
+    <li><a href="../FaradayMiddleware/Faraday.html">FaradayMiddleware::Faraday</a>
+  
+    <li><a href="../FaradayMiddleware/FollowRedirects.html">FaradayMiddleware::FollowRedirects</a>
+  
+    <li><a href="../FaradayMiddleware/Instrumentation.html">FaradayMiddleware::Instrumentation</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify/Hashie.html">FaradayMiddleware::Mashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/MethodOverride.html">FaradayMiddleware::MethodOverride</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OptionsExtension.html">FaradayMiddleware::OptionsExtension</a>
+  
+    <li><a href="../FaradayMiddleware/ParseDates.html">FaradayMiddleware::ParseDates</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson/MimeTypeFix.html">FaradayMiddleware::ParseJson::MimeTypeFix</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/RackCompatible.html">FaradayMiddleware::RackCompatible</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify/Hashie.html">FaradayMiddleware::Rashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/RedirectLimitReached.html">FaradayMiddleware::RedirectLimitReached</a>
+  
+    <li><a href="../FaradayMiddleware/ResponseMiddleware.html">FaradayMiddleware::ResponseMiddleware</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FaradayMiddleware::RackCompatible</h1>
+
+  <div id="description" class="description">
+    
+<p>Wraps a handler originally written for Rack to make it compatible with <a
+href="Faraday.html">Faraday</a>.</p>
+
+<p>Experimental. Only handles changes in request headers.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="NonPrefixedHeaders">NonPrefixedHeaders
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, rack_handler, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">rack_handler</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># tiny middleware that decomposes a Faraday::Response to standard Rack</span>
+  <span class="ruby-comment"># array: [status, headers, body]</span>
+  <span class="ruby-identifier">compatible_app</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rack_env</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">env</span> = <span class="ruby-identifier">restore_env</span>(<span class="ruby-identifier">rack_env</span>)
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+    [<span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>, <span class="ruby-constant">Array</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@rack</span> = <span class="ruby-identifier">rack_handler</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">compatible_app</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">rack_env</span> = <span class="ruby-identifier">prepare_env</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">rack_response</span> = <span class="ruby-ivar">@rack</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">rack_env</span>)
+  <span class="ruby-identifier">finalize_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">rack_response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- call-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- call-method -->
+
+    
+      <div id="method-i-finalize_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finalize_response</span><span
+            class="method-args">(env, rack_response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="finalize_response-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finalize_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">rack_response</span>)
+  <span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span> = <span class="ruby-identifier">rack_response</span>
+  <span class="ruby-identifier">body</span> = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">inject</span>() { <span class="ruby-operator">|</span><span class="ruby-identifier">str</span>, <span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">part</span> }
+  <span class="ruby-identifier">headers</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">Headers</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">headers</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">Headers</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">headers</span>
+
+  <span class="ruby-identifier">env</span>.<span class="ruby-identifier">update</span> <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">to_i</span>,
+             <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">body</span>,
+             <span class="ruby-value">:response_headers</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">headers</span>
+
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:response</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:response</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- finalize_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- finalize_response-method -->
+
+    
+      <div id="method-i-headers_to_rack" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">headers_to_rack</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="headers_to_rack-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">headers_to_rack</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">rack_env</span> = {}
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:request_headers</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-string">&#39;_&#39;</span>)
+    <span class="ruby-identifier">name</span> = <span class="ruby-node">&quot;HTTP_#{name}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">NonPrefixedHeaders</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">rack_env</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rack_env</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- headers_to_rack-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- headers_to_rack-method -->
+
+    
+      <div id="method-i-prepare_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_env</span><span
+            class="method-args">(faraday_env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>faraday to rack-compatible</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_env-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_env</span>(<span class="ruby-identifier">faraday_env</span>)
+  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">headers_to_rack</span>(<span class="ruby-identifier">faraday_env</span>)
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">faraday_env</span>[<span class="ruby-value">:url</span>]
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;rack.url_scheme&#39;</span>] = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">scheme</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;PATH_INFO&#39;</span>] = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;SERVER_PORT&#39;</span>] = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:inferred_port</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">inferred_port</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;QUERY_STRING&#39;</span>] = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">query</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;REQUEST_METHOD&#39;</span>] = <span class="ruby-identifier">faraday_env</span>[<span class="ruby-value">:method</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>
+
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;rack.errors&#39;</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;faraday&#39;</span>] = <span class="ruby-identifier">faraday_env</span>
+
+  <span class="ruby-identifier">env</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- prepare_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- prepare_env-method -->
+
+    
+      <div id="method-i-restore_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restore_env</span><span
+            class="method-args">(rack_env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rack to faraday-compatible</p>
+          
+          
+
+          
+          <div class="method-source-code" id="restore_env-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/rack_compatible.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restore_env</span>(<span class="ruby-identifier">rack_env</span>)
+  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">rack_env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;faraday&#39;</span>)
+  <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:request_headers</span>]
+  <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-identifier">rack_env</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">NonPrefixedHeaders</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;HTTP_&#39;</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^HTTP_/</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-string">&#39;-&#39;</span>)
+      <span class="ruby-identifier">headers</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:method</span>] = <span class="ruby-identifier">rack_env</span>[<span class="ruby-string">&#39;REQUEST_METHOD&#39;</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:rack_errors</span>] = <span class="ruby-identifier">rack_env</span>[<span class="ruby-string">&#39;rack.errors&#39;</span>]
+  <span class="ruby-identifier">env</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- restore_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- restore_env-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

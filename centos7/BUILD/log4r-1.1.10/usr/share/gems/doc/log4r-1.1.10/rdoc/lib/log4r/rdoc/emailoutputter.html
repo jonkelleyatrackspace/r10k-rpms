@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>emailoutputter - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-EmailOutputter">EmailOutputter</a>
+      <li><a href="#label-SMTP+Configuration">SMTP Configuration</a>
+      <li><a href="#label-LogEvent+Buffer">LogEvent Buffer</a>
+      <li><a href="#label-Flush+To+Send+Email">Flush To Send Email</a>
+      <li><a href="#label-Format+When%3F">Format When?</a>
+      <li><a href="#label-Immediate+Notification">Immediate Notification</a>
+      <li><a href="#label-Example">Example</a>
+      <li><a href="#label-XML+Configuration">XML Configuration</a>
+      <li><a href="#label-To+Do">To Do</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Log4r.html">Log4r</a>
+  
+    <li><a href="../../../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../../../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../../../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../../../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../../../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../../../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../../../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../../../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../../../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../../../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../../../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../../../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../../../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../../../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../../../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../../../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../../../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../../../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../../../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../../../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../../../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../../../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../../../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../../../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../../../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../../../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../../../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../../../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../../../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../../../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../../../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../../../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../../../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../../../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../../../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../../../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+    <li><a href="../../../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-EmailOutputter">EmailOutputter<span><a href="#label-EmailOutputter">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>This is an experimental class that sends a number of formatted log events
+as  an RFC 822 email. It should work fine if Net:SMTP doesn&#39;t cause any
+problems. Just in case, create a logger named &#39;log4r&#39; and give it
+an  outputter to see the logging statements made by this class. If it fails
+to  send email, it will set itself to OFF and stop logging.</p>
+
+<p>In order to use it,</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;log4r/outputter/emailoutputter&#39;</span>
+</pre>
+
+<h2 id="label-SMTP+Configuration">SMTP Configuration<span><a href="#label-SMTP+Configuration">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>All arguments to Net::SMTP.start are supported. Pass them as hash
+parameters to <code>new</code>. The to field is specified as a
+comma-delimited  list of emails (padded with s* if desired).</p>
+
+<p>An example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">email_out</span> = <span class="ruby-constant">EmailOutputter</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;email_out&#39;</span>,
+                   :<span class="ruby-identifier">server=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;localhost&#39;</span>,
+                   :<span class="ruby-identifier">port=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">25</span>,
+                   :<span class="ruby-identifier">domain=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;somewhere.com&#39;</span>,
+                   :<span class="ruby-identifier">from=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;me@foo.bar&#39;</span>,
+                   :<span class="ruby-identifier">to=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;them@foo.bar, me@foo.bar, bozo@clown.net&#39;</span>,
+                   :<span class="ruby-identifier">subject=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;Log Report&#39;</span>
+</pre>
+
+<h2 id="label-LogEvent+Buffer">LogEvent Buffer<span><a href="#label-LogEvent+Buffer">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>EmailOutputter stores log messages in a buffer. When the buffer reaches a 
+certain number, the <code>buffsize</code>, it will send an email containing
+the  contents of the buffer. The default <code>buffsize</code> is 100. To
+set <code>buffsize</code>,</p>
+
+<pre>email_out.buffsize = 1000   # set the buffsize to 1000</pre>
+
+<h2 id="label-Flush+To+Send+Email">Flush To Send Email<span><a href="#label-Flush+To+Send+Email">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Flushing an EmailOutputter will mail out all the remaining LogEvents. This
+is convenient for systems that encapsulate the shutdown process. It&#39;s a
+good idea to do this for all outputters,</p>
+
+<pre class="ruby"><span class="ruby-constant">Outputter</span>.<span class="ruby-identifier">each_outputter</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">flush</span>}
+</pre>
+
+<p>Alternatively, one can invoke flush on the outputter directly,</p>
+
+<pre>email_out.flush</pre>
+
+<p>It&#39;s also a good idea to notify the recepient of the email that the
+system is shutting down. Before flushing, log a message to the owner of
+this outputter,</p>
+
+<pre>log_with_email_out.info &quot;The system is shutting down at #{Time.now}&quot;</pre>
+
+<h2 id="label-Format+When%3F">Format When?<span><a href="#label-Format+When%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>LogEvents may either be formatted as they come in or as the email is being
+composed. To do the former, specify a value of <code>true</code> to the
+hash parameter <code>formatfirst</code>. The default is to format  during
+email composition.</p>
+
+<pre>email_out.formatfirst = true     # format as soon as LogEvents are received</pre>
+
+<h2 id="label-Immediate+Notification">Immediate Notification<span><a href="#label-Immediate+Notification">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>EmailOutputter can be configured to flush and send the email whenever the
+logger sees a certain log priority. Use the <code>immediate_at</code> hash
+parameter and specify the levels as a comma-delimited list (like an XML
+element). To trigger an email on FATAL and ERROR,</p>
+
+<pre>email_out.immediate_at = &quot;FATAL, ERROR&quot;</pre>
+
+<h2 id="label-Example">Example<span><a href="#label-Example">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A security logger sends email to several folks, buffering up to 25 log
+events and sending immediates on CRIT and WARN</p>
+
+<pre class="ruby"><span class="ruby-constant">EmailOutputter</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;security&#39;</span>, 
+                   :<span class="ruby-identifier">to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;bob@secure.net, frank@secure.net&#39;</span>,
+                   :<span class="ruby-identifier">buffsize</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">25</span>,
+                   :<span class="ruby-identifier">immediate_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;WARN, CRIT&#39;</span>
+</pre>
+
+<h2 id="label-XML+Configuration">XML Configuration<span><a href="#label-XML+Configuration">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>See log4r/configurator.rb for details. Here&#39;s an example:</p>
+
+<pre>&lt;outputter name=&quot;security&quot; type=&quot;EmailOutputter&quot;
+           buffsize=&quot;25&quot; level=&quot;ALL&quot;&gt;
+  &lt;immediate_at&gt;WARN, CRIT&lt;/immediate_at&gt;
+  &lt;server&gt;localhost&lt;/server&gt;
+  &lt;from&gt;me@secure.net&lt;/from&gt;
+  &lt;to&gt;
+    bob@secure.net, frank@secure.net
+  &lt;/to&gt;
+  ...
+&lt;/outputter&gt;</pre>
+
+<h2 id="label-To+Do">To Do<span><a href="#label-To+Do">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>This class could use some sophistication, in particular a means to compress
+the logs, a way to set the subject dynamically (probably via a block
+method), and a time trigger. When the time trigger is introduced, a
+<code>buffsize</code> of 0 should mean ignore <code>buffsize</code> to
+determine when to send the email.</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

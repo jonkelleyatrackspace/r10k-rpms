@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class R10K::Git::WorkingDir - r10k-1.3.4 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/r10k/git/working_dir.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Repository.html">R10K::Git::Repository</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Logging.html">R10K::Logging</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-checkout">#checkout</a>
+    
+    <li ><a href="#method-i-clone">#clone</a>
+    
+    <li ><a href="#method-i-cloned-3F">#cloned?</a>
+    
+    <li ><a href="#method-i-current">#current</a>
+    
+    <li ><a href="#method-i-exist-3F">#exist?</a>
+    
+    <li ><a href="#method-i-fetch_from_cache">#fetch_from_cache</a>
+    
+    <li ><a href="#method-i-git-3F">#git?</a>
+    
+    <li ><a href="#method-i-needs_checkout-3F">#needs_checkout?</a>
+    
+    <li ><a href="#method-i-needs_fetch-3F">#needs_fetch?</a>
+    
+    <li ><a href="#method-i-outdated-3F">#outdated?</a>
+    
+    <li ><a href="#method-i-ref_needs_fetch-3F">#ref_needs_fetch?</a>
+    
+    <li ><a href="#method-i-remove_tags">#remove_tags</a>
+    
+    <li class="calls-super" ><a href="#method-i-resolve_remote_head">#resolve_remote_head</a>
+    
+    <li ><a href="#method-i-sync">#sync</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+    <li ><a href="#method-i-update_remotes">#update_remotes</a>
+    
+    <li ><a href="#method-i-update_remotes-3F">#update_remotes?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Cri.html">Cri</a>
+  
+    <li><a href="../../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../../R10K.html">R10K</a>
+  
+    <li><a href="../../R10K/CLI.html">R10K::CLI</a>
+  
+    <li><a href="../../R10K/CLI/Deploy.html">R10K::CLI::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Display.html">R10K::CLI::Deploy::Display</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Environment.html">R10K::CLI::Deploy::Environment</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Module.html">R10K::CLI::Deploy::Module</a>
+  
+    <li><a href="../../R10K/CLI/Environment.html">R10K::CLI::Environment</a>
+  
+    <li><a href="../../R10K/CLI/Environment/Deploy.html">R10K::CLI::Environment::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Environment/List.html">R10K::CLI::Environment::List</a>
+  
+    <li><a href="../../R10K/CLI/Environment/Stale.html">R10K::CLI::Environment::Stale</a>
+  
+    <li><a href="../../R10K/CLI/Module.html">R10K::CLI::Module</a>
+  
+    <li><a href="../../R10K/CLI/Module/Deploy.html">R10K::CLI::Module::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Module/List.html">R10K::CLI::Module::List</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile.html">R10K::CLI::Puppetfile</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Check.html">R10K::CLI::Puppetfile::Check</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Install.html">R10K::CLI::Puppetfile::Install</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Purge.html">R10K::CLI::Puppetfile::Purge</a>
+  
+    <li><a href="../../R10K/CLI/Synchronize.html">R10K::CLI::Synchronize</a>
+  
+    <li><a href="../../R10K/CLI/Version.html">R10K::CLI::Version</a>
+  
+    <li><a href="../../R10K/Deployment.html">R10K::Deployment</a>
+  
+    <li><a href="../../R10K/Deployment/Basedir.html">R10K::Deployment::Basedir</a>
+  
+    <li><a href="../../R10K/Deployment/Config.html">R10K::Deployment::Config</a>
+  
+    <li><a href="../../R10K/Deployment/Config/ConfigError.html">R10K::Deployment::Config::ConfigError</a>
+  
+    <li><a href="../../R10K/Deployment/Config/Loader.html">R10K::Deployment::Config::Loader</a>
+  
+    <li><a href="../../R10K/Deployment/Environment.html">R10K::Deployment::Environment</a>
+  
+    <li><a href="../../R10K/Deployment/Source.html">R10K::Deployment::Source</a>
+  
+    <li><a href="../../R10K/Environment.html">R10K::Environment</a>
+  
+    <li><a href="../../R10K/Environment/Base.html">R10K::Environment::Base</a>
+  
+    <li><a href="../../R10K/Environment/Git.html">R10K::Environment::Git</a>
+  
+    <li><a href="../../R10K/Environment/SVN.html">R10K::Environment::SVN</a>
+  
+    <li><a href="../../R10K/Execution.html">R10K::Execution</a>
+  
+    <li><a href="../../R10K/ExecutionFailure.html">R10K::ExecutionFailure</a>
+  
+    <li><a href="../../R10K/Git.html">R10K::Git</a>
+  
+    <li><a href="../../R10K/Git/Alternates.html">R10K::Git::Alternates</a>
+  
+    <li><a href="../../R10K/Git/Cache.html">R10K::Git::Cache</a>
+  
+    <li><a href="../../R10K/Git/Commit.html">R10K::Git::Commit</a>
+  
+    <li><a href="../../R10K/Git/GitError.html">R10K::Git::GitError</a>
+  
+    <li><a href="../../R10K/Git/Head.html">R10K::Git::Head</a>
+  
+    <li><a href="../../R10K/Git/Ref.html">R10K::Git::Ref</a>
+  
+    <li><a href="../../R10K/Git/RemoteHead.html">R10K::Git::RemoteHead</a>
+  
+    <li><a href="../../R10K/Git/Repository.html">R10K::Git::Repository</a>
+  
+    <li><a href="../../R10K/Git/Tag.html">R10K::Git::Tag</a>
+  
+    <li><a href="../../R10K/Git/UnresolvableRefError.html">R10K::Git::UnresolvableRefError</a>
+  
+    <li><a href="../../R10K/Git/WorkingDir.html">R10K::Git::WorkingDir</a>
+  
+    <li><a href="../../R10K/InstanceCache.html">R10K::InstanceCache</a>
+  
+    <li><a href="../../R10K/KeyedFactory.html">R10K::KeyedFactory</a>
+  
+    <li><a href="../../R10K/KeyedFactory/DuplicateImplementationError.html">R10K::KeyedFactory::DuplicateImplementationError</a>
+  
+    <li><a href="../../R10K/KeyedFactory/UnknownImplementationError.html">R10K::KeyedFactory::UnknownImplementationError</a>
+  
+    <li><a href="../../R10K/Logging.html">R10K::Logging</a>
+  
+    <li><a href="../../R10K/Module.html">R10K::Module</a>
+  
+    <li><a href="../../R10K/Module/Base.html">R10K::Module::Base</a>
+  
+    <li><a href="../../R10K/Module/Forge.html">R10K::Module::Forge</a>
+  
+    <li><a href="../../R10K/Module/Git.html">R10K::Module::Git</a>
+  
+    <li><a href="../../R10K/Module/Metadata.html">R10K::Module::Metadata</a>
+  
+    <li><a href="../../R10K/Module/SVN.html">R10K::Module::SVN</a>
+  
+    <li><a href="../../R10K/ModuleRepository.html">R10K::ModuleRepository</a>
+  
+    <li><a href="../../R10K/ModuleRepository/Forge.html">R10K::ModuleRepository::Forge</a>
+  
+    <li><a href="../../R10K/Puppetfile.html">R10K::Puppetfile</a>
+  
+    <li><a href="../../R10K/Puppetfile/DSL.html">R10K::Puppetfile::DSL</a>
+  
+    <li><a href="../../R10K/R10KError.html">R10K::R10KError</a>
+  
+    <li><a href="../../R10K/Registry.html">R10K::Registry</a>
+  
+    <li><a href="../../R10K/SVN.html">R10K::SVN</a>
+  
+    <li><a href="../../R10K/SVN/Remote.html">R10K::SVN::Remote</a>
+  
+    <li><a href="../../R10K/SVN/WorkingDir.html">R10K::SVN::WorkingDir</a>
+  
+    <li><a href="../../R10K/SemVer.html">R10K::SemVer</a>
+  
+    <li><a href="../../R10K/Settings.html">R10K::Settings</a>
+  
+    <li><a href="../../R10K/Settings/Container.html">R10K::Settings::Container</a>
+  
+    <li><a href="../../R10K/Settings/Container/InvalidKey.html">R10K::Settings::Container::InvalidKey</a>
+  
+    <li><a href="../../R10K/Settings/Mixin.html">R10K::Settings::Mixin</a>
+  
+    <li><a href="../../R10K/Settings/Mixin/ClassMethods.html">R10K::Settings::Mixin::ClassMethods</a>
+  
+    <li><a href="../../R10K/Settings/Mixin/InstanceMethods.html">R10K::Settings::Mixin::InstanceMethods</a>
+  
+    <li><a href="../../R10K/Source.html">R10K::Source</a>
+  
+    <li><a href="../../R10K/Source/Base.html">R10K::Source::Base</a>
+  
+    <li><a href="../../R10K/Source/Git.html">R10K::Source::Git</a>
+  
+    <li><a href="../../R10K/Source/Git/BranchName.html">R10K::Source::Git::BranchName</a>
+  
+    <li><a href="../../R10K/Source/SVN.html">R10K::Source::SVN</a>
+  
+    <li><a href="../../R10K/Source/SVN/BranchName.html">R10K::Source::SVN::BranchName</a>
+  
+    <li><a href="../../R10K/Task.html">R10K::Task</a>
+  
+    <li><a href="../../R10K/Task/Base.html">R10K::Task::Base</a>
+  
+    <li><a href="../../R10K/Task/Deployment.html">R10K::Task::Deployment</a>
+  
+    <li><a href="../../R10K/Task/Deployment/DeployEnvironments.html">R10K::Task::Deployment::DeployEnvironments</a>
+  
+    <li><a href="../../R10K/Task/Deployment/DeployModules.html">R10K::Task::Deployment::DeployModules</a>
+  
+    <li><a href="../../R10K/Task/Deployment/Display.html">R10K::Task::Deployment::Display</a>
+  
+    <li><a href="../../R10K/Task/Deployment/PurgeEnvironments.html">R10K::Task::Deployment::PurgeEnvironments</a>
+  
+    <li><a href="../../R10K/Task/Deployment/SharedBehaviors.html">R10K::Task::Deployment::SharedBehaviors</a>
+  
+    <li><a href="../../R10K/Task/Environment.html">R10K::Task::Environment</a>
+  
+    <li><a href="../../R10K/Task/Environment/Deploy.html">R10K::Task::Environment::Deploy</a>
+  
+    <li><a href="../../R10K/Task/Module.html">R10K::Task::Module</a>
+  
+    <li><a href="../../R10K/Task/Module/Sync.html">R10K::Task::Module::Sync</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile.html">R10K::Task::Puppetfile</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/DeployModules.html">R10K::Task::Puppetfile::DeployModules</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/Purge.html">R10K::Task::Puppetfile::Purge</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/Sync.html">R10K::Task::Puppetfile::Sync</a>
+  
+    <li><a href="../../R10K/TaskRunner.html">R10K::TaskRunner</a>
+  
+    <li><a href="../../R10K/Util.html">R10K::Util</a>
+  
+    <li><a href="../../R10K/Util/CoreExt.html">R10K::Util::CoreExt</a>
+  
+    <li><a href="../../R10K/Util/CoreExt/HashExt.html">R10K::Util::CoreExt::HashExt</a>
+  
+    <li><a href="../../R10K/Util/CoreExt/HashExt/SymbolizeKeys.html">R10K::Util::CoreExt::HashExt::SymbolizeKeys</a>
+  
+    <li><a href="../../R10K/Util/Platform.html">R10K::Util::Platform</a>
+  
+    <li><a href="../../R10K/Util/Purgeable.html">R10K::Util::Purgeable</a>
+  
+    <li><a href="../../R10K/Util/Subprocess.html">R10K::Util::Subprocess</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/IO.html">R10K::Util::Subprocess::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX.html">R10K::Util::Subprocess::POSIX</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX/IO.html">R10K::Util::Subprocess::POSIX::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX/Runner.html">R10K::Util::Subprocess::POSIX::Runner</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Result.html">R10K::Util::Subprocess::Result</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/SubprocessError.html">R10K::Util::Subprocess::SubprocessError</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows.html">R10K::Util::Subprocess::Windows</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows/IO.html">R10K::Util::Subprocess::Windows::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows/Runner.html">R10K::Util::Subprocess::Windows::Runner</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class R10K::Git::WorkingDir</h1>
+
+  <div id="description" class="description">
+    
+<p>Implements sparse git repositories with shared objects</p>
+
+<p>Working directory instances use the git alternatives object store, so that
+working directories only contain checked out files and all object files are
+shared.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-cache" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cache</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!attribute [r] cache</p>
+
+<pre>@return [R10K::Git::Cache] The object cache backing this working directory</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ref" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ref</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!attribute [r] ref</p>
+
+<pre>@return [R10K::Git::Ref] The git reference to use check out in the given directory</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-remote" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">remote</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!attribute [r] remote</p>
+
+<pre>@return [String] The actual remote used as an upstream for this module.</pre>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(ref, remote, basedir, dirname = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new shallow git working directory</p>
+
+<p>@param ref     [String, R10K::Git::Ref] @param remote  [String] @param
+basedir [String] @param dirname [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ref</span>, <span class="ruby-identifier">remote</span>, <span class="ruby-identifier">basedir</span>, <span class="ruby-identifier">dirname</span> = <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-ivar">@remote</span>  = <span class="ruby-identifier">remote</span>
+  <span class="ruby-ivar">@basedir</span> = <span class="ruby-identifier">basedir</span>
+  <span class="ruby-ivar">@dirname</span> = <span class="ruby-identifier">dirname</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ref</span>
+
+  <span class="ruby-ivar">@full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@basedir</span>, <span class="ruby-ivar">@dirname</span>)
+  <span class="ruby-ivar">@git_dir</span>   = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@full_path</span>, <span class="ruby-string">&#39;.git&#39;</span>)
+
+  <span class="ruby-ivar">@alternates</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">Alternates</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@git_dir</span>)
+  <span class="ruby-ivar">@cache</span>      = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-ivar">@remote</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+    <span class="ruby-ivar">@ref</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">Ref</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ref</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ref</span> = <span class="ruby-identifier">ref</span>
+    <span class="ruby-ivar">@ref</span>.<span class="ruby-identifier">repository</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-checkout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkout</span><span
+            class="method-args">(ref)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>check out the given ref</p>
+
+<p>@param ref [R10K::Git::Ref] The git reference to check out</p>
+          
+          
+
+          
+          <div class="method-source-code" id="checkout-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">ref</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">resolvable?</span>
+    <span class="ruby-identifier">git</span> [<span class="ruby-string">&quot;checkout&quot;</span>, <span class="ruby-string">&quot;--force&quot;</span>, <span class="ruby-ivar">@ref</span>.<span class="ruby-identifier">sha1</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">UnresolvableRefError</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-node">&quot;Cannot check out unresolvable ref &#39;#{@ref}&#39;&quot;</span>,
+      <span class="ruby-value">:git_dir</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- checkout-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- checkout-method -->
+
+    
+      <div id="method-i-cloned-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cloned?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine if repo has been cloned into a specific dir</p>
+
+<p>@return [true, false] If the repo has already been cloned</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cloned-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cloned?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-ivar">@git_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cloned-3F-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="WorkingDir.html#method-i-git-3F">git?</a>
+        </div>
+        
+
+        
+      </div><!-- cloned-3F-method -->
+
+    
+      <div id="method-i-current" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The currently checked out HEAD</p>
+
+<p>@return [R10k::Git::Head]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="current-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current</span>
+  <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;HEAD&#39;</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current-method -->
+
+    
+      <div id="method-i-exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Does a directory exist where we expect a working dir to be? @return [true,
+false]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exist-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exist?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-ivar">@full_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exist-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exist-3F-method -->
+
+    
+      <div id="method-i-git-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">git?</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="WorkingDir.html#method-i-cloned-3F">cloned?</a>
+        </div>
+        
+      </div><!-- git-3F-method -->
+
+    
+      <div id="method-i-outdated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">outdated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="outdated-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">outdated?</span>
+  <span class="ruby-ivar">@ref</span>.<span class="ruby-identifier">fetch?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">needs_checkout?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- outdated-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- outdated-3F-method -->
+
+    
+      <div id="method-i-resolve_remote_head" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_remote_head</span><span
+            class="method-args">(pattern, remote = 'cache')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prefer remote heads from the &#39;cache&#39; remote over the real remote</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Repository.html#method-i-resolve_remote_head">R10K::Git::Repository#resolve_remote_head</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="resolve_remote_head-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_remote_head</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">remote</span> = <span class="ruby-string">&#39;cache&#39;</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">remote</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- resolve_remote_head-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- resolve_remote_head-method -->
+
+    
+      <div id="method-i-sync" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Synchronize the local git repository.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sync-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">cloned?</span>
+    <span class="ruby-identifier">clone</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">update</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sync-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sync-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-identifier">update_remotes</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">update_remotes?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref_needs_fetch?</span>
+    <span class="ruby-identifier">fetch_from_cache</span>
+    <span class="ruby-identifier">checkout</span>(<span class="ruby-ivar">@ref</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">needs_checkout?</span>
+    <span class="ruby-identifier">checkout</span>(<span class="ruby-ivar">@ref</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-clone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Perform a non-bare clone of a git repository.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clone-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clone</span>
+  <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">sync</span>
+
+  <span class="ruby-comment"># We do the clone against the target repo using the `--reference` flag so</span>
+  <span class="ruby-comment"># that doing a normal `git pull` on a directory will work.</span>
+  <span class="ruby-identifier">git</span> [<span class="ruby-string">&quot;clone&quot;</span>, <span class="ruby-string">&quot;--reference&quot;</span>, <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">git_dir</span>, <span class="ruby-ivar">@remote</span>, <span class="ruby-ivar">@full_path</span>]
+  <span class="ruby-identifier">git</span> [<span class="ruby-string">&quot;remote&quot;</span>, <span class="ruby-string">&quot;add&quot;</span>, <span class="ruby-string">&quot;cache&quot;</span>, <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">git_dir</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-identifier">git</span> [<span class="ruby-string">&#39;fetch&#39;</span>, <span class="ruby-string">&#39;cache&#39;</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-identifier">checkout</span>(<span class="ruby-ivar">@ref</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clone-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clone-method -->
+
+    
+      <div id="method-i-fetch_from_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_from_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_from_cache-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_from_cache</span>
+  <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">sync</span>
+  <span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;cache&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fetch_from_cache-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fetch_from_cache-method -->
+
+    
+      <div id="method-i-needs_checkout-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">needs_checkout?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Does the expected ref match the actual ref?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="needs_checkout-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">needs_checkout?</span>
+  <span class="ruby-identifier">expected</span> = <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">sha1</span>
+  <span class="ruby-identifier">actual</span>   = <span class="ruby-identifier">rev_parse</span>(<span class="ruby-string">&#39;HEAD&#39;</span>)
+
+  <span class="ruby-operator">!</span>(<span class="ruby-identifier">expected</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">actual</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- needs_checkout-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- needs_checkout-3F-method -->
+
+    
+      <div id="method-i-needs_fetch-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">needs_fetch?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="needs_fetch-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">needs_fetch?</span>
+  <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">fetch?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- needs_fetch-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- needs_fetch-3F-method -->
+
+    
+      <div id="method-i-ref_needs_fetch-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ref_needs_fetch?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do we need to fetch additional objects and refs in order to resolve the
+given ref? @return [true, false]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ref_needs_fetch-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ref_needs_fetch?</span>
+  <span class="ruby-ivar">@ref</span>.<span class="ruby-identifier">fetch?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ref_needs_fetch-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ref_needs_fetch-3F-method -->
+
+    
+      <div id="method-i-remove_tags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_tags</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_tags-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_tags</span>
+  <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">git</span> [<span class="ruby-string">&#39;tag&#39;</span>, <span class="ruby-string">&#39;-d&#39;</span>, <span class="ruby-identifier">tag</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove_tags-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove_tags-method -->
+
+    
+      <div id="method-i-update_remotes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_remotes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_remotes-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_remotes</span>
+  <span class="ruby-comment"># todo: remove all existing refs as they may belong to the old remote</span>
+  <span class="ruby-identifier">git</span> [<span class="ruby-string">&#39;remote&#39;</span>, <span class="ruby-string">&#39;set-url&#39;</span>, <span class="ruby-string">&#39;origin&#39;</span>, <span class="ruby-identifier">remote</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-identifier">git</span> [<span class="ruby-string">&#39;remote&#39;</span>, <span class="ruby-string">&#39;set-url&#39;</span>, <span class="ruby-string">&#39;cache&#39;</span>, <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">git_dir</span>], <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@full_path</span>
+  <span class="ruby-ivar">@alternates</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">git_dir</span>, <span class="ruby-string">&#39;objects&#39;</span>)
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;Removing stale git tags from #{@full_path}&quot;</span>)
+  <span class="ruby-identifier">remove_tags</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_remotes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_remotes-method -->
+
+    
+      <div id="method-i-update_remotes-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_remotes?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_remotes-3F-source">
+            <pre><span class="ruby-comment"># File lib/r10k/git/working_dir.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_remotes?</span>
+  <span class="ruby-identifier">real_remotes</span> = <span class="ruby-identifier">remotes</span>
+
+  <span class="ruby-identifier">expected_origin</span> = <span class="ruby-ivar">@remote</span>
+  <span class="ruby-identifier">expected_cache</span>  = <span class="ruby-ivar">@cache</span>.<span class="ruby-identifier">git_dir</span>
+
+  <span class="ruby-operator">!</span>(<span class="ruby-identifier">expected_origin</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">real_remotes</span>[<span class="ruby-string">&#39;origin&#39;</span>] <span class="ruby-keyword">and</span> <span class="ruby-identifier">expected_cache</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">real_remotes</span>[<span class="ruby-string">&#39;cache&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_remotes-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_remotes-3F-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,5 +1,7 @@
 # Generated from faraday_middleware-0.9.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name faraday_middleware
+# here goes nothing
+%define _unpackaged_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 0.9.1
@@ -71,5 +73,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Fri Sep 19 2014 root - 0.9.1-1
+* Fri Sep 19 2014 root <root@puppet-n01.prod.us.ci.rackspace.net> - 0.9.1-1
 - Initial package

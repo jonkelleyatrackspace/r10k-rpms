@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module MultiJson::Options - multi_json-1.8.4 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/multi_json/options.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-default_dump_options">#default_dump_options</a>
+    
+    <li ><a href="#method-i-default_load_options">#default_load_options</a>
+    
+    <li ><a href="#method-i-dump_options">#dump_options</a>
+    
+    <li ><a href="#method-i-dump_options-3D">#dump_options=</a>
+    
+    <li ><a href="#method-i-get_options">#get_options</a>
+    
+    <li ><a href="#method-i-load_options">#load_options</a>
+    
+    <li ><a href="#method-i-load_options-3D">#load_options=</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../MultiJson.html">MultiJson</a>
+  
+    <li><a href="../MultiJson/Adapter.html">MultiJson::Adapter</a>
+  
+    <li><a href="../MultiJson/Adapters.html">MultiJson::Adapters</a>
+  
+    <li><a href="../MultiJson/Adapters/Gson.html">MultiJson::Adapters::Gson</a>
+  
+    <li><a href="../MultiJson/Adapters/JrJackson.html">MultiJson::Adapters::JrJackson</a>
+  
+    <li><a href="../MultiJson/Adapters/JsonCommon.html">MultiJson::Adapters::JsonCommon</a>
+  
+    <li><a href="../MultiJson/Adapters/JsonGem.html">MultiJson::Adapters::JsonGem</a>
+  
+    <li><a href="../MultiJson/Adapters/JsonPure.html">MultiJson::Adapters::JsonPure</a>
+  
+    <li><a href="../MultiJson/Adapters/Nsjsonserialization.html">MultiJson::Adapters::Nsjsonserialization</a>
+  
+    <li><a href="../MultiJson/Adapters/Oj.html">MultiJson::Adapters::Oj</a>
+  
+    <li><a href="../MultiJson/Adapters/OkJson.html">MultiJson::Adapters::OkJson</a>
+  
+    <li><a href="../MultiJson/Adapters/Yajl.html">MultiJson::Adapters::Yajl</a>
+  
+    <li><a href="../MultiJson/ConvertibleHashKeys.html">MultiJson::ConvertibleHashKeys</a>
+  
+    <li><a href="../MultiJson/LoadError.html">MultiJson::LoadError</a>
+  
+    <li><a href="../MultiJson/OkJson.html">MultiJson::OkJson</a>
+  
+    <li><a href="../MultiJson/OkJson/Error.html">MultiJson::OkJson::Error</a>
+  
+    <li><a href="../MultiJson/OkJson/Utf8Error.html">MultiJson::OkJson::Utf8Error</a>
+  
+    <li><a href="../MultiJson/Options.html">MultiJson::Options</a>
+  
+    <li><a href="../MultiJson/Version.html">MultiJson::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module MultiJson::Options</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-default_dump_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_dump_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_dump_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_dump_options</span>
+  <span class="ruby-ivar">@default_dump_options</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_dump_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_dump_options-method -->
+
+    
+      <div id="method-i-default_load_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_load_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_load_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_load_options</span>
+  <span class="ruby-ivar">@default_load_options</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_load_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_load_options-method -->
+
+    
+      <div id="method-i-dump_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_options</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_options</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">get_options</span> <span class="ruby-value">:dump_options</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dump_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dump_options-method -->
+
+    
+      <div id="method-i-dump_options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_options=</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_options-3D-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_options=</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-constant">MultiJson</span>.<span class="ruby-identifier">reset_cached_options!</span>
+  <span class="ruby-ivar">@dump_options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dump_options-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dump_options-3D-method -->
+
+    
+      <div id="method-i-load_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_options</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_options</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">get_options</span> <span class="ruby-value">:load_options</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_options-method -->
+
+    
+      <div id="method-i-load_options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_options=</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_options-3D-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_options=</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-constant">MultiJson</span>.<span class="ruby-identifier">reset_cached_options!</span>
+  <span class="ruby-ivar">@load_options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_options-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_options-3D-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-get_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_options</span><span
+            class="method-args">(ivar, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json/options.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_options</span>(<span class="ruby-identifier">ivar</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">defaults</span> = <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;default_#{ivar}&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">defaults</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-node">&quot;@#{ivar}&quot;</span>)
+
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-node">&quot;@#{ivar}&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">arity</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>[] <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">defaults</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_options-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

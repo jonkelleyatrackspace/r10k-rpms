@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class FaradayMiddleware::ResponseMiddleware - faraday_middleware-0.9.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday_middleware/response_middleware.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">FaradayMiddleware::Faraday::Middleware
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-define_parser">::define_parser</a>
+    
+    <li class="calls-super" ><a href="#method-c-inherited">::inherited</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-parse_response-3F">#parse_response?</a>
+    
+    <li ><a href="#method-i-preserve_raw-3F">#preserve_raw?</a>
+    
+    <li ><a href="#method-i-process_response">#process_response</a>
+    
+    <li ><a href="#method-i-process_response_type-3F">#process_response_type?</a>
+    
+    <li ><a href="#method-i-response_type">#response_type</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Addressable.html">Addressable</a>
+  
+    <li><a href="../Addressable/URI.html">Addressable::URI</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../FaradayMiddleware.html">FaradayMiddleware</a>
+  
+    <li><a href="../FaradayMiddleware/Caching.html">FaradayMiddleware::Caching</a>
+  
+    <li><a href="../FaradayMiddleware/Chunked.html">FaradayMiddleware::Chunked</a>
+  
+    <li><a href="../FaradayMiddleware/EncodeJson.html">FaradayMiddleware::EncodeJson</a>
+  
+    <li><a href="../FaradayMiddleware/Faraday.html">FaradayMiddleware::Faraday</a>
+  
+    <li><a href="../FaradayMiddleware/FollowRedirects.html">FaradayMiddleware::FollowRedirects</a>
+  
+    <li><a href="../FaradayMiddleware/Instrumentation.html">FaradayMiddleware::Instrumentation</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify/Hashie.html">FaradayMiddleware::Mashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/MethodOverride.html">FaradayMiddleware::MethodOverride</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OptionsExtension.html">FaradayMiddleware::OptionsExtension</a>
+  
+    <li><a href="../FaradayMiddleware/ParseDates.html">FaradayMiddleware::ParseDates</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson/MimeTypeFix.html">FaradayMiddleware::ParseJson::MimeTypeFix</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/RackCompatible.html">FaradayMiddleware::RackCompatible</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify/Hashie.html">FaradayMiddleware::Rashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/RedirectLimitReached.html">FaradayMiddleware::RedirectLimitReached</a>
+  
+    <li><a href="../FaradayMiddleware/ResponseMiddleware.html">FaradayMiddleware::ResponseMiddleware</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FaradayMiddleware::ResponseMiddleware</h1>
+
+  <div id="description" class="description">
+    
+<p>Internal: The base class for middleware that parses responses.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CONTENT_TYPE">CONTENT_TYPE
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-c-parser" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">parser</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-define_parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_parser</span><span
+            class="method-args">(parser = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Store a Proc that receives the body and returns the parsed result.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_parser-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">define_parser</span>(<span class="ruby-identifier">parser</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@parser</span> = <span class="ruby-identifier">parser</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- define_parser-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- define_parser-method -->
+
+    
+      <div id="method-c-inherited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited</span><span
+            class="method-args">(subclass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="inherited-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">load_error</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_error</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:load_error=</span>
+  <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">parser</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parser</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inherited-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inherited-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app = nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@content_types</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:content_type</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(environment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">environment</span>).<span class="ruby-identifier">on_complete</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">env</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">process_response_type?</span>(<span class="ruby-identifier">response_type</span>(<span class="ruby-identifier">env</span>)) <span class="ruby-keyword">and</span> <span class="ruby-identifier">parse_response?</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-identifier">process_response</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- call-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- call-method -->
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse the response body.</p>
+
+<p>Instead of overriding this method, consider using `define_parser`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">parser</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">body</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>, <span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">err</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">SyntaxError</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;Psych::SyntaxError&#39;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ParsingError</span>, <span class="ruby-identifier">err</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse-method -->
+
+    
+      <div id="method-i-parse_response-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_response?</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_response-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_response?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_response-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_response-3F-method -->
+
+    
+      <div id="method-i-preserve_raw-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">preserve_raw?</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="preserve_raw-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">preserve_raw?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:request</span>].<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:preserve_raw</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-value">:preserve_raw</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- preserve_raw-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- preserve_raw-3F-method -->
+
+    
+      <div id="method-i-process_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_response</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_response-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_response</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:raw_body</span>] = <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">preserve_raw?</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>] = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_response-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_response-method -->
+
+    
+      <div id="method-i-process_response_type-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_response_type?</span><span
+            class="method-args">(type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_response_type-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_response_type?</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-ivar">@content_types</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@content_types</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pattern</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- process_response_type-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- process_response_type-3F-method -->
+
+    
+      <div id="method-i-response_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response_type</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response_type-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response_middleware.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response_type</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:response_headers</span>][<span class="ruby-constant">CONTENT_TYPE</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;;&#39;</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&#39;;&#39;</span>)
+  <span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- response_type-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- response_type-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

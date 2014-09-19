@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Log4r::DateFileOutputter - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/log4r/outputter/datefileoutputter.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">FileOutputter
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-change">#change</a>
+    
+    <li ><a href="#method-i-makeNewFilename">#makeNewFilename</a>
+    
+    <li ><a href="#method-i-requiresChange">#requiresChange</a>
+    
+    <li class="calls-super" ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Log4r.html">Log4r</a>
+  
+    <li><a href="../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Log4r::DateFileOutputter</h1>
+
+  <div id="description" class="description">
+    
+<p>Additional hash arguments are:</p>
+<dl class="rdoc-list label-list"><dt><code>:dirname</code>
+<dd>
+<p>Directory of the log file</p>
+</dd><dt><code>:date_pattern</code>
+<dd>
+<p>Time.strftime format string (default is “%Y-%m-%d”)</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="DEFAULT_DATE_FMT">DEFAULT_DATE_FMT
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(_name, hash={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/datefileoutputter.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>={})
+  <span class="ruby-ivar">@DatePattern</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:date_pattern</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;date_pattern&#39;</span>] <span class="ruby-keyword">or</span>
+                  <span class="ruby-constant">DEFAULT_DATE_FMT</span>)
+  <span class="ruby-ivar">@DateStamp</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>( <span class="ruby-ivar">@DatePattern</span>);
+  <span class="ruby-identifier">_dirname</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:dirname</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;dirname&#39;</span>])
+  <span class="ruby-comment"># hash[:dirname] masks hash[:filename]</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">_dirname</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">directory?</span>( <span class="ruby-identifier">_dirname</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">StandardError</span>, <span class="ruby-node">&quot;&#39;#{_dirname}&#39; must be a valid directory&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_filename</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:filename</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;filename&#39;</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">_filename</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@filebase</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>( <span class="ruby-identifier">$0</span>, <span class="ruby-string">&#39;.rb&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;.log&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@filebase</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>((<span class="ruby-identifier">hash</span>[<span class="ruby-value">:filename</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;filename&#39;</span>] <span class="ruby-keyword">or</span> <span class="ruby-string">&quot;&quot;</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Get rid of the &#39;nil&#39; in the path</span>
+  <span class="ruby-identifier">path</span> = [<span class="ruby-identifier">_dirname</span>, <span class="ruby-ivar">@filebase</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/(\.\w*)$/</span>, <span class="ruby-node">&quot;_#{@DateStamp}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;\1&#39;</span>)].<span class="ruby-identifier">compact</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:filename</span>] = <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;filename&#39;</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-change" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>change the file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="change-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/datefileoutputter.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">change</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> {
+      <span class="ruby-node">&quot;DateFileOutputter &#39;#{@name}&#39; could not close #{@filename}&quot;</span>
+    }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">makeNewFilename</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@filename</span>, (<span class="ruby-ivar">@trunc</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;w&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;a&quot;</span>))
+  <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> {
+    <span class="ruby-node">&quot;DateFileOutputter &#39;#{@name}&#39; now writing to #{@filename}&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- change-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- change-method -->
+
+    
+      <div id="method-i-makeNewFilename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">makeNewFilename</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>construct a new filename from the DateStamp</p>
+          
+          
+
+          
+          <div class="method-source-code" id="makeNewFilename-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/datefileoutputter.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">makeNewFilename</span>
+    <span class="ruby-ivar">@DateStamp</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>( <span class="ruby-ivar">@DatePattern</span>);
+    <span class="ruby-ivar">@filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@filename</span>),
+                <span class="ruby-ivar">@filebase</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/(\.\w*)$/</span>, <span class="ruby-node">&quot;_#{@DateStamp}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;\1&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- makeNewFilename-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- makeNewFilename-method -->
+
+    
+      <div id="method-i-requiresChange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">requiresChange</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>does the file require a change?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="requiresChange-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/datefileoutputter.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">requiresChange</span>
+  <span class="ruby-identifier">_DateStamp</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>( <span class="ruby-ivar">@DatePattern</span>);
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">_DateStamp</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@DateStamp</span>
+    <span class="ruby-ivar">@DateStamp</span> = <span class="ruby-identifier">_DateStamp</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- requiresChange-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- requiresChange-method -->
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>perform the write</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/datefileoutputter.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">change</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">requiresChange</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- write-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- write-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

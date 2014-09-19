@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>patternformatter - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-PatternFormatter">PatternFormatter</a>
+      <li><a href="#label-Terminology">Terminology</a>
+      <li><a href="#label-What+the+Directive+Letters+mean">What the Directive Letters mean</a>
+      <li><a href="#label-Examples+of+directives%3A">Examples of directives:</a>
+      <li><a href="#label-Pattern+String">Pattern String</a>
+      <li><a href="#label-Formatting+time">Formatting time</a>
+      <li><a href="#label-XML+Configuration">XML Configuration</a>
+      <li><a href="#label-Performace+considerations">Performace considerations</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Log4r.html">Log4r</a>
+  
+    <li><a href="../../../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../../../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../../../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../../../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../../../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../../../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../../../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../../../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../../../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../../../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../../../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../../../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../../../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../../../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../../../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../../../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../../../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../../../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../../../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../../../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../../../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../../../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../../../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../../../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../../../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../../../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../../../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../../../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../../../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../../../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../../../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../../../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../../../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../../../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../../../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../../../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+    <li><a href="../../../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-PatternFormatter">PatternFormatter<span><a href="#label-PatternFormatter">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>PatternFormatter offers complete control over the appearance of <a
+href="../../../Log4r.html">Log4r</a> log events without having to write
+custom Formatter classes. In order to take advantage of PatternFormatter,
+some familarity with Kernel#sprintf or the C printf function is
+recommended. For time formatting, please look at Time.strftime.</p>
+
+<p>PatternFormatter accepts three hash arguments:</p>
+<dl class="rdoc-list note-list"><dt><code>pattern</code>
+<dd>
+<p>Log event format string.</p>
+</dd><dt><code>date_pattern</code>
+<dd>
+<p>Date format string.</p>
+</dd><dt><code>date_method</code>
+<dd>
+<p><code>Time</code> method to call (instead of using date_pattern).</p>
+</dd></dl>
+
+<p>The <code>pattern</code> format string is something like “%l [%d] %80M”, 
+which resembles a pattern one would normally pass to Kernel#sprintf.
+However,  the directives are specific to <a
+href="../../../Log4r.html">Log4r</a>. Before we go on, let&#39;s cover some
+terminology.</p>
+
+<h2 id="label-Terminology">Terminology<span><a href="#label-Terminology">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<dl class="rdoc-list label-list"><dt><strong>%</strong>
+<dd>
+<p>The directive identifier. Everything after this up to and  including one of
+the <em>directive letters</em> defines a  <em>directive</em>.</p>
+</dd><dt><strong>directive letter</strong>
+<dd>
+<p>Letters in the set <code>[cCdtmMl%]</code>. These  identify what kind of
+data we&#39;re interested in.  They are detailed below.</p>
+</dd><dt><strong>format directive</strong>
+<dd>
+<p>The numbers and assorted symbols that appears  between <strong>%</strong>
+and a <em>directive letter</em> is a format directive. It is comprised of
+an integer specifying the field width followed  optionally by a period and
+an integer specifying  the precision. The field width is the minimum 
+number of characters to copy from the data string  while the precision is
+the maximum number to copy.  If the field width is preceded by a - sign,
+the  data will be left-justified. Otherwise, it is  right-justified.</p>
+</dd><dt><strong>directive</strong>
+<dd>
+<p>A statement that says, “I want this data to appear with  this (optional)
+particular format.” A directive starts  with a <strong>%</strong> and is
+followed by a format directive and  terminates in a directive letter.</p>
+</dd></dl>
+
+<h2 id="label-What+the+Directive+Letters+mean">What the Directive Letters mean<span><a href="#label-What+the+Directive+Letters+mean">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<dl class="rdoc-list label-list"><dt><strong>c</strong>
+<dd>
+<p>Produces a logger&#39;s name. Fast.</p>
+</dd><dt><strong>C</strong>
+<dd>
+<p>Produces a logger&#39;s full name. Fast.</p>
+</dd><dt><strong>d</strong>
+<dd>
+<p>Produces the time in a format specified by <strong>date_pattern</strong> or
+by <strong>date_method</strong>. If neither is specified, the default will 
+be used (ISO8601). Slow.</p>
+</dd><dt><strong>t</strong>
+<dd>
+<p>Produces the file and line number of the log event. The  appearance varies
+by Ruby version, but it is the same output  returned by <a
+href="http://0">Kernel#caller</a>. Slow.</p>
+</dd><dt><strong>m</strong>
+<dd>
+<p>The non-inspected log message. That is, to_s called on the object  passed
+into a log method. Fast.</p>
+</dd><dt><strong>M</strong>
+<dd>
+<p>The message formatted by the <code>format_object</code> method in 
+BasicFormatter. It will pretty-print Exceptions, print Strings and inspect
+everything else. Slow.</p>
+</dd><dt><strong>l</strong>
+<dd>
+<p>The name of the level. That&#39;s l as in Lambda. Fast.</p>
+</dd><dt><strong>%</strong>
+<dd>
+<p>%% just prints a %. Any formatting is <em>probably</em> ignored.  Fast.</p>
+</dd></dl>
+
+<h2 id="label-Examples+of+directives%3A">Examples of directives:<span><a href="#label-Examples+of+directives%3A">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<dl class="rdoc-list label-list"><dt><strong>%d</strong>
+<dd>
+<p>Prints out the date according to our date_pattern or  date_method. By
+default, it looks like this: 2001-01-12 13:15:50</p>
+</dd><dt><strong>%.120m</strong>
+<dd>
+<p>Prints out at most 120 characters of the log message.</p>
+</dd><dt><strong>%15t</strong>
+<dd>
+<p>Prints the execution trace and pads it on the left with  enough whitespace
+to make the whole thing 15 chars.</p>
+</dd></dl>
+
+<h2 id="label-Pattern+String">Pattern String<span><a href="#label-Pattern+String">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A pattern string is simply a bunch of directives combined with the desired
+format. For instance, to show the level in brackets followed by the date
+and then the log message trimmed to 15 characters, we use the following
+pattern:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;[%l] %d :: %.15m&quot;</span>     <span class="ruby-comment">#=&gt;     [DEBUG] 2001-01-12 13:15:50 :: This is a messa</span>
+</pre>
+
+<p>To create a PatternFormatter with this format:</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> = <span class="ruby-constant">PatternFormatter</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;[%l] %d :: %.15m&quot;</span>)
+</pre>
+
+<h2 id="label-Formatting+time">Formatting time<span><a href="#label-Formatting+time">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>To format time, do one of the following:</p>
+<ul><li>
+<p>Specify a date_pattern</p>
+</li><li>
+<p>Specify what class method of Ruby&#39;s <code>Time</code> class to call.</p>
+</li><li>
+<p>Use the default format</p>
+</li></ul>
+
+<p>If neither date_pattern nor date_method is specified, the default date
+format will be used. Currently, that would be ISO8601,</p>
+
+<p>The date_pattern is exactly what one would pass to
+<code>Time.strftime</code>. To specify a date_pattern, pass
+<code>:date_pattern=&gt;&quot;pattern&quot;</code> to PatternFormat.new.</p>
+
+<p>Alternatively, date_method can be specified to produce the output of a
+specific <code>Time</code> method, such as <code>usec</code> or
+<code>to_s</code>  or any other zero argument <code>Time</code> method that
+produces a time. More  precisely, the method to call will be invoked on
+<code>Time.now</code>.  To specify a date_method, pass
+<code>:date_method=&gt;&#39;methodname&#39;</code> (or a  Symbol
+equivalent) to <code>PatternFormatter.new</code>.</p>
+
+<h1 id="label-XML+Configuration">XML Configuration<span><a href="#label-XML+Configuration">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>As explained in log4r/configurator.rb, the hash arguments to
+PatternFormatter are <em>XML parameters</em>. Here&#39;s an example:</p>
+
+<pre>&lt;formatter type=&quot;PatternFormatter&quot; pattern=&quot;[%l] %d :: %.15m&quot;&gt;
+  &lt;date_method&gt;usec&lt;/date_method&gt;
+&lt;/formatter&gt;</pre>
+
+<h1 id="label-Performace+considerations">Performace considerations<span><a href="#label-Performace+considerations">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>The performance impact of using a particular directive letter is noted in
+the <strong>What the Directives Letters mean</strong> section.</p>
+
+<p>The performance impact of time formatting merits special attention. If you
+aren&#39;t aware yet, the Time class is kind of a kludge. Time.now.usec
+happens to be faster than Time.now. If you&#39;re concerned about
+performance, please profile the various time methods and patterns.</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

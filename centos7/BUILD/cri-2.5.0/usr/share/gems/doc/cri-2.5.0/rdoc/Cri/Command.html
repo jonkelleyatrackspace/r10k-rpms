@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Cri::Command - cri-2.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cri/command.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-define">::define</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-new_basic_help">::new_basic_help</a>
+    
+    <li ><a href="#method-c-new_basic_root">::new_basic_root</a>
+    
+    <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
+    
+    <li ><a href="#method-i-add_command">#add_command</a>
+    
+    <li ><a href="#method-i-command_named">#command_named</a>
+    
+    <li ><a href="#method-i-commands_named">#commands_named</a>
+    
+    <li ><a href="#method-i-define_command">#define_command</a>
+    
+    <li ><a href="#method-i-global_option_definitions">#global_option_definitions</a>
+    
+    <li ><a href="#method-i-handle_options">#handle_options</a>
+    
+    <li ><a href="#method-i-handle_parser_errors_while">#handle_parser_errors_while</a>
+    
+    <li ><a href="#method-i-help">#help</a>
+    
+    <li ><a href="#method-i-modify">#modify</a>
+    
+    <li ><a href="#method-i-partition">#partition</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-run_this">#run_this</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../NEWS_md.html">NEWS</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cri.html">Cri</a>
+  
+    <li><a href="../Cri/ArgumentArray.html">Cri::ArgumentArray</a>
+  
+    <li><a href="../Cri/Command.html">Cri::Command</a>
+  
+    <li><a href="../Cri/Command/OptionParserPartitioningDelegate.html">Cri::Command::OptionParserPartitioningDelegate</a>
+  
+    <li><a href="../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../Cri/CommandRunner.html">Cri::CommandRunner</a>
+  
+    <li><a href="../Cri/CoreExtensions.html">Cri::CoreExtensions</a>
+  
+    <li><a href="../Cri/CoreExtensions/String.html">Cri::CoreExtensions::String</a>
+  
+    <li><a href="../Cri/Error.html">Cri::Error</a>
+  
+    <li><a href="../Cri/HelpRenderer.html">Cri::HelpRenderer</a>
+  
+    <li><a href="../Cri/NoHelpAvailableError.html">Cri::NoHelpAvailableError</a>
+  
+    <li><a href="../Cri/NotImplementedError.html">Cri::NotImplementedError</a>
+  
+    <li><a href="../Cri/OptionParser.html">Cri::OptionParser</a>
+  
+    <li><a href="../Cri/OptionParser/IllegalOptionError.html">Cri::OptionParser::IllegalOptionError</a>
+  
+    <li><a href="../Cri/OptionParser/OptionRequiresAnArgumentError.html">Cri::OptionParser::OptionRequiresAnArgumentError</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Cri::Command</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="Command.html">Cri::Command</a> represents a command that can be
+executed on the commandline. It is also used for the commandline tool
+itself.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-aliases" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">aliases</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Array&lt;String&gt;] A list of aliases for this command that can
+be</p>
+
+<pre>used to invoke this command</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-block" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">block</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Proc] The block that should be executed when invoking this</p>
+
+<pre>command (ignored for commands with subcommands)</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-commands" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">commands</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Set&lt;Cri::Command&gt;] This command’s subcommands</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-description" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">description</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String] The long description (“description”)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-hidden" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hidden</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Boolean] true if the command is hidden (e.g. because it is</p>
+
+<pre>deprecated), false otherwise</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-hidden-3F" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hidden?</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Boolean] true if the command is hidden (e.g. because it is</p>
+
+<pre>deprecated), false otherwise</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String] The name</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-option_definitions" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">option_definitions</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Array&lt;Hash&gt;] The list of option definitions</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-subcommands" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">subcommands</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Set&lt;Cri::Command&gt;] This command’s subcommands</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-summary" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">summary</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String] The short description (“summary”)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-supercommand" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">supercommand</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Cri::Command, nil] This command’s supercommand, or nil if the</p>
+
+<pre>command has no supercommand</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-usage" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">usage</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String] The usage, without the “usage:” prefix and without the</p>
+
+<pre>supercommands’ names.</pre>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-define" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define</span><span
+            class="method-args">(string=nil, filename=nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new command using the DSL. If a string is given, the command will
+be defined using the string; if a block is given, the block will be used
+instead.</p>
+
+<p>If the block has one parameter, the block will be executed in the same
+context with the command DSL as its parameter. If the block has no
+parameters, the block will be executed in the context of the DSL.</p>
+
+<p>@param [String, nil] string The command definition as a string</p>
+
+<p>@param [String, nil] filename The filename corresponding to the string
+parameter (only useful if a string is given)</p>
+
+<p>@return [Cri::Command] The newly defined command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">define</span>(<span class="ruby-identifier">string</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">filename</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">dsl</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandDSL</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">filename</span> <span class="ruby-operator">?</span> [ <span class="ruby-identifier">string</span>, <span class="ruby-identifier">filename</span> ] <span class="ruby-operator">:</span> [ <span class="ruby-identifier">string</span> ]
+    <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">elsif</span> [ <span class="ruby-value">-1</span>, <span class="ruby-value">0</span> ].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span>
+    <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">dsl</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- define-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- define-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@aliases</span>            = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@commands</span>           = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@option_definitions</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-new_basic_help" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_basic_help</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new command that implements showing help.</p>
+
+<p>@return [Cri::Command] A basic help command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_basic_help-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_basic_help</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/commands/basic_help.rb&#39;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">define</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">filename</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new_basic_help-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new_basic_help-method -->
+
+    
+      <div id="method-c-new_basic_root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_basic_root</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new command that has support for the `-h`/`–help` option and also
+has a `help` subcommand. It is intended to be modified (adding name,
+summary, description, other subcommands, …)</p>
+
+<p>@return [Cri::Command] A basic root command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_basic_root-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_basic_root</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/commands/basic_root.rb&#39;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">define</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">filename</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new_basic_root-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new_basic_root-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-3C-3D-3E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;=&gt;</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compares this command&#39;s name to the other given command&#39;s name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- 3C-3D-3E-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- 3C-3D-3E-method -->
+
+    
+      <div id="method-i-add_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds the given command as a subcommand to the current command.</p>
+
+<p>@param [Cri::Command] command The command to add as a subcommand</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_command-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">supercommand</span> = <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_command-method -->
+
+    
+      <div id="method-i-command_named" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_named</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the command with the given name. This method will display error
+messages and exit in case of an error (unknown or ambiguous command).</p>
+
+<p>The name can be a full command name, a partial command name (e.g. “com” for
+“commit”) or an aliased command name (e.g. “ci” for “commit”).</p>
+
+<p>@param [String] name The full, partial or aliases name of the command</p>
+
+<p>@return [Cri::Command] The command with the given name</p>
+          
+          
+
+          
+          <div class="method-source-code" id="command_named-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_named</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">commands</span> = <span class="ruby-identifier">commands_named</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self.name}: unknown command &#39;#{name}&#39;\n&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self.name}: &#39;#{name}&#39; is ambiguous:&quot;</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;  #{commands.map { |c| c.name }.sort.join(&#39; &#39;) }&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">commands</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- command_named-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- command_named-method -->
+
+    
+      <div id="method-i-commands_named" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commands_named</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the commands that could be referred to with the given name. If the
+result contains more than one command, the name is ambiguous.</p>
+
+<p>@param [String] name The full, partial or aliases name of the command</p>
+
+<p>@return [Array&lt;Cri::Command&gt;] A list of commands matching the given
+name</p>
+          
+          
+
+          
+          <div class="method-source-code" id="commands_named-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commands_named</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-comment"># Find by exact name or alias</span>
+  <span class="ruby-ivar">@commands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">return</span> [ <span class="ruby-identifier">cmd</span> ] <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Find by approximation</span>
+  <span class="ruby-ivar">@commands</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">name</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- commands_named-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- commands_named-method -->
+
+    
+      <div id="method-i-define_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_command</span><span
+            class="method-args">(name=nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines a new subcommand for the current command using the DSL.</p>
+
+<p>@param [String, nil] name The name of the subcommand, or nil if no name</p>
+
+<pre>should be set (yet)</pre>
+
+<p>@return [Cri::Command] The subcommand</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_command-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">define_command</span>(<span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># Execute DSL</span>
+  <span class="ruby-identifier">dsl</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandDSL</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">name</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">if</span> [ <span class="ruby-value">-1</span>, <span class="ruby-value">0</span> ].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span>
+    <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">dsl</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Create command</span>
+  <span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">command</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_command</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-identifier">cmd</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- define_command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- define_command-method -->
+
+    
+      <div id="method-i-global_option_definitions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">global_option_definitions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Hash] The option definitions for the command itself and all its</p>
+
+<pre>ancestors</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="global_option_definitions-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">global_option_definitions</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">option_definitions</span>)
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">supercommand</span>.<span class="ruby-identifier">global_option_definitions</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">supercommand</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- global_option_definitions-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- global_option_definitions-method -->
+
+    
+      <div id="method-i-help" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help</span><span
+            class="method-args">(params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The help text for this command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="help-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">help</span>(<span class="ruby-identifier">params</span>={})
+  <span class="ruby-constant">HelpRenderer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">params</span>).<span class="ruby-identifier">render</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- help-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- help-method -->
+
+    
+      <div id="method-i-modify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modify</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Modifies the command using the DSL.</p>
+
+<p>If the block has one parameter, the block will be executed in the same
+context with the command DSL as its parameter. If the block has no
+parameters, the block will be executed in the context of the DSL.</p>
+
+<p>@return [Cri::Command] The command itself</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modify-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modify</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">dsl</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">CommandDSL</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">if</span> [ <span class="ruby-value">-1</span>, <span class="ruby-value">0</span> ].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span>
+    <span class="ruby-identifier">dsl</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">dsl</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- modify-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- modify-method -->
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(opts_and_args, parent_opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the command with the given commandline arguments, possibly invoking
+subcommands and passing on the options and arguments.</p>
+
+<p>@param [Array&lt;String&gt;] opts_and_args A list of unparsed arguments</p>
+
+<p>@param [Hash] parent_opts A hash of options already handled by the</p>
+
+<pre>supercommand</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">opts_and_args</span>, <span class="ruby-identifier">parent_opts</span>={})
+  <span class="ruby-comment"># Parse up to command name</span>
+  <span class="ruby-identifier">stuff</span> = <span class="ruby-identifier">partition</span>(<span class="ruby-identifier">opts_and_args</span>)
+  <span class="ruby-identifier">opts_before_subcmd</span>, <span class="ruby-identifier">subcmd_name</span>, <span class="ruby-identifier">opts_and_args_after_subcmd</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">stuff</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">subcommands</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">subcmd_name</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>)
+    <span class="ruby-identifier">run_this</span>(<span class="ruby-identifier">opts_and_args</span>, <span class="ruby-identifier">parent_opts</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Handle options</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">opts_before_subcmd</span>)
+
+    <span class="ruby-comment"># Get command</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">subcmd_name</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{name}: no command given&quot;</span>
+      <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">subcommand</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">command_named</span>(<span class="ruby-identifier">subcmd_name</span>)
+
+    <span class="ruby-comment"># Run</span>
+    <span class="ruby-identifier">subcommand</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">opts_and_args_after_subcmd</span>, <span class="ruby-identifier">opts_before_subcmd</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+      <div id="method-i-run_this" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_this</span><span
+            class="method-args">(opts_and_args, parent_opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the actual command with the given commandline arguments, not invoking
+any subcommands. If the command does not have an execution block, an error
+ir raised.</p>
+
+<p>@param [Array&lt;String&gt;] opts_and_args A list of unparsed arguments</p>
+
+<p>@param [Hash] parent_opts A hash of options already handled by the</p>
+
+<pre>supercommand</pre>
+
+<p>@raise [NotImplementedError] if the command does not have an execution</p>
+
+<pre>block</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_this-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_this</span>(<span class="ruby-identifier">opts_and_args</span>, <span class="ruby-identifier">parent_opts</span>={})
+  <span class="ruby-comment"># Parse</span>
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">opts_and_args</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">global_option_definitions</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">handle_parser_errors_while</span> { <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">run</span> }
+  <span class="ruby-identifier">local_opts</span>  = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">global_opts</span> = <span class="ruby-identifier">parent_opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">arguments</span>
+
+  <span class="ruby-comment"># Handle options</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">local_opts</span>)
+
+  <span class="ruby-comment"># Execute</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>,
+      <span class="ruby-node">&quot;No implementation available for &#39;#{self.name}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">global_opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run_this-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run_this-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-handle_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_options</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_options-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opt_def</span> = <span class="ruby-identifier">global_option_definitions</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">o</span>[<span class="ruby-value">:long</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">o</span>[<span class="ruby-value">:short</span>]) <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span> }
+    <span class="ruby-identifier">block</span> = <span class="ruby-identifier">opt_def</span>[<span class="ruby-value">:block</span>]
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>, <span class="ruby-keyword">self</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_options-method -->
+
+    
+      <div id="method-i-handle_parser_errors_while" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_parser_errors_while</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_parser_errors_while-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_parser_errors_while</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">IllegalOptionError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{name}: illegal option -- #{e}&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionRequiresAnArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{name}: option requires an argument -- #{e}&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_parser_errors_while-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_parser_errors_while-method -->
+
+    
+      <div id="method-i-partition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partition</span><span
+            class="method-args">(opts_and_args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="partition-source">
+            <pre><span class="ruby-comment"># File lib/cri/command.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partition</span>(<span class="ruby-identifier">opts_and_args</span>)
+  <span class="ruby-comment"># Parse</span>
+  <span class="ruby-identifier">delegate</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParserPartitioningDelegate</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts_and_args</span>, <span class="ruby-identifier">global_option_definitions</span>)
+  <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">delegate</span> = <span class="ruby-identifier">delegate</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">handle_parser_errors_while</span> { <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">run</span> }
+  <span class="ruby-identifier">parser</span>
+
+  <span class="ruby-comment"># Extract</span>
+  [
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">options</span>,
+    <span class="ruby-identifier">delegate</span>.<span class="ruby-identifier">last_argument</span>,
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">unprocessed_arguments_and_options</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- partition-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- partition-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

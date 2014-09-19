@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Cri::CoreExtensions::String - cri-2.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cri/core_ext/string.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-formatted_as_command">#formatted_as_command</a>
+    
+    <li ><a href="#method-i-formatted_as_option">#formatted_as_option</a>
+    
+    <li ><a href="#method-i-formatted_as_title">#formatted_as_title</a>
+    
+    <li ><a href="#method-i-to_paragraphs">#to_paragraphs</a>
+    
+    <li ><a href="#method-i-wrap_and_indent">#wrap_and_indent</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../NEWS_md.html">NEWS</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Cri.html">Cri</a>
+  
+    <li><a href="../../Cri/ArgumentArray.html">Cri::ArgumentArray</a>
+  
+    <li><a href="../../Cri/Command.html">Cri::Command</a>
+  
+    <li><a href="../../Cri/Command/OptionParserPartitioningDelegate.html">Cri::Command::OptionParserPartitioningDelegate</a>
+  
+    <li><a href="../../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../../Cri/CommandRunner.html">Cri::CommandRunner</a>
+  
+    <li><a href="../../Cri/CoreExtensions.html">Cri::CoreExtensions</a>
+  
+    <li><a href="../../Cri/CoreExtensions/String.html">Cri::CoreExtensions::String</a>
+  
+    <li><a href="../../Cri/Error.html">Cri::Error</a>
+  
+    <li><a href="../../Cri/HelpRenderer.html">Cri::HelpRenderer</a>
+  
+    <li><a href="../../Cri/NoHelpAvailableError.html">Cri::NoHelpAvailableError</a>
+  
+    <li><a href="../../Cri/NotImplementedError.html">Cri::NotImplementedError</a>
+  
+    <li><a href="../../Cri/OptionParser.html">Cri::OptionParser</a>
+  
+    <li><a href="../../Cri/OptionParser/IllegalOptionError.html">Cri::OptionParser::IllegalOptionError</a>
+  
+    <li><a href="../../Cri/OptionParser/OptionRequiresAnArgumentError.html">Cri::OptionParser::OptionRequiresAnArgumentError</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Cri::CoreExtensions::String</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-formatted_as_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatted_as_command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The string, formatted to be used as the name of a command</p>
+
+<pre>in the help</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="formatted_as_command-source">
+            <pre><span class="ruby-comment"># File lib/cri/core_ext/string.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatted_as_command</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">green</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- formatted_as_command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- formatted_as_command-method -->
+
+    
+      <div id="method-i-formatted_as_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatted_as_option</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The string, formatted to be used as an option definition</p>
+
+<pre>of a command in the help</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="formatted_as_option-source">
+            <pre><span class="ruby-comment"># File lib/cri/core_ext/string.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatted_as_option</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">yellow</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- formatted_as_option-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- formatted_as_option-method -->
+
+    
+      <div id="method-i-formatted_as_title" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatted_as_title</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] The string, formatted to be used as a title in a section</p>
+
+<pre>in the help</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="formatted_as_title-source">
+            <pre><span class="ruby-comment"># File lib/cri/core_ext/string.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatted_as_title</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">red</span>.<span class="ruby-identifier">bold</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- formatted_as_title-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- formatted_as_title-method -->
+
+    
+      <div id="method-i-to_paragraphs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_paragraphs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extracts individual paragraphs (separated by two newlines).</p>
+
+<p>@return [Array&lt;String&gt;] A list of paragraphs in the string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_paragraphs-source">
+            <pre><span class="ruby-comment"># File lib/cri/core_ext/string.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_paragraphs</span>
+  <span class="ruby-identifier">lines</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/([^\n]+\n|[^\n]*$)/</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">strip</span> }
+
+  <span class="ruby-identifier">paragraphs</span> = [ [] ]
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">paragraphs</span> <span class="ruby-operator">&lt;&lt;</span> []
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">empty?</span> }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_paragraphs-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_paragraphs-method -->
+
+    
+      <div id="method-i-wrap_and_indent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrap_and_indent</span><span
+            class="method-args">(width, indentation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Word-wraps and indents the string.</p>
+
+<p>@param [Number] width The maximal width of each line. This also includes</p>
+
+<pre>indentation, i.e. the actual maximal width of the text is
+`width`-`indentation`.</pre>
+
+<p>@param [Number] indentation The number of spaces to indent each line.</p>
+
+<p>@return [String] The word-wrapped and indented string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wrap_and_indent-source">
+            <pre><span class="ruby-comment"># File lib/cri/core_ext/string.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrap_and_indent</span>(<span class="ruby-identifier">width</span>, <span class="ruby-identifier">indentation</span>)
+  <span class="ruby-identifier">indented_width</span> = <span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">indentation</span>
+  <span class="ruby-identifier">indent</span> = <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">indentation</span>
+  <span class="ruby-comment"># Split into paragraphs</span>
+  <span class="ruby-identifier">paragraphs</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_paragraphs</span>
+
+  <span class="ruby-comment"># Wrap and indent each paragraph</span>
+  <span class="ruby-identifier">paragraphs</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">paragraph</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Initialize</span>
+    <span class="ruby-identifier">lines</span> = []
+    <span class="ruby-identifier">line</span> = <span class="ruby-string">&#39;&#39;</span>
+
+    <span class="ruby-comment"># Split into words</span>
+    <span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s/</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Begin new line if it&#39;s too long</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">line</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">word</span>).<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">indented_width</span>
+        <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+        <span class="ruby-identifier">line</span> = <span class="ruby-string">&#39;&#39;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Add word to line</span>
+      <span class="ruby-identifier">line</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39; &#39;</span> ) <span class="ruby-operator">+</span> <span class="ruby-identifier">word</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">lines</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+
+    <span class="ruby-comment"># Join lines</span>
+    <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">indent</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">l</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- wrap_and_indent-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- wrap_and_indent-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

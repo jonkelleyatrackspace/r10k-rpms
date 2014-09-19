@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"task_runner:ETI"!R10K::Task::Base#task_runner;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I" @!attribute [r] task_runner;To:RDoc::Markup::Verbatim;	[I"M@return [R10K::TaskRunner] The task runner that's executing this command;T:@format0:
+@fileI"lib/r10k/task.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Task::Base;FcRDoc::NormalClass0

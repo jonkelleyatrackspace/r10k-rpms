@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	argv:ETI"(R10K::Util::Subprocess::Result#argv;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] argv;To:RDoc::Markup::Verbatim;	[I"@return [Array<String>];T:@format0:
+@fileI"'lib/r10k/util/subprocess/result.rb;T:0@omit_headings_from_table_of_contents_below0F@I"#R10K::Util::Subprocess::Result;FcRDoc::NormalClass0

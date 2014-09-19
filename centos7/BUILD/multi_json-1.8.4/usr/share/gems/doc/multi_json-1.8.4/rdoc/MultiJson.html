@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module MultiJson - multi_json-1.8.4 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/multi_json.rb
+    <li>lib/multi_json/adapter.rb
+    <li>lib/multi_json/adapters/gson.rb
+    <li>lib/multi_json/adapters/jr_jackson.rb
+    <li>lib/multi_json/adapters/json_common.rb
+    <li>lib/multi_json/adapters/json_gem.rb
+    <li>lib/multi_json/adapters/json_pure.rb
+    <li>lib/multi_json/adapters/nsjsonserialization.rb
+    <li>lib/multi_json/adapters/oj.rb
+    <li>lib/multi_json/adapters/ok_json.rb
+    <li>lib/multi_json/adapters/yajl.rb
+    <li>lib/multi_json/convertible_hash_keys.rb
+    <li>lib/multi_json/load_error.rb
+    <li>lib/multi_json/options.rb
+    <li>lib/multi_json/vendor/okjson.rb
+    <li>lib/multi_json/version.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="MultiJson/Options.html">MultiJson::Options</a>
+  
+  
+  </ul>
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-cached_options">::cached_options</a>
+    
+    <li ><a href="#method-c-reset_cached_options-21">::reset_cached_options!</a>
+    
+    <li ><a href="#method-i-adapter">#adapter</a>
+    
+    <li ><a href="#method-i-adapter-3D">#adapter=</a>
+    
+    <li ><a href="#method-i-current_adapter">#current_adapter</a>
+    
+    <li ><a href="#method-i-decode">#decode</a>
+    
+    <li ><a href="#method-i-default_adapter">#default_adapter</a>
+    
+    <li ><a href="#method-i-default_engine">#default_engine</a>
+    
+    <li ><a href="#method-i-default_options-3D">#default_options=</a>
+    
+    <li ><a href="#method-i-dump">#dump</a>
+    
+    <li ><a href="#method-i-encode">#encode</a>
+    
+    <li ><a href="#method-i-engine">#engine</a>
+    
+    <li ><a href="#method-i-engine-3D">#engine=</a>
+    
+    <li ><a href="#method-i-load">#load</a>
+    
+    <li ><a href="#method-i-load_adapter">#load_adapter</a>
+    
+    <li ><a href="#method-i-load_adapter_from_string_name">#load_adapter_from_string_name</a>
+    
+    <li ><a href="#method-i-use">#use</a>
+    
+    <li ><a href="#method-i-with_adapter">#with_adapter</a>
+    
+    <li ><a href="#method-i-with_engine">#with_engine</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./MultiJson.html">MultiJson</a>
+  
+    <li><a href="./MultiJson/Adapter.html">MultiJson::Adapter</a>
+  
+    <li><a href="./MultiJson/Adapters.html">MultiJson::Adapters</a>
+  
+    <li><a href="./MultiJson/Adapters/Gson.html">MultiJson::Adapters::Gson</a>
+  
+    <li><a href="./MultiJson/Adapters/JrJackson.html">MultiJson::Adapters::JrJackson</a>
+  
+    <li><a href="./MultiJson/Adapters/JsonCommon.html">MultiJson::Adapters::JsonCommon</a>
+  
+    <li><a href="./MultiJson/Adapters/JsonGem.html">MultiJson::Adapters::JsonGem</a>
+  
+    <li><a href="./MultiJson/Adapters/JsonPure.html">MultiJson::Adapters::JsonPure</a>
+  
+    <li><a href="./MultiJson/Adapters/Nsjsonserialization.html">MultiJson::Adapters::Nsjsonserialization</a>
+  
+    <li><a href="./MultiJson/Adapters/Oj.html">MultiJson::Adapters::Oj</a>
+  
+    <li><a href="./MultiJson/Adapters/OkJson.html">MultiJson::Adapters::OkJson</a>
+  
+    <li><a href="./MultiJson/Adapters/Yajl.html">MultiJson::Adapters::Yajl</a>
+  
+    <li><a href="./MultiJson/ConvertibleHashKeys.html">MultiJson::ConvertibleHashKeys</a>
+  
+    <li><a href="./MultiJson/LoadError.html">MultiJson::LoadError</a>
+  
+    <li><a href="./MultiJson/OkJson.html">MultiJson::OkJson</a>
+  
+    <li><a href="./MultiJson/OkJson/Error.html">MultiJson::OkJson::Error</a>
+  
+    <li><a href="./MultiJson/OkJson/Utf8Error.html">MultiJson::OkJson::Utf8Error</a>
+  
+    <li><a href="./MultiJson/Options.html">MultiJson::Options</a>
+  
+    <li><a href="./MultiJson/Version.html">MultiJson::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module MultiJson</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ALIASES">ALIASES
+        
+        <dd class="description">
+        
+      
+        <dt id="DecodeError">DecodeError
+        
+        <dd class="description">
+        
+      
+        <dt id="REQUIREMENT_MAP">REQUIREMENT_MAP
+        
+        <dd class="description">
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-cached_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cached_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cached_options-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cached_options</span>
+  <span class="ruby-ivar">@cached_options</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cached_options-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cached_options-method -->
+
+    
+      <div id="method-c-reset_cached_options-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_cached_options!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_cached_options-21-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_cached_options!</span>
+  <span class="ruby-ivar">@cached_options</span> = {}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reset_cached_options-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reset_cached_options-21-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adapter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the current adapter class.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="adapter-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adapter</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@adapter</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@adapter</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@adapter</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">use</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># load default adapter</span>
+
+  <span class="ruby-ivar">@adapter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- adapter-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-engine">engine</a>
+        </div>
+        
+
+        
+      </div><!-- adapter-method -->
+
+    
+      <div id="method-i-adapter-3D" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">adapter=</span><span
+            class="method-args">(new_adapter)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-use">use</a>
+        </div>
+        
+      </div><!-- adapter-3D-method -->
+
+    
+      <div id="method-i-current_adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_adapter</span><span
+            class="method-args">(options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_adapter-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_adapter</span>(<span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_adapter</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:adapter</span>]
+    <span class="ruby-identifier">load_adapter</span>(<span class="ruby-identifier">new_adapter</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">adapter</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current_adapter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current_adapter-method -->
+
+    
+      <div id="method-i-decode" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">decode</span><span
+            class="method-args">(string, options={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-load">load</a>
+        </div>
+        
+      </div><!-- decode-method -->
+
+    
+      <div id="method-i-default_adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_adapter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The default adapter based on what you currently have loaded and installed.
+First checks to see if any adapters are already loaded, then checks to see
+which are installed if none are loaded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_adapter-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_adapter</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:oj</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oj</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:yajl</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Yajl</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:jr_jackson</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">JrJackson</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:json_gem</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON_LOADED</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:gson</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Gson</span>)
+
+  <span class="ruby-constant">REQUIREMENT_MAP</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">library</span>, <span class="ruby-identifier">adapter</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-identifier">library</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">adapter</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&#39;[WARNING] MultiJson is using the default adapter (ok_json).&#39;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-string">&#39;We recommend loading a different JSON library to improve performance.&#39;</span>
+
+  <span class="ruby-value">:ok_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_adapter-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-default_engine">default_engine</a>
+        </div>
+        
+
+        
+      </div><!-- default_adapter-method -->
+
+    
+      <div id="method-i-default_engine" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">default_engine</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-default_adapter">default_adapter</a>
+        </div>
+        
+      </div><!-- default_engine-method -->
+
+    
+      <div id="method-i-default_options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_options=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_options-3D-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_options=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;MultiJson.default_options setter is deprecated\n&quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-string">&quot;Use MultiJson.load_options and MultiJson.dump_options instead&quot;</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load_options</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dump_options</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_options-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_options-3D-method -->
+
+    
+      <div id="method-i-dump" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump</span><span
+            class="method-args">(object, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encodes a Ruby object as JSON.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dump-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">current_adapter</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dump-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-encode">encode</a>
+        </div>
+        
+
+        
+      </div><!-- dump-method -->
+
+    
+      <div id="method-i-encode" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">encode</span><span
+            class="method-args">(object, options={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-dump">dump</a>
+        </div>
+        
+      </div><!-- encode-method -->
+
+    
+      <div id="method-i-engine" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">engine</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-adapter">adapter</a>
+        </div>
+        
+      </div><!-- engine-method -->
+
+    
+      <div id="method-i-engine-3D" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">engine=</span><span
+            class="method-args">(new_adapter)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-use">use</a>
+        </div>
+        
+      </div><!-- engine-3D-method -->
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(string, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decode a JSON string into Ruby.</p>
+
+<p><strong>Options</strong></p>
+<dl class="rdoc-list note-list"><dt><code>:symbolize_keys</code> 
+<dd>
+<p>If true, will use symbols instead of strings for the keys.</p>
+</dd><dt><code>:adapter</code> 
+<dd>
+<p>If set, the selected adapter will be used for this call.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">adapter</span> = <span class="ruby-identifier">current_adapter</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">adapter</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">LoadError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">exception</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>, <span class="ruby-identifier">string</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-decode">decode</a>
+        </div>
+        
+
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-i-load_adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_adapter</span><span
+            class="method-args">(new_adapter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_adapter-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_adapter</span>(<span class="ruby-identifier">new_adapter</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">new_adapter</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+    <span class="ruby-identifier">load_adapter_from_string_name</span> <span class="ruby-identifier">new_adapter</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NilClass</span>, <span class="ruby-constant">FalseClass</span>
+    <span class="ruby-identifier">load_adapter</span> <span class="ruby-identifier">default_adapter</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Class</span>, <span class="ruby-constant">Module</span>
+    <span class="ruby-identifier">new_adapter</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Did not recognize your adapter specification.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_adapter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_adapter-method -->
+
+    
+      <div id="method-i-use" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">use</span><span
+            class="method-args">(new_adapter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the JSON parser utilizing a symbol, string, or class. Supported by
+default are:</p>
+<ul><li>
+<p><code>:oj</code></p>
+</li><li>
+<p><code>:json_gem</code></p>
+</li><li>
+<p><code>:json_pure</code></p>
+</li><li>
+<p><code>:ok_json</code></p>
+</li><li>
+<p><code>:yajl</code></p>
+</li><li>
+<p><code>:nsjsonserialization</code> (MacRuby only)</p>
+</li><li>
+<p><code>:gson</code> (JRuby only)</p>
+</li><li>
+<p><code>:jr_jackson</code> (JRuby only)</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="use-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">use</span>(<span class="ruby-identifier">new_adapter</span>)
+  <span class="ruby-ivar">@adapter</span> = <span class="ruby-identifier">load_adapter</span>(<span class="ruby-identifier">new_adapter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- use-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-adapter-3D">adapter=</a>, <a href="MultiJson.html#method-i-engine-3D">engine=</a>
+        </div>
+        
+
+        
+      </div><!-- use-method -->
+
+    
+      <div id="method-i-with_adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_adapter</span><span
+            class="method-args">(new_adapter) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Executes passed block using specified adapter.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_adapter-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_adapter</span>(<span class="ruby-identifier">new_adapter</span>)
+  <span class="ruby-identifier">old_adapter</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adapter</span> = <span class="ruby-identifier">adapter</span>, <span class="ruby-identifier">new_adapter</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adapter</span> = <span class="ruby-identifier">old_adapter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- with_adapter-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MultiJson.html#method-i-with_engine">with_engine</a>
+        </div>
+        
+
+        
+      </div><!-- with_adapter-method -->
+
+    
+      <div id="method-i-with_engine" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">with_engine</span><span
+            class="method-args">(new_adapter)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MultiJson.html#method-i-with_adapter">with_adapter</a>
+        </div>
+        
+      </div><!-- with_engine-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-load_adapter_from_string_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_adapter_from_string_name</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_adapter_from_string_name-source">
+            <pre><span class="ruby-comment"># File lib/multi_json.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_adapter_from_string_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-constant">ALIASES</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-node">&quot;multi_json/adapters/#{name.downcase}&quot;</span>
+  <span class="ruby-identifier">klass_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;_&#39;</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:capitalize</span>) <span class="ruby-operator">*</span> <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-constant">MultiJson</span><span class="ruby-operator">::</span><span class="ruby-constant">Adapters</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">klass_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load_adapter_from_string_name-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load_adapter_from_string_name-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Log4r::NDC - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/log4r/NDC.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-check_thread_instance">::check_thread_instance</a>
+    
+    <li ><a href="#method-c-clear">::clear</a>
+    
+    <li ><a href="#method-c-clone_stack">::clone_stack</a>
+    
+    <li ><a href="#method-c-get">::get</a>
+    
+    <li ><a href="#method-c-get_depth">::get_depth</a>
+    
+    <li ><a href="#method-c-inherit">::inherit</a>
+    
+    <li ><a href="#method-c-peek">::peek</a>
+    
+    <li ><a href="#method-c-pop">::pop</a>
+    
+    <li ><a href="#method-c-push">::push</a>
+    
+    <li ><a href="#method-c-remove">::remove</a>
+    
+    <li ><a href="#method-c-set_max_depth">::set_max_depth</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Log4r.html">Log4r</a>
+  
+    <li><a href="../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Log4r::NDC</h1>
+
+  <div id="description" class="description">
+    
+<p>See log4r/NDC.rb</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-check_thread_instance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_thread_instance</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_thread_instance-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">if</span> ( <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span> ) <span class="ruby-keyword">then</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAMEMAXDEPTH</span>] = <span class="ruby-constant">NDCDEFAULTMAXDEPTH</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- check_thread_instance-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- check_thread_instance-method -->
+
+    
+      <div id="method-c-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear-method -->
+
+    
+      <div id="method-c-clone_stack" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clone_stack</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clone_stack-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone_stack</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clone_stack-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clone_stack-method -->
+
+    
+      <div id="method-c-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] <span class="ruby-operator">*</span> <span class="ruby-string">&quot; &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get-method -->
+
+    
+      <div id="method-c-get_depth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_depth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_depth-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_depth</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_depth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_depth-method -->
+
+    
+      <div id="method-c-inherit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherit</span><span
+            class="method-args">( a_stack )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherit-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inherit</span>( <span class="ruby-identifier">a_stack</span> )
+  <span class="ruby-keyword">if</span> ( <span class="ruby-identifier">a_stack</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> ) <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">if</span> ( <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> ) <span class="ruby-keyword">then</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">clear</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] = <span class="ruby-identifier">a_stack</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Expecting Array in NDC.inherit&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- inherit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- inherit-method -->
+
+    
+      <div id="method-c-peek" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peek</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="peek-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">peek</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- peek-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- peek-method -->
+
+    
+      <div id="method-c-pop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pop</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pop-method -->
+
+    
+      <div id="method-c-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">push</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-keyword">if</span> ( <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAMEMAXDEPTH</span>] ) <span class="ruby-keyword">then</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">push</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- push-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- push-method -->
+
+    
+      <div id="method-c-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">remove</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>].<span class="ruby-identifier">clear</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAMEMAXDEPTH</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAME</span>] = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove-method -->
+
+    
+      <div id="method-c-set_max_depth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_max_depth</span><span
+            class="method-args">( max_depth )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_max_depth-source">
+            <pre><span class="ruby-comment"># File lib/log4r/NDC.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_max_depth</span>( <span class="ruby-identifier">max_depth</span> )
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">check_thread_instance</span>()
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-constant">NDCNAMEMAXDEPTH</span>] = <span class="ruby-identifier">max_depth</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_max_depth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_max_depth-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

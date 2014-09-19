@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"raw_arguments:ETI"$Cri::OptionParser#raw_arguments;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"K@return [Array] The arguments that have already been parsed, including;To:RDoc::Markup::Verbatim;	[I"the -- separator.;T:@format0:
+@fileI"lib/cri/option_parser.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Cri::OptionParser;FcRDoc::NormalClass0

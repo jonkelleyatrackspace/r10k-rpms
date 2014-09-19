@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"moduledir:ETI"R10K::Puppetfile#moduledir;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] moduledir;To:RDoc::Markup::Verbatim;	[I"M@return [String] The directory to install the modules #{basedir}/modules;T:@format0:
+@fileI"lib/r10k/puppetfile.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Puppetfile;FcRDoc::NormalClass0

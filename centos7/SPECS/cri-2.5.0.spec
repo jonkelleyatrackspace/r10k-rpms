@@ -1,5 +1,7 @@
 # Generated from cri-2.5.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name cri
+# here goes nothing
+%define _unpackaged_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 2.5.0
@@ -79,5 +81,5 @@ popd
 %doc %{gem_instdir}/NEWS.md
 
 %changelog
-* Fri Sep 19 2014 root - 2.5.0-1
+* Fri Sep 19 2014 root <root@puppet-n01.prod.us.ci.rackspace.net> - 2.5.0-1
 - Initial package

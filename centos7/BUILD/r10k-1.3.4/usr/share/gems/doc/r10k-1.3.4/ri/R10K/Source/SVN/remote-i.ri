@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"remote:ETI"R10K::Source::SVN#remote;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] remote;To:RDoc::Markup::Verbatim;	[I"I@return [String] The URL to the base directory of the SVN repository;T:@format0:
+@fileI"lib/r10k/source/svn.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Source::SVN;FcRDoc::NormalClass0

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"svn_path:ETI"R10K::Module::SVN#svn_path;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] svn_path;To:RDoc::Markup::Verbatim;	[I"O@return [String] The path inside of the SVN repository to have checked out;T:@format0:
+@fileI"lib/r10k/module/svn.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Module::SVN;FcRDoc::NormalClass0

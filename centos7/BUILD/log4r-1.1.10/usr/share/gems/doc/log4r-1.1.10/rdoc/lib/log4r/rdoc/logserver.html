@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>logserver - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Remote+Logging+">Remote Logging </a>
+      <li><a href="#label-Use+ROMP">Use ROMP</a>
+      <li><a href="#label-LogServer">LogServer</a>
+      <li><a href="#label-LogServer+Setup">LogServer Setup</a>
+      <li><a href="#label-RemoteOutputter">RemoteOutputter</a>
+      <li><a href="#label-RemoteOutputter+Setup">RemoteOutputter Setup</a>
+      <li><a href="#label-Using+RemoteOutputter">Using RemoteOutputter</a>
+      <li><a href="#label-XML+Configuration">XML Configuration</a>
+      <li><a href="#label-Debugging">Debugging</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Log4r.html">Log4r</a>
+  
+    <li><a href="../../../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../../../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../../../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../../../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../../../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../../../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../../../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../../../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../../../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../../../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../../../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../../../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../../../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../../../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../../../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../../../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../../../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../../../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../../../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../../../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../../../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../../../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../../../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../../../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../../../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../../../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../../../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../../../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../../../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../../../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../../../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../../../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../../../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../../../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../../../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../../../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+    <li><a href="../../../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-Remote+Logging+">Remote Logging <span><a href="#label-Remote+Logging+">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>Want to use <a href="../../../Log4r.html">Log4r</a> over a network? No
+problem! A <a
+href="../../../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a> will
+send its LogEvents to a <a
+href="../../../Log4r/LogServer.html">Log4r::LogServer</a>. These two
+classes are as easy to set up and use as the rest of <a
+href="../../../Log4r.html">Log4r</a>.</p>
+
+<h2 id="label-Use+ROMP">Use ROMP<span><a href="#label-Use+ROMP">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>There is one catch though: ROMP is required to use this service. It is a
+DRb-like system with superb performance and better features. Get ROMP at 
+<a href="http://rubystuff.org/romp">rubystuff.org/romp</a>/</p>
+
+<h2 id="label-LogServer">LogServer<span><a href="#label-LogServer">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>LogServer is simply a kind of Logger which embeds a ROMP::Server. Like a
+normal Logger, you can give it Outputters, set its level and so on. Its
+logging methods are accessible over a network and are called by a 
+RemoteOutputter on another host.</p>
+
+<h3 id="label-LogServer+Setup">LogServer Setup<span><a href="#label-LogServer+Setup">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Setup is easy. First,</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;log4r/logserver&#39;</span>
+</pre>
+
+<p>The following sets up a LogServer named &#39;central&#39; on localhost port
+9999:</p>
+
+<pre>LogServer.new(&#39;central&#39;, &#39;tcpromp://localhost:9999&#39;)</pre>
+
+<p>We manipulate it and give it outputters as normal:</p>
+
+<pre>serv = Logger[&#39;central&#39;]              # grab our new LogServer
+serv.add &#39;stdout&#39;                     # make it log to $stdout</pre>
+
+<h2 id="label-RemoteOutputter">RemoteOutputter<span><a href="#label-RemoteOutputter">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>RemoteOutputter is simply a kind of Outputter that embeds a ROMP::Client.
+When  RemoteOutputter gets a LogEvent, it will forward it to whatever
+LogServer it&#39;s  connected to. In essence, RemoteOutputter behaves like
+a Logger that is forwarding a LogEvent to another Logger (as is done in
+hierarchical logging).</p>
+
+<h3 id="label-RemoteOutputter+Setup">RemoteOutputter Setup<span><a href="#label-RemoteOutputter+Setup">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>First,</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;log4r/outputter/remoteoutputter&#39;</span>
+</pre>
+
+<p>Unlike typical outputters, RemoteOutputter doesn&#39;t do any formatting.
+That&#39;s up to the LogServer&#39;s outputters. Otherwise, RemoteOutputter
+can be set up as usual. The ROMP uri of the LogServer must be specified.</p>
+
+<pre class="ruby"><span class="ruby-constant">RemoteOutputter</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;client&#39;</span>, :<span class="ruby-identifier">uri=</span><span class="ruby-operator">&gt;</span><span class="ruby-string">&#39;tcpromp://localhost:9999&#39;</span>
+</pre>
+
+<h3 id="label-Using+RemoteOutputter">Using RemoteOutputter<span><a href="#label-Using+RemoteOutputter">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Give our new RemoteOutputter to a logger:</p>
+
+<pre>mylog = Logger[&#39;mylog&#39;]
+mylog.add &#39;client&#39;</pre>
+
+<p>Now, whenever mylog generates a LogEvent, LogServer should get a copy.
+Doing the following:</p>
+
+<pre>mylog.info &quot;This is a message from &#39;mylog&#39;&quot;</pre>
+
+<p>Produces this output on LogServer&#39;s console:</p>
+
+<pre>INFO mylog: This is a message from &#39;mylog&#39;</pre>
+
+<h2 id="label-XML+Configuration">XML Configuration<span><a href="#label-XML+Configuration">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>RemoteOutputter is set up like normal Outputters. LogServer is set up like
+a normal Logger, but with an element name of logserver instead of logger:</p>
+
+<pre>&lt;log4r_config&gt;
+  &lt;logserver name=&quot;name&quot; uri=&quot;tcpromp://localhost:9999&quot;&gt;
+  ...</pre>
+
+<h2 id="label-Debugging">Debugging<span><a href="#label-Debugging">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>It is recommended to set up a logger named &#39;log4r&#39; on both the
+server and client to see what LogServer and RemoteOutputter are up to. Both
+of the classes use Log4r&#39;s internal logging to report any problems. See
+the section <strong>What&#39;s Going on Inside?</strong> in log4r.rb for
+more info.</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

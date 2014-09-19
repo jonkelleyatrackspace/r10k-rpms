@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"
+cache:ETI"R10K::Source::Git#cache;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] cache;To:RDoc::Markup::Verbatim;	[I"@api private
+;TI"I@return [R10K::Git::Cache] The git cache associated with this source;T:@format0:
+@fileI"lib/r10k/source/git.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Source::Git;FcRDoc::NormalClass0

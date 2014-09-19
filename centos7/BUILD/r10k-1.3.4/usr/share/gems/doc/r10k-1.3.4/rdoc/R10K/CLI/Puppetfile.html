@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module R10K::CLI::Puppetfile - r10k-1.3.4 Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/r10k/cli/puppetfile.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-command">::command</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Cri.html">Cri</a>
+  
+    <li><a href="../../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../../R10K.html">R10K</a>
+  
+    <li><a href="../../R10K/CLI.html">R10K::CLI</a>
+  
+    <li><a href="../../R10K/CLI/Deploy.html">R10K::CLI::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Display.html">R10K::CLI::Deploy::Display</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Environment.html">R10K::CLI::Deploy::Environment</a>
+  
+    <li><a href="../../R10K/CLI/Deploy/Module.html">R10K::CLI::Deploy::Module</a>
+  
+    <li><a href="../../R10K/CLI/Environment.html">R10K::CLI::Environment</a>
+  
+    <li><a href="../../R10K/CLI/Environment/Deploy.html">R10K::CLI::Environment::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Environment/List.html">R10K::CLI::Environment::List</a>
+  
+    <li><a href="../../R10K/CLI/Environment/Stale.html">R10K::CLI::Environment::Stale</a>
+  
+    <li><a href="../../R10K/CLI/Module.html">R10K::CLI::Module</a>
+  
+    <li><a href="../../R10K/CLI/Module/Deploy.html">R10K::CLI::Module::Deploy</a>
+  
+    <li><a href="../../R10K/CLI/Module/List.html">R10K::CLI::Module::List</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile.html">R10K::CLI::Puppetfile</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Check.html">R10K::CLI::Puppetfile::Check</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Install.html">R10K::CLI::Puppetfile::Install</a>
+  
+    <li><a href="../../R10K/CLI/Puppetfile/Purge.html">R10K::CLI::Puppetfile::Purge</a>
+  
+    <li><a href="../../R10K/CLI/Synchronize.html">R10K::CLI::Synchronize</a>
+  
+    <li><a href="../../R10K/CLI/Version.html">R10K::CLI::Version</a>
+  
+    <li><a href="../../R10K/Deployment.html">R10K::Deployment</a>
+  
+    <li><a href="../../R10K/Deployment/Basedir.html">R10K::Deployment::Basedir</a>
+  
+    <li><a href="../../R10K/Deployment/Config.html">R10K::Deployment::Config</a>
+  
+    <li><a href="../../R10K/Deployment/Config/ConfigError.html">R10K::Deployment::Config::ConfigError</a>
+  
+    <li><a href="../../R10K/Deployment/Config/Loader.html">R10K::Deployment::Config::Loader</a>
+  
+    <li><a href="../../R10K/Deployment/Environment.html">R10K::Deployment::Environment</a>
+  
+    <li><a href="../../R10K/Deployment/Source.html">R10K::Deployment::Source</a>
+  
+    <li><a href="../../R10K/Environment.html">R10K::Environment</a>
+  
+    <li><a href="../../R10K/Environment/Base.html">R10K::Environment::Base</a>
+  
+    <li><a href="../../R10K/Environment/Git.html">R10K::Environment::Git</a>
+  
+    <li><a href="../../R10K/Environment/SVN.html">R10K::Environment::SVN</a>
+  
+    <li><a href="../../R10K/Execution.html">R10K::Execution</a>
+  
+    <li><a href="../../R10K/ExecutionFailure.html">R10K::ExecutionFailure</a>
+  
+    <li><a href="../../R10K/Git.html">R10K::Git</a>
+  
+    <li><a href="../../R10K/Git/Alternates.html">R10K::Git::Alternates</a>
+  
+    <li><a href="../../R10K/Git/Cache.html">R10K::Git::Cache</a>
+  
+    <li><a href="../../R10K/Git/Commit.html">R10K::Git::Commit</a>
+  
+    <li><a href="../../R10K/Git/GitError.html">R10K::Git::GitError</a>
+  
+    <li><a href="../../R10K/Git/Head.html">R10K::Git::Head</a>
+  
+    <li><a href="../../R10K/Git/Ref.html">R10K::Git::Ref</a>
+  
+    <li><a href="../../R10K/Git/RemoteHead.html">R10K::Git::RemoteHead</a>
+  
+    <li><a href="../../R10K/Git/Repository.html">R10K::Git::Repository</a>
+  
+    <li><a href="../../R10K/Git/Tag.html">R10K::Git::Tag</a>
+  
+    <li><a href="../../R10K/Git/UnresolvableRefError.html">R10K::Git::UnresolvableRefError</a>
+  
+    <li><a href="../../R10K/Git/WorkingDir.html">R10K::Git::WorkingDir</a>
+  
+    <li><a href="../../R10K/InstanceCache.html">R10K::InstanceCache</a>
+  
+    <li><a href="../../R10K/KeyedFactory.html">R10K::KeyedFactory</a>
+  
+    <li><a href="../../R10K/KeyedFactory/DuplicateImplementationError.html">R10K::KeyedFactory::DuplicateImplementationError</a>
+  
+    <li><a href="../../R10K/KeyedFactory/UnknownImplementationError.html">R10K::KeyedFactory::UnknownImplementationError</a>
+  
+    <li><a href="../../R10K/Logging.html">R10K::Logging</a>
+  
+    <li><a href="../../R10K/Module.html">R10K::Module</a>
+  
+    <li><a href="../../R10K/Module/Base.html">R10K::Module::Base</a>
+  
+    <li><a href="../../R10K/Module/Forge.html">R10K::Module::Forge</a>
+  
+    <li><a href="../../R10K/Module/Git.html">R10K::Module::Git</a>
+  
+    <li><a href="../../R10K/Module/Metadata.html">R10K::Module::Metadata</a>
+  
+    <li><a href="../../R10K/Module/SVN.html">R10K::Module::SVN</a>
+  
+    <li><a href="../../R10K/ModuleRepository.html">R10K::ModuleRepository</a>
+  
+    <li><a href="../../R10K/ModuleRepository/Forge.html">R10K::ModuleRepository::Forge</a>
+  
+    <li><a href="../../R10K/Puppetfile.html">R10K::Puppetfile</a>
+  
+    <li><a href="../../R10K/Puppetfile/DSL.html">R10K::Puppetfile::DSL</a>
+  
+    <li><a href="../../R10K/R10KError.html">R10K::R10KError</a>
+  
+    <li><a href="../../R10K/Registry.html">R10K::Registry</a>
+  
+    <li><a href="../../R10K/SVN.html">R10K::SVN</a>
+  
+    <li><a href="../../R10K/SVN/Remote.html">R10K::SVN::Remote</a>
+  
+    <li><a href="../../R10K/SVN/WorkingDir.html">R10K::SVN::WorkingDir</a>
+  
+    <li><a href="../../R10K/SemVer.html">R10K::SemVer</a>
+  
+    <li><a href="../../R10K/Settings.html">R10K::Settings</a>
+  
+    <li><a href="../../R10K/Settings/Container.html">R10K::Settings::Container</a>
+  
+    <li><a href="../../R10K/Settings/Container/InvalidKey.html">R10K::Settings::Container::InvalidKey</a>
+  
+    <li><a href="../../R10K/Settings/Mixin.html">R10K::Settings::Mixin</a>
+  
+    <li><a href="../../R10K/Settings/Mixin/ClassMethods.html">R10K::Settings::Mixin::ClassMethods</a>
+  
+    <li><a href="../../R10K/Settings/Mixin/InstanceMethods.html">R10K::Settings::Mixin::InstanceMethods</a>
+  
+    <li><a href="../../R10K/Source.html">R10K::Source</a>
+  
+    <li><a href="../../R10K/Source/Base.html">R10K::Source::Base</a>
+  
+    <li><a href="../../R10K/Source/Git.html">R10K::Source::Git</a>
+  
+    <li><a href="../../R10K/Source/Git/BranchName.html">R10K::Source::Git::BranchName</a>
+  
+    <li><a href="../../R10K/Source/SVN.html">R10K::Source::SVN</a>
+  
+    <li><a href="../../R10K/Source/SVN/BranchName.html">R10K::Source::SVN::BranchName</a>
+  
+    <li><a href="../../R10K/Task.html">R10K::Task</a>
+  
+    <li><a href="../../R10K/Task/Base.html">R10K::Task::Base</a>
+  
+    <li><a href="../../R10K/Task/Deployment.html">R10K::Task::Deployment</a>
+  
+    <li><a href="../../R10K/Task/Deployment/DeployEnvironments.html">R10K::Task::Deployment::DeployEnvironments</a>
+  
+    <li><a href="../../R10K/Task/Deployment/DeployModules.html">R10K::Task::Deployment::DeployModules</a>
+  
+    <li><a href="../../R10K/Task/Deployment/Display.html">R10K::Task::Deployment::Display</a>
+  
+    <li><a href="../../R10K/Task/Deployment/PurgeEnvironments.html">R10K::Task::Deployment::PurgeEnvironments</a>
+  
+    <li><a href="../../R10K/Task/Deployment/SharedBehaviors.html">R10K::Task::Deployment::SharedBehaviors</a>
+  
+    <li><a href="../../R10K/Task/Environment.html">R10K::Task::Environment</a>
+  
+    <li><a href="../../R10K/Task/Environment/Deploy.html">R10K::Task::Environment::Deploy</a>
+  
+    <li><a href="../../R10K/Task/Module.html">R10K::Task::Module</a>
+  
+    <li><a href="../../R10K/Task/Module/Sync.html">R10K::Task::Module::Sync</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile.html">R10K::Task::Puppetfile</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/DeployModules.html">R10K::Task::Puppetfile::DeployModules</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/Purge.html">R10K::Task::Puppetfile::Purge</a>
+  
+    <li><a href="../../R10K/Task/Puppetfile/Sync.html">R10K::Task::Puppetfile::Sync</a>
+  
+    <li><a href="../../R10K/TaskRunner.html">R10K::TaskRunner</a>
+  
+    <li><a href="../../R10K/Util.html">R10K::Util</a>
+  
+    <li><a href="../../R10K/Util/CoreExt.html">R10K::Util::CoreExt</a>
+  
+    <li><a href="../../R10K/Util/CoreExt/HashExt.html">R10K::Util::CoreExt::HashExt</a>
+  
+    <li><a href="../../R10K/Util/CoreExt/HashExt/SymbolizeKeys.html">R10K::Util::CoreExt::HashExt::SymbolizeKeys</a>
+  
+    <li><a href="../../R10K/Util/Platform.html">R10K::Util::Platform</a>
+  
+    <li><a href="../../R10K/Util/Purgeable.html">R10K::Util::Purgeable</a>
+  
+    <li><a href="../../R10K/Util/Subprocess.html">R10K::Util::Subprocess</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/IO.html">R10K::Util::Subprocess::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX.html">R10K::Util::Subprocess::POSIX</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX/IO.html">R10K::Util::Subprocess::POSIX::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/POSIX/Runner.html">R10K::Util::Subprocess::POSIX::Runner</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Result.html">R10K::Util::Subprocess::Result</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/SubprocessError.html">R10K::Util::Subprocess::SubprocessError</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows.html">R10K::Util::Subprocess::Windows</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows/IO.html">R10K::Util::Subprocess::Windows::IO</a>
+  
+    <li><a href="../../R10K/Util/Subprocess/Windows/Runner.html">R10K::Util::Subprocess::Windows::Runner</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module R10K::CLI::Puppetfile</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File lib/r10k/cli/puppetfile.rb, line 8</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">command</span>
+      <span class="ruby-ivar">@cmd</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">name</span>    <span class="ruby-string">&#39;puppetfile&#39;</span>
+        <span class="ruby-identifier">usage</span>   <span class="ruby-string">&#39;puppetfile &lt;subcommand&gt;&#39;</span>
+        <span class="ruby-identifier">summary</span> <span class="ruby-string">&#39;Perform operations on a Puppetfile&#39;</span>
+
+        <span class="ruby-identifier">description</span> <span class="ruby-value">&lt;&lt;-DESCRIPTION
+`r10k puppetfile` provides an implementation of the librarian-puppet style
+Puppetfile (http://bombasticmonkey.com/librarian-puppet/).
+        DESCRIPTION</span>
+
+        <span class="ruby-identifier">run</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">help</span>(<span class="ruby-value">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:verbose</span>])
+          <span class="ruby-identifier">exit</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div><!-- command-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- command-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

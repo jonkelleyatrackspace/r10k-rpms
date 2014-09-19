@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"ref:ETI"R10K::Git::WorkingDir#ref;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@!attribute [r] ref;To:RDoc::Markup::Verbatim;	[I"W@return [R10K::Git::Ref] The git reference to use check out in the given directory;T:@format0:
+@fileI" lib/r10k/git/working_dir.rb;T:0@omit_headings_from_table_of_contents_below0F@I"R10K::Git::WorkingDir;FcRDoc::NormalClass0

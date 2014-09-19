@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Faraday::Connection - faraday-0.8.9 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday/connection.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-URI">::URI</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-app">#app</a>
+    
+    <li ><a href="#method-i-authorization">#authorization</a>
+    
+    <li ><a href="#method-i-basic_auth">#basic_auth</a>
+    
+    <li ><a href="#method-i-build_exclusive_url">#build_exclusive_url</a>
+    
+    <li ><a href="#method-i-build_request">#build_request</a>
+    
+    <li ><a href="#method-i-build_url">#build_url</a>
+    
+    <li ><a href="#method-i-default_parallel_manager">#default_parallel_manager</a>
+    
+    <li ><a href="#method-i-dup">#dup</a>
+    
+    <li ><a href="#method-i-headers-3D">#headers=</a>
+    
+    <li ><a href="#method-i-in_parallel">#in_parallel</a>
+    
+    <li ><a href="#method-i-in_parallel-3F">#in_parallel?</a>
+    
+    <li ><a href="#method-i-params-3D">#params=</a>
+    
+    <li ><a href="#method-i-path_prefix-3D">#path_prefix=</a>
+    
+    <li ><a href="#method-i-proxy">#proxy</a>
+    
+    <li ><a href="#method-i-run_request">#run_request</a>
+    
+    <li ><a href="#method-i-token_auth">#token_auth</a>
+    
+    <li ><a href="#method-i-url_prefix-3D">#url_prefix=</a>
+    
+    <li ><a href="#method-i-with_uri_credentials">#with_uri_credentials</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../EventMachine.html">EventMachine</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Adapter.html">Faraday::Adapter</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp.html">Faraday::Adapter::EMHttp</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp/Manager.html">Faraday::Adapter::EMHttp::Manager</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp/Options.html">Faraday::Adapter::EMHttp::Options</a>
+  
+    <li><a href="../Faraday/Adapter/EMSynchrony.html">Faraday::Adapter::EMSynchrony</a>
+  
+    <li><a href="../Faraday/Adapter/EMSynchrony/ParallelManager.html">Faraday::Adapter::EMSynchrony::ParallelManager</a>
+  
+    <li><a href="../Faraday/Adapter/Excon.html">Faraday::Adapter::Excon</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp.html">Faraday::Adapter::NetHttp</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp/OpenSSL.html">Faraday::Adapter::NetHttp::OpenSSL</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp/OpenSSL/SSL.html">Faraday::Adapter::NetHttp::OpenSSL::SSL</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttpPersistent.html">Faraday::Adapter::NetHttpPersistent</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttpPersistent/proxy_uri;.html">Faraday::Adapter::NetHttpPersistent::proxy_uri;</a>
+  
+    <li><a href="../Faraday/Adapter/Parallelism.html">Faraday::Adapter::Parallelism</a>
+  
+    <li><a href="../Faraday/Adapter/Patron.html">Faraday::Adapter::Patron</a>
+  
+    <li><a href="../Faraday/Adapter/Patron/Request.html">Faraday::Adapter::Patron::Request</a>
+  
+    <li><a href="../Faraday/Adapter/Rack.html">Faraday::Adapter::Rack</a>
+  
+    <li><a href="../Faraday/Adapter/Test.html">Faraday::Adapter::Test</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stub.html">Faraday::Adapter::Test::Stub</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stubs.html">Faraday::Adapter::Test::Stubs</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stubs/NotFound.html">Faraday::Adapter::Test::Stubs::NotFound</a>
+  
+    <li><a href="../Faraday/Adapter/Typhoeus.html">Faraday::Adapter::Typhoeus</a>
+  
+    <li><a href="../Faraday/AutoloadHelper.html">Faraday::AutoloadHelper</a>
+  
+    <li><a href="../Faraday/Builder.html">Faraday::Builder</a>
+  
+    <li><a href="../Faraday/Builder/Handler.html">Faraday::Builder::Handler</a>
+  
+    <li><a href="../Faraday/Builder/StackLocked.html">Faraday::Builder::StackLocked</a>
+  
+    <li><a href="../Faraday/CompositeReadIO.html">Faraday::CompositeReadIO</a>
+  
+    <li><a href="../Faraday/Connection.html">Faraday::Connection</a>
+  
+    <li><a href="../Faraday/Error.html">Faraday::Error</a>
+  
+    <li><a href="../Faraday/Error/ClientError.html">Faraday::Error::ClientError</a>
+  
+    <li><a href="../Faraday/Error/ConnectionFailed.html">Faraday::Error::ConnectionFailed</a>
+  
+    <li><a href="../Faraday/Error/MissingDependency.html">Faraday::Error::MissingDependency</a>
+  
+    <li><a href="../Faraday/Error/ParsingError.html">Faraday::Error::ParsingError</a>
+  
+    <li><a href="../Faraday/Error/ResourceNotFound.html">Faraday::Error::ResourceNotFound</a>
+  
+    <li><a href="../Faraday/Error/TimeoutError.html">Faraday::Error::TimeoutError</a>
+  
+    <li><a href="../Faraday/Middleware.html">Faraday::Middleware</a>
+  
+    <li><a href="../Faraday/MiddlewareRegistry.html">Faraday::MiddlewareRegistry</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Request/Authorization.html">Faraday::Request::Authorization</a>
+  
+    <li><a href="../Faraday/Request/BasicAuthentication.html">Faraday::Request::BasicAuthentication</a>
+  
+    <li><a href="../Faraday/Request/Multipart.html">Faraday::Request::Multipart</a>
+  
+    <li><a href="../Faraday/Request/Retry.html">Faraday::Request::Retry</a>
+  
+    <li><a href="../Faraday/Request/TokenAuthentication.html">Faraday::Request::TokenAuthentication</a>
+  
+    <li><a href="../Faraday/Request/UrlEncoded.html">Faraday::Request::UrlEncoded</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../Faraday/Response/Logger.html">Faraday::Response::Logger</a>
+  
+    <li><a href="../Faraday/Response/Middleware.html">Faraday::Response::Middleware</a>
+  
+    <li><a href="../Faraday/Response/RaiseError.html">Faraday::Response::RaiseError</a>
+  
+    <li><a href="../Faraday/Utils.html">Faraday::Utils</a>
+  
+    <li><a href="../Faraday/Utils/Headers.html">Faraday::Utils::Headers</a>
+  
+    <li><a href="../Faraday/Utils/ParamsHash.html">Faraday::Utils::ParamsHash</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Faraday::Connection</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="METHODS">METHODS
+        
+        <dd class="description">
+        
+      
+        <dt id="METHODS_WITH_BODIES">METHODS_WITH_BODIES
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-builder" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">builder</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-default_parallel_manager" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_parallel_manager</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-headers" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">headers</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-parallel_manager" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">parallel_manager</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-params" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">params</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ssl" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ssl</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-url_prefix" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">url_prefix</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-URI" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">URI</span><span
+            class="method-args">(url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>normalize URI() behavior across Ruby versions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="URI-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:host</span>)
+    <span class="ruby-identifier">url</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+    <span class="ruby-constant">Kernel</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;bad argument (expected URI object or URI string)&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- URI-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- URI-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(url = nil, options = {}) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Initializes a new <a
+href="Connection.html">Faraday::Connection</a>.</p>
+
+<p>url     - <a href="Connection.html#method-c-URI">::URI</a> or String base
+URL to use as a prefix for all</p>
+
+<pre>requests (optional).</pre>
+
+<p>options - Hash of settings that will be applied to every request made</p>
+
+<pre>from this Connection (default: {}).
+:url     - URI or String base URL (default: &quot;http:/&quot;).
+:params  - Hash of URI query unencoded key/value pairs.
+:headers - Hash of unencoded HTTP header key/value pairs.
+:request - Hash of request options.
+:ssl     - Hash of SSL options.
+:proxy   - URI, String or Hash of HTTP proxy options
+          (default: &quot;http_proxy&quot; environment variable).
+          :uri      - URI or String
+          :user     - String (optional)
+          :password - String (optional)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">url</span>
+    <span class="ruby-identifier">url</span>     = <span class="ruby-identifier">options</span>[<span class="ruby-value">:url</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@headers</span> = <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">Headers</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@params</span>  = <span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">ParamsHash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:request</span>] <span class="ruby-operator">||</span> {}
+  <span class="ruby-ivar">@ssl</span>     = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ssl</span>]     <span class="ruby-operator">||</span> {}
+
+  <span class="ruby-ivar">@parallel_manager</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@default_parallel_manager</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:parallel_manager</span>]
+
+  <span class="ruby-ivar">@builder</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:builder</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># pass an empty block to Builder so it doesn&#39;t assume default middleware</span>
+    <span class="ruby-identifier">block</span> = <span class="ruby-identifier">block_given?</span><span class="ruby-operator">?</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> } <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">url_prefix</span> = <span class="ruby-identifier">url</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;http:/&#39;</span>
+
+  <span class="ruby-ivar">@params</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:params</span>]   <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:params</span>]
+  <span class="ruby-ivar">@headers</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:headers</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:headers</span>]
+
+  <span class="ruby-ivar">@proxy</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">proxy</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:proxy</span>) {
+    <span class="ruby-identifier">uri</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;http_proxy&#39;</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">uri</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">uri</span> = <span class="ruby-string">&#39;http://&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">uri</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/^http/</span>
+      <span class="ruby-identifier">uri</span>
+    <span class="ruby-keyword">end</span>
+  })
+
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-ivar">@headers</span>[<span class="ruby-value">:user_agent</span>] <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;Faraday v#{VERSION}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The “rack app” wrapped in middleware. All requests are sent here.</p>
+
+<p>The builder is responsible for creating the app object. After this, the
+builder gets locked to ensure no further modifications are made to the
+middleware stack.</p>
+
+<p>Returns an object that responds to `call` and returns a <a
+href="Response.html">Response</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="app-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-ivar">@app</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">lock!</span>
+    <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">to_app</span>(<span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">env</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># the inner app that creates and returns the Response object</span>
+      <span class="ruby-identifier">response</span> = <span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">response</span>.<span class="ruby-identifier">finish</span>(<span class="ruby-identifier">env</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:parallel_manager</span>]
+      <span class="ruby-identifier">env</span>[<span class="ruby-value">:response</span>] = <span class="ruby-identifier">response</span>
+    })
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- app-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- app-method -->
+
+    
+      <div id="method-i-authorization" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authorization</span><span
+            class="method-args">(type, token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="authorization-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authorization</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">token</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">Authorization</span><span class="ruby-operator">::</span><span class="ruby-constant">KEY</span>] =
+    <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">Authorization</span>.<span class="ruby-identifier">header</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">token</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- authorization-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- authorization-method -->
+
+    
+      <div id="method-i-basic_auth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basic_auth</span><span
+            class="method-args">(login, pass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="basic_auth-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">basic_auth</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">pass</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">Authorization</span><span class="ruby-operator">::</span><span class="ruby-constant">KEY</span>] =
+    <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">BasicAuthentication</span>.<span class="ruby-identifier">header</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">pass</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- basic_auth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- basic_auth-method -->
+
+    
+      <div id="method-i-build_exclusive_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_exclusive_url</span><span
+            class="method-args">(url, params = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Build an absolute URL based on url_prefix.</p>
+
+<p>url    - A String or URI-like object params - A <a
+href="Utils/ParamsHash.html">Faraday::Utils::ParamsHash</a> to replace the
+query values</p>
+
+<pre>of the resulting url (default: nil).</pre>
+
+<p>Returns the resulting <a href="Connection.html#method-c-URI">::URI</a>
+instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_exclusive_url-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_exclusive_url</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">params</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:empty?</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">base</span> = <span class="ruby-identifier">url_prefix</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">path</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/\/$/</span>
+    <span class="ruby-identifier">base</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">base</span>.<span class="ruby-identifier">path</span> = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/&#39;</span>  <span class="ruby-comment"># ensure trailing slash</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">url</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">url</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">base</span>
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">to_query</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">uri</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_exclusive_url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_exclusive_url-method -->
+
+    
+      <div id="method-i-build_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_request</span><span
+            class="method-args">(method) { |req| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Creates and configures the request object.</p>
+
+<p>Returns the new <a href="Request.html">Request</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_request-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_request</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-constant">Request</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">method</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">params</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">options</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:proxy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">proxy</span>)
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">req</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_request-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_request-method -->
+
+    
+      <div id="method-i-build_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_url</span><span
+            class="method-args">(url, extra_params = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Takes a relative url for a request and combines it with the defaults set on
+the connection instance.</p>
+
+<pre class="ruby"><span class="ruby-identifier">conn</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">...</span> }
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">url_prefix</span> = <span class="ruby-string">&quot;https://sushi.com/api?token=abc&quot;</span>
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">scheme</span>      <span class="ruby-comment"># =&gt; https</span>
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">path_prefix</span> <span class="ruby-comment"># =&gt; &quot;/api&quot;</span>
+
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">build_url</span>(<span class="ruby-string">&quot;nigiri?page=2&quot;</span>)      <span class="ruby-comment"># =&gt; https://sushi.com/api/nigiri?token=abc&amp;page=2</span>
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">build_url</span>(<span class="ruby-string">&quot;nigiri&quot;</span>, :<span class="ruby-identifier">page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>) <span class="ruby-comment"># =&gt; https://sushi.com/api/nigiri?token=abc&amp;page=2</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="build_url-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_url</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">extra_params</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">build_exclusive_url</span>(<span class="ruby-identifier">url</span>)
+
+  <span class="ruby-identifier">query_values</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">merge_query</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>)
+  <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">extra_params</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">extra_params</span>
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">to_query</span>
+
+  <span class="ruby-identifier">uri</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_url-method -->
+
+    
+      <div id="method-i-default_parallel_manager" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_parallel_manager</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Traverse the middleware stack in search of a parallel-capable
+adapter.</p>
+
+<p>Yields in case of not found.</p>
+
+<p>Returns a parallel manager or nil if not found.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_parallel_manager-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_parallel_manager</span>
+  <span class="ruby-ivar">@default_parallel_manager</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">handler</span> = <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">handlers</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">h</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">h</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:supports_parallel?</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">supports_parallel?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">handler</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">setup_parallel_manager</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword">then</span> <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_parallel_manager-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_parallel_manager-method -->
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">build_url</span>(<span class="ruby-string">&#39;&#39;</span>), <span class="ruby-value">:headers</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-value">:params</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-value">:builder</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-value">:ssl</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ssl</span>.<span class="ruby-identifier">dup</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- dup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- dup-method -->
+
+    
+      <div id="method-i-headers-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">headers=</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Replace default request headers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="headers-3D-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">headers=</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-ivar">@headers</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- headers-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- headers-3D-method -->
+
+    
+      <div id="method-i-in_parallel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_parallel</span><span
+            class="method-args">(manager = nil) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in_parallel-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_parallel</span>(<span class="ruby-identifier">manager</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@parallel_manager</span> = <span class="ruby-identifier">manager</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">default_parallel_manager</span> {
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Warning: `in_parallel` called but no parallel-capable adapter on Faraday stack&quot;</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">2</span>,<span class="ruby-value">10</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-keyword">nil</span>
+  }
+  <span class="ruby-keyword">yield</span>
+  <span class="ruby-ivar">@parallel_manager</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@parallel_manager</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@parallel_manager</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- in_parallel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- in_parallel-method -->
+
+    
+      <div id="method-i-in_parallel-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_parallel?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in_parallel-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_parallel?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@parallel_manager</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- in_parallel-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- in_parallel-3F-method -->
+
+    
+      <div id="method-i-params-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">params=</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Replace default query parameters.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="params-3D-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">params=</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-ivar">@params</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- params-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- params-3D-method -->
+
+    
+      <div id="method-i-path_prefix-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path_prefix=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ensures that the path prefix always has a leading but no trailing slash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path_prefix-3D-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path_prefix=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">url_prefix</span>.<span class="ruby-identifier">path</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-string">&#39;/&#39;</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;/&#39;</span>
+    <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- path_prefix-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- path_prefix-3D-method -->
+
+    
+      <div id="method-i-proxy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proxy</span><span
+            class="method-args">(arg = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="proxy-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">proxy</span>(<span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@proxy</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-ivar">@proxy</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">uri</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-constant">URI</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:uri</span>) { <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;missing :uri&quot;</span> }
+    <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">merge</span> <span class="ruby-value">:uri</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uri</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">uri</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">arg</span>)
+    {<span class="ruby-value">:uri</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uri</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">with_uri_credentials</span>(<span class="ruby-identifier">uri</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@proxy</span>[<span class="ruby-value">:user</span>]     <span class="ruby-operator">||=</span> <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@proxy</span>[<span class="ruby-value">:password</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">password</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@proxy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- proxy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- proxy-method -->
+
+    
+      <div id="method-i-run_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_request</span><span
+            class="method-args">(method, url, body, headers) { |req| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_request-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown http method: #{method}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">request</span> = <span class="ruby-identifier">build_request</span>(<span class="ruby-identifier">method</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">url</span>(<span class="ruby-identifier">url</span>)                <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">headers</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">headers</span>
+    <span class="ruby-identifier">req</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">body</span>             <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">req</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">to_env</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run_request-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run_request-method -->
+
+    
+      <div id="method-i-token_auth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">token_auth</span><span
+            class="method-args">(token, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="token_auth-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">token_auth</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">Authorization</span><span class="ruby-operator">::</span><span class="ruby-constant">KEY</span>] =
+    <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span><span class="ruby-operator">::</span><span class="ruby-constant">TokenAuthentication</span>.<span class="ruby-identifier">header</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- token_auth-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- token_auth-method -->
+
+    
+      <div id="method-i-url_prefix-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">url_prefix=</span><span
+            class="method-args">(url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parses the giving url with <a href="Connection.html#method-c-URI">::URI</a>
+and stores the individual components in this connection.  These components
+serve as defaults for requests made by this connection.</p>
+
+<pre class="ruby"><span class="ruby-identifier">conn</span> = <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">...</span> }
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">url_prefix</span> = <span class="ruby-string">&quot;https://sushi.com/api&quot;</span>
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">scheme</span>      <span class="ruby-comment"># =&gt; https</span>
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">path_prefix</span> <span class="ruby-comment"># =&gt; &quot;/api&quot;</span>
+
+<span class="ruby-identifier">conn</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&quot;nigiri?page=2&quot;</span>) <span class="ruby-comment"># accesses https://sushi.com/api/nigiri</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="url_prefix-3D-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">url_prefix=</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-ivar">@url_prefix</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path_prefix</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span>
+
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge_query</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>)
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">with_uri_credentials</span>(<span class="ruby-identifier">uri</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">basic_auth</span> <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>
+    <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">password</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">uri</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- url_prefix-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- url_prefix-3D-method -->
+
+    
+      <div id="method-i-with_uri_credentials" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_uri_credentials</span><span
+            class="method-args">(uri) { |unescape, unescape| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal: Yields username and password extracted from a <a
+href="Connection.html#method-c-URI">::URI</a> if they both exist.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_uri_credentials-source">
+            <pre><span class="ruby-comment"># File lib/faraday/connection.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_uri_credentials</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">user</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">user</span>), <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">password</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- with_uri_credentials-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- with_uri_credentials-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

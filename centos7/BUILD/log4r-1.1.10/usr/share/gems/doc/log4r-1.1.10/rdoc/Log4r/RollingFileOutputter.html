@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Log4r::RollingFileOutputter - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/log4r/outputter/rollingfileoutputter.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="FileOutputter.html">Log4r::FileOutputter</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-get_current_sequence_number">#get_current_sequence_number</a>
+    
+    <li ><a href="#method-i-makeNewFilename">#makeNewFilename</a>
+    
+    <li ><a href="#method-i-open_log_file">#open_log_file</a>
+    
+    <li ><a href="#method-i-purge_log_files">#purge_log_files</a>
+    
+    <li ><a href="#method-i-requiresRoll">#requiresRoll</a>
+    
+    <li ><a href="#method-i-roll">#roll</a>
+    
+    <li class="calls-super" ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Log4r.html">Log4r</a>
+  
+    <li><a href="../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+    <li><a href="../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Log4r::RollingFileOutputter</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="RollingFileOutputter.html">RollingFileOutputter</a> - subclass of
+<a href="FileOutputter.html">FileOutputter</a> that rolls files on size or
+time. So, given a filename of “error.log”, the first log file will be
+“error000001.log”. When its check condition is exceeded, it&#39;ll create
+and log to “error000002.log”, etc.</p>
+
+<p>Additional hash arguments are:</p>
+<dl class="rdoc-list label-list"><dt><code>:maxsize</code>
+<dd>
+<p>Maximum size of the file in bytes.</p>
+</dd><dt><code>:maxtime</code>
+<dd>
+<p>Maximum age of the file in seconds.</p>
+</dd><dt><code>:max_backups</code>
+<dd>
+<p>Maxium number of prior log files to maintain. If <a
+href="RollingFileOutputter.html#attribute-i-max_backups">#max_backups</a>
+is a positive number,</p>
+</dd></dl>
+
+<pre>then each time a roll happens, RollingFileOutputter will delete the oldest backup log files in excess
+of this number (if any).  So, if max_backups is 10, then a maximum of 11 files will be maintained (the current
+log, plus 10 backups). If max_backups is 0, no backups will be kept. If it is negative (the default),
+there will be no limit on the number of files created. Note that the sequence numbers will continue to escalate;
+old sequence numbers are not reused.</pre>
+<dl class="rdoc-list label-list"><dt><code>:trunc</code>
+<dd>
+<p>If true, deletes ALL existing log files (based on :filename) upon
+initialization,</p>
+</dd></dl>
+
+<pre>and the sequence numbering will start over at 000001. Otherwise continues logging where it left off
+last time (i.e. either to the file with the highest sequence number, or a new file, as appropriate).</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-current_sequence_number" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">current_sequence_number</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-max_backups" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">max_backups</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maxsize" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maxsize</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-maxtime" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">maxtime</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-start_time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">start_time</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(_name, hash={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="FileOutputter.html#method-c-new">Log4r::FileOutputter.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>={})
+  <span class="ruby-keyword">super</span>( <span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value">:create</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}) )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:maxsize</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&#39;maxsize&#39;</span>) 
+    <span class="ruby-identifier">_maxsize</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:maxsize</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;maxsize&#39;</span>]).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">_maxsize</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Argument &#39;maxsize&#39; must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">_maxsize</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Argument &#39;maxsize&#39; must be &gt; 0&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@maxsize</span> = <span class="ruby-identifier">_maxsize</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:maxtime</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&#39;maxtime&#39;</span>) 
+    <span class="ruby-identifier">_maxtime</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:maxtime</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;maxtime&#39;</span>]).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">_maxtime</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Argument &#39;maxtime&#39; must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">_maxtime</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Argument &#39;maxtime&#39; must be &gt; 0&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@maxtime</span> = <span class="ruby-identifier">_maxtime</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:max_backups</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">&#39;max_backups&#39;</span>) 
+    <span class="ruby-identifier">_max_backups</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:max_backups</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;max_backups&#39;</span>]).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">_max_backups</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Argument &#39;max_backups&#39; must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@max_backups</span> = <span class="ruby-identifier">_max_backups</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@max_backups</span> = <span class="ruby-value">-1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># @filename starts out as the file (including path) provided by the user, e.g. &quot;\usr\logs\error.log&quot;.</span>
+  <span class="ruby-comment">#   It will get assigned the current log file (including sequence number)   </span>
+  <span class="ruby-comment"># @log_dir is the directory in which we&#39;ll log, e.g. &quot;\usr\logs&quot;</span>
+  <span class="ruby-comment"># @file_extension is the file&#39;s extension (if any) including any period, e.g. &quot;.log&quot;</span>
+  <span class="ruby-comment"># @core_file_name is the part of the log file&#39;s name, sans sequence digits or extension, e.g. &quot;error&quot;</span>
+  <span class="ruby-ivar">@log_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@filename</span>)
+  <span class="ruby-ivar">@file_extension</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@filename</span>)   <span class="ruby-comment"># Note: the File API doc comment states that this doesn&#39;t include the period, but its examples and behavior do include it. We&#39;ll depend on the latter.</span>
+  <span class="ruby-ivar">@core_file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@filename</span>, <span class="ruby-ivar">@file_extension</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@trunc</span>)
+    <span class="ruby-identifier">purge_log_files</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@current_sequence_number</span> = <span class="ruby-identifier">get_current_sequence_number</span>()
+  <span class="ruby-identifier">makeNewFilename</span>
+  <span class="ruby-comment"># Now @filename points to a properly sequenced filename, which may or may not yet exist.</span>
+  <span class="ruby-identifier">open_log_file</span>(<span class="ruby-string">&#39;a&#39;</span>)
+  
+  <span class="ruby-comment"># Note: it&#39;s possible we&#39;re already in excess of our time or size constraint for the current file;</span>
+  <span class="ruby-comment"># no worries -- if a new file needs to be started, it&#39;ll happen during the write() call. </span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-get_current_sequence_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_current_sequence_number</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the highest existing log file sequence number, or 1 if there are no
+existing log files.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_current_sequence_number-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_current_sequence_number</span>()
+  <span class="ruby-identifier">max_seq_no</span> = <span class="ruby-value">0</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-ivar">@log_dir</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">child</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/^#{@core_file_name}(\d+)#{@file_extension}$/</span>
+      <span class="ruby-identifier">seq_no</span> = <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">seq_no</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_seq_no</span>)
+        <span class="ruby-identifier">max_seq_no</span> = <span class="ruby-identifier">seq_no</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">max_seq_no</span>, <span class="ruby-value">1</span>].<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_current_sequence_number-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_current_sequence_number-method -->
+
+    
+      <div id="method-i-makeNewFilename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">makeNewFilename</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructs a new filename from the @current_sequence_number,
+@core_file_name, and @file_extension, and assigns it to @filename</p>
+          
+          
+
+          
+          <div class="method-source-code" id="makeNewFilename-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">makeNewFilename</span>
+  <span class="ruby-comment"># note use of hard coded 6 digit sequence width - is this enough files?</span>
+  <span class="ruby-identifier">padded_seq_no</span> = <span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">*</span> (<span class="ruby-value">6</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@current_sequence_number</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>) <span class="ruby-operator">+</span> <span class="ruby-ivar">@current_sequence_number</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">newbase</span> = <span class="ruby-node">&quot;#{@core_file_name}#{padded_seq_no}#{@file_extension}&quot;</span>
+  <span class="ruby-ivar">@filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@log_dir</span>, <span class="ruby-identifier">newbase</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- makeNewFilename-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- makeNewFilename-method -->
+
+    
+      <div id="method-i-open_log_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_log_file</span><span
+            class="method-args">(mode)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Open @filename with the given mode:</p>
+
+<pre>&#39;a&#39; - appends to the end of the file if it exists; otherwise creates it.
+&#39;w&#39; -  truncates the file to zero length if it exists, otherwise creates it.</pre>
+
+<p>Re-initializes @datasize and @startime appropriately.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="open_log_file-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_log_file</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-comment"># It appears that if a file has been recently deleted then recreated, calls like</span>
+  <span class="ruby-comment"># File.ctime can return the erstwhile creation time. File.size? can similarly return</span>
+  <span class="ruby-comment"># old information. So instead of simply doing ctime and size checks after File.new, we </span>
+  <span class="ruby-comment"># do slightly more complicated checks beforehand:</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;w&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-ivar">@filename</span>))
+    <span class="ruby-ivar">@start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>()
+    <span class="ruby-ivar">@datasize</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@start_time</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">ctime</span>(<span class="ruby-ivar">@filename</span>)
+    <span class="ruby-ivar">@datasize</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">size?</span>(<span class="ruby-ivar">@filename</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span> <span class="ruby-comment"># File.size? returns nil even if the file exists but is empty; we convert it to 0.</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@filename</span>, <span class="ruby-identifier">mode</span>)
+  <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> {<span class="ruby-node">&quot;File #{@filename} opened with mode #{mode}&quot;</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- open_log_file-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- open_log_file-method -->
+
+    
+      <div id="method-i-purge_log_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">purge_log_files</span><span
+            class="method-args">(number_to_keep)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete all but the latest number_to_keep log files.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="purge_log_files-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">purge_log_files</span>(<span class="ruby-identifier">number_to_keep</span>)
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@log_dir</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Make a list of the log files to delete. Start with all of the matching log files...</span>
+    <span class="ruby-identifier">glob</span> = <span class="ruby-node">&quot;#{@core_file_name}[0-9][0-9][0-9][0-9][0-9][0-9]#{@file_extension}&quot;</span>
+    <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">glob</span>)
+    
+    <span class="ruby-comment"># ... if there are fewer than our threshold, just return... </span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">files</span>.<span class="ruby-identifier">size</span>() <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">number_to_keep</span> )
+      <span class="ruby-comment"># Logger.log_internal {&quot;No log files need purging.&quot;}</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># ...then remove those that we want to keep (i.e. the most recent #{number_to_keep} files). </span>
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">sort!</span>().<span class="ruby-identifier">slice!</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">number_to_keep</span>, <span class="ruby-identifier">number_to_keep</span>)
+    
+    <span class="ruby-comment"># Delete the files. We use force (rm_f), so in case any files can&#39;t be deleted (e.g. someone&#39;s got one</span>
+    <span class="ruby-comment"># open in an editor), we&#39;ll swallow the error and keep going.</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span>(<span class="ruby-identifier">files</span>)
+    <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> { <span class="ruby-node">&quot;Purged #{files.length} log files: #{files}&quot;</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- purge_log_files-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- purge_log_files-method -->
+
+    
+      <div id="method-i-requiresRoll" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">requiresRoll</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>does the file require a roll?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="requiresRoll-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">requiresRoll</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@maxsize</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@datasize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@maxsize</span>
+    <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> { <span class="ruby-node">&quot;Rolling because #{@filename} (#{@datasize} bytes) has exceded the maxsize limit (#{@maxsize} bytes).&quot;</span> }
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@maxtime</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@start_time</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@maxtime</span>
+    <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> { <span class="ruby-node">&quot;Rolling because #{@filename} (created: #{@start_time}) has exceded the maxtime age (#{@maxtime} seconds).&quot;</span> }
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- requiresRoll-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- requiresRoll-method -->
+
+    
+      <div id="method-i-roll" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">roll</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>roll the file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="roll-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">roll</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># If @baseFilename == @filename, then this method is about to</span>
+    <span class="ruby-comment"># try to close out a file that is not actually opened because</span>
+    <span class="ruby-comment"># fileoutputter has been called with the parameter roll=true        </span>
+    <span class="ruby-comment"># TODO: Is this check valid any more? I suspect not. Am commenting out...:</span>
+    <span class="ruby-comment">#if ( @baseFilename != @filename ) then</span>
+      <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-comment">#end</span>
+  <span class="ruby-keyword">rescue</span> 
+    <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">log_internal</span> {
+      <span class="ruby-node">&quot;RollingFileOutputter &#39;#{@name}&#39; could not close #{@filename}&quot;</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Prepare the next file. (Note: if max_backups is zero, we can skip this; we&#39;ll</span>
+  <span class="ruby-comment"># just overwrite the existing log file) </span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@max_backups</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-ivar">@current_sequence_number</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">makeNewFilename</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">open_log_file</span>(<span class="ruby-string">&#39;w&#39;</span>)
+  
+  <span class="ruby-comment"># purge any excess log files (unless max_backups is negative, which means don&#39;t purge).</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@max_backups</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>) 
+    <span class="ruby-identifier">purge_log_files</span>(<span class="ruby-ivar">@max_backups</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- roll-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- roll-method -->
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>perform the write</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/log4r/outputter/rollingfileoutputter.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>) 
+  <span class="ruby-comment"># we have to keep track of the file size ourselves - File.size doesn&#39;t</span>
+  <span class="ruby-comment"># seem to report the correct size when the size changes rapidly</span>
+  <span class="ruby-ivar">@datasize</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-comment"># the 1 is for newline</span>
+  <span class="ruby-identifier">roll</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">requiresRoll</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- write-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- write-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

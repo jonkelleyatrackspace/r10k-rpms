@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Cri::OptionParser - cri-2.5.0 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cri/option_parser.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-i-add_argument">#add_argument</a>
+    
+    <li ><a href="#method-i-add_option">#add_option</a>
+    
+    <li ><a href="#method-i-arguments">#arguments</a>
+    
+    <li ><a href="#method-i-find_option_value">#find_option_value</a>
+    
+    <li ><a href="#method-i-handle_dash_option">#handle_dash_option</a>
+    
+    <li ><a href="#method-i-handle_dashdash">#handle_dashdash</a>
+    
+    <li ><a href="#method-i-handle_dashdash_option">#handle_dashdash_option</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../NEWS_md.html">NEWS</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Cri.html">Cri</a>
+  
+    <li><a href="../Cri/ArgumentArray.html">Cri::ArgumentArray</a>
+  
+    <li><a href="../Cri/Command.html">Cri::Command</a>
+  
+    <li><a href="../Cri/Command/OptionParserPartitioningDelegate.html">Cri::Command::OptionParserPartitioningDelegate</a>
+  
+    <li><a href="../Cri/CommandDSL.html">Cri::CommandDSL</a>
+  
+    <li><a href="../Cri/CommandRunner.html">Cri::CommandRunner</a>
+  
+    <li><a href="../Cri/CoreExtensions.html">Cri::CoreExtensions</a>
+  
+    <li><a href="../Cri/CoreExtensions/String.html">Cri::CoreExtensions::String</a>
+  
+    <li><a href="../Cri/Error.html">Cri::Error</a>
+  
+    <li><a href="../Cri/HelpRenderer.html">Cri::HelpRenderer</a>
+  
+    <li><a href="../Cri/NoHelpAvailableError.html">Cri::NoHelpAvailableError</a>
+  
+    <li><a href="../Cri/NotImplementedError.html">Cri::NotImplementedError</a>
+  
+    <li><a href="../Cri/OptionParser.html">Cri::OptionParser</a>
+  
+    <li><a href="../Cri/OptionParser/IllegalOptionError.html">Cri::OptionParser::IllegalOptionError</a>
+  
+    <li><a href="../Cri/OptionParser/OptionRequiresAnArgumentError.html">Cri::OptionParser::OptionRequiresAnArgumentError</a>
+  
+    <li><a href="../String.html">String</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Cri::OptionParser</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="OptionParser.html">Cri::OptionParser</a> is used for parsing
+commandline options.</p>
+
+<p>Option definitions are hashes with the keys `:short`, `:long` and
+`:argument` (optionally `:description` but this is not used by the option
+parser, only by the help generator). `:short` is the short, one-character
+option, without the `-` prefix. `:long` is the long, multi-character
+option, without the `–` prefix. `:argument` can be :required (if an
+argument should be provided to the option), :optional (if an argument may
+be provided) or :forbidden (if an argument should not be provided).</p>
+
+<p>A sample array of definition hashes could look like this:</p>
+
+<pre class="ruby">[
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;a&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;all&#39;</span>,  :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">forbidden</span> },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;p&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;port&#39;</span>, :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">required</span>  },
+]
+</pre>
+
+<p>For example, the following commandline options (which should not be passed
+as a string, but as an array of strings):</p>
+
+<pre>foo -xyz -a hiss -s -m please --level 50 --father=ani -n luke squeak</pre>
+
+<p>with the following option definitions:</p>
+
+<pre class="ruby">[
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;x&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;xxx&#39;</span>,    :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">forbidden</span> },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;y&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;yyy&#39;</span>,    :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">forbidden</span> },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;z&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;zzz&#39;</span>,    :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">forbidden</span> },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;a&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;all&#39;</span>,    :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">forbidden</span> },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;s&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;stuff&#39;</span>,  :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">optional</span>  },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;m&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;more&#39;</span>,   :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">optional</span>  },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;l&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;level&#39;</span>,  :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">required</span>  },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;f&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;father&#39;</span>, :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">required</span>  },
+  { :<span class="ruby-identifier">short</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;n&#39;</span>, :<span class="ruby-identifier">long</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;name&#39;</span>,   :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">required</span>  }
+]
+</pre>
+
+<p>will be translated into:</p>
+
+<pre class="ruby">{
+  :<span class="ruby-identifier">arguments</span> =<span class="ruby-operator">&gt;</span> [ <span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-string">&#39;hiss&#39;</span>, <span class="ruby-string">&#39;squeak&#39;</span> ],
+  :<span class="ruby-identifier">options</span> =<span class="ruby-operator">&gt;</span> {
+    :<span class="ruby-identifier">xxx</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    :<span class="ruby-identifier">yyy</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    :<span class="ruby-identifier">zzz</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    :<span class="ruby-identifier">all</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    :<span class="ruby-identifier">stuff</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    :<span class="ruby-identifier">more</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;please&#39;</span>,
+    :<span class="ruby-identifier">level</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;50&#39;</span>,
+    :<span class="ruby-identifier">father</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;ani&#39;</span>,
+    :<span class="ruby-identifier">name</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;luke&#39;</span>
+  }
+}
+</pre>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-delegate" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">delegate</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The delegate to which events will be sent. The following methods will be
+send to the delegate:</p>
+<ul><li>
+<p>`option_added(key, value, cmd)`</p>
+</li><li>
+<p>`argument_added(argument, cmd)`</p>
+</li></ul>
+
+<p>@return [#option_added, argument_added] The delegate</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The options that have already been parsed.</p>
+
+<p>If the parser was stopped before it finished, this will not contain all
+options and `unprocessed_arguments_and_options` will contain what is left
+to be processed.</p>
+
+<p>@return [Hash] The already parsed options.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-raw_arguments" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">raw_arguments</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Array] The arguments that have already been parsed, including</p>
+
+<pre>the -- separator.</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-unprocessed_arguments_and_options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">unprocessed_arguments_and_options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The options and arguments that have not yet been processed. If the parser
+wasn’t stopped (using {#stop}), this list will be empty.</p>
+
+<p>@return [Array] The not yet parsed options and arguments.</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(arguments_and_options, definitions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser with the given options/arguments and definitions.</p>
+
+<p>@param [Array&lt;String&gt;] arguments_and_options An array containing the</p>
+
+<pre>commandline arguments (will probably be `ARGS` for a root command)</pre>
+
+<p>@param [Array&lt;Hash&gt;] definitions An array of option definitions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">arguments_and_options</span>, <span class="ruby-identifier">definitions</span>)
+  <span class="ruby-ivar">@unprocessed_arguments_and_options</span> = <span class="ruby-identifier">arguments_and_options</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@definitions</span> = <span class="ruby-identifier">definitions</span>
+
+  <span class="ruby-ivar">@options</span>       = {}
+  <span class="ruby-ivar">@raw_arguments</span> = []
+
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@no_more_options</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(arguments_and_options, definitions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parses the commandline arguments. See the instance `parse` method for
+details.</p>
+
+<p>@param [Array&lt;String&gt;] arguments_and_options An array containing the</p>
+
+<pre>commandline arguments (will probably be `ARGS` for a root command)</pre>
+
+<p>@param [Array&lt;Hash&gt;] definitions An array of option definitions</p>
+
+<p>@return [Cri::OptionParser] The option parser self</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">arguments_and_options</span>, <span class="ruby-identifier">definitions</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arguments_and_options</span>, <span class="ruby-identifier">definitions</span>).<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arguments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the arguments that have already been parsed.</p>
+
+<p>If the parser was stopped before it finished, this will not contain all
+options and `unprocessed_arguments_and_options` will contain what is left
+to be processed.</p>
+
+<p>@return [Array] The already parsed arguments.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="arguments-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">arguments</span>
+  <span class="ruby-constant">ArgumentArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@raw_arguments</span>).<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- arguments-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- arguments-method -->
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parses the commandline arguments into options and arguments.</p>
+
+<p>During parsing, two errors can be raised:</p>
+
+<p>@raise <a
+href="OptionParser/IllegalOptionError.html">IllegalOptionError</a> if an
+unrecognised option was encountered,</p>
+
+<pre>i.e. an option that is not present in the list of option definitions</pre>
+
+<p>@raise <a
+href="OptionParser/OptionRequiresAnArgumentError.html">OptionRequiresAnArgumentError</a>
+if an option was found that did not</p>
+
+<pre>have a value, even though this value was required.</pre>
+
+<p>@return [Cri::OptionParser] The option parser self</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">running?</span>
+    <span class="ruby-comment"># Get next item</span>
+    <span class="ruby-identifier">e</span> = <span class="ruby-ivar">@unprocessed_arguments_and_options</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;--&#39;</span>
+      <span class="ruby-identifier">handle_dashdash</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^--./</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@no_more_options</span>
+      <span class="ruby-identifier">handle_dashdash_option</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^-./</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@no_more_options</span>
+      <span class="ruby-identifier">handle_dash_option</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">add_argument</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] true if the parser is running, false otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@running</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- running-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- running-3F-method -->
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stops the parser. The parser will finish its current parse cycle but will
+not start parsing new options and/or arguments.</p>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stop-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stop-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-add_argument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_argument</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_argument-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_argument</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@raw_arguments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-string">&#39;--&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">delegate</span>.<span class="ruby-identifier">argument_added</span>(<span class="ruby-identifier">value</span>, <span class="ruby-keyword">self</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">delegate</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_argument-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_argument-method -->
+
+    
+      <div id="method-i-add_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_option</span><span
+            class="method-args">(definition, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_option-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">key</span> = (<span class="ruby-identifier">definition</span>[<span class="ruby-value">:long</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">definition</span>[<span class="ruby-value">:short</span>]).<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">delegate</span>.<span class="ruby-identifier">option_added</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>, <span class="ruby-keyword">self</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">delegate</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_option-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_option-method -->
+
+    
+      <div id="method-i-find_option_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_option_value</span><span
+            class="method-args">(definition, option_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_option_value-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_option_value</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">option_key</span>)
+  <span class="ruby-identifier">option_value</span> = <span class="ruby-ivar">@unprocessed_arguments_and_options</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">option_value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">option_value</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^-/</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">definition</span>[<span class="ruby-value">:argument</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:required</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">OptionRequiresAnArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option_key</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@unprocessed_arguments_and_options</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">option_value</span>)
+      <span class="ruby-identifier">option_value</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">option_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_option_value-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_option_value-method -->
+
+    
+      <div id="method-i-handle_dash_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_dash_option</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_dash_option-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_dash_option</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># Get option keys</span>
+  <span class="ruby-identifier">option_keys</span> = <span class="ruby-identifier">e</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./</span>)
+
+  <span class="ruby-comment"># For each key</span>
+  <span class="ruby-identifier">option_keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Find definition</span>
+    <span class="ruby-identifier">definition</span> = <span class="ruby-ivar">@definitions</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>[<span class="ruby-value">:short</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">option_key</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IllegalOptionError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option_key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">definition</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">option_keys</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">definition</span>[<span class="ruby-value">:argument</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:required</span>
+      <span class="ruby-comment"># This is a combined option and it requires an argument, so complain</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">OptionRequiresAnArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option_key</span>)
+    <span class="ruby-keyword">elsif</span> [ <span class="ruby-value">:required</span>, <span class="ruby-value">:optional</span> ].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">definition</span>[<span class="ruby-value">:argument</span>])
+      <span class="ruby-comment"># Get option value</span>
+      <span class="ruby-identifier">option_value</span> = <span class="ruby-identifier">find_option_value</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">option_key</span>)
+
+      <span class="ruby-comment"># Store option</span>
+      <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">option_value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Store option</span>
+      <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_dash_option-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_dash_option-method -->
+
+    
+      <div id="method-i-handle_dashdash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_dashdash</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_dashdash-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_dashdash</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-identifier">add_argument</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-ivar">@no_more_options</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_dashdash-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_dashdash-method -->
+
+    
+      <div id="method-i-handle_dashdash_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_dashdash_option</span><span
+            class="method-args">(e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_dashdash_option-source">
+            <pre><span class="ruby-comment"># File lib/cri/option_parser.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_dashdash_option</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-comment"># Get option key, and option value if included</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^--([^=]+)=(.+)$/</span>
+    <span class="ruby-identifier">option_key</span>   = <span class="ruby-node">$1</span>
+    <span class="ruby-identifier">option_value</span> = <span class="ruby-node">$2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">option_key</span>    = <span class="ruby-identifier">e</span>[<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">option_value</span>  = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Find definition</span>
+  <span class="ruby-identifier">definition</span> = <span class="ruby-ivar">@definitions</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>[<span class="ruby-value">:long</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">option_key</span> }
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">IllegalOptionError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option_key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">definition</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span> [ <span class="ruby-value">:required</span>, <span class="ruby-value">:optional</span> ].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">definition</span>[<span class="ruby-value">:argument</span>])
+    <span class="ruby-comment"># Get option value if necessary</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">option_value</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">option_value</span> = <span class="ruby-identifier">find_option_value</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">option_key</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Store option</span>
+    <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-identifier">option_value</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Store option</span>
+    <span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">definition</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- handle_dashdash_option-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- handle_dashdash_option-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

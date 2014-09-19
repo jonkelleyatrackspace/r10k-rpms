@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Faraday::Utils - faraday-0.8.9 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday/utils.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-i-build_nested_query">#build_nested_query</a>
+    
+    <li ><a href="#method-i-build_query">#build_query</a>
+    
+    <li ><a href="#method-i-deep_merge">#deep_merge</a>
+    
+    <li ><a href="#method-i-deep_merge-21">#deep_merge!</a>
+    
+    <li ><a href="#method-i-escape">#escape</a>
+    
+    <li ><a href="#method-i-normalize_params">#normalize_params</a>
+    
+    <li ><a href="#method-i-normalize_path">#normalize_path</a>
+    
+    <li ><a href="#method-i-parse_nested_query">#parse_nested_query</a>
+    
+    <li ><a href="#method-i-parse_query">#parse_query</a>
+    
+    <li ><a href="#method-i-sort_query_params">#sort_query_params</a>
+    
+    <li ><a href="#method-i-unescape">#unescape</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../EventMachine.html">EventMachine</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Adapter.html">Faraday::Adapter</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp.html">Faraday::Adapter::EMHttp</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp/Manager.html">Faraday::Adapter::EMHttp::Manager</a>
+  
+    <li><a href="../Faraday/Adapter/EMHttp/Options.html">Faraday::Adapter::EMHttp::Options</a>
+  
+    <li><a href="../Faraday/Adapter/EMSynchrony.html">Faraday::Adapter::EMSynchrony</a>
+  
+    <li><a href="../Faraday/Adapter/EMSynchrony/ParallelManager.html">Faraday::Adapter::EMSynchrony::ParallelManager</a>
+  
+    <li><a href="../Faraday/Adapter/Excon.html">Faraday::Adapter::Excon</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp.html">Faraday::Adapter::NetHttp</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp/OpenSSL.html">Faraday::Adapter::NetHttp::OpenSSL</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttp/OpenSSL/SSL.html">Faraday::Adapter::NetHttp::OpenSSL::SSL</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttpPersistent.html">Faraday::Adapter::NetHttpPersistent</a>
+  
+    <li><a href="../Faraday/Adapter/NetHttpPersistent/proxy_uri;.html">Faraday::Adapter::NetHttpPersistent::proxy_uri;</a>
+  
+    <li><a href="../Faraday/Adapter/Parallelism.html">Faraday::Adapter::Parallelism</a>
+  
+    <li><a href="../Faraday/Adapter/Patron.html">Faraday::Adapter::Patron</a>
+  
+    <li><a href="../Faraday/Adapter/Patron/Request.html">Faraday::Adapter::Patron::Request</a>
+  
+    <li><a href="../Faraday/Adapter/Rack.html">Faraday::Adapter::Rack</a>
+  
+    <li><a href="../Faraday/Adapter/Test.html">Faraday::Adapter::Test</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stub.html">Faraday::Adapter::Test::Stub</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stubs.html">Faraday::Adapter::Test::Stubs</a>
+  
+    <li><a href="../Faraday/Adapter/Test/Stubs/NotFound.html">Faraday::Adapter::Test::Stubs::NotFound</a>
+  
+    <li><a href="../Faraday/Adapter/Typhoeus.html">Faraday::Adapter::Typhoeus</a>
+  
+    <li><a href="../Faraday/AutoloadHelper.html">Faraday::AutoloadHelper</a>
+  
+    <li><a href="../Faraday/Builder.html">Faraday::Builder</a>
+  
+    <li><a href="../Faraday/Builder/Handler.html">Faraday::Builder::Handler</a>
+  
+    <li><a href="../Faraday/Builder/StackLocked.html">Faraday::Builder::StackLocked</a>
+  
+    <li><a href="../Faraday/CompositeReadIO.html">Faraday::CompositeReadIO</a>
+  
+    <li><a href="../Faraday/Connection.html">Faraday::Connection</a>
+  
+    <li><a href="../Faraday/Error.html">Faraday::Error</a>
+  
+    <li><a href="../Faraday/Error/ClientError.html">Faraday::Error::ClientError</a>
+  
+    <li><a href="../Faraday/Error/ConnectionFailed.html">Faraday::Error::ConnectionFailed</a>
+  
+    <li><a href="../Faraday/Error/MissingDependency.html">Faraday::Error::MissingDependency</a>
+  
+    <li><a href="../Faraday/Error/ParsingError.html">Faraday::Error::ParsingError</a>
+  
+    <li><a href="../Faraday/Error/ResourceNotFound.html">Faraday::Error::ResourceNotFound</a>
+  
+    <li><a href="../Faraday/Error/TimeoutError.html">Faraday::Error::TimeoutError</a>
+  
+    <li><a href="../Faraday/Middleware.html">Faraday::Middleware</a>
+  
+    <li><a href="../Faraday/MiddlewareRegistry.html">Faraday::MiddlewareRegistry</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Request/Authorization.html">Faraday::Request::Authorization</a>
+  
+    <li><a href="../Faraday/Request/BasicAuthentication.html">Faraday::Request::BasicAuthentication</a>
+  
+    <li><a href="../Faraday/Request/Multipart.html">Faraday::Request::Multipart</a>
+  
+    <li><a href="../Faraday/Request/Retry.html">Faraday::Request::Retry</a>
+  
+    <li><a href="../Faraday/Request/TokenAuthentication.html">Faraday::Request::TokenAuthentication</a>
+  
+    <li><a href="../Faraday/Request/UrlEncoded.html">Faraday::Request::UrlEncoded</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../Faraday/Response/Logger.html">Faraday::Response::Logger</a>
+  
+    <li><a href="../Faraday/Response/Middleware.html">Faraday::Response::Middleware</a>
+  
+    <li><a href="../Faraday/Response/RaiseError.html">Faraday::Response::RaiseError</a>
+  
+    <li><a href="../Faraday/Utils.html">Faraday::Utils</a>
+  
+    <li><a href="../Faraday/Utils/Headers.html">Faraday::Utils::Headers</a>
+  
+    <li><a href="../Faraday/Utils/ParamsHash.html">Faraday::Utils::ParamsHash</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Faraday::Utils</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="DEFAULT_SEP">DEFAULT_SEP
+        
+        <dd class="description">
+        
+      
+        <dt id="ESCAPE_RE">ESCAPE_RE
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-build_nested_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_nested_query</span><span
+            class="method-args">(value, prefix = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rack&#39;s version modified to handle non-String values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_nested_query-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_nested_query</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">build_nested_query</span>(<span class="ruby-identifier">v</span>, <span class="ruby-node">&quot;#{prefix}%5B%5D&quot;</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&amp;&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">build_nested_query</span>(<span class="ruby-identifier">v</span>, <span class="ruby-identifier">prefix</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{prefix}%5B#{escape(k)}%5D&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">escape</span>(<span class="ruby-identifier">k</span>))
+    }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&amp;&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NilClass</span>
+    <span class="ruby-identifier">prefix</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;value must be a Hash&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-node">&quot;#{prefix}=#{escape(value)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_nested_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_nested_query-method -->
+
+    
+      <div id="method-i-build_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_query</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Copied from Rack</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_query-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_query</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">build_query</span>(<span class="ruby-identifier">v</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">x</span>] })
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">escape</span>(<span class="ruby-identifier">k</span>) <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{escape(k)}=#{escape(v)}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&amp;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- build_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- build_query-method -->
+
+    
+      <div id="method-i-deep_merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_merge</span><span
+            class="method-args">(source, hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recursive hash merge</p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_merge-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_merge</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deep_merge-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deep_merge-method -->
+
+    
+      <div id="method-i-deep_merge-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_merge!</span><span
+            class="method-args">(target, hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recursive hash update</p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_merge-21-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">target</span>[<span class="ruby-identifier">key</span>]
+      <span class="ruby-identifier">target</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">deep_merge</span>(<span class="ruby-identifier">target</span>[<span class="ruby-identifier">key</span>], <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">target</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">target</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deep_merge-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deep_merge-21-method -->
+
+    
+      <div id="method-i-escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escape</span><span
+            class="method-args">(s)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="escape-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">escape</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">ESCAPE_RE</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">match</span><span class="ruby-operator">|</span>
+    <span class="ruby-string">&#39;%&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;H2&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">bytesize</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;%&#39;</span>).<span class="ruby-identifier">upcase</span>
+  }.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39; &#39;</span>, <span class="ruby-string">&#39;+&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- escape-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- escape-method -->
+
+    
+      <div id="method-i-normalize_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_params</span><span
+            class="method-args">(params, name, v = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stolen from Rack</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_params-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">v</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r(\A[\[\]]*([^\[\]]+)\]*)</span>
+  <span class="ruby-identifier">k</span> = <span class="ruby-node">$1</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">after</span> = <span class="ruby-node">$&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;[]&quot;</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> []
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Array (got #{params[k].class.name}) for param `#{k}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r(^\[\]\[([^\[\]]+)\]$)</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">after</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r(^\[\](.+)$)</span>
+    <span class="ruby-identifier">child_key</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> []
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Array (got #{params[k].class.name}) for param `#{k}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">child_key</span>)
+      <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">last</span>, <span class="ruby-identifier">child_key</span>, <span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">normalize_params</span>({}, <span class="ruby-identifier">child_key</span>, <span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;expected Hash (got #{params[k].class.name}) for param `#{k}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>], <span class="ruby-identifier">after</span>, <span class="ruby-identifier">v</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalize_params-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalize_params-method -->
+
+    
+      <div id="method-i-normalize_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_path</span><span
+            class="method-args">(url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives a URL and returns just the path with the query string sorted.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_path-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_path</span>(<span class="ruby-identifier">url</span>)
+  (<span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;/&quot;</span>) <span class="ruby-operator">+</span>
+  (<span class="ruby-identifier">url</span>.<span class="ruby-identifier">query</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;?#{sort_query_params(url.query)}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalize_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalize_path-method -->
+
+    
+      <div id="method-i-parse_nested_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_nested_query</span><span
+            class="method-args">(qs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_nested_query-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_nested_query</span>(<span class="ruby-identifier">qs</span>)
+  <span class="ruby-identifier">params</span> = {}
+
+  (<span class="ruby-identifier">qs</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-constant">DEFAULT_SEP</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">s</span>) }
+    <span class="ruby-identifier">normalize_params</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_nested_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_nested_query-method -->
+
+    
+      <div id="method-i-parse_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_query</span><span
+            class="method-args">(qs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adapted from Rack</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_query-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_query</span>(<span class="ruby-identifier">qs</span>)
+  <span class="ruby-identifier">params</span> = {}
+
+  (<span class="ruby-identifier">qs</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-constant">DEFAULT_SEP</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">x</span>) }
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cur</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">cur</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword">else</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = [<span class="ruby-identifier">cur</span>, <span class="ruby-identifier">v</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">params</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- parse_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- parse_query-method -->
+
+    
+      <div id="method-i-unescape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unescape</span><span
+            class="method-args">(s)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unescape-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">s</span>) <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">unescape</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- unescape-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unescape-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-sort_query_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sort_query_params</span><span
+            class="method-args">(query)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sort_query_params-source">
+            <pre><span class="ruby-comment"># File lib/faraday/utils.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sort_query_params</span>(<span class="ruby-identifier">query</span>)
+  <span class="ruby-identifier">query</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&amp;&#39;</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&amp;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sort_query_params-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sort_query_params-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

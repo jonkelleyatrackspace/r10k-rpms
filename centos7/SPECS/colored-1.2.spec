@@ -1,5 +1,7 @@
 # Generated from colored-1.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name colored
+# here goes nothing
+%define _unpackaged_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.2
@@ -74,5 +76,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Fri Sep 19 2014 root - 1.2-1
+* Fri Sep 19 2014 root <root@puppet-n01.prod.us.ci.rackspace.net> - 1.2-1
 - Initial package

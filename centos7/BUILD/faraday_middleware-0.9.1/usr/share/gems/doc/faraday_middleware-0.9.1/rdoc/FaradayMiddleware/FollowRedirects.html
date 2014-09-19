@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class FaradayMiddleware::FollowRedirects - faraday_middleware-0.9.1 Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday_middleware/response/follow_redirects.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">FaradayMiddleware::Faraday::Middleware
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-follow_limit">#follow_limit</a>
+    
+    <li ><a href="#method-i-follow_redirect-3F">#follow_redirect?</a>
+    
+    <li ><a href="#method-i-keep_cookies">#keep_cookies</a>
+    
+    <li ><a href="#method-i-perform_with_redirection">#perform_with_redirection</a>
+    
+    <li ><a href="#method-i-selected_cookies">#selected_cookies</a>
+    
+    <li ><a href="#method-i-selected_request_cookies">#selected_request_cookies</a>
+    
+    <li ><a href="#method-i-standards_compliant-3F">#standards_compliant?</a>
+    
+    <li ><a href="#method-i-transform_into_get-3F">#transform_into_get?</a>
+    
+    <li ><a href="#method-i-update_env">#update_env</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Addressable.html">Addressable</a>
+  
+    <li><a href="../Addressable/URI.html">Addressable::URI</a>
+  
+    <li><a href="../Faraday.html">Faraday</a>
+  
+    <li><a href="../Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="../Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="../FaradayMiddleware.html">FaradayMiddleware</a>
+  
+    <li><a href="../FaradayMiddleware/Caching.html">FaradayMiddleware::Caching</a>
+  
+    <li><a href="../FaradayMiddleware/Chunked.html">FaradayMiddleware::Chunked</a>
+  
+    <li><a href="../FaradayMiddleware/EncodeJson.html">FaradayMiddleware::EncodeJson</a>
+  
+    <li><a href="../FaradayMiddleware/Faraday.html">FaradayMiddleware::Faraday</a>
+  
+    <li><a href="../FaradayMiddleware/FollowRedirects.html">FaradayMiddleware::FollowRedirects</a>
+  
+    <li><a href="../FaradayMiddleware/Instrumentation.html">FaradayMiddleware::Instrumentation</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify.html">FaradayMiddleware::Mashify</a>
+  
+    <li><a href="../FaradayMiddleware/Mashify/Hashie.html">FaradayMiddleware::Mashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/MethodOverride.html">FaradayMiddleware::MethodOverride</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth.html">FaradayMiddleware::OAuth</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OAuth2.html">FaradayMiddleware::OAuth2</a>
+  
+    <li><a href="../FaradayMiddleware/OptionsExtension.html">FaradayMiddleware::OptionsExtension</a>
+  
+    <li><a href="../FaradayMiddleware/ParseDates.html">FaradayMiddleware::ParseDates</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson.html">FaradayMiddleware::ParseJson</a>
+  
+    <li><a href="../FaradayMiddleware/ParseJson/MimeTypeFix.html">FaradayMiddleware::ParseJson::MimeTypeFix</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseMarshal.html">FaradayMiddleware::ParseMarshal</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseXml.html">FaradayMiddleware::ParseXml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/ParseYaml.html">FaradayMiddleware::ParseYaml</a>
+  
+    <li><a href="../FaradayMiddleware/RackCompatible.html">FaradayMiddleware::RackCompatible</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify.html">FaradayMiddleware::Rashify</a>
+  
+    <li><a href="../FaradayMiddleware/Rashify/Hashie.html">FaradayMiddleware::Rashify::Hashie</a>
+  
+    <li><a href="../FaradayMiddleware/RedirectLimitReached.html">FaradayMiddleware::RedirectLimitReached</a>
+  
+    <li><a href="../FaradayMiddleware/ResponseMiddleware.html">FaradayMiddleware::ResponseMiddleware</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FaradayMiddleware::FollowRedirects</h1>
+
+  <div id="description" class="description">
+    
+<p>Public: Follow HTTP 301, 302, 303, and 307 redirects for GET, PATCH, POST,
+PUT, and DELETE requests.</p>
+
+<p>This middleware does not follow the HTTP specification for HTTP 302, by
+default, in that it follows the improper implementation used by most major
+web browsers which forces the redirected request to become a GET request
+regardless of the original request method.</p>
+
+<p>For HTTP 301, 302, and 303, the original request is transformed into a GET
+request to the response Location, by default. However, with standards
+compliance enabled, a 302 will instead act in accordance with the HTTP
+specification, which will replay the original request to the received
+Location, just as with a 307.</p>
+
+<p>For HTTP 307, the original request is replayed to the response Location,
+including original HTTP request method (GET, POST, PUT, DELETE, PATCH),
+original headers, and original body.</p>
+
+<p>This middleware currently only works with synchronous requests; in other
+words, it doesn&#39;t support parallelism.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ALLOWED_METHODS">ALLOWED_METHODS
+        
+        <dd class="description"><p>HTTP methods for which 30x redirects can be followed</p>
+        
+      
+        <dt id="ENV_TO_CLEAR">ENV_TO_CLEAR
+        
+        <dd class="description"><p>Keys in env hash which will get cleared between requests</p>
+        
+      
+        <dt id="FOLLOW_LIMIT">FOLLOW_LIMIT
+        
+        <dd class="description"><p>Default value for max redirects followed</p>
+        
+      
+        <dt id="REDIRECT_CODES">REDIRECT_CODES
+        
+        <dd class="description"><p>HTTP redirect status codes that this middleware implements</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Initialize the middleware.</p>
+
+<p>options - An options Hash (default: {}):</p>
+
+<pre> limit - A Numeric redirect limit (default: 3)
+ standards_compliant - A Boolean indicating whether to respect
+                       the HTTP spec when following 302
+                       (default: false)
+cookie - Use either an array of strings
+        (e.g. [&#39;cookie1&#39;, &#39;cookie2&#39;]) to choose kept cookies
+        or :all to keep all cookies.</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+
+  <span class="ruby-ivar">@replay_request_codes</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span> [<span class="ruby-value">307</span>]
+  <span class="ruby-ivar">@replay_request_codes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">302</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">standards_compliant?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">perform_with_redirection</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">follow_limit</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- call-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- call-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="method-i-follow_limit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">follow_limit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="follow_limit-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">follow_limit</span>
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:limit</span>, <span class="ruby-constant">FOLLOW_LIMIT</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- follow_limit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- follow_limit-method -->
+
+    
+      <div id="method-i-follow_redirect-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">follow_redirect?</span><span
+            class="method-args">(env, response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="follow_redirect-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">follow_redirect?</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">response</span>)
+  <span class="ruby-constant">ALLOWED_METHODS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:method</span>] <span class="ruby-keyword">and</span>
+    <span class="ruby-constant">REDIRECT_CODES</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- follow_redirect-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- follow_redirect-3F-method -->
+
+    
+      <div id="method-i-keep_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keep_cookies</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keep_cookies-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keep_cookies</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">cookies</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:cookies</span>, [])
+  <span class="ruby-identifier">response_cookies</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:response_headers</span>][<span class="ruby-value">:cookies</span>]
+  <span class="ruby-identifier">cookies</span> <span class="ruby-operator">==</span> <span class="ruby-value">:all</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">response_cookies</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">selected_request_cookies</span>(<span class="ruby-identifier">response_cookies</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- keep_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- keep_cookies-method -->
+
+    
+      <div id="method-i-perform_with_redirection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform_with_redirection</span><span
+            class="method-args">(env, follows)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="perform_with_redirection-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">perform_with_redirection</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">follows</span>)
+  <span class="ruby-identifier">request_body</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>]
+  <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+
+  <span class="ruby-identifier">response</span>.<span class="ruby-identifier">on_complete</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">env</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">follow_redirect?</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">response</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">RedirectLimitReached</span>, <span class="ruby-identifier">response</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">follows</span>.<span class="ruby-identifier">zero?</span>
+      <span class="ruby-identifier">env</span> = <span class="ruby-identifier">update_env</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">request_body</span>, <span class="ruby-identifier">response</span>)
+      <span class="ruby-identifier">response</span> = <span class="ruby-identifier">perform_with_redirection</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">follows</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- perform_with_redirection-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- perform_with_redirection-method -->
+
+    
+      <div id="method-i-selected_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">selected_cookies</span><span
+            class="method-args">(cookies)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="selected_cookies-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">selected_cookies</span>(<span class="ruby-identifier">cookies</span>)
+  <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie_string</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@options</span>[<span class="ruby-value">:cookies</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">string</span> = <span class="ruby-node">/#{cookie}=?[^;]*/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">cookies</span>)[<span class="ruby-value">0</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&#39;;&#39;</span>
+      <span class="ruby-identifier">cookie_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- selected_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- selected_cookies-method -->
+
+    
+      <div id="method-i-selected_request_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">selected_request_cookies</span><span
+            class="method-args">(cookies)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="selected_request_cookies-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">selected_request_cookies</span>(<span class="ruby-identifier">cookies</span>)
+  <span class="ruby-identifier">selected_cookies</span>(<span class="ruby-identifier">cookies</span>)[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- selected_request_cookies-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- selected_request_cookies-method -->
+
+    
+      <div id="method-i-standards_compliant-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">standards_compliant?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="standards_compliant-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">standards_compliant?</span>
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:standards_compliant</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- standards_compliant-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- standards_compliant-3F-method -->
+
+    
+      <div id="method-i-transform_into_get-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform_into_get?</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transform_into_get-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform_into_get?</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> [<span class="ruby-value">:head</span>, <span class="ruby-value">:options</span>].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">env</span>[<span class="ruby-value">:method</span>]
+  <span class="ruby-comment"># Never convert head or options to a get. That would just be silly.</span>
+
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@replay_request_codes</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- transform_into_get-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- transform_into_get-3F-method -->
+
+    
+      <div id="method-i-update_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_env</span><span
+            class="method-args">(env, request_body, response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_env-source">
+            <pre><span class="ruby-comment"># File lib/faraday_middleware/response/follow_redirects.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_env</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">request_body</span>, <span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">env</span>[<span class="ruby-value">:url</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;location&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:cookies</span>]
+    <span class="ruby-identifier">cookies</span> = <span class="ruby-identifier">keep_cookies</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-identifier">env</span>[<span class="ruby-value">:request_headers</span>][<span class="ruby-value">:cookies</span>] = <span class="ruby-identifier">cookies</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">transform_into_get?</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-identifier">env</span>[<span class="ruby-value">:method</span>] = <span class="ruby-value">:get</span>
+    <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>] = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">env</span>[<span class="ruby-value">:body</span>] = <span class="ruby-identifier">request_body</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">ENV_TO_CLEAR</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">env</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span> }
+
+  <span class="ruby-identifier">env</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_env-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_env-method -->
+
+    
+    </section><!-- private-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

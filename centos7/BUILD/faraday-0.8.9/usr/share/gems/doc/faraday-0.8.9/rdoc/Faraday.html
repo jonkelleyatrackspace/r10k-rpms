@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Faraday - faraday-0.8.9 Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/faraday.rb
+    <li>lib/faraday/adapter.rb
+    <li>lib/faraday/adapter/em_http.rb
+    <li>lib/faraday/adapter/em_synchrony.rb
+    <li>lib/faraday/adapter/em_synchrony/parallel_manager.rb
+    <li>lib/faraday/adapter/excon.rb
+    <li>lib/faraday/adapter/net_http.rb
+    <li>lib/faraday/adapter/net_http_persistent.rb
+    <li>lib/faraday/adapter/patron.rb
+    <li>lib/faraday/adapter/rack.rb
+    <li>lib/faraday/adapter/test.rb
+    <li>lib/faraday/adapter/typhoeus.rb
+    <li>lib/faraday/builder.rb
+    <li>lib/faraday/connection.rb
+    <li>lib/faraday/error.rb
+    <li>lib/faraday/middleware.rb
+    <li>lib/faraday/request.rb
+    <li>lib/faraday/request/authorization.rb
+    <li>lib/faraday/request/basic_authentication.rb
+    <li>lib/faraday/request/multipart.rb
+    <li>lib/faraday/request/retry.rb
+    <li>lib/faraday/request/token_authentication.rb
+    <li>lib/faraday/request/url_encoded.rb
+    <li>lib/faraday/response.rb
+    <li>lib/faraday/response/logger.rb
+    <li>lib/faraday/response/raise_error.rb
+    <li>lib/faraday/upload_io.rb
+    <li>lib/faraday/utils.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Extension Modules -->
+<nav id="extends-section" class="section">
+  <h3 class="section-header">Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Faraday/AutoloadHelper.html">Faraday::AutoloadHelper</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-default_connection">::default_connection</a>
+    
+    <li ><a href="#method-c-method_missing">::method_missing</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-register_middleware">::register_middleware</a>
+    
+    <li ><a href="#method-c-require_lib">::require_lib</a>
+    
+    <li ><a href="#method-c-require_libs">::require_libs</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./EventMachine.html">EventMachine</a>
+  
+    <li><a href="./Faraday.html">Faraday</a>
+  
+    <li><a href="./Faraday/Adapter.html">Faraday::Adapter</a>
+  
+    <li><a href="./Faraday/Adapter/EMHttp.html">Faraday::Adapter::EMHttp</a>
+  
+    <li><a href="./Faraday/Adapter/EMHttp/Manager.html">Faraday::Adapter::EMHttp::Manager</a>
+  
+    <li><a href="./Faraday/Adapter/EMHttp/Options.html">Faraday::Adapter::EMHttp::Options</a>
+  
+    <li><a href="./Faraday/Adapter/EMSynchrony.html">Faraday::Adapter::EMSynchrony</a>
+  
+    <li><a href="./Faraday/Adapter/EMSynchrony/ParallelManager.html">Faraday::Adapter::EMSynchrony::ParallelManager</a>
+  
+    <li><a href="./Faraday/Adapter/Excon.html">Faraday::Adapter::Excon</a>
+  
+    <li><a href="./Faraday/Adapter/NetHttp.html">Faraday::Adapter::NetHttp</a>
+  
+    <li><a href="./Faraday/Adapter/NetHttp/OpenSSL.html">Faraday::Adapter::NetHttp::OpenSSL</a>
+  
+    <li><a href="./Faraday/Adapter/NetHttp/OpenSSL/SSL.html">Faraday::Adapter::NetHttp::OpenSSL::SSL</a>
+  
+    <li><a href="./Faraday/Adapter/NetHttpPersistent.html">Faraday::Adapter::NetHttpPersistent</a>
+  
+    <li><a href="./Faraday/Adapter/NetHttpPersistent/proxy_uri;.html">Faraday::Adapter::NetHttpPersistent::proxy_uri;</a>
+  
+    <li><a href="./Faraday/Adapter/Parallelism.html">Faraday::Adapter::Parallelism</a>
+  
+    <li><a href="./Faraday/Adapter/Patron.html">Faraday::Adapter::Patron</a>
+  
+    <li><a href="./Faraday/Adapter/Patron/Request.html">Faraday::Adapter::Patron::Request</a>
+  
+    <li><a href="./Faraday/Adapter/Rack.html">Faraday::Adapter::Rack</a>
+  
+    <li><a href="./Faraday/Adapter/Test.html">Faraday::Adapter::Test</a>
+  
+    <li><a href="./Faraday/Adapter/Test/Stub.html">Faraday::Adapter::Test::Stub</a>
+  
+    <li><a href="./Faraday/Adapter/Test/Stubs.html">Faraday::Adapter::Test::Stubs</a>
+  
+    <li><a href="./Faraday/Adapter/Test/Stubs/NotFound.html">Faraday::Adapter::Test::Stubs::NotFound</a>
+  
+    <li><a href="./Faraday/Adapter/Typhoeus.html">Faraday::Adapter::Typhoeus</a>
+  
+    <li><a href="./Faraday/AutoloadHelper.html">Faraday::AutoloadHelper</a>
+  
+    <li><a href="./Faraday/Builder.html">Faraday::Builder</a>
+  
+    <li><a href="./Faraday/Builder/Handler.html">Faraday::Builder::Handler</a>
+  
+    <li><a href="./Faraday/Builder/StackLocked.html">Faraday::Builder::StackLocked</a>
+  
+    <li><a href="./Faraday/CompositeReadIO.html">Faraday::CompositeReadIO</a>
+  
+    <li><a href="./Faraday/Connection.html">Faraday::Connection</a>
+  
+    <li><a href="./Faraday/Error.html">Faraday::Error</a>
+  
+    <li><a href="./Faraday/Error/ClientError.html">Faraday::Error::ClientError</a>
+  
+    <li><a href="./Faraday/Error/ConnectionFailed.html">Faraday::Error::ConnectionFailed</a>
+  
+    <li><a href="./Faraday/Error/MissingDependency.html">Faraday::Error::MissingDependency</a>
+  
+    <li><a href="./Faraday/Error/ParsingError.html">Faraday::Error::ParsingError</a>
+  
+    <li><a href="./Faraday/Error/ResourceNotFound.html">Faraday::Error::ResourceNotFound</a>
+  
+    <li><a href="./Faraday/Error/TimeoutError.html">Faraday::Error::TimeoutError</a>
+  
+    <li><a href="./Faraday/Middleware.html">Faraday::Middleware</a>
+  
+    <li><a href="./Faraday/MiddlewareRegistry.html">Faraday::MiddlewareRegistry</a>
+  
+    <li><a href="./Faraday/Request.html">Faraday::Request</a>
+  
+    <li><a href="./Faraday/Request/Authorization.html">Faraday::Request::Authorization</a>
+  
+    <li><a href="./Faraday/Request/BasicAuthentication.html">Faraday::Request::BasicAuthentication</a>
+  
+    <li><a href="./Faraday/Request/Multipart.html">Faraday::Request::Multipart</a>
+  
+    <li><a href="./Faraday/Request/Retry.html">Faraday::Request::Retry</a>
+  
+    <li><a href="./Faraday/Request/TokenAuthentication.html">Faraday::Request::TokenAuthentication</a>
+  
+    <li><a href="./Faraday/Request/UrlEncoded.html">Faraday::Request::UrlEncoded</a>
+  
+    <li><a href="./Faraday/Response.html">Faraday::Response</a>
+  
+    <li><a href="./Faraday/Response/Logger.html">Faraday::Response::Logger</a>
+  
+    <li><a href="./Faraday/Response/Middleware.html">Faraday::Response::Middleware</a>
+  
+    <li><a href="./Faraday/Response/RaiseError.html">Faraday::Response::RaiseError</a>
+  
+    <li><a href="./Faraday/Utils.html">Faraday::Utils</a>
+  
+    <li><a href="./Faraday/Utils/Headers.html">Faraday::Utils::Headers</a>
+  
+    <li><a href="./Faraday/Utils/ParamsHash.html">Faraday::Utils::ParamsHash</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Faraday</h1>
+
+  <div id="description" class="description">
+    
+<p>Rely on autoloading instead of explicit require; helps avoid the “already
+initialized constant” warning on Ruby 1.8.7 when NetHttp is refereced
+below. require &#39;faraday/adapter/net_http&#39;</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="Parts">Parts
+        
+        <dd class="description">
+        
+      
+        <dt id="Timer">Timer
+        
+        <dd class="description">
+        
+      
+        <dt id="UploadIO">UploadIO
+        
+        <dd class="description">
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-c-default_adapter" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_adapter</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_connection" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_connection</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-lib_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lib_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-root_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">root_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-default_connection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_connection</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_connection-source">
+            <pre><span class="ruby-comment"># File lib/faraday.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_connection</span>
+  <span class="ruby-ivar">@default_connection</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- default_connection-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- default_connection-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(url = nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/faraday.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">block</span> = <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Connection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-register_middleware" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_middleware</span><span
+            class="method-args">(type, mapping = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: register middleware classes under a short name.</p>
+
+<p>type    - A Symbol specifying the kind of middleware (default: :middleware)
+mapping - A Hash mapping Symbol keys to classes. Classes can be expressed</p>
+
+<pre>as fully qualified constant, or a Proc that will be lazily called
+to return the former.</pre>
+
+<p>Examples</p>
+
+<pre class="ruby"><span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">register_middleware</span> :<span class="ruby-identifier">aloha</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">MyModule</span><span class="ruby-operator">::</span><span class="ruby-constant">Aloha</span>
+<span class="ruby-constant">Faraday</span>.<span class="ruby-identifier">register_middleware</span> :<span class="ruby-identifier">response</span>, :<span class="ruby-identifier">boom</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">MyModule</span><span class="ruby-operator">::</span><span class="ruby-constant">Boom</span>
+
+<span class="ruby-comment"># shortcuts are now available in Builder:</span>
+<span class="ruby-identifier">builder</span>.<span class="ruby-identifier">use</span> :<span class="ruby-identifier">aloha</span>
+<span class="ruby-identifier">builder</span>.<span class="ruby-identifier">response</span> :<span class="ruby-identifier">boom</span>
+</pre>
+
+<p>Returns nothing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="register_middleware-source">
+            <pre><span class="ruby-comment"># File lib/faraday.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">register_middleware</span> <span class="ruby-identifier">type</span>, <span class="ruby-identifier">mapping</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">type</span>, <span class="ruby-identifier">mapping</span> = <span class="ruby-value">:middleware</span>, <span class="ruby-identifier">type</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">component</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">capitalize</span>)
+  <span class="ruby-identifier">component</span>.<span class="ruby-identifier">register_middleware</span>(<span class="ruby-identifier">mapping</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- register_middleware-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- register_middleware-method -->
+
+    
+      <div id="method-c-require_lib" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">require_lib</span><span
+            class="method-args">(*libs)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Faraday.html#method-c-require_libs">require_libs</a>
+        </div>
+        
+      </div><!-- require_lib-method -->
+
+    
+      <div id="method-c-require_libs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require_libs</span><span
+            class="method-args">(*libs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="require_libs-source">
+            <pre><span class="ruby-comment"># File lib/faraday.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require_libs</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">libs</span>)
+  <span class="ruby-identifier">libs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-node">&quot;#{lib_path}/#{lib}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- require_libs-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Faraday.html#method-c-require_lib">require_lib</a>
+        </div>
+        
+
+        
+      </div><!-- require_libs-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Private Class Methods</h3>
+
+    
+      <div id="method-c-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(name, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/faraday.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">default_connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- method_missing-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- method_missing-method -->
+
+    
+    </section><!-- private-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

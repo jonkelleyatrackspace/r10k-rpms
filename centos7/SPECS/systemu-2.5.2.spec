@@ -1,5 +1,7 @@
 # Generated from systemu-2.5.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name systemu
+# here goes nothing
+%define _unpackaged_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 2.5.2
@@ -69,5 +71,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Fri Sep 19 2014 root - 2.5.2-1
+* Fri Sep 19 2014 root <root@puppet-n01.prod.us.ci.rackspace.net> - 2.5.2-1
 - Initial package

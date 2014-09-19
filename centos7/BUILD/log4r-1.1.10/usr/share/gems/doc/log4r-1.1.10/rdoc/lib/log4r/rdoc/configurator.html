@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>configurator - log4r-1.1.10 Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-Configuring+Log4r+with+Log4r%3A%3AConfigurator">Configuring Log4r with Log4r::Configurator</a>
+      <li><a href="#label-Custom+Levels">Custom Levels</a>
+      <li><a href="#label-XML+Configuration">XML Configuration</a>
+      <li><a href="#label-Concept%3A+XML+Directives">Concept: XML Directives</a>
+      <li><a href="#label-Concept%3A+XML+Parameters">Concept: XML Parameters</a>
+      <li><a href="#label-Concept%3A+Variable+Substitution">Concept: Variable Substitution</a>
+      <li><a href="#label-XML+Grammar">XML Grammar</a>
+      <li><a href="#label-Root+Element">Root Element</a>
+      <li><a href="#label-Pre-config+element">Pre-config element</a>
+      <li><a href="#label-Pre_config%3A+Custom+Levels">Pre_config: Custom Levels</a>
+      <li><a href="#label-Pre_config%3A+Global+Level">Pre_config: Global Level</a>
+      <li><a href="#label-Pre_config%3A+Parameters">Pre_config: Parameters</a>
+      <li><a href="#label-Pre_config%3A+Complete+Example">Pre_config: Complete Example</a>
+      <li><a href="#label-Configuring+Log4r+Objects">Configuring Log4r Objects</a>
+      <li><a href="#label-Order+Doesn%27t+Matter">Order Doesn&#39;t Matter</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/GDC.html">GDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/MDC.html">MDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/NDC.html">NDC</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/configurator.html">configurator</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/emailoutputter.html">emailoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/formatter.html">formatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4jxmlformatter.html">log4jxmlformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/log4r.html">log4r</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logger.html">logger</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/logserver.html">logserver</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/outputter.html">outputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/patternformatter.html">patternformatter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/scribeoutputter.html">scribeoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/syslogoutputter.html">syslogoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/win32eventoutputter.html">win32eventoutputter</a>
+  
+    <li class="file"><a href="../../../lib/log4r/rdoc/yamlconfigurator.html">yamlconfigurator</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Log4r.html">Log4r</a>
+  
+    <li><a href="../../../Log4r/BasicFormatter.html">Log4r::BasicFormatter</a>
+  
+    <li><a href="../../../Log4r/ConfigError.html">Log4r::ConfigError</a>
+  
+    <li><a href="../../../Log4r/Configurator.html">Log4r::Configurator</a>
+  
+    <li><a href="../../../Log4r/DateFileOutputter.html">Log4r::DateFileOutputter</a>
+  
+    <li><a href="../../../Log4r/DefaultFormatter.html">Log4r::DefaultFormatter</a>
+  
+    <li><a href="../../../Log4r/EmailOutputter.html">Log4r::EmailOutputter</a>
+  
+    <li><a href="../../../Log4r/FileOutputter.html">Log4r::FileOutputter</a>
+  
+    <li><a href="../../../Log4r/Formatter.html">Log4r::Formatter</a>
+  
+    <li><a href="../../../Log4r/GDC.html">Log4r::GDC</a>
+  
+    <li><a href="../../../Log4r/IOOutputter.html">Log4r::IOOutputter</a>
+  
+    <li><a href="../../../Log4r/Log4jXmlFormatter.html">Log4r::Log4jXmlFormatter</a>
+  
+    <li><a href="../../../Log4r/Log4rConfig.html">Log4r::Log4rConfig</a>
+  
+    <li><a href="../../../Log4r/Log4rTools.html">Log4r::Log4rTools</a>
+  
+    <li><a href="../../../Log4r/LogEvent.html">Log4r::LogEvent</a>
+  
+    <li><a href="../../../Log4r/LogServer.html">Log4r::LogServer</a>
+  
+    <li><a href="../../../Log4r/Logger.html">Log4r::Logger</a>
+  
+    <li><a href="../../../Log4r/Logger/LoggerFactory.html">Log4r::Logger::LoggerFactory</a>
+  
+    <li><a href="../../../Log4r/Logger/Repository.html">Log4r::Logger::Repository</a>
+  
+    <li><a href="../../../Log4r/MDC.html">Log4r::MDC</a>
+  
+    <li><a href="../../../Log4r/NDC.html">Log4r::NDC</a>
+  
+    <li><a href="../../../Log4r/ObjectFormatter.html">Log4r::ObjectFormatter</a>
+  
+    <li><a href="../../../Log4r/Outputter.html">Log4r::Outputter</a>
+  
+    <li><a href="../../../Log4r/Outputter/OutputterFactory.html">Log4r::Outputter::OutputterFactory</a>
+  
+    <li><a href="../../../Log4r/PatternFormatter.html">Log4r::PatternFormatter</a>
+  
+    <li><a href="../../../Log4r/ROMPClient.html">Log4r::ROMPClient</a>
+  
+    <li><a href="../../../Log4r/ROMPServer.html">Log4r::ROMPServer</a>
+  
+    <li><a href="../../../Log4r/RemoteOutputter.html">Log4r::RemoteOutputter</a>
+  
+    <li><a href="../../../Log4r/RollingFileOutputter.html">Log4r::RollingFileOutputter</a>
+  
+    <li><a href="../../../Log4r/RootLogger.html">Log4r::RootLogger</a>
+  
+    <li><a href="../../../Log4r/ScribeOutputter.html">Log4r::ScribeOutputter</a>
+  
+    <li><a href="../../../Log4r/SimpleFormatter.html">Log4r::SimpleFormatter</a>
+  
+    <li><a href="../../../Log4r/StderrOutputter.html">Log4r::StderrOutputter</a>
+  
+    <li><a href="../../../Log4r/StdoutOutputter.html">Log4r::StdoutOutputter</a>
+  
+    <li><a href="../../../Log4r/SyslogOutputter.html">Log4r::SyslogOutputter</a>
+  
+    <li><a href="../../../Log4r/UDPOutputter.html">Log4r::UDPOutputter</a>
+  
+    <li><a href="../../../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+    <li><a href="../../../REXML.html">REXML</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-Configuring+Log4r+with+Log4r%3A%3AConfigurator">Configuring <a href="../../../Log4r.html">Log4r</a> with <a href="../../../Log4r/Configurator.html">Log4r::Configurator</a><span><a href="#label-Configuring+Log4r+with+Log4r%3A%3AConfigurator">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>The Configurator class allows one to set up <a
+href="../../../Log4r.html">Log4r</a> via XML. Additionally, Configurator
+contains methods to configure any <a href="../../../Log4r.html">Log4r</a> 
+defaults. In particular, Configurator provides a method to customize the
+logging levels.</p>
+
+<p><a href="../../../Log4r.html">Log4r</a> is also configurable using YAML.
+For that, there is a class similar to Configurator called <a
+href="../../../Log4r/YamlConfigurator.html">Log4r::YamlConfigurator</a>.
+Please see log4r/yamlconfigurator.rb for details.</p>
+
+<p><a href="../../../REXML.html">REXML</a> is required for XML configuration.
+Get <a href="../../../REXML.html">REXML</a> at  <a
+href="http://www.ruby-lang.org/en/raa-list.rhtml?name=REXML">www.ruby-lang.org/en/raa-list.rhtml?name=REXML</a></p>
+
+<p>To use the Configurator class,</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;log4r/configurator&#39;</span>
+</pre>
+
+<h2 id="label-Custom+Levels">Custom Levels<span><a href="#label-Custom+Levels">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Suppose you want the following levels and ranks:</p>
+
+<pre>Foo &lt; Bar &lt; Baz</pre>
+
+<p>This is easily accomplished:</p>
+
+<pre>Configurator.custom_levels(&#39;Foo&#39;, &#39;Bar&#39;, :Baz)</pre>
+
+<p>The method accepts strings or symbols. However, custom levels must have
+names  that are valid for Ruby constants. Also, custom levels should be set
+before  anything else is done with <a href="../../../Log4r.html">Log4r</a>,
+otherwise the default levels will be loaded.</p>
+
+<p>You can set custom levels in XML. That&#39;s covered in the following
+section.</p>
+
+<h2 id="label-XML+Configuration">XML Configuration<span><a href="#label-XML+Configuration">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If you have <a href="../../../REXML.html">REXML</a>, you can configure <a
+href="../../../Log4r.html">Log4r</a> with XML. To do this, first write an
+XML configuration (which you can learn by studying this document and the
+examples provided in the distribution) and then load up the XML from within
+your program as follows:</p>
+
+<pre>Configurator.load_xml_file(&#39;/path/to/file.xml&#39;)</pre>
+
+<p>The <a href="../../../Log4r.html">Log4r</a> XML configuration system is
+very flexible and powerful. In fact, it is somewhat preferable to
+configuring <a href="../../../Log4r.html">Log4r</a> in Ruby. In order to
+take full advantage of this feature, there are several concepts one must
+know. They are covered in the following three sections.</p>
+
+<h3 id="label-Concept%3A+XML+Directives">Concept: XML Directives<span><a href="#label-Concept%3A+XML+Directives">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The expressive power of Ruby has enabled a feature I call  <em>XML
+directives</em>. An XML directive is a name-value pair belonging to  some
+element. It may be represented as an attribute (name=“value”) of the
+element, or as a child (&lt;name&gt;value&lt;/name&gt;) of the element.
+Therefore, you are free to specify information about an object as either an
+attribute or an element. An example should clarify:</p>
+
+<pre>&lt;object data=&quot;value&quot;/&gt;</pre>
+
+<p>Is equivalent to:</p>
+
+<pre>&lt;object&gt;
+   &lt;data&gt;value&lt;/data&gt;
+&lt;/object&gt;</pre>
+
+<p>You can assume this behavior except where noted elsewhere in the API.</p>
+
+<h3 id="label-Concept%3A+XML+Parameters">Concept: XML Parameters<span><a href="#label-Concept%3A+XML+Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>A scheme which I call <em>XML parameters</em> enables one to utilize the
+XML  configuratin system for custom Outputters and Formatters. This
+requires <strong>no</strong> extra work on your part, so long as your
+objects  are set up using hash arguments and can decode string values. That
+is, once you&#39;ve written a custom Outputter, it is automatically
+configurable in XML without having to write any extra code.</p>
+
+<p>An XML parameter is analogous to a hash argument to some object&#39;s
+<code>new</code> method. Consider these hash arguments to FileOutputter:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;/path/to/logs/my.log&#39;</span>
+:<span class="ruby-identifier">trunc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;true&#39;</span>
+</pre>
+
+<p>We can specify them in XML like this:</p>
+
+<pre>&lt;outputter type=&quot;FileOutputter&quot; trunc=&quot;true&quot;&gt;
+   &lt;filename&gt;/path/to/logs/my.log&lt;/filename&gt;
+   ...</pre>
+
+<p>The name of the element/attribute is just the name of the parameter. Note
+that the input will be a string, thus it&#39;s wise to convert the data in
+from  strings in any custom classes (to_i for integers, etc). Now let&#39;s
+suppose you  have defined a custom Outputter named MyOutputter with the
+following  additional hash args:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">myarg1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;foo&#39;</span>
+:<span class="ruby-identifier">myarg2</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">123</span>
+</pre>
+
+<p>Automagically, you can configure your Outputter like so:</p>
+
+<pre>&lt;outputter type=&quot;MyOutputter&quot; myarg2=&quot;123&quot;&gt;
+   &lt;myarg1&gt;foo&lt;/myarg1&gt;
+   ...</pre>
+
+<p>Isn&#39;t that nice? <code>:-)</code></p>
+
+<h3 id="label-Concept%3A+Variable+Substitution">Concept: Variable Substitution<span><a href="#label-Concept%3A+Variable+Substitution">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>To kill the need for preprocessors, Configurator provides a means of
+variable  substitution for XML parameters at runtime. If you specify 
+<code>#{foo}</code> in an XML parameter value, Configurator will replace it
+with  the value of &#39;foo&#39; in its parameter hashtable. The primary
+idea is that you  can figure stuff out in your program,  say the log path,
+and relay that information to the XML while it&#39;s being  loaded.
+Secondarily, it is a way to have aliases within an XML document.</p>
+
+<p>There are two ways to tell Configurator about these variables. The first
+method we&#39;ll cover is done within a Ruby program with Configurator[].</p>
+
+<pre>Configurator[&#39;logpath&#39;] = &#39;/path/to/logs&#39;</pre>
+
+<p>Thereafter, any occurence of <code>#{logpath}</code> in each and every XML 
+parameter will be substituted with &#39;/path/to/logs&#39;. For example:</p>
+
+<pre>&lt;filename&gt;#{logpath}/mylog.log&lt;/filename&gt;</pre>
+
+<p>Becomes,</p>
+
+<pre>&lt;filename&gt;/path/to/logs/mylog.log&lt;/filename&gt;</pre>
+
+<p>Aside from Configurator[], another way to define XML parameter variables is
+to define <code>parameters</code> under the <code>&lt;pre_config&gt;</code>
+element of an XML configuration:</p>
+
+<pre>&lt;pre_config&gt;
+   &lt;parameter name=&quot;logpath&quot; value=&quot;/path/to/logs&#39;/&gt;
+   &lt;parameter name=&quot;other&quot; value=&quot;somethingelse&#39;/&gt;
+   ...
+&lt;/pre_config&gt;</pre>
+
+<p>Alternatively,</p>
+
+<pre>&lt;pre_config&gt;
+   &lt;parameters&gt;
+      &lt;logpath&gt;/path/to/logs&lt;/logpath&gt;
+      &lt;other&gt;somethingelse&lt;/other&gt;
+      ...
+   &lt;/parameters&gt;
+   ...</pre>
+
+<p>The end result is the same as using Configurator[]. However, this method is
+not dynamic. Configurator[] should be used when you want to set variables
+from within Ruby.</p>
+
+<h1 id="label-XML+Grammar">XML Grammar<span><a href="#label-XML+Grammar">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>And now, here&#39;s the XML grammar we use to configure <a
+href="../../../Log4r.html">Log4r</a>.</p>
+
+<h2 id="label-Root+Element">Root Element<span><a href="#label-Root+Element">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The root element is <code>&lt;log4r_config&gt;</code>. It can be embedded
+as a node of any other element in an XML file. For instance:</p>
+
+<pre>&lt;my-xml-thing&gt;
+   &lt;customize-libraries&gt;
+      &lt;log4r_config&gt;
+         &lt;!-- log4r configuratin goes here --&gt;
+      &lt;/log4r_config&gt;
+      ...</pre>
+
+<h2 id="label-Pre-config+element">Pre-config element<span><a href="#label-Pre-config+element">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The pre_config element is a child of log4r_config and contains:</p>
+<ul><li>
+<p>&#39;custom_levels&#39; element</p>
+</li><li>
+<p>&#39;global&#39; element</p>
+</li><li>
+<p>&#39;parameters&#39; element</p>
+</li><li>
+<p>any number of &#39;parameter&#39; elements</p>
+</li></ul>
+
+<h3 id="label-Pre_config%3A+Custom+Levels">Pre_config: Custom Levels<span><a href="#label-Pre_config%3A+Custom+Levels">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The custom_levels element is not an <em>XML directive</em> of pre_config.
+It <strong>must</strong> be specified like this:</p>
+
+<pre>&lt;custom_levels&gt;Foo, Bar, Baz&lt;/custom_levels&gt;</pre>
+
+<p>And <strong>not</strong> like this:</p>
+
+<pre>&lt;!-- NOT SUPPORTED --&gt;
+&lt;custom_levels levels=&quot;Foo, Bar, Baz&quot;/&gt;</pre>
+
+<h3 id="label-Pre_config%3A+Global+Level">Pre_config: Global Level<span><a href="#label-Pre_config%3A+Global+Level">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<pre>&lt;global level=&quot;DEBUG&quot;/&gt;</pre>
+
+<p>or</p>
+
+<pre>&lt;global&gt;&lt;level&gt;DEBUG&lt;/level&gt;&lt;/global&gt;</pre>
+
+<p>Here, level is an XML directive of global.</p>
+
+<h3 id="label-Pre_config%3A+Parameters">Pre_config: Parameters<span><a href="#label-Pre_config%3A+Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Parameters are variables that will be substituted later on. Please see the
+<strong>Concept: Variable Substitution</strong> section above. Parameters 
+are <em>XML Directives</em>, which means they can be expressed using
+elements  or attributes. Here is an example:</p>
+
+<pre>&lt;parameter name=&quot;param name 1&quot; value=&quot;param value 1&quot;&gt;
+&lt;parameter name=&quot;param name 2&quot; value=&quot;param value 2&quot;&gt;
+...
+&lt;parameters&gt;
+   &lt;param3&gt;value3&lt;/param3&gt;
+   &lt;param4&gt;value3&lt;/param4&gt;
+   ...</pre>
+
+<h3 id="label-Pre_config%3A+Complete+Example">Pre_config: Complete Example<span><a href="#label-Pre_config%3A+Complete+Example">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<pre>&lt;log4r_config&gt;
+
+   &lt;pre_config&gt;
+      &lt;custom_levels&gt;
+         Foo,Bar, Baz
+      &lt;/custom_levels&gt;
+      &lt;global level=&quot;Bar&quot;/&gt;
+      &lt;parameters&gt;
+         &lt;logpath&gt;/var/log/foo&lt;/logpath&gt;
+         &lt;mypattern&gt;%l [%d] %m&lt;/mypattern&gt;
+      &lt;/parameters&gt;
+   &lt;/pre_config&gt;
+
+   &lt;!-- define some outputters and loggers --&gt;
+
+&lt;/log4r_config&gt;</pre>
+
+<h2 id="label-Configuring+Log4r+Objects">Configuring <a href="../../../Log4r.html">Log4r</a> Objects<span><a href="#label-Configuring+Log4r+Objects">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The XML configuration grammar for Loggers, Outputters and the like are 
+covered in the usage guidelines for those classes.</p>
+
+<h2 id="label-Order+Doesn%27t+Matter">Order Doesn&#39;t Matter<span><a href="#label-Order+Doesn%27t+Matter">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>You can (it is hoped) define any of the XML objects in any order desired.</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
