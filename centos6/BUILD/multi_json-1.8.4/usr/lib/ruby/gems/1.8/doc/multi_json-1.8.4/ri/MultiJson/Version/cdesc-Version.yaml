@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MAJOR
+  value: 1 unless defined? MultiJson::Version::MAJOR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MINOR
+  value: 8 unless defined? MultiJson::Version::MINOR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PATCH
+  value: 4 unless defined? MultiJson::Version::PATCH
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PRE
+  value: nil unless defined? MultiJson::Version::PRE
+full_name: MultiJson::Version
+includes: []
+
+instance_methods: []
+
+name: Version
+superclass: Object

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize the given SVN environment.
+- !ruby/struct:SM::Flow::P 
+  body: "@param name [String] The unique name describing this environment. @param basedir [String] The base directory where this environment will be created. @param dirname [String] The directory name for this environment. @param options [Hash] An additional set of options for this environment."
+- !ruby/struct:SM::Flow::P 
+  body: "@param options [String] :remote The URL to the remote git repository @param options [String] :ref The git reference to use for this environment"
+full_name: R10K::Environment::Git::new
+is_singleton: true
+name: new
+params: (name, basedir, dirname, options = {})
+visibility: public

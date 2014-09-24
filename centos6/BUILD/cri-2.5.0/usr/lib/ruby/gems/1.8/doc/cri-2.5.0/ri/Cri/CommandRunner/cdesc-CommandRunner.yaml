@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array] The list of arguments"
+  name: arguments
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Command] The command"
+  name: command
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Hash] A hash contain the options and their values"
+  name: options
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A command runner is responsible for the execution of a command. Using it is optional, but it is useful for commands whose execution block is large.
+constants: []
+
+full_name: Cri::CommandRunner
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: run
+name: CommandRunner
+superclass: Object

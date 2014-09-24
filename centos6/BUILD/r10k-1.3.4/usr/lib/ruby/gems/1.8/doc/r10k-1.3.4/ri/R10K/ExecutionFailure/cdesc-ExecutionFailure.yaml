@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: exit_code
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stderr
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: stdout
+  rw: RW
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: R10K::ExecutionFailure
+includes: []
+
+instance_methods: []
+
+name: ExecutionFailure
+superclass: StandardError

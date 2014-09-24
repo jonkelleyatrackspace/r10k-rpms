@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: setup_parallel_manager
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::EMSynchrony
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: EMHttp::Options
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: EMSynchrony
+superclass: Faraday::Adapter

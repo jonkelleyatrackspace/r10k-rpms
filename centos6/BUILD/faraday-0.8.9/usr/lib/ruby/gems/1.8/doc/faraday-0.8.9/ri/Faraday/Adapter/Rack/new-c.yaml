@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Adapter::Rack::new
+is_singleton: true
+name: new
+params: (faraday_app, rack_app)
+visibility: public

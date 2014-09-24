@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] basedir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The path that this environment will be created in\n"
+  name: basedir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] dirname"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The directory name for the given environment\n"
+  name: dirname
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] name"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] A name for this environment that is unique to the given source\n"
+  name: name
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class defines a common interface for environment implementations.
+- !ruby/struct:SM::Flow::P 
+  body: "@since 1.3.0"
+constants: []
+
+full_name: R10K::Environment::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: sync
+name: Base
+superclass: Object

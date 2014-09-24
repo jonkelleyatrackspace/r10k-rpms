@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Wraps a handler originally written for Rack to make it compatible with Faraday.
+- !ruby/struct:SM::Flow::P 
+  body: Experimental. Only handles changes in request headers.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NonPrefixedHeaders
+  value: "%w[CONTENT_LENGTH CONTENT_TYPE]"
+full_name: FaradayMiddleware::RackCompatible
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: finalize_response
+- !ruby/object:RI::MethodSummary 
+  name: headers_to_rack
+- !ruby/object:RI::MethodSummary 
+  name: prepare_env
+- !ruby/object:RI::MethodSummary 
+  name: restore_env
+name: RackCompatible
+superclass: Object

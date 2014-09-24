@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] working_dir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @api private\n  @return [R10K::Git::WorkingDir]\n"
+  name: working_dir
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: implement?
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Module::Git
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: version
+name: Git
+superclass: R10K::Module::Base

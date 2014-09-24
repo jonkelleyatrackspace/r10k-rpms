@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param parent [R10K::Settings::Container] An optional parent container"
+full_name: R10K::Settings::Container::new
+is_singleton: true
+name: new
+params: (parent = nil)
+visibility: public

@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] implementations"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Hash&lt;Object, Class&gt;] A hash of keys and the associated\n    implementations that this factory can generate.\n"
+  name: implementations
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This implements a factory by storing classes indexed with a given key and creates objects based on that key.
+constants: []
+
+full_name: R10K::KeyedFactory
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: generate
+- !ruby/object:RI::MethodSummary 
+  name: register
+- !ruby/object:RI::MethodSummary 
+  name: retrieve
+name: KeyedFactory
+superclass: Object

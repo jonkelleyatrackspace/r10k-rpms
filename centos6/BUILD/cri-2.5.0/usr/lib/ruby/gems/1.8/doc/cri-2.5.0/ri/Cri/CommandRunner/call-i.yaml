@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Runs the command. By default, this simply does the actual execution, but subclasses may choose to add error handling around the actual execution.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandRunner#call
+is_singleton: false
+name: call
+params: ()
+visibility: public

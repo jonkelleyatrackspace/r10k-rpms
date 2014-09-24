@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: We need to subclass Numeric to force range comparisons not to try to iterate over SemVer and instead use numeric comparisons (eg &gt;, &lt;, &gt;=, &lt;=) Ruby 1.8 already did this for all ranges, but Ruby 1.9 changed range include behavior
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'1.3.4'"
+full_name: R10K
+includes: []
+
+instance_methods: []
+
+name: R10K
+superclass: 

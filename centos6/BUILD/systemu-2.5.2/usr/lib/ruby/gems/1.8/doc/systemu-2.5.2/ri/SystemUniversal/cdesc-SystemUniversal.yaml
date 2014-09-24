@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: quote
+- !ruby/object:RI::MethodSummary 
+  name: version
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'2.5.2' unless SystemUniversal.send(:const_defined?, :VERSION)"
+full_name: SystemUniversal
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: child_program
+- !ruby/object:RI::MethodSummary 
+  name: child_setup
+- !ruby/object:RI::MethodSummary 
+  name: getopts
+- !ruby/object:RI::MethodSummary 
+  name: new_thread
+- !ruby/object:RI::MethodSummary 
+  name: quietly
+- !ruby/object:RI::MethodSummary 
+  name: quote
+- !ruby/object:RI::MethodSummary 
+  name: relay
+- !ruby/object:RI::MethodSummary 
+  name: systemu
+- !ruby/object:RI::MethodSummary 
+  name: systemu
+- !ruby/object:RI::MethodSummary 
+  name: tmpdir
+- !ruby/object:RI::MethodSummary 
+  name: version
+name: SystemUniversal
+superclass: Object

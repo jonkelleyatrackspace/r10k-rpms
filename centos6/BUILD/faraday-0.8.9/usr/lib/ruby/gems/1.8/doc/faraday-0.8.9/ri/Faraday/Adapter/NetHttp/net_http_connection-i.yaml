@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Adapter::NetHttp#net_http_connection
+is_singleton: false
+name: net_http_connection
+params: (env)
+visibility: public

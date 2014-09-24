@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] The path to the first valid configfile"
+full_name: R10K::Deployment::Config::Loader#search
+is_singleton: false
+name: search
+params: ()
+visibility: public

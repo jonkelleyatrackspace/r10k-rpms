@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Should we try to fetch this ref?
+- !ruby/struct:SM::Flow::P 
+  body: Since we don't know the type of this ref, we have to assume that it might be a branch and always update accordingly.
+full_name: R10K::Git::Ref#fetch?
+is_singleton: false
+name: fetch?
+params: ()
+visibility: public

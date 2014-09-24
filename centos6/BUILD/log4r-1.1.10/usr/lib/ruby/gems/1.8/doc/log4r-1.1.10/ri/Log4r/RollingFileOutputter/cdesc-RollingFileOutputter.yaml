@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: current_sequence_number
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: max_backups
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: maxsize
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: maxtime
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: start_time
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: RollingFileOutputter - subclass of FileOutputter that rolls files on size or time. So, given a filename of &quot;error.log&quot;, the first log file will be &quot;error000001.log&quot;. When its check condition is exceeded, it'll create and log to &quot;error000002.log&quot;, etc.
+- !ruby/struct:SM::Flow::P 
+  body: "Additional hash arguments are:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: <tt>:maxsize</tt>
+    body: Maximum size of the file in bytes.
+  - !ruby/struct:SM::Flow::LI 
+    label: <tt>:maxtime</tt>
+    body: Maximum age of the file in seconds.
+  - !ruby/struct:SM::Flow::LI 
+    label: <tt>:max_backups</tt>
+    body: Maxium number of prior log files to maintain. If max_backups is a positive number,
+  type: :LABELED
+- !ruby/struct:SM::Flow::VERB 
+  body: "    then each time a roll happens, RollingFileOutputter will delete the oldest backup log files in excess\n    of this number (if any).  So, if max_backups is 10, then a maximum of 11 files will be maintained (the current\n    log, plus 10 backups). If max_backups is 0, no backups will be kept. If it is negative (the default),\n    there will be no limit on the number of files created. Note that the sequence numbers will continue to escalate;\n    old sequence numbers are not reused.\n"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: <tt>:trunc</tt>
+    body: If true, deletes ALL existing log files (based on :filename) upon initialization,
+  type: :LABELED
+- !ruby/struct:SM::Flow::VERB 
+  body: "    and the sequence numbering will start over at 000001. Otherwise continues logging where it left off\n    last time (i.e. either to the file with the highest sequence number, or a new file, as appropriate).\n"
+constants: []
+
+full_name: Log4r::RollingFileOutputter
+includes: []
+
+instance_methods: []
+
+name: RollingFileOutputter
+superclass: FileOutputter

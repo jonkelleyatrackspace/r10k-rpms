@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Perform any actions needed for loading environments that may have side effects.
+- !ruby/struct:SM::Flow::P 
+  body: Actions done during preloading may include things like updating caches or performing network queries. If an environment has not been preloaded but {#environments} is invoked, it should return the best known state of environments or return an empty list.
+- !ruby/struct:SM::Flow::P 
+  body: "@api public @abstract @return [void]"
+full_name: R10K::Source::Base#preload!
+is_singleton: false
+name: preload!
+params: ()
+visibility: public

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: factory
+- !ruby/object:RI::MethodSummary 
+  name: from_hash
+- !ruby/object:RI::MethodSummary 
+  name: generate
+- !ruby/object:RI::MethodSummary 
+  name: register
+- !ruby/object:RI::MethodSummary 
+  name: retrieve
+comment: 
+constants: []
+
+full_name: R10K::Source
+includes: []
+
+instance_methods: []
+
+name: Source
+superclass: 

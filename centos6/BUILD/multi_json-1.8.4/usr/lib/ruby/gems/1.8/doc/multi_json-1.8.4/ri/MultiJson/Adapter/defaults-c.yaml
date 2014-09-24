@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: MultiJson::Adapter::defaults
+is_singleton: true
+name: defaults
+params: (action, value)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] The string, formatted to be used as a title in a section"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  in the help\n"
+full_name: Cri::CoreExtensions::String#formatted_as_title
+is_singleton: false
+name: formatted_as_title
+params: ()
+visibility: public

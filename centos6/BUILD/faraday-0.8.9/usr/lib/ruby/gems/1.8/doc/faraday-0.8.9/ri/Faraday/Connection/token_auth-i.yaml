@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Connection#token_auth
+is_singleton: false
+name: token_auth
+params: (token, options = nil)
+visibility: public

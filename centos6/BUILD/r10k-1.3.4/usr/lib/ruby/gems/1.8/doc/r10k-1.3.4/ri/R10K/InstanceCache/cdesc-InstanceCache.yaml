@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class implements a generic object memoization container. It caches new objects and returns cached objects based on the instantiation arguments.
+constants: []
+
+full_name: R10K::InstanceCache
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: clear!
+- !ruby/object:RI::MethodSummary 
+  name: generate
+name: InstanceCache
+superclass: Object

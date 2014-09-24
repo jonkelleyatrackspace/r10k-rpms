@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Store a Proc that receives the body and returns the parsed result.
+full_name: FaradayMiddleware::ResponseMiddleware::define_parser
+is_singleton: true
+name: define_parser
+params: (parser = nil)
+visibility: public

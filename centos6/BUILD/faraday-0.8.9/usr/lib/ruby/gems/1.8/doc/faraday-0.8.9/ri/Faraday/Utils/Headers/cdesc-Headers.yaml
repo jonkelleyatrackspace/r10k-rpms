@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adapted from Rack::Utils::HeaderHash
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: symbol -&gt; string mapper + cache
+  name: KeyMap
+  value: Hash.new do |map, key|         map[key] = if key.respond_to?(:to_str) then key
+full_name: Faraday::Utils::Headers
+includes: []
+
+instance_methods: []
+
+name: Headers
+superclass: "::Hash"

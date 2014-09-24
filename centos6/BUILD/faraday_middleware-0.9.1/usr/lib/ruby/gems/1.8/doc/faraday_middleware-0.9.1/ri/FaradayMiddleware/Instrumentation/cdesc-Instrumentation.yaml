@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Instruments requests using Active Support."
+- !ruby/struct:SM::Flow::P 
+  body: Measures time spent only for synchronous requests.
+- !ruby/struct:SM::Flow::P 
+  body: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  ActiveSupport::Notifications.subscribe('request.faraday') do |name, starts, ends, _, env|\n    url = env[:url]\n    http_method = env[:method].to_s.upcase\n    duration = ends - starts\n    $stderr.puts '[%s] %s %s (%.3f s)' % [url.host, http_method, url.request_uri, duration]\n  end\n"
+constants: []
+
+full_name: FaradayMiddleware::Instrumentation
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: Instrumentation
+superclass: Faraday::Middleware

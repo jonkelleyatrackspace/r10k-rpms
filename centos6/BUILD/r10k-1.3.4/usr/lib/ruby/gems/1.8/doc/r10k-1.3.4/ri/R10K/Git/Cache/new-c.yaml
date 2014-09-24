@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] remote @param [String] cache_root"
+full_name: R10K::Git::Cache::new
+is_singleton: true
+name: new
+params: (remote)
+visibility: public

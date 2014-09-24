@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Faraday::AutoloadHelper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: all_loaded_constants
+- !ruby/object:RI::MethodSummary 
+  name: autoload_all
+- !ruby/object:RI::MethodSummary 
+  name: load_autoloaded_constants
+name: AutoloadHelper
+superclass: 

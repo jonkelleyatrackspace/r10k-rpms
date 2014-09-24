@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new shallow git working directory
+- !ruby/struct:SM::Flow::P 
+  body: "@param ref [String, R10K::Git::Ref] @param remote [String] @param basedir [String] @param dirname [String]"
+full_name: R10K::Git::WorkingDir::new
+is_singleton: true
+name: new
+params: (ref, remote, basedir, dirname = nil)
+visibility: public

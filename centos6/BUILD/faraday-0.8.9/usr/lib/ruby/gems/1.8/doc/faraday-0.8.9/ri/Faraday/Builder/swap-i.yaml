@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Builder#swap
+is_singleton: false
+name: swap
+params: (index, *args, &block)
+visibility: public

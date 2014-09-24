@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Returns a new command that has support for the `-h`/`--help` option and also has a `help` subcommand. It is intended to be modified (adding name, summary, description, other subcommands, \xE2\x80\xA6)"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Cri::Command] A basic root command"
+full_name: Cri::Command::new_basic_root
+is_singleton: true
+name: new_basic_root
+params: ()
+visibility: public

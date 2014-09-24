@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: R10K::Git
+includes: []
+
+instance_methods: []
+
+name: Git
+superclass: 

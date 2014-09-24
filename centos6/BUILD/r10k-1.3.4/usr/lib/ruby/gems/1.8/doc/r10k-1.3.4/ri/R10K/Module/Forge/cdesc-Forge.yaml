@@ -1,0 +1,49 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] author"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The Forge module author\n"
+  name: author
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] full_name"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The fully qualified module name\n"
+  name: full_name
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: implement?
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Module::Forge
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: current_version
+- !ruby/object:RI::MethodSummary 
+  name: exist?
+- !ruby/object:RI::MethodSummary 
+  name: expected_version
+- !ruby/object:RI::MethodSummary 
+  name: insync?
+- !ruby/object:RI::MethodSummary 
+  name: owner
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: version
+name: Forge
+superclass: R10K::Module::Base

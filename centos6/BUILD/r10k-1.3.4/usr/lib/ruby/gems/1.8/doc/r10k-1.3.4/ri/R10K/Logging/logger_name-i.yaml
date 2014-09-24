@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Logging#logger_name
+is_singleton: false
+name: logger_name
+params: ()
+visibility: public

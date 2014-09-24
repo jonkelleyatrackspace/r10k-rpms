@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: port
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: udpsock
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Log4r::UDPOutputter
+includes: []
+
+instance_methods: []
+
+name: UDPOutputter
+superclass: Outputter

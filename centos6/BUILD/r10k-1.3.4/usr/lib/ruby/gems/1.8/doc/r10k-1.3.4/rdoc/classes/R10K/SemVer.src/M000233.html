@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>[] (R10K::SemVer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/semver.rb, line 25</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">range</span>)
+    <span class="ruby-identifier">range</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/([&gt;&lt;=])\s+/</span>, <span class="ruby-value str">'\1'</span>).<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\b\s+(?!-)/</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">r</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">r</span>)) <span class="ruby-operator">..</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">SIMPLE_RANGE</span>
+        <span class="ruby-identifier">r</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;.0&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/x/i</span>, <span class="ruby-value str">'0'</span>))
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/x/i</span>, <span class="ruby-value str">'0'</span>))<span class="ruby-operator">...</span><span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/(\d+)\.x/i</span>) { <span class="ruby-node">&quot;#{$1.to_i + 1}.0&quot;</span> } <span class="ruby-operator">+</span> <span class="ruby-value str">'-'</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/\s+-\s+/</span>
+        <span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s+-\s+/</span>)
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">a</span>)) <span class="ruby-operator">..</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">b</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^~/</span>
+        <span class="ruby-identifier">ver</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/~/</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">split</span>(<span class="ruby-value str">'.'</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:to_i</span>)
+        <span class="ruby-identifier">start</span> = (<span class="ruby-identifier">ver</span> <span class="ruby-operator">+</span> [<span class="ruby-value">0</span>] <span class="ruby-operator">*</span> (<span class="ruby-value">3</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">length</span>)).<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+
+        <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">ver</span>[<span class="ruby-value">-1</span>] = <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+        <span class="ruby-identifier">finish</span> = (<span class="ruby-identifier">ver</span> <span class="ruby-operator">+</span> [<span class="ruby-value">0</span>] <span class="ruby-operator">*</span> (<span class="ruby-value">3</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">length</span>)).<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">start</span>)) <span class="ruby-operator">...</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">finish</span>))
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^&gt;=/</span>
+        <span class="ruby-identifier">ver</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^&gt;=/</span>, <span class="ruby-value str">''</span>)
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">ver</span>)) <span class="ruby-operator">..</span> <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^&lt;=/</span>
+        <span class="ruby-identifier">ver</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^&lt;=/</span>, <span class="ruby-value str">''</span>)
+        <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">MIN</span> <span class="ruby-operator">..</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ver</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^&gt;/</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">r</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/-/</span>
+          <span class="ruby-identifier">ver</span> = [<span class="ruby-identifier">r</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]]
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">ver</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^&gt;/</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">split</span>(<span class="ruby-value str">'.'</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:to_i</span>)
+          <span class="ruby-identifier">ver</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">ver</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ver</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">'-'</span>) <span class="ruby-operator">..</span> <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^&lt;/</span>
+        <span class="ruby-identifier">ver</span> = <span class="ruby-identifier">r</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^&lt;/</span>, <span class="ruby-value str">''</span>)
+        <span class="ruby-constant">SemVer</span><span class="ruby-operator">::</span><span class="ruby-constant">MIN</span> <span class="ruby-operator">...</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre</span>(<span class="ruby-identifier">ver</span>))
+      <span class="ruby-keyword kw">else</span>
+        (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">inject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">e</span> }
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

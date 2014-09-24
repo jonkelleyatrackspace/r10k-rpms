@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: ENV Keys :method - a symbolized request method (:get, :post) :body - the request body that will eventually be converted to a string. :url - URI instance for the current request. :status - HTTP response status code :request_headers - hash of HTTP Headers to be sent to the server :response_headers - Hash of HTTP headers from the server :parallel_manager - sent if the connection is in parallel mode :request - Hash of options for configuring the request.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  :timeout      - open/read timeout Integer in seconds\n  :open_timeout - read timeout Integer in seconds\n  :proxy        - Hash of proxy options\n    :uri        - Proxy Server URI\n    :user       - Proxy server username\n    :password   - Proxy server password\n"
+- !ruby/struct:SM::Flow::P 
+  body: ":ssl - Hash of options for configuring SSL requests."
+full_name: Faraday::Request#to_env
+is_singleton: false
+name: to_env
+params: (connection)
+visibility: public

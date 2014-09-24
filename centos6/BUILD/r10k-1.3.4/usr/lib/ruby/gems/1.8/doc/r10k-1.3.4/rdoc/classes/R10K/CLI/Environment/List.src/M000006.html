@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>command (R10K::CLI::Environment::List)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/cli/environment/list.rb, line 7</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">command</span>
+      <span class="ruby-ivar">@cmd</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-identifier">name</span>  <span class="ruby-value str">'list'</span>
+        <span class="ruby-identifier">usage</span> <span class="ruby-value str">'list'</span>
+        <span class="ruby-identifier">summary</span> <span class="ruby-value str">'DEPRECATED: List all available environments'</span>
+
+        <span class="ruby-identifier">be_hidden</span>
+
+        <span class="ruby-identifier">run</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;This command is deprecated; please use `r10k deploy display`&quot;</span>
+          <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">CLI</span><span class="ruby-operator">::</span><span class="ruby-constant">Deploy</span><span class="ruby-operator">::</span><span class="ruby-constant">Display</span>.<span class="ruby-identifier">command</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">opts</span>,<span class="ruby-identifier">args</span>,<span class="ruby-identifier">cmd</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

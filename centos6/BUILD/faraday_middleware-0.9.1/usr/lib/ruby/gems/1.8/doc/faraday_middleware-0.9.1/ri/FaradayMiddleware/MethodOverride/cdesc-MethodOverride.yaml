@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Writes the original HTTP method to &quot;X-Http-Method-Override&quot; header and sends the request as POST."
+- !ruby/struct:SM::Flow::P 
+  body: This can be used to work around technical issues with making non-POST requests, e.g. faulty HTTP client or server router.
+- !ruby/struct:SM::Flow::P 
+  body: This header is recognized in Rack apps by default, courtesy of the Rack::MethodOverride module. See http://rack.rubyforge.org/doc/classes/Rack/MethodOverride.html
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HEADER
+  value: "\"X-Http-Method-Override\".freeze"
+full_name: FaradayMiddleware::MethodOverride
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: rewrite_request
+- !ruby/object:RI::MethodSummary 
+  name: rewrite_request?
+name: MethodOverride
+superclass: Faraday::Middleware

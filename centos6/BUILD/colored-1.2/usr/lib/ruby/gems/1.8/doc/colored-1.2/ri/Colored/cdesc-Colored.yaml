@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: cute.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &gt;&gt; &quot;this is red&quot;.red\n\n  &gt;&gt; &quot;this is red with a blue background (read: ugly)&quot;.red_on_blue\n\n  &gt;&gt; &quot;this is red with an underline&quot;.red.underline\n\n  &gt;&gt; &quot;this is really bold and really blue&quot;.bold.blue\n\n  &gt;&gt; Colored.red &quot;This is red&quot; # but this part is mostly untested\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: COLORS
+  value: "{      'black'   => 30,     'red'     => 31,      'green'   => 32,      'yellow'  => 33,     'blue'    => 34,     'magenta' => 35,     'cyan'    => 36,     'white'   => 37"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: EXTRAS
+  value: "{     'clear'     => 0,      'bold'      => 1,     'underline' => 4,     'reversed'  => 7"
+full_name: Colored
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: color
+- !ruby/object:RI::MethodSummary 
+  name: colorize
+- !ruby/object:RI::MethodSummary 
+  name: colors
+- !ruby/object:RI::MethodSummary 
+  name: extra
+name: Colored
+superclass: 

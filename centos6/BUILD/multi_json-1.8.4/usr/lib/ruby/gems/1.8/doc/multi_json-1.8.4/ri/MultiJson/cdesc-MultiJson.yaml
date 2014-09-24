@@ -1,0 +1,65 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cached_options
+- !ruby/object:RI::MethodSummary 
+  name: reset_cached_options!
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DecodeError
+  value: "LoadError # Legacy support"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: Version.to_s.freeze
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALIASES
+  value: "{ 'jrjackson' => 'jr_jackson' }"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REQUIREMENT_MAP
+  value: "[     ['oj',           :oj],     ['yajl',         :yajl],     ['jrjackson',    :jr_jackson],     ['json/ext',     :json_gem],     ['gson',         :gson],     ['json/pure',    :json_pure]"
+full_name: MultiJson
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Options
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: adapter
+- !ruby/object:RI::MethodSummary 
+  name: adapter=
+- !ruby/object:RI::MethodSummary 
+  name: current_adapter
+- !ruby/object:RI::MethodSummary 
+  name: decode
+- !ruby/object:RI::MethodSummary 
+  name: default_adapter
+- !ruby/object:RI::MethodSummary 
+  name: default_engine
+- !ruby/object:RI::MethodSummary 
+  name: default_options=
+- !ruby/object:RI::MethodSummary 
+  name: dump
+- !ruby/object:RI::MethodSummary 
+  name: encode
+- !ruby/object:RI::MethodSummary 
+  name: engine
+- !ruby/object:RI::MethodSummary 
+  name: engine=
+- !ruby/object:RI::MethodSummary 
+  name: load
+- !ruby/object:RI::MethodSummary 
+  name: load_adapter
+- !ruby/object:RI::MethodSummary 
+  name: use
+- !ruby/object:RI::MethodSummary 
+  name: with_adapter
+- !ruby/object:RI::MethodSummary 
+  name: with_engine
+name: MultiJson
+superclass: 

@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Returns the last parsed argument, which, in this case, will be the first argument, which will be either nil or the command name.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String] The last parsed argument."
+  name: last_argument
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Delegate used for partitioning the list of arguments and options. This delegate will stop the parser as soon as the first argument, i.e. the command, is found.
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+constants: []
+
+full_name: Cri::Command::OptionParserPartitioningDelegate
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: argument_added
+- !ruby/object:RI::MethodSummary 
+  name: option_added
+name: OptionParserPartitioningDelegate
+superclass: Object

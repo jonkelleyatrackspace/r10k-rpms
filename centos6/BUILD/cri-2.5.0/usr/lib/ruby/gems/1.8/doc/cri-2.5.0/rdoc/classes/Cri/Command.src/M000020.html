@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run_this (Cri::Command)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cri/command.rb, line 281</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run_this</span>(<span class="ruby-identifier">opts_and_args</span>, <span class="ruby-identifier">parent_opts</span>={})
+      <span class="ruby-comment cmt"># Parse</span>
+      <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-identifier">opts_and_args</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">global_option_definitions</span>)
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">handle_parser_errors_while</span> { <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">run</span> }
+      <span class="ruby-identifier">local_opts</span>  = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">options</span>
+      <span class="ruby-identifier">global_opts</span> = <span class="ruby-identifier">parent_opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">options</span>)
+      <span class="ruby-identifier">args</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">arguments</span>
+
+      <span class="ruby-comment cmt"># Handle options</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">local_opts</span>)
+
+      <span class="ruby-comment cmt"># Execute</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>,
+          <span class="ruby-node">&quot;No implementation available for '#{self.name}'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">global_opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-keyword kw">self</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

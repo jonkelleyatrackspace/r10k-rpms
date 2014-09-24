@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SystemUniversal#tmpdir
+is_singleton: false
+name: tmpdir
+params: (d = Dir.tmpdir, max = 42, &b)
+visibility: public

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (FaradayMiddleware::RackCompatible)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/rack_compatible.rb, line 8</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">rack_handler</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-comment cmt"># tiny middleware that decomposes a Faraday::Response to standard Rack</span>
+      <span class="ruby-comment cmt"># array: [status, headers, body]</span>
+      <span class="ruby-identifier">compatible_app</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rack_env</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">env</span> = <span class="ruby-identifier">restore_env</span>(<span class="ruby-identifier">rack_env</span>)
+        <span class="ruby-identifier">response</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+        [<span class="ruby-identifier">response</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">headers</span>, <span class="ruby-constant">Array</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)]
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@rack</span> = <span class="ruby-identifier">rack_handler</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">compatible_app</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

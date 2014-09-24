@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a new command using the DSL. If a string is given, the command will be defined using the string; if a block is given, the block will be used instead.
+- !ruby/struct:SM::Flow::P 
+  body: If the block has one parameter, the block will be executed in the same context with the command DSL as its parameter. If the block has no parameters, the block will be executed in the context of the DSL.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String, nil] string The command definition as a string"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String, nil] filename The filename corresponding to the string parameter (only useful if a string is given)"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Cri::Command] The newly defined command"
+full_name: Cri::Command::define
+is_singleton: true
+name: define
+params: (string=nil, filename=nil, &block)
+visibility: public

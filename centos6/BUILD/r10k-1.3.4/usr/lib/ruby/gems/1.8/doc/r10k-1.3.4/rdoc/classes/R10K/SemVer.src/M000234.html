@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (R10K::SemVer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/semver.rb, line 70</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ver</span>)
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">SemVer</span>.<span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">ver</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid version string '#{ver}'!&quot;</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-ivar">@major</span>, <span class="ruby-ivar">@minor</span>, <span class="ruby-ivar">@tiny</span>, <span class="ruby-ivar">@special</span> = <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">ver</span>).<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment cmt"># Because Kernel#Integer tries to interpret hex and octal strings, which</span>
+      <span class="ruby-comment cmt"># we specifically do not want, and which cannot be overridden in 1.8.7.</span>
+      <span class="ruby-constant">Float</span>(<span class="ruby-identifier">x</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

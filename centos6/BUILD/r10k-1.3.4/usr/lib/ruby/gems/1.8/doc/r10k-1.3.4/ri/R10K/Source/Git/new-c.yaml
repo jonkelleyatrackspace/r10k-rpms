@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize the given source.
+- !ruby/struct:SM::Flow::P 
+  body: "@param name [String] The identifier for this source. @param basedir [String] The base directory where the generated environments will be created. @param options [Hash] An additional set of options for this source."
+- !ruby/struct:SM::Flow::P 
+  body: "@option options [Boolean] :prefix Whether to prefix the source name to the"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  environment directory names. Defaults to false.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@option options [String] :remote The URL to the base directory of the SVN repository @option options [Hash] :remote Additional settings that configure how the"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  source should behave.\n"
+full_name: R10K::Source::Git::new
+is_singleton: true
+name: new
+params: (name, basedir, options = {})
+visibility: public

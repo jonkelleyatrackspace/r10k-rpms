@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self if block_given?
+comment: 
+full_name: Faraday::Builder#build
+is_singleton: false
+name: build
+params: (options = {}) {|self if block_given?| ...}
+visibility: public

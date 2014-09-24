@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: puppetfile
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Task::Deployment::Display
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: Display
+superclass: R10K::Task::Base

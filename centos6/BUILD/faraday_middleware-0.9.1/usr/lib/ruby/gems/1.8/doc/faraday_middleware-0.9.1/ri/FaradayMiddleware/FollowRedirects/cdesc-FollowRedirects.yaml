@@ -1,0 +1,50 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Follow HTTP 301, 302, 303, and 307 redirects for GET, PATCH, POST, PUT, and DELETE requests."
+- !ruby/struct:SM::Flow::P 
+  body: This middleware does not follow the HTTP specification for HTTP 302, by default, in that it follows the improper implementation used by most major web browsers which forces the redirected request to become a GET request regardless of the original request method.
+- !ruby/struct:SM::Flow::P 
+  body: For HTTP 301, 302, and 303, the original request is transformed into a GET request to the response Location, by default. However, with standards compliance enabled, a 302 will instead act in accordance with the HTTP specification, which will replay the original request to the received Location, just as with a 307.
+- !ruby/struct:SM::Flow::P 
+  body: For HTTP 307, the original request is replayed to the response Location, including original HTTP request method (GET, POST, PUT, DELETE, PATCH), original headers, and original body.
+- !ruby/struct:SM::Flow::P 
+  body: This middleware currently only works with synchronous requests; in other words, it doesn't support parallelism.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: HTTP methods for which 30x redirects can be followed
+  name: ALLOWED_METHODS
+  value: Set.new [:head, :options, :get, :post, :put, :patch, :delete]
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: HTTP redirect status codes that this middleware implements
+  name: REDIRECT_CODES
+  value: Set.new [301, 302, 303, 307]
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Keys in env hash which will get cleared between requests
+  name: ENV_TO_CLEAR
+  value: Set.new [:status, :response, :response_headers]
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Default value for max redirects followed
+  name: FOLLOW_LIMIT
+  value: "3"
+full_name: FaradayMiddleware::FollowRedirects
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: FollowRedirects
+superclass: Faraday::Middleware

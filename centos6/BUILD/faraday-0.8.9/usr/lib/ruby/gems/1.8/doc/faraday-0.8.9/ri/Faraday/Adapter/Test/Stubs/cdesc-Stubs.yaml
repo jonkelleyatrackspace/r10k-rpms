@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::Test::Stubs
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: match
+- !ruby/object:RI::MethodSummary 
+  name: matches?
+- !ruby/object:RI::MethodSummary 
+  name: new_stub
+- !ruby/object:RI::MethodSummary 
+  name: normalize_path
+- !ruby/object:RI::MethodSummary 
+  name: options
+- !ruby/object:RI::MethodSummary 
+  name: patch
+- !ruby/object:RI::MethodSummary 
+  name: post
+- !ruby/object:RI::MethodSummary 
+  name: put
+- !ruby/object:RI::MethodSummary 
+  name: verify_stubbed_calls
+name: Stubs
+superclass: Object

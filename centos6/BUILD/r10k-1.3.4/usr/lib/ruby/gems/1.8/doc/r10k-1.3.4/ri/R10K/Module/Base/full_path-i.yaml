@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] The full filesystem path to the module."
+full_name: R10K::Module::Base#full_path
+is_singleton: false
+name: full_path
+params: ()
+visibility: public

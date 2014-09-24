@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initializes the array using the given raw arguments.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Array&lt;String&gt;] raw_arguments A list of raw arguments, i.e."
+- !ruby/struct:SM::Flow::VERB 
+  body: "  including any separator arguments (`--`).\n"
+full_name: Cri::ArgumentArray::new
+is_singleton: true
+name: new
+params: (raw_arguments)
+visibility: public

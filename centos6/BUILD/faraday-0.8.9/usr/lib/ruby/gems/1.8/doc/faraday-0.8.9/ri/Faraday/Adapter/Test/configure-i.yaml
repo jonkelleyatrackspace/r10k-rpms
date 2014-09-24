@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: stubs
+comment: 
+full_name: Faraday::Adapter::Test#configure
+is_singleton: false
+name: configure
+params: () {|stubs| ...}
+visibility: public

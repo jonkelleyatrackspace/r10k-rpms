@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [true, false] If the repository has been locally cached"
+full_name: R10K::Git::Cache#cached?
+is_singleton: false
+name: cached?
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Compares this command's name to the other given command's name.
+full_name: Cri::Command#<=>
+is_singleton: false
+name: <=>
+params: (other)
+visibility: public

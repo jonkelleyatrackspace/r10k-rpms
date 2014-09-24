@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] valid_keys"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Set&lt;Symbol&gt;] All valid keys defined on the container or parent container.\n"
+  name: valid_keys
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Defines a collection for application settings
+- !ruby/struct:SM::Flow::P 
+  body: This implements a hierarchical interface to application settings. Containers can define an optional parent container that will be used for default options if those options aren't set on the given container.
+constants: []
+
+full_name: R10K::Settings::Container
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: add_valid_key
+- !ruby/object:RI::MethodSummary 
+  name: valid_key?
+name: Container
+superclass: Object

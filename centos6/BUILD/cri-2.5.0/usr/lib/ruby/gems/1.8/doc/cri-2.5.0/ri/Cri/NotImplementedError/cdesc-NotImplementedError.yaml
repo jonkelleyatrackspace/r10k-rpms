@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Error that will be raised when an implementation for a method or command is missing. For commands, this may mean that a run block is missing.
+constants: []
+
+full_name: Cri::NotImplementedError
+includes: []
+
+instance_methods: []
+
+name: NotImplementedError
+superclass: Error

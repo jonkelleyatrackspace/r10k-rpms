@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add requests to queue. The `request` argument should be a `EM::HttpRequest` object.
+full_name: Faraday::Adapter::EMSynchrony::ParallelManager#add
+is_singleton: false
+name: add
+params: (request, method, *args, &block)
+visibility: public

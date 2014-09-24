@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::ResponseMiddleware#response_type
+is_singleton: false
+name: response_type
+params: (env)
+visibility: public

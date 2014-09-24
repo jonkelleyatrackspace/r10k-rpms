@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #preload!"
+full_name: R10K::Deployment#fetch_sources
+is_singleton: false
+name: fetch_sources
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] basedir @param [String] puppetfile The path to the Puppetfile, default to #{basedir}/Puppetfile"
+full_name: R10K::Puppetfile::new
+is_singleton: true
+name: new
+params: (basedir, moduledir = nil, puppetfile = nil)
+visibility: public

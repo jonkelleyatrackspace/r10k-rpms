@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>systemu (SystemUniversal)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 67</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">systemu</span>
+    <span class="ruby-identifier">tmpdir</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tmp</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">child_setup</span> <span class="ruby-identifier">tmp</span>
+      <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>
+
+      <span class="ruby-keyword kw">begin</span>
+        <span class="ruby-identifier">thread</span> = <span class="ruby-keyword kw">nil</span>
+
+        <span class="ruby-identifier">quietly</span>{
+          <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span> <span class="ruby-node">&quot;#{ quote(@ruby) } #{ quote(c['program']) }&quot;</span>, <span class="ruby-value str">'r+'</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pipe</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">line</span> = <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">gets</span>
+            <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">line</span>
+              <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">%r/^pid: \d+$/</span>
+                <span class="ruby-identifier">cid</span> = <span class="ruby-constant">Integer</span> <span class="ruby-identifier">line</span>[<span class="ruby-regexp re">%r/\d+/</span>]
+              <span class="ruby-keyword kw">else</span>
+                <span class="ruby-keyword kw">begin</span>
+                  <span class="ruby-identifier">buf</span> = <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">read</span>
+                  <span class="ruby-identifier">buf</span> = <span class="ruby-node">&quot;#{ line }#{ buf }&quot;</span>
+                  <span class="ruby-identifier">e</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span> <span class="ruby-identifier">buf</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">e</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-keyword kw">rescue</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;systemu: Error - process interrupted!\n#{ buf }\n&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">thread</span> = <span class="ruby-identifier">new_thread</span> <span class="ruby-identifier">cid</span>, <span class="ruby-ivar">@block</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@block</span>
+            <span class="ruby-identifier">pipe</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-keyword kw">end</span>
+        }
+        <span class="ruby-identifier">status</span> = <span class="ruby-identifier">$?</span>
+      <span class="ruby-keyword kw">ensure</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">thread</span>
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">status</span>
+              <span class="ruby-identifier">attr</span> <span class="ruby-value str">'thread'</span>
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">status</span>.<span class="ruby-identifier">instance_eval</span>{ <span class="ruby-ivar">@thread</span> = <span class="ruby-identifier">thread</span> }
+          <span class="ruby-keyword kw">rescue</span>
+            <span class="ruby-value">42</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@stdout</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@stderr</span>
+        <span class="ruby-identifier">open</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value str">'stdout'</span>]){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">f</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@stdout</span>} <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@stdout</span>
+        <span class="ruby-identifier">open</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value str">'stderr'</span>]){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">f</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@stderr</span>} <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@stderr</span>
+        <span class="ruby-identifier">status</span>
+      <span class="ruby-keyword kw">else</span>
+        [<span class="ruby-identifier">status</span>, <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value str">'stdout'</span>]), <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value str">'stderr'</span>])]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

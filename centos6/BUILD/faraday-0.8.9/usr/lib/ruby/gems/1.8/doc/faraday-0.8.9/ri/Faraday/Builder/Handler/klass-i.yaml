@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Builder::Handler#klass
+is_singleton: false
+name: klass
+params: ()
+visibility: public

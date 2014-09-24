@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: supports_parallel
+  rw: W
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::Parallelism
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: inherited
+- !ruby/object:RI::MethodSummary 
+  name: supports_parallel?
+name: Parallelism
+superclass: 

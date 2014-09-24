@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Request middleware that encodes the body as JSON.
+- !ruby/struct:SM::Flow::P 
+  body: Processes only requests with matching Content-type or those without a type. If a request doesn't have a type but has a body, it sets the Content-type to JSON MIME-type.
+- !ruby/struct:SM::Flow::P 
+  body: Doesn't try to encode bodies that already are in string form.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_TYPE
+  value: "'Content-Type'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MIME_TYPE
+  value: "'application/json'.freeze"
+full_name: FaradayMiddleware::EncodeJson
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: encode
+- !ruby/object:RI::MethodSummary 
+  name: has_body?
+- !ruby/object:RI::MethodSummary 
+  name: match_content_type
+- !ruby/object:RI::MethodSummary 
+  name: process_request?
+- !ruby/object:RI::MethodSummary 
+  name: request_type
+name: EncodeJson
+superclass: Faraday::Middleware

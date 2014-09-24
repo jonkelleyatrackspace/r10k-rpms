@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Lookup middleware class with a registered Symbol shortcut."
+- !ruby/struct:SM::Flow::P 
+  body: Returns a middleware Class.
+full_name: Faraday::MiddlewareRegistry#lookup_middleware
+is_singleton: false
+name: lookup_middleware
+params: (key)
+visibility: public

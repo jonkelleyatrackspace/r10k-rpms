@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::ParseJson::MimeTypeFix#first_char
+is_singleton: false
+name: first_char
+params: (body)
+visibility: public

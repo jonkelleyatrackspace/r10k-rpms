@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: R10K::Util::Subprocess</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">R10K::Util::Subprocess</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/r10k/util/subprocess_rb.html">
+                lib/r10k/util/subprocess.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The subprocess namespace implements an interface similar to childprocess.
+The interface has been simplified to make it easier to use and does not
+depend on native code.
+</p>
+<p>
+@api private
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000203">execute</a>&nbsp;&nbsp;
+      <a href="#M000202">new</a>&nbsp;&nbsp;
+      <a href="#M000201">runner</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../Logging.html">R10K::Logging</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Subprocess/SubprocessError.html" class="link">R10K::Util::Subprocess::SubprocessError</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">argv</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] argv
+
+<pre>
+  @return [Array&lt;String&gt;] The command to be executed
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">cwd</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [rw] cwd
+
+<pre>
+  @return [String] The directory to be used as the cwd when executing
+    the command.
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">logger</td>
+          <td class="context-item-value">&nbsp;[W]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [w] logger
+
+<pre>
+  Allow calling processes to take ownership of execution logs by passing
+  their own logger to the command being executed.
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">raise_on_fail</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [rw] raise_on_fail
+
+<pre>
+  Determine whether #execute raises an error when the command exits
+  with a non-zero exit status.
+  @return [true, false]
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000202" class="method-detail">
+        <a name="M000202"></a>
+
+        <div class="method-heading">
+          <a href="Subprocess.src/M000202.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000202.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(argv)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Prepare the subprocess invocation.
+</p>
+<p>
+@param argv [Array&lt;String&gt;] The argument vector to <a
+href="Subprocess.html#M000203">execute</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000201" class="method-detail">
+        <a name="M000201"></a>
+
+        <div class="method-heading">
+          <a href="Subprocess.src/M000201.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000201.html');return false;">
+          <span class="method-name">runner</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [Class &lt; <a
+href="Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>]
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000203" class="method-detail">
+        <a name="M000203"></a>
+
+        <div class="method-heading">
+          <a href="Subprocess.src/M000203.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000203.html');return false;">
+          <span class="method-name">execute</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Execute the given command and return the result of evaluation.
+</p>
+<p>
+@api public @raise [R10K::Util::Subprocess::SubprocessError] if
+raise_on_fail is
+</p>
+<pre>
+  true and the command exited with a non-zero status.
+</pre>
+<p>
+@return [<a
+href="Subprocess/Result.html">R10K::Util::Subprocess::Result</a>]
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

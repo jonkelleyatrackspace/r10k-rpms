@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::SemVer#matched_by?
+is_singleton: false
+name: matched_by?
+params: (pattern)
+visibility: public

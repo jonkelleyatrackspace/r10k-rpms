@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Clone or update the given Git environment.
+- !ruby/struct:SM::Flow::P 
+  body: If the environment is being created for the first time, it will automatically update all modules to ensure that the environment is complete.
+- !ruby/struct:SM::Flow::P 
+  body: "@api public @return [void]"
+full_name: R10K::Environment::Git#sync
+is_singleton: false
+name: sync
+params: ()
+visibility: public

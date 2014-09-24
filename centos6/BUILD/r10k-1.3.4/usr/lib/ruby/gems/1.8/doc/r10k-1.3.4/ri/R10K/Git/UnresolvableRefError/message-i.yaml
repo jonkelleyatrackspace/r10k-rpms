@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Print a friendly error message if an object hash is given as the message
+full_name: R10K::Git::UnresolvableRefError#message
+is_singleton: false
+name: message
+params: ()
+visibility: public

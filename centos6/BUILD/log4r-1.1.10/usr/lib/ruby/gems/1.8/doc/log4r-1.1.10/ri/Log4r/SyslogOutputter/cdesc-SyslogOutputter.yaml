@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "maps default log4r levels to syslog priorities (logevents never see ALL and OFF) SYSLOG Levels are:"
+  - !ruby/struct:SM::Flow::VERB 
+    body: " &quot;DEBUG&quot;  =&gt; Syslog::LOG_DEBUG\n &quot;INFO&quot;   =&gt; Syslog::LOG_INFO\n &quot;NOTICE&quot; =&gt; Syslog::LOG_NOTICE\n &quot;WARN&quot;   =&gt; Syslog::LOG_WARN\n &quot;ERROR&quot;  =&gt; Syslog::LOG_ERROR\n &quot;FATAL&quot;  =&gt; Syslog::LOG_FATAL\n &quot;ALERT&quot;  =&gt; Syslog::LOG_ALERT\n &quot;EMERG&quot;  =&gt; Syslog::LOG_EMERG\n"
+  name: SYSLOG_LEVELS_MAP
+  value: "{       \"DEBUG\"  => LOG_DEBUG,        \"INFO\"   => LOG_INFO,        \"NOTICE\" => LOG_NOTICE,  # by default NOTICE is not in log4r       \"WARN\"   => LOG_WARNING,        \"ERROR\"  => LOG_ERR,        \"FATAL\"  => LOG_CRIT,       \"ALERT\"  => LOG_ALERT,   # by default ALERT is not in log4r       \"EMERG\"  => LOG_EMERG,   # by default EMERG is not in log4r     }"
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: mapping from Log4r default levels to syslog, by string name &quot;DEBUG&quot; =&gt; &quot;DEBUG&quot;
+  - !ruby/struct:SM::Flow::VERB 
+    body: " &quot;INFO&quot;   =&gt; &quot;INFO&quot;\n &quot;WARN&quot;   =&gt; &quot;WARN&quot;\n &quot;ERROR&quot;  =&gt; &quot;ERROR&quot;\n &quot;FATAL&quot;  =&gt; &quot;FATAL&quot;\n"
+  name: SYSLOG_LOG4R_MAP
+  value: "{       \"DEBUG\"  => \"DEBUG\",        \"INFO\"   => \"INFO\",        \"WARN\"   => \"WARN\",        \"ERROR\"  => \"ERROR\",        \"FATAL\"  => \"FATAL\""
+full_name: Log4r::SyslogOutputter
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Syslog::Constants
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: closed?
+- !ruby/object:RI::MethodSummary 
+  name: get_levels_map
+- !ruby/object:RI::MethodSummary 
+  name: map_levels_by_name_to_syslog
+name: SyslogOutputter
+superclass: Outputter

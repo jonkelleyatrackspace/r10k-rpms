@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Deployment::Source::new
+is_singleton: true
+name: new
+params: (name, remote, basedir, prefix)
+visibility: public

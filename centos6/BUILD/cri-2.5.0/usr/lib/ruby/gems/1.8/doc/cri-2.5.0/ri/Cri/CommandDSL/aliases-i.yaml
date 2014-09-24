@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the command aliases.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String, Symbol, Array] args The new command aliases"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandDSL#aliases
+is_singleton: false
+name: aliases
+params: (*args)
+visibility: public

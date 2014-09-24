@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>call (Faraday::Adapter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter.rb, line 43</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-constant">Connection</span><span class="ruby-operator">::</span><span class="ruby-constant">METHODS_WITH_BODIES</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:method</span>]
+        <span class="ruby-comment cmt"># play nice and indicate we're sending an empty body</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:request_headers</span>][<span class="ruby-constant">CONTENT_LENGTH</span>] = <span class="ruby-value str">&quot;0&quot;</span>
+        <span class="ruby-comment cmt"># Typhoeus hangs on PUT requests if body is nil</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>] = <span class="ruby-value str">''</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

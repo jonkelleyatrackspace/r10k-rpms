@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Register an module implementation for later generation
+full_name: R10K::Module::register
+is_singleton: true
+name: register
+params: (klass)
+visibility: public

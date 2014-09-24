@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (Cri::OptionParser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cri/option_parser.rb, line 162</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+      <span class="ruby-ivar">@running</span> = <span class="ruby-keyword kw">true</span>
+
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">running?</span>
+        <span class="ruby-comment cmt"># Get next item</span>
+        <span class="ruby-identifier">e</span> = <span class="ruby-ivar">@unprocessed_arguments_and_options</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">nil?</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'--'</span>
+          <span class="ruby-identifier">handle_dashdash</span>(<span class="ruby-identifier">e</span>)
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^--./</span> <span class="ruby-keyword kw">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@no_more_options</span>
+          <span class="ruby-identifier">handle_dashdash_option</span>(<span class="ruby-identifier">e</span>)
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^-./</span> <span class="ruby-keyword kw">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@no_more_options</span>
+          <span class="ruby-identifier">handle_dash_option</span>(<span class="ruby-identifier">e</span>)
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">add_argument</span>(<span class="ruby-identifier">e</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">self</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-ivar">@running</span> = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

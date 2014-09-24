@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>wait (R10K::Util::Subprocess::POSIX::Runner)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/util/subprocess/posix/runner.rb, line 36</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wait</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@pid</span>
+      <span class="ruby-identifier">_</span>, <span class="ruby-ivar">@status</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid2</span>(<span class="ruby-ivar">@pid</span>)
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">stdout</span> = <span class="ruby-ivar">@stdout_r</span>.<span class="ruby-identifier">read</span>
+    <span class="ruby-identifier">stderr</span> = <span class="ruby-ivar">@stderr_r</span>.<span class="ruby-identifier">read</span>
+
+    <span class="ruby-ivar">@result</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">Subprocess</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@argv</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-ivar">@status</span>.<span class="ruby-identifier">exitstatus</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Executes a block which should try to require and reference dependent libraries
+full_name: Faraday::Middleware::dependency
+is_singleton: true
+name: dependency
+params: (lib = nil) {|| ...}
+visibility: public

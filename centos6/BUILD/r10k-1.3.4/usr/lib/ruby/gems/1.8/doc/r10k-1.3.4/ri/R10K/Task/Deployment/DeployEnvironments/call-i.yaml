@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Task::Deployment::DeployEnvironments#call
+is_singleton: false
+name: call
+params: ()
+visibility: public

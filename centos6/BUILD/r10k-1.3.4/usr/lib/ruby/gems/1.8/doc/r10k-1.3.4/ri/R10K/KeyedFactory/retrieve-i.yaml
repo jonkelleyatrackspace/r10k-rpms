@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::KeyedFactory#retrieve
+is_singleton: false
+name: retrieve
+params: (key)
+visibility: public

@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: category
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: port
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Log4r::ScribeOutputter
+includes: []
+
+instance_methods: []
+
+name: ScribeOutputter
+superclass: Outputter

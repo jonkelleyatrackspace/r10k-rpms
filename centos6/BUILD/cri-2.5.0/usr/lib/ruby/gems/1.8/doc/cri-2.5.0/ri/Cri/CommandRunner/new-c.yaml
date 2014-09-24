@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options A hash contain the options and their values"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Array] arguments The list of arguments"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Cri::Command] command The Cri command"
+full_name: Cri::CommandRunner::new
+is_singleton: true
+name: new
+params: (options, arguments, command)
+visibility: public

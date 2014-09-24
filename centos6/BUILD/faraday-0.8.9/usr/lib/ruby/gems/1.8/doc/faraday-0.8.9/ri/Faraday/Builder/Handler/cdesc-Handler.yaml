@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: borrowed from ActiveSupport::Dependencies::Reference &amp; ActionDispatch::MiddlewareStack::Middleware
+constants: []
+
+full_name: Faraday::Builder::Handler
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: build
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: klass
+name: Handler
+superclass: Object

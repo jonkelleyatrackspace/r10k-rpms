@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::RackCompatible#finalize_response
+is_singleton: false
+name: finalize_response
+params: (env, rack_response)
+visibility: public

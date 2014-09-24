@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ":preserve_raw, preserve_raw"
+comment: 
+full_name: FaradayMiddleware::OptionsExtension#each
+is_singleton: false
+name: each
+params: () {|:preserve_raw, preserve_raw| ...}
+visibility: public

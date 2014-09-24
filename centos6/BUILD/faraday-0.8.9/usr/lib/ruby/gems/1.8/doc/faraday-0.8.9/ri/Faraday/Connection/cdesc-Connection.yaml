@@ -1,0 +1,91 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: builder
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_parallel_manager
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: headers
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: parallel_manager
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: params
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: ssl
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: url_prefix
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: URI
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: METHODS
+  value: Set.new [:get, :post, :put, :delete, :head, :patch, :options]
+- !ruby/object:RI::Constant 
+  comment: 
+  name: METHODS_WITH_BODIES
+  value: Set.new [:post, :put, :patch, :options]
+full_name: Faraday::Connection
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: app
+- !ruby/object:RI::MethodSummary 
+  name: authorization
+- !ruby/object:RI::MethodSummary 
+  name: basic_auth
+- !ruby/object:RI::MethodSummary 
+  name: build_exclusive_url
+- !ruby/object:RI::MethodSummary 
+  name: build_request
+- !ruby/object:RI::MethodSummary 
+  name: build_url
+- !ruby/object:RI::MethodSummary 
+  name: default_parallel_manager
+- !ruby/object:RI::MethodSummary 
+  name: dup
+- !ruby/object:RI::MethodSummary 
+  name: headers=
+- !ruby/object:RI::MethodSummary 
+  name: in_parallel
+- !ruby/object:RI::MethodSummary 
+  name: in_parallel?
+- !ruby/object:RI::MethodSummary 
+  name: params=
+- !ruby/object:RI::MethodSummary 
+  name: path_prefix=
+- !ruby/object:RI::MethodSummary 
+  name: proxy
+- !ruby/object:RI::MethodSummary 
+  name: run_request
+- !ruby/object:RI::MethodSummary 
+  name: token_auth
+- !ruby/object:RI::MethodSummary 
+  name: url_prefix=
+- !ruby/object:RI::MethodSummary 
+  name: with_uri_credentials
+name: Connection
+superclass: Object

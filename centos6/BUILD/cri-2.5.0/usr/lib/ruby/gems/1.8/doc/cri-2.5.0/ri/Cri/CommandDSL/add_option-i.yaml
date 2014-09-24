@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Cri::CommandDSL#add_option
+is_singleton: false
+name: add_option
+params: (short, long, desc, argument, block)
+visibility: protected

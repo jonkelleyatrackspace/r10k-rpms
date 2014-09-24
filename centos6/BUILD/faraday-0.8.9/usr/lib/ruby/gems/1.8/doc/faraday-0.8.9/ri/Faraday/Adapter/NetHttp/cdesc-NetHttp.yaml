@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NET_HTTP_EXCEPTIONS
+  value: "[         EOFError,         Errno::ECONNABORTED,         Errno::ECONNREFUSED,         Errno::ENETUNREACH,         Errno::ECONNRESET,         Errno::EINVAL,         Net::HTTPBadResponse,         Net::HTTPHeaderSyntaxError,         Net::ProtocolError,         SocketError,         Zlib::GzipFile::Error,       ]"
+full_name: Faraday::Adapter::NetHttp
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: configure_ssl
+- !ruby/object:RI::MethodSummary 
+  name: create_request
+- !ruby/object:RI::MethodSummary 
+  name: net_http_connection
+- !ruby/object:RI::MethodSummary 
+  name: perform_request
+- !ruby/object:RI::MethodSummary 
+  name: ssl_cert_store
+- !ruby/object:RI::MethodSummary 
+  name: ssl_verify_mode
+name: NetHttp
+superclass: Faraday::Adapter

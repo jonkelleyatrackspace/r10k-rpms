@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] ref @param [String] remote @param [String] basedir @param [String] dirname The directory to clone the root into, defaults to ref @param [String] source_name An additional string which may be used with ref to build dirname"
+- !ruby/struct:SM::Flow::P 
+  body: "@deprecated @return [R10K::Environment::Git]"
+full_name: R10K::Deployment::Environment::new
+is_singleton: true
+name: new
+params: (ref, remote, basedir, dirname = nil, source_name = "")
+visibility: public

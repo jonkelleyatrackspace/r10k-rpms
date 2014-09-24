@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Adapter::EMHttp::Options#configure_timeout
+is_singleton: false
+name: configure_timeout
+params: (options, env)
+visibility: public

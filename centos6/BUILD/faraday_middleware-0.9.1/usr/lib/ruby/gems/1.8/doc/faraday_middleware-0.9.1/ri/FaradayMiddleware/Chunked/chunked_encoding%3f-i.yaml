@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::Chunked#chunked_encoding?
+is_singleton: false
+name: chunked_encoding?
+params: (headers)
+visibility: public

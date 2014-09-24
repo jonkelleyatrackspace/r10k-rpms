@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define a valid container key
+- !ruby/struct:SM::Flow::P 
+  body: "@note This should only be used by {#R10K::Settings::ClassSettings}"
+- !ruby/struct:SM::Flow::P 
+  body: "@param key [Symbol] @return [void]"
+full_name: R10K::Settings::Container#add_valid_key
+is_singleton: false
+name: add_valid_key
+params: (key)
+visibility: public

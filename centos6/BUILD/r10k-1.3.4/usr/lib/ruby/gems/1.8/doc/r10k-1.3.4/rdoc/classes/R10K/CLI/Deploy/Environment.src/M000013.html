@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>command (R10K::CLI::Deploy::Environment)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/cli/deploy.rb, line 34</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">command</span>
+        <span class="ruby-ivar">@cmd</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">name</span>    <span class="ruby-value str">'environment'</span>
+          <span class="ruby-identifier">usage</span>   <span class="ruby-value str">'environment &lt;options&gt; &lt;environment&gt; &lt;...&gt;'</span>
+          <span class="ruby-identifier">summary</span> <span class="ruby-value str">'Deploy environments and their dependent modules'</span>
+
+          <span class="ruby-identifier">description</span> <span class="ruby-value str">&quot;`r10k deploy environment` creates and updates Puppet environments based on Git\nbranches.\n\nEnvironments can provide a Puppetfile at the root of the directory to deploy\nindependent Puppet modules. To recursively deploy an environment, pass the\n`--puppetfile` flag to the command.\n\n**NOTE**: If an environment has a Puppetfile when it is instantiated a\nrecursive update will be forced. It is assumed that environments are dependent\non modules specified in the Puppetfile and an update will be automatically\nscheduled. On subsequent deployments, Puppetfile deployment will default to off.\n&quot;</span>
+
+          <span class="ruby-identifier">flag</span> <span class="ruby-identifier">:p</span>, <span class="ruby-identifier">:puppetfile</span>, <span class="ruby-value str">'Deploy modules from a puppetfile'</span>
+
+          <span class="ruby-identifier">run</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">deploy</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span>.<span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:config</span>])
+
+            <span class="ruby-identifier">task</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span><span class="ruby-operator">::</span><span class="ruby-constant">DeployEnvironments</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">deploy</span>)
+            <span class="ruby-identifier">task</span>.<span class="ruby-identifier">update_puppetfile</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:puppetfile</span>]
+            <span class="ruby-identifier">task</span>.<span class="ruby-identifier">environment_names</span> = <span class="ruby-identifier">args</span>
+
+            <span class="ruby-identifier">purge</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span><span class="ruby-operator">::</span><span class="ruby-constant">PurgeEnvironments</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">deploy</span>)
+
+            <span class="ruby-identifier">runner</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskRunner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:trace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:trace</span>])
+            <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">append_task</span> <span class="ruby-identifier">task</span>
+            <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">append_task</span> <span class="ruby-identifier">purge</span>
+            <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">run</span>
+
+            <span class="ruby-identifier">exit</span> <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">exit_value</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

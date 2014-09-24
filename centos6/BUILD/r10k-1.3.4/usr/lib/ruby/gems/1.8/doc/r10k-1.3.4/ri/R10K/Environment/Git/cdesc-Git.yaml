@@ -1,0 +1,57 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] puppetfile"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @api public\n  @return [R10K::Puppetfile] The puppetfile instance associated with this environment\n"
+  name: puppetfile
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] ref"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The git reference to use for this environment\n"
+  name: ref
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] remote"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The URL to the remote git repository\n"
+  name: remote
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] working_dir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @api private\n  @return [R10K::Git::WorkingDir] The git working directory backing this environment\n"
+  name: working_dir
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class implements an environment based on a Git branch.
+- !ruby/struct:SM::Flow::P 
+  body: "@since 1.3.0"
+constants: []
+
+full_name: R10K::Environment::Git
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: modules
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: sync_modules
+name: Git
+superclass: R10K::Environment::Base

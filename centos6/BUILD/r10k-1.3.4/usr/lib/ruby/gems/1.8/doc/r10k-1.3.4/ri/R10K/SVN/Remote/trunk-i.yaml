@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@todo validate that the path to trunk exists in the remote"
+full_name: R10K::SVN::Remote#trunk
+is_singleton: false
+name: trunk
+params: ()
+visibility: public

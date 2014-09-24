@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: fetch_remote
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Update the git cache for this git source to get the latest list of environments.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: R10K::Source::Git#preload!
+is_singleton: false
+name: preload!
+params: ()
+visibility: public

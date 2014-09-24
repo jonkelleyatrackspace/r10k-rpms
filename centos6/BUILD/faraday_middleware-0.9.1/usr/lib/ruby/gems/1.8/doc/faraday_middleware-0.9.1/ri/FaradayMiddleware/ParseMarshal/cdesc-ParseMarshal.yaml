@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Restore marshalled Ruby objects in response bodies."
+constants: []
+
+full_name: FaradayMiddleware::ParseMarshal
+includes: []
+
+instance_methods: []
+
+name: ParseMarshal
+superclass: ResponseMiddleware

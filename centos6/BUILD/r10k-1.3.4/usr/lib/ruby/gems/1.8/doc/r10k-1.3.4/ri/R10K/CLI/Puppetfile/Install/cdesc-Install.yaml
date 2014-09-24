@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: command
+comment: 
+constants: []
+
+full_name: R10K::CLI::Puppetfile::Install
+includes: []
+
+instance_methods: []
+
+name: Install
+superclass: 

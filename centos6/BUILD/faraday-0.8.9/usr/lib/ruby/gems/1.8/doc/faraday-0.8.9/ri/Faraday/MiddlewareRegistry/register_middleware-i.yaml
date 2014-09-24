@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Register middleware class(es) on the current module."
+- !ruby/struct:SM::Flow::P 
+  body: mapping - A Hash mapping Symbol keys to classes. See
+- !ruby/struct:SM::Flow::VERB 
+  body: "          Faraday.register_middleware for more details.\n"
+full_name: Faraday::MiddlewareRegistry#register_middleware
+is_singleton: false
+name: register_middleware
+params: (mapping)
+visibility: public

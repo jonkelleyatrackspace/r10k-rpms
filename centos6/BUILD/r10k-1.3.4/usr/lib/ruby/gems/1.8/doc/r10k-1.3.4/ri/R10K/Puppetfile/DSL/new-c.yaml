@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A barebones implementation of the Puppetfile DSL
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+full_name: R10K::Puppetfile::DSL::new
+is_singleton: true
+name: new
+params: (librarian)
+visibility: public

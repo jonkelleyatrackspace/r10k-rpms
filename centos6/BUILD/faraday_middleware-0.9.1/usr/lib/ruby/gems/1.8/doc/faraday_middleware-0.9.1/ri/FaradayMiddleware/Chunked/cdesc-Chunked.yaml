@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Parse a Transfer-Encoding: Chunked response to just the original data"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TRANSFER_ENCODING
+  value: "'transfer-encoding'.freeze"
+full_name: FaradayMiddleware::Chunked
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: chunked_encoding?
+- !ruby/object:RI::MethodSummary 
+  name: parse_response?
+name: Chunked
+superclass: FaradayMiddleware::ResponseMiddleware

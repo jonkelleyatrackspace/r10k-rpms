@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: MultiJson</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">MultiJson</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/multi_json/options_rb.html">
+                lib/multi_json/options.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/convertible_hash_keys_rb.html">
+                lib/multi_json/convertible_hash_keys.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/jr_jackson_rb.html">
+                lib/multi_json/adapters/jr_jackson.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/json_common_rb.html">
+                lib/multi_json/adapters/json_common.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/ok_json_rb.html">
+                lib/multi_json/adapters/ok_json.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/json_pure_rb.html">
+                lib/multi_json/adapters/json_pure.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/yajl_rb.html">
+                lib/multi_json/adapters/yajl.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/gson_rb.html">
+                lib/multi_json/adapters/gson.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/oj_rb.html">
+                lib/multi_json/adapters/oj.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/nsjsonserialization_rb.html">
+                lib/multi_json/adapters/nsjsonserialization.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapters/json_gem_rb.html">
+                lib/multi_json/adapters/json_gem.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/load_error_rb.html">
+                lib/multi_json/load_error.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/version_rb.html">
+                lib/multi_json/version.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/adapter_rb.html">
+                lib/multi_json/adapter.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json/vendor/okjson_rb.html">
+                lib/multi_json/vendor/okjson.rb
+                </a>
+        <br />
+                <a href="../files/lib/multi_json_rb.html">
+                lib/multi_json.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000006">adapter</a>&nbsp;&nbsp;
+      <a href="#M000009">adapter=</a>&nbsp;&nbsp;
+      <a href="#M000001">cached_options</a>&nbsp;&nbsp;
+      <a href="#M000014">current_adapter</a>&nbsp;&nbsp;
+      <a href="#M000013">decode</a>&nbsp;&nbsp;
+      <a href="#M000004">default_adapter</a>&nbsp;&nbsp;
+      <a href="#M000005">default_engine</a>&nbsp;&nbsp;
+      <a href="#M000003">default_options=</a>&nbsp;&nbsp;
+      <a href="#M000015">dump</a>&nbsp;&nbsp;
+      <a href="#M000016">encode</a>&nbsp;&nbsp;
+      <a href="#M000007">engine</a>&nbsp;&nbsp;
+      <a href="#M000010">engine=</a>&nbsp;&nbsp;
+      <a href="#M000012">load</a>&nbsp;&nbsp;
+      <a href="#M000011">load_adapter</a>&nbsp;&nbsp;
+      <a href="#M000002">reset_cached_options!</a>&nbsp;&nbsp;
+      <a href="#M000008">use</a>&nbsp;&nbsp;
+      <a href="#M000017">with_adapter</a>&nbsp;&nbsp;
+      <a href="#M000018">with_engine</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="MultiJson/Options.html">Options</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="MultiJson/Adapters.html" class="link">MultiJson::Adapters</a><br />
+Module <a href="MultiJson/ConvertibleHashKeys.html" class="link">MultiJson::ConvertibleHashKeys</a><br />
+Module <a href="MultiJson/OkJson.html" class="link">MultiJson::OkJson</a><br />
+Module <a href="MultiJson/Options.html" class="link">MultiJson::Options</a><br />
+Class <a href="MultiJson/Adapter.html" class="link">MultiJson::Adapter</a><br />
+Class <a href="MultiJson/LoadError.html" class="link">MultiJson::LoadError</a><br />
+Class <a href="MultiJson/Version.html" class="link">MultiJson::Version</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DecodeError</td>
+          <td>=</td>
+          <td class="context-item-value">LoadError # Legacy support</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">Version.to_s.freeze</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ALIASES</td>
+          <td>=</td>
+          <td class="context-item-value">{ 'jrjackson' =&gt; 'jr_jackson' }</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">REQUIREMENT_MAP</td>
+          <td>=</td>
+          <td class="context-item-value">[     ['oj',           :oj],     ['yajl',         :yajl],     ['jrjackson',    :jr_jackson],     ['json/ext',     :json_gem],     ['gson',         :gson],     ['json/pure',    :json_pure]</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">dump_options</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">default_options</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+Since `default_options` is deprecated, the reader is aliased to
+`dump_options` and the writer sets both `dump_options` and `load_options`
+
+</td>
+      </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000001.html');return false;">
+          <span class="method-name">cached_options</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000002.html');return false;">
+          <span class="method-name">reset_cached_options!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000006.html');return false;">
+          <span class="method-name">adapter</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the current <a href="MultiJson.html#M000006">adapter</a> class.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <span class="method-name">adapter=</span><span class="method-args">(new_adapter)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000008">use</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000014.html');return false;">
+          <span class="method-name">current_adapter</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <span class="method-name">decode</span><span class="method-args">(string, options={})</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000012">load</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000004.html');return false;">
+          <span class="method-name">default_adapter</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The default <a href="MultiJson.html#M000006">adapter</a> based on what you
+currently have loaded and installed. First checks to see if any adapters
+are already loaded, then checks to see which are installed if none are
+loaded.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <span class="method-name">default_engine</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000004">default_adapter</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000003.html');return false;">
+          <span class="method-name">default_options=</span><span class="method-args">(value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000015.html');return false;">
+          <span class="method-name">dump</span><span class="method-args">(object, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Encodes a Ruby object as JSON.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <span class="method-name">encode</span><span class="method-args">(object, options={})</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000015">dump</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <span class="method-name">engine</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000006">adapter</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <span class="method-name">engine=</span><span class="method-args">(new_adapter)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000008">use</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000012.html');return false;">
+          <span class="method-name">load</span><span class="method-args">(string, options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decode a JSON string into Ruby.
+</p>
+<p>
+<b><a href="MultiJson/Options.html">Options</a></b>
+</p>
+<table>
+<tr><td valign="top"><tt>:symbolize_keys</tt> :</td><td>If true, will <a href="MultiJson.html#M000008">use</a> symbols instead of
+strings for the keys.
+
+</td></tr>
+<tr><td valign="top"><tt>:<a href="MultiJson.html#M000006">adapter</a></tt> :</td><td>If set, the selected <a href="MultiJson.html#M000006">adapter</a> will be
+used for this call.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000011.html');return false;">
+          <span class="method-name">load_adapter</span><span class="method-args">(new_adapter)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000008.html');return false;">
+          <span class="method-name">use</span><span class="method-args">(new_adapter)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the JSON parser utilizing a symbol, string, or class. Supported by
+default are:
+</p>
+<ul>
+<li><tt>:oj</tt>
+
+</li>
+<li><tt>:json_gem</tt>
+
+</li>
+<li><tt>:json_pure</tt>
+
+</li>
+<li><tt>:ok_json</tt>
+
+</li>
+<li><tt>:yajl</tt>
+
+</li>
+<li><tt>:nsjsonserialization</tt> (MacRuby only)
+
+</li>
+<li><tt>:gson</tt> (JRuby only)
+
+</li>
+<li><tt>:jr_jackson</tt> (JRuby only)
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="MultiJson.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('MultiJson.src/M000017.html');return false;">
+          <span class="method-name">with_adapter</span><span class="method-args">(new_adapter) {|| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Executes passed block using specified <a
+href="MultiJson.html#M000006">adapter</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <span class="method-name">with_engine</span><span class="method-args">(new_adapter)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="MultiJson.html#M000017">with_adapter</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

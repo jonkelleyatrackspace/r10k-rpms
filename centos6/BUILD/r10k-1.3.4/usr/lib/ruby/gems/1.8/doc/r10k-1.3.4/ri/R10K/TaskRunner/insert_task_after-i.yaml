@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [R10K::Task] task_index The task to insert the task after @param [R10K::Task] new_task The task to insert"
+full_name: R10K::TaskRunner#insert_task_after
+is_singleton: false
+name: insert_task_after
+params: (task_index, new_task)
+visibility: public

@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: git_dir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: ref
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HASHLIKE
+  value: "%r[[A-Fa-f0-9]]"
+full_name: R10K::Git::UnresolvableRefError
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: message
+name: UnresolvableRefError
+superclass: GitError

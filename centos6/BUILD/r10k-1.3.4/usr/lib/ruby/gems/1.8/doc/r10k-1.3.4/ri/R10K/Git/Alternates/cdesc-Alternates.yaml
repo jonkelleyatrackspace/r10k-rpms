@@ -1,0 +1,32 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@attribute [r] file"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Pathname] The alternates file\n"
+  name: file
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Manage `$GIT_DIR/objects/info/alternates`
+- !ruby/struct:SM::Flow::P 
+  body: "@see man gitrepository-layout(5)"
+constants: []
+
+full_name: R10K::Git::Alternates
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "<<"
+- !ruby/object:RI::MethodSummary 
+  name: include?
+- !ruby/object:RI::MethodSummary 
+  name: to_a
+name: Alternates
+superclass: Object

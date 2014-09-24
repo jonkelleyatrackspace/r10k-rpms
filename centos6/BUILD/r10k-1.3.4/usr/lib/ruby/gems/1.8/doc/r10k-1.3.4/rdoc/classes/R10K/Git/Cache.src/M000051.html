@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>sync! (R10K::Git::Cache)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/git/cache.rb, line 57</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync!</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cached?</span>
+      <span class="ruby-identifier">fetch</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Creating new git cache for #{@remote.inspect}&quot;</span>
+
+      <span class="ruby-comment cmt"># TODO extract this to an initialization step</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">settings</span>[<span class="ruby-identifier">:cache_root</span>]
+        <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">settings</span>[<span class="ruby-identifier">:cache_root</span>]
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">git</span> [<span class="ruby-value str">'clone'</span>, <span class="ruby-value str">'--mirror'</span>, <span class="ruby-ivar">@remote</span>, <span class="ruby-identifier">git_dir</span>]
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">Subprocess</span><span class="ruby-operator">::</span><span class="ruby-constant">SubprocessError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">result</span>.<span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-regexp re">/^fatal: .*$/</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">msg</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Git</span><span class="ruby-operator">::</span><span class="ruby-constant">GitError</span>, <span class="ruby-node">&quot;Couldn't update git cache for #{@remote}: #{msg.inspect}&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

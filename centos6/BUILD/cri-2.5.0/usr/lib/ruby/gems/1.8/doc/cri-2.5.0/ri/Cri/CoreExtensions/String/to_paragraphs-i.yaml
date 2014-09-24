@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Extracts individual paragraphs (separated by two newlines).
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Array&lt;String&gt;] A list of paragraphs in the string"
+full_name: Cri::CoreExtensions::String#to_paragraphs
+is_singleton: false
+name: to_paragraphs
+params: ()
+visibility: public

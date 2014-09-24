@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: update
+block_params: 
+comment: 
+full_name: Faraday#merge!
+is_singleton: false
+name: merge!
+params: (other)
+visibility: public

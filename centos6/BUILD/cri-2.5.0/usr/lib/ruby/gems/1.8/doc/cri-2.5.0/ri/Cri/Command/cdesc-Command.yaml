@@ -1,0 +1,118 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array&lt;String&gt;] A list of aliases for this command that can be"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  used to invoke this command\n"
+  name: aliases
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Proc] The block that should be executed when invoking this"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  command (ignored for commands with subcommands)\n"
+  name: block
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Set&lt;Cri::Command&gt;] This command\xE2\x80\x99s subcommands"
+  name: commands
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String] The long description (\xE2\x80\x9Cdescription\xE2\x80\x9D)"
+  name: description
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Boolean] true if the command is hidden (e.g. because it is"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  deprecated), false otherwise\n"
+  name: hidden
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String] The name"
+  name: name
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array&lt;Hash&gt;] The list of option definitions"
+  name: option_definitions
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String] The short description (\xE2\x80\x9Csummary\xE2\x80\x9D)"
+  name: summary
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Cri::Command, nil] This command\xE2\x80\x99s supercommand, or nil if the"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  command has no supercommand\n"
+  name: supercommand
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [String] The usage, without the \xE2\x80\x9Cusage:\xE2\x80\x9D prefix and without the"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  supercommands\xE2\x80\x99 names.\n"
+  name: usage
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: define
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: new_basic_help
+- !ruby/object:RI::MethodSummary 
+  name: new_basic_root
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Cri::Command represents a command that can be executed on the commandline. It is also used for the commandline tool itself.
+constants: []
+
+full_name: Cri::Command
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: add_command
+- !ruby/object:RI::MethodSummary 
+  name: command_named
+- !ruby/object:RI::MethodSummary 
+  name: commands_named
+- !ruby/object:RI::MethodSummary 
+  name: define_command
+- !ruby/object:RI::MethodSummary 
+  name: global_option_definitions
+- !ruby/object:RI::MethodSummary 
+  name: handle_options
+- !ruby/object:RI::MethodSummary 
+  name: handle_parser_errors_while
+- !ruby/object:RI::MethodSummary 
+  name: help
+- !ruby/object:RI::MethodSummary 
+  name: modify
+- !ruby/object:RI::MethodSummary 
+  name: partition
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: run_this
+name: Command
+superclass: Object

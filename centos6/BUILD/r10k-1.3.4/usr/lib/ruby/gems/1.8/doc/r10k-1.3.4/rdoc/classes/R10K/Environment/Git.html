@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: R10K::Environment::Git</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">R10K::Environment::Git</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/r10k/environment/git_rb.html">
+                lib/r10k/environment/git.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Base.html">
+                R10K::Environment::Base
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class implements an environment based on a <a href="Git.html">Git</a>
+branch.
+</p>
+<p>
+@since 1.3.0
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000069">modules</a>&nbsp;&nbsp;
+      <a href="#M000066">new</a>&nbsp;&nbsp;
+      <a href="#M000067">sync</a>&nbsp;&nbsp;
+      <a href="#M000068">sync_modules</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../Logging.html">R10K::Logging</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">puppetfile</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] puppetfile
+
+<pre>
+  @api public
+  @return [R10K::Puppetfile] The puppetfile instance associated with this environment
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ref</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] ref
+
+<pre>
+  @return [String] The git reference to use for this environment
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">remote</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] remote
+
+<pre>
+  @return [String] The URL to the remote git repository
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">working_dir</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] working_dir
+
+<pre>
+  @api private
+  @return [R10K::Git::WorkingDir] The git working directory backing this environment
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000066.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000066.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(name, basedir, dirname, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize the given <a href="SVN.html">SVN</a> environment.
+</p>
+<p>
+@param name [String] The unique name describing this environment. @param
+basedir [String] The base directory where this environment will be created.
+@param dirname [String] The directory name for this environment. @param
+options [Hash] An additional set of options for this environment.
+</p>
+<p>
+@param options [String] :remote The URL to the remote git repository @param
+options [String] :ref The git reference to use for this environment
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000069.html');return false;">
+          <span class="method-name">modules</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [Array&lt;<a href="../Module/Base.html">R10K::Module::Base</a>&gt;]
+All <a href="Git.html#M000069">modules</a> defined in the <a
+href="../Puppetfile.html">Puppetfile</a>
+</p>
+<pre>
+  associated with this environment.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000067.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000067.html');return false;">
+          <span class="method-name">sync</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clone or update the given <a href="Git.html">Git</a> environment.
+</p>
+<p>
+If the environment is being created for the first time, it will
+automatically update all <a href="Git.html#M000069">modules</a> to ensure
+that the environment is complete.
+</p>
+<p>
+@api public @return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="Git.src/M000068.html" target="Code" class="method-signature"
+            onclick="popupCode('Git.src/M000068.html');return false;">
+          <span class="method-name">sync_modules</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@api private
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param git_dir [String] The path to the git repository"
+full_name: R10K::Git::Alternates::new
+is_singleton: true
+name: new
+params: (git_dir)
+visibility: public

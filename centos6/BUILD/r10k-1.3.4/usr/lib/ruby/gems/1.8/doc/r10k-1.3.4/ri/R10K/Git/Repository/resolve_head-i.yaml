@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Git::Repository#resolve_head
+is_singleton: false
+name: resolve_head
+params: (pattern)
+visibility: public

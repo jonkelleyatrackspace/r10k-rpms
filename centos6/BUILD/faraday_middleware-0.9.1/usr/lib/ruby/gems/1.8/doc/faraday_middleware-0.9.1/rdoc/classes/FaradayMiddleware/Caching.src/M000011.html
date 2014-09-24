@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>cache_on_complete (FaradayMiddleware::Caching)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response/caching.rb, line 60</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cache_on_complete</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">cache_key</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cached_response</span> = <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>)
+        <span class="ruby-identifier">finalize_response</span>(<span class="ruby-identifier">cached_response</span>, <span class="ruby-identifier">env</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-identifier">response</span>.<span class="ruby-identifier">on_complete</span> { <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">response</span>) }
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

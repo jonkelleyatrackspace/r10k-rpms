@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initialize a new registry with a given class
+- !ruby/struct:SM::Flow::P 
+  body: "@param klass [Class] The class to memoize @param method [Symbol] The method name to use when creating objects."
+- !ruby/struct:SM::Flow::VERB 
+  body: "                       Defaults to :new.\n"
+full_name: R10K::InstanceCache::new
+is_singleton: true
+name: new
+params: (klass, method = :new)
+visibility: public

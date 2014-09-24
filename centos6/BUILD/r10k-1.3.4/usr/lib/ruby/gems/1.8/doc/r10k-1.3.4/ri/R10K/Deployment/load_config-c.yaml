@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a deployment object based on a config
+- !ruby/struct:SM::Flow::P 
+  body: "@param path [String] The path to the deployment config @return [R10K::Deployment] The deployment loaded with the given config"
+full_name: R10K::Deployment::load_config
+is_singleton: true
+name: load_config
+params: (path)
+visibility: public

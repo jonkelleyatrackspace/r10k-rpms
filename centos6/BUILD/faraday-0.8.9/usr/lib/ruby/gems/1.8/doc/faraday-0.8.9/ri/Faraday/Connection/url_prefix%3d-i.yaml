@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Parses the giving url with URI and stores the individual components in this connection. These components serve as defaults for requests made by this connection.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  conn = Faraday::Connection.new { ... }\n  conn.url_prefix = &quot;https://sushi.com/api&quot;\n  conn.scheme      # =&gt; https\n  conn.path_prefix # =&gt; &quot;/api&quot;\n\n  conn.get(&quot;nigiri?page=2&quot;) # accesses https://sushi.com/api/nigiri\n"
+full_name: Faraday::Connection#url_prefix=
+is_singleton: false
+name: url_prefix=
+params: (url)
+visibility: public

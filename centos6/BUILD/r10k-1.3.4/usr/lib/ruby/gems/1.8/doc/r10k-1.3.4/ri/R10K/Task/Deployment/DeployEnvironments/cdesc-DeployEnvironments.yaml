@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute environment_names"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Array&lt;String&gt;] A list of environments to deploy, by name.\n"
+  name: environment_names
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute update_puppetfile"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [TrueClass, FalseClass] Whether to deploy modules in a puppetfile\n"
+  name: update_puppetfile
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Task::Deployment::DeployEnvironments
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: SharedBehaviors
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: DeployEnvironments
+superclass: R10K::Task::Base

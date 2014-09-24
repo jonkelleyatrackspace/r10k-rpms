@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] task_runner"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::TaskRunner] The task runner that's executing this command\n"
+  name: task_runner
+  rw: RW
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: R10K::Task::Base
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: []
+
+name: Base
+superclass: Object

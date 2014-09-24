@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Cri</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Cri</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/cri_rb.html">
+                lib/cri.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/command_dsl_rb.html">
+                lib/cri/command_dsl.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/help_renderer_rb.html">
+                lib/cri/help_renderer.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/argument_array_rb.html">
+                lib/cri/argument_array.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/option_parser_rb.html">
+                lib/cri/option_parser.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/command_runner_rb.html">
+                lib/cri/command_runner.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/command_rb.html">
+                lib/cri/command.rb
+                </a>
+        <br />
+                <a href="../files/lib/cri/version_rb.html">
+                lib/cri/version.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+encoding: utf-8
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Cri/CoreExtensions.html" class="link">Cri::CoreExtensions</a><br />
+Class <a href="Cri/ArgumentArray.html" class="link">Cri::ArgumentArray</a><br />
+Class <a href="Cri/Command.html" class="link">Cri::Command</a><br />
+Class <a href="Cri/CommandDSL.html" class="link">Cri::CommandDSL</a><br />
+Class <a href="Cri/CommandRunner.html" class="link">Cri::CommandRunner</a><br />
+Class <a href="Cri/Error.html" class="link">Cri::Error</a><br />
+Class <a href="Cri/HelpRenderer.html" class="link">Cri::HelpRenderer</a><br />
+Class <a href="Cri/NoHelpAvailableError.html" class="link">Cri::NoHelpAvailableError</a><br />
+Class <a href="Cri/NotImplementedError.html" class="link">Cri::NotImplementedError</a><br />
+Class <a href="Cri/OptionParser.html" class="link">Cri::OptionParser</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">'2.5.0'</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+The current <a href="Cri.html">Cri</a> version.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

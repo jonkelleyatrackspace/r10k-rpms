@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Expand the env with more properties, without overriding existing ones. Useful for applying request params after restoring a marshalled Response.
+full_name: Faraday::Response#apply_request
+is_singleton: false
+name: apply_request
+params: (request_env)
+visibility: public

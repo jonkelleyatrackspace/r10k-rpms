@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@!attribute [r] path"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @deprecated\n  @return [String] The path to the git cache repository\n"
+full_name: R10K::Git::Cache#path
+is_singleton: false
+name: path
+params: ()
+visibility: public

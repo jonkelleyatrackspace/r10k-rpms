@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::OAuth2#query_params
+is_singleton: false
+name: query_params
+params: (url)
+visibility: public

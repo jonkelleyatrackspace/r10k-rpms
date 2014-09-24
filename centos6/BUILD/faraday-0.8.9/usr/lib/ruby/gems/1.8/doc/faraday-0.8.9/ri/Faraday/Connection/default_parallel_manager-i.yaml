@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ""
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Traverse the middleware stack in search of a parallel-capable adapter."
+- !ruby/struct:SM::Flow::P 
+  body: Yields in case of not found.
+- !ruby/struct:SM::Flow::P 
+  body: Returns a parallel manager or nil if not found.
+full_name: Faraday::Connection#default_parallel_manager
+is_singleton: false
+name: default_parallel_manager
+params: () {|| ...}
+visibility: public

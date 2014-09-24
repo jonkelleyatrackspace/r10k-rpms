@@ -1,0 +1,87 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "The delegate to which events will be sent. The following methods will be send to the delegate:"
+  - !ruby/object:SM::Flow::LIST 
+    contents: 
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: `option_added(key, value, cmd)`
+    - !ruby/struct:SM::Flow::LI 
+      label: "*"
+      body: `argument_added(argument, cmd)`
+    type: :BULLET
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [#option_added, #argument_added] The delegate"
+  name: delegate
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The options that have already been parsed.
+  - !ruby/struct:SM::Flow::P 
+    body: If the parser was stopped before it finished, this will not contain all options and `unprocessed_arguments_and_options` will contain what is left to be processed.
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Hash] The already parsed options."
+  name: options
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array] The arguments that have already been parsed, including"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  the -- separator.\n"
+  name: raw_arguments
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "The options and arguments that have not yet been processed. If the parser wasn\xE2\x80\x99t stopped (using {#stop}), this list will be empty."
+  - !ruby/struct:SM::Flow::P 
+    body: "@return [Array] The not yet parsed options and arguments."
+  name: unprocessed_arguments_and_options
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: parse
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Cri::OptionParser is used for parsing commandline options.
+- !ruby/struct:SM::Flow::P 
+  body: Option definitions are hashes with the keys `:short`, `:long` and `:argument` (optionally `:description` but this is not used by the option parser, only by the help generator). `:short` is the short, one-character option, without the `-` prefix. `:long` is the long, multi-character option, without the `--` prefix. `:argument` can be :required (if an argument should be provided to the option), :optional (if an argument may be provided) or :forbidden (if an argument should not be provided).
+- !ruby/struct:SM::Flow::P 
+  body: "A sample array of definition hashes could look like this:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    [\n      { :short =&gt; 'a', :long =&gt; 'all',  :argument =&gt; :forbidden },\n      { :short =&gt; 'p', :long =&gt; 'port', :argument =&gt; :required  },\n    ]\n"
+- !ruby/struct:SM::Flow::P 
+  body: "For example, the following commandline options (which should not be passed as a string, but as an array of strings):"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    foo -xyz -a hiss -s -m please --level 50 --father=ani -n luke squeak\n"
+- !ruby/struct:SM::Flow::P 
+  body: "with the following option definitions:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    [\n      { :short =&gt; 'x', :long =&gt; 'xxx',    :argument =&gt; :forbidden },\n      { :short =&gt; 'y', :long =&gt; 'yyy',    :argument =&gt; :forbidden },\n      { :short =&gt; 'z', :long =&gt; 'zzz',    :argument =&gt; :forbidden },\n      { :short =&gt; 'a', :long =&gt; 'all',    :argument =&gt; :forbidden },\n      { :short =&gt; 's', :long =&gt; 'stuff',  :argument =&gt; :optional  },\n      { :short =&gt; 'm', :long =&gt; 'more',   :argument =&gt; :optional  },\n      { :short =&gt; 'l', :long =&gt; 'level',  :argument =&gt; :required  },\n      { :short =&gt; 'f', :long =&gt; 'father', :argument =&gt; :required  },\n      { :short =&gt; 'n', :long =&gt; 'name',   :argument =&gt; :required  }\n    ]\n"
+- !ruby/struct:SM::Flow::P 
+  body: "will be translated into:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    {\n      :arguments =&gt; [ 'foo', 'hiss', 'squeak' ],\n      :options =&gt; {\n        :xxx    =&gt; true,\n        :yyy    =&gt; true,\n        :zzz    =&gt; true,\n        :all    =&gt; true,\n        :stuff  =&gt; true,\n        :more   =&gt; 'please',\n        :level  =&gt; '50',\n        :father =&gt; 'ani',\n        :name   =&gt; 'luke'\n      }\n    }\n"
+constants: []
+
+full_name: Cri::OptionParser
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: arguments
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: running?
+- !ruby/object:RI::MethodSummary 
+  name: stop
+name: OptionParser
+superclass: Object

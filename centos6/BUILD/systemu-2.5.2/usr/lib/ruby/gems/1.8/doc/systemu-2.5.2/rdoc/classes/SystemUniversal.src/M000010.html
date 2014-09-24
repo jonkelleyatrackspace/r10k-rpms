@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>child_program (SystemUniversal)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 173</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">child_program</span> <span class="ruby-identifier">config</span>
+    <span class="ruby-value str">&quot;# encoding: utf-8\n\nPIPE = STDOUT.dup\nbegin\nconfig = Marshal.load(IO.read('\#{ config }'))\n\nargv = config['argv']\nenv = config['env']\ncwd = config['cwd']\nstdin = config['stdin']\nstdout = config['stdout']\nstderr = config['stderr']\n\nDir.chdir cwd if cwd\nenv.each{|k,v| ENV[k.to_s] = v.to_s} if env\n\nSTDIN.reopen stdin\nSTDOUT.reopen stdout\nSTDERR.reopen stderr\n\nPIPE.puts \&quot;pid: \\\#{ Process.pid }\&quot;\nPIPE.flush                        ### the process is ready yo!\nPIPE.close\n\nexec *argv\nrescue Exception =&gt; e\nPIPE.write Marshal.dump(e) rescue nil\nexit 42\nend\n&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Execute a command and return stdout
+- !ruby/struct:SM::Flow::P 
+  body: "@params [String] cmd @params [Hash] opts"
+- !ruby/struct:SM::Flow::P 
+  body: "@option opts [String] :event An optional log event name. Defaults to cmd. @option opts [String] :cwd The working directory to use when executing the command"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [R10K::ExecutionFailure] If the executed command exited with a"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  nonzero exit code.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] the stdout from the command"
+full_name: R10K::Execution#execute
+is_singleton: false
+name: execute
+params: (cmd, opts = {})
+visibility: public

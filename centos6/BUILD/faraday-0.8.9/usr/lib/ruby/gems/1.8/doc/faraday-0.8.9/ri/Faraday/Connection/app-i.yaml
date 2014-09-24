@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The &quot;rack app&quot; wrapped in middleware. All requests are sent here.
+- !ruby/struct:SM::Flow::P 
+  body: The builder is responsible for creating the app object. After this, the builder gets locked to ensure no further modifications are made to the middleware stack.
+- !ruby/struct:SM::Flow::P 
+  body: Returns an object that responds to `call` and returns a Response.
+full_name: Faraday::Connection#app
+is_singleton: false
+name: app
+params: ()
+visibility: public

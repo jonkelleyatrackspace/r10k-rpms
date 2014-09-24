@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: FaradayMiddleware</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">FaradayMiddleware</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/faraday_middleware/instrumentation_rb.html">
+                lib/faraday_middleware/instrumentation.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/rack_compatible_rb.html">
+                lib/faraday_middleware/rack_compatible.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/request/encode_json_rb.html">
+                lib/faraday_middleware/request/encode_json.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/request/oauth_rb.html">
+                lib/faraday_middleware/request/oauth.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/request/oauth2_rb.html">
+                lib/faraday_middleware/request/oauth2.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/request/method_override_rb.html">
+                lib/faraday_middleware/request/method_override.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/caching_rb.html">
+                lib/faraday_middleware/response/caching.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/follow_redirects_rb.html">
+                lib/faraday_middleware/response/follow_redirects.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/parse_marshal_rb.html">
+                lib/faraday_middleware/response/parse_marshal.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/parse_yaml_rb.html">
+                lib/faraday_middleware/response/parse_yaml.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/mashify_rb.html">
+                lib/faraday_middleware/response/mashify.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/rashify_rb.html">
+                lib/faraday_middleware/response/rashify.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/chunked_rb.html">
+                lib/faraday_middleware/response/chunked.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/parse_xml_rb.html">
+                lib/faraday_middleware/response/parse_xml.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/parse_json_rb.html">
+                lib/faraday_middleware/response/parse_json.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response/parse_dates_rb.html">
+                lib/faraday_middleware/response/parse_dates.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/response_middleware_rb.html">
+                lib/faraday_middleware/response_middleware.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware/version_rb.html">
+                lib/faraday_middleware/version.rb
+                </a>
+        <br />
+                <a href="../files/lib/faraday_middleware_rb.html">
+                lib/faraday_middleware.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="FaradayMiddleware/OptionsExtension.html" class="link">FaradayMiddleware::OptionsExtension</a><br />
+Class <a href="FaradayMiddleware/Caching.html" class="link">FaradayMiddleware::Caching</a><br />
+Class <a href="FaradayMiddleware/Chunked.html" class="link">FaradayMiddleware::Chunked</a><br />
+Class <a href="FaradayMiddleware/EncodeJson.html" class="link">FaradayMiddleware::EncodeJson</a><br />
+Class <a href="FaradayMiddleware/FollowRedirects.html" class="link">FaradayMiddleware::FollowRedirects</a><br />
+Class <a href="FaradayMiddleware/Instrumentation.html" class="link">FaradayMiddleware::Instrumentation</a><br />
+Class <a href="FaradayMiddleware/Mashify.html" class="link">FaradayMiddleware::Mashify</a><br />
+Class <a href="FaradayMiddleware/MethodOverride.html" class="link">FaradayMiddleware::MethodOverride</a><br />
+Class <a href="FaradayMiddleware/OAuth.html" class="link">FaradayMiddleware::OAuth</a><br />
+Class <a href="FaradayMiddleware/OAuth2.html" class="link">FaradayMiddleware::OAuth2</a><br />
+Class <a href="FaradayMiddleware/ParseDates.html" class="link">FaradayMiddleware::ParseDates</a><br />
+Class <a href="FaradayMiddleware/ParseJson.html" class="link">FaradayMiddleware::ParseJson</a><br />
+Class <a href="FaradayMiddleware/ParseMarshal.html" class="link">FaradayMiddleware::ParseMarshal</a><br />
+Class <a href="FaradayMiddleware/ParseXml.html" class="link">FaradayMiddleware::ParseXml</a><br />
+Class <a href="FaradayMiddleware/ParseYaml.html" class="link">FaradayMiddleware::ParseYaml</a><br />
+Class <a href="FaradayMiddleware/RackCompatible.html" class="link">FaradayMiddleware::RackCompatible</a><br />
+Class <a href="FaradayMiddleware/Rashify.html" class="link">FaradayMiddleware::Rashify</a><br />
+Class <a href="FaradayMiddleware/RedirectLimitReached.html" class="link">FaradayMiddleware::RedirectLimitReached</a><br />
+Class <a href="FaradayMiddleware/ResponseMiddleware.html" class="link">FaradayMiddleware::ResponseMiddleware</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;0.9.1&quot; unless defined?(FaradayMiddleware::VERSION)</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

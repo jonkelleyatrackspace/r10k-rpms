@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: response
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Exception thrown when the maximum amount of requests is exceeded."
+constants: []
+
+full_name: FaradayMiddleware::RedirectLimitReached
+includes: []
+
+instance_methods: []
+
+name: RedirectLimitReached
+superclass: Faraday::Error::ClientError

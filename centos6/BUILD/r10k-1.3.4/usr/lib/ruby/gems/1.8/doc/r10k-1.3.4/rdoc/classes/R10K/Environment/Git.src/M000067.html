@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>sync (R10K::Environment::Git)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/environment/git.rb, line 55</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync</span>
+    <span class="ruby-identifier">recursive_needed</span> = <span class="ruby-operator">!</span>(<span class="ruby-ivar">@working_dir</span>.<span class="ruby-identifier">cloned?</span>)
+    <span class="ruby-ivar">@working_dir</span>.<span class="ruby-identifier">sync</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">recursive_needed</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Environment #{@full_path} is a fresh clone; automatically updating modules.&quot;</span>
+      <span class="ruby-identifier">sync_modules</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

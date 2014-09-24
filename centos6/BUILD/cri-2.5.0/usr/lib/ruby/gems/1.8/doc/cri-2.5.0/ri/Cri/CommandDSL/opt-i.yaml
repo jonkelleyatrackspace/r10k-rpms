@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #option"
+full_name: Cri::CommandDSL#opt
+is_singleton: false
+name: opt
+params: (short, long, desc, params={}, &block)
+visibility: public

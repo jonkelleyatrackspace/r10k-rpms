@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Run all requests on queue with `EM::Synchrony::Multi`, wrapping it in a reactor and fiber if needed.
+full_name: Faraday::Adapter::EMSynchrony::ParallelManager#run
+is_singleton: false
+name: run
+params: ()
+visibility: public

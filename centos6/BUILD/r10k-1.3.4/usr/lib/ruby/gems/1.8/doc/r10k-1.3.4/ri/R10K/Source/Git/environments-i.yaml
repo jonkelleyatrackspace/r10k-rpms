@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Load the git remote and create environments for each branch. If the cache has not been fetched, this will return an empty list.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Array&lt;R10K::Environment::Git&gt;]"
+full_name: R10K::Source::Git#environments
+is_singleton: false
+name: environments
+params: ()
+visibility: public

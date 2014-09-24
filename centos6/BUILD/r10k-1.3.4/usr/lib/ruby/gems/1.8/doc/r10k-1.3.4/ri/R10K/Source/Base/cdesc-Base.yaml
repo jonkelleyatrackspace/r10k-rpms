@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] basedir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The path this source will place environments in\n"
+  name: basedir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] name"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The short name for this environment source\n"
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] prefix"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [true, false] Whether the source name should be prefixed to each\n    environment basedir. Defaults to false\n"
+  name: prefix
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class defines a common interface for source implementations.
+- !ruby/struct:SM::Flow::P 
+  body: "@since 1.3.0"
+constants: []
+
+full_name: R10K::Source::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: environments
+- !ruby/object:RI::MethodSummary 
+  name: preload!
+name: Base
+superclass: Object

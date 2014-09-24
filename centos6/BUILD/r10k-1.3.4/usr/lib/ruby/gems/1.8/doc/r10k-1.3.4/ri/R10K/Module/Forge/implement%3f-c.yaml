@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Module::Forge::implement?
+is_singleton: true
+name: implement?
+params: (name, args)
+visibility: public

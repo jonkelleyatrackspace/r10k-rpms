@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Modifies the command using the DSL.
+- !ruby/struct:SM::Flow::P 
+  body: If the block has one parameter, the block will be executed in the same context with the command DSL as its parameter. If the block has no parameters, the block will be executed in the context of the DSL.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Cri::Command] The command itself"
+full_name: Cri::Command#modify
+is_singleton: false
+name: modify
+params: (&block)
+visibility: public

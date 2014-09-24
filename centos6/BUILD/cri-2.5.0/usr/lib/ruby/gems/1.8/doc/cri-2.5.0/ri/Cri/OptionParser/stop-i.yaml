@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Stops the parser. The parser will finish its current parse cycle but will not start parsing new options and/or arguments.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::OptionParser#stop
+is_singleton: false
+name: stop
+params: ()
+visibility: public

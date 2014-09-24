@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>call (Faraday::Adapter::EMSynchrony)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter/em_synchrony.rb, line 20</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-keyword kw">super</span>
+        <span class="ruby-identifier">request</span> = <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-constant">HttpRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">env</span>[<span class="ruby-identifier">:url</span>].<span class="ruby-identifier">to_s</span>), <span class="ruby-identifier">connection_config</span>(<span class="ruby-identifier">env</span>))        <span class="ruby-comment cmt">#   end</span>
+
+        <span class="ruby-identifier">http_method</span> = <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:method</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+
+        <span class="ruby-comment cmt"># Queue requests for parallel execution.</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:parallel_manager</span>]
+          <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:parallel_manager</span>].<span class="ruby-identifier">add</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">http_method</span>, <span class="ruby-identifier">request_config</span>(<span class="ruby-identifier">env</span>)) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resp</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">save_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resp_headers</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">resp_headers</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+
+            <span class="ruby-comment cmt"># Finalize the response object with values from `env`.</span>
+            <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:response</span>].<span class="ruby-identifier">finish</span>(<span class="ruby-identifier">env</span>)
+          <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># Execute single request.</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">client</span> = <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-identifier">block</span> = <span class="ruby-identifier">lambda</span> { <span class="ruby-identifier">request</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">http_method</span>, <span class="ruby-identifier">request_config</span>(<span class="ruby-identifier">env</span>)) }
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">EM</span>.<span class="ruby-identifier">reactor_running?</span>
+            <span class="ruby-constant">EM</span>.<span class="ruby-identifier">run</span> <span class="ruby-keyword kw">do</span>
+              <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> {
+                <span class="ruby-identifier">client</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+                <span class="ruby-constant">EM</span>.<span class="ruby-identifier">stop</span>
+              }.<span class="ruby-identifier">resume</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">client</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">raise</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">error</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">error</span>
+
+          <span class="ruby-identifier">save_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resp_headers</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">resp_headers</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">env</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNREFUSED</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span>, <span class="ruby-identifier">$!</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-constant">Connectify</span><span class="ruby-operator">::</span><span class="ruby-constant">CONNECTError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">&quot;Proxy Authentication Required&quot;</span>)
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span>, <span class="ruby-value str">%{407 &quot;Proxy Authentication Required &quot;}</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span>, <span class="ruby-identifier">err</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

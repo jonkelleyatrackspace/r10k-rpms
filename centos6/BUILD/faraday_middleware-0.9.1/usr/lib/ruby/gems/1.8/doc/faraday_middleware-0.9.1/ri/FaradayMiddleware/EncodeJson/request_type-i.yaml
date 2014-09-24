@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::EncodeJson#request_type
+is_singleton: false
+name: request_type
+params: (env)
+visibility: public

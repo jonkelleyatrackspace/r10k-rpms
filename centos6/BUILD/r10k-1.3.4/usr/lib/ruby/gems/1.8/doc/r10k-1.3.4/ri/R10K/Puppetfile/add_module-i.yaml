@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] name @param [*Object] args"
+full_name: R10K::Puppetfile#add_module
+is_singleton: false
+name: add_module
+params: (name, args)
+visibility: public

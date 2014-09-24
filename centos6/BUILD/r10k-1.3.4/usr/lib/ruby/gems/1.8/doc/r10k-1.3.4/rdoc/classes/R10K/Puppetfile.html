@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: R10K::Puppetfile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">R10K::Puppetfile</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/r10k/puppetfile_rb.html">
+                lib/r10k/puppetfile.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000262">add_module</a>&nbsp;&nbsp;
+      <a href="#M000264">desired_contents</a>&nbsp;&nbsp;
+      <a href="#M000258">load</a>&nbsp;&nbsp;
+      <a href="#M000259">load!</a>&nbsp;&nbsp;
+      <a href="#M000263">managed_directory</a>&nbsp;&nbsp;
+      <a href="#M000257">new</a>&nbsp;&nbsp;
+      <a href="#M000260">set_forge</a>&nbsp;&nbsp;
+      <a href="#M000261">set_moduledir</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Logging.html">R10K::Logging</a></span>
+        <span class="include-name"><a href="Util/Purgeable.html">R10K::Util::Purgeable</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Puppetfile/DSL.html" class="link">R10K::Puppetfile::DSL</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">basedir</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] basedir
+
+<pre>
+  @return [String] The base directory that contains the Puppetfile
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">forge</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] forge
+
+<pre>
+  @return [String] The URL to use for the Puppet Forge
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">moduledir</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] moduledir
+
+<pre>
+  @return [String] The directory to install the modules #{basedir}/modules
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">modules</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] modules
+
+<pre>
+  @return [Array&lt;R10K::Module&gt;]
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">puppetfile_path</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attrbute [r] puppetfile_path
+
+<pre>
+  @return [String] The path to the Puppetfile
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000257" class="method-detail">
+        <a name="M000257"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000257.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000257.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(basedir, moduledir = nil, puppetfile = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [String] basedir @param [String] puppetfile The path to the <a
+href="Puppetfile.html">Puppetfile</a>, default to #{basedir}/<a
+href="Puppetfile.html">Puppetfile</a>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000262" class="method-detail">
+        <a name="M000262"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000262.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000262.html');return false;">
+          <span class="method-name">add_module</span><span class="method-args">(name, args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [String] name @param [*Object] args
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000264" class="method-detail">
+        <a name="M000264"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000264.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000264.html');return false;">
+          <span class="method-name">desired_contents</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+List all modules that should exist in the module directory @note This
+implements a required method for the Purgeable mixin @return
+[Array&lt;String&gt;]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000258" class="method-detail">
+        <a name="M000258"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000258.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000258.html');return false;">
+          <span class="method-name">load</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000259" class="method-detail">
+        <a name="M000259"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000259.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000259.html');return false;">
+          <span class="method-name">load!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000263" class="method-detail">
+        <a name="M000263"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000263.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000263.html');return false;">
+          <span class="method-name">managed_directory</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000260" class="method-detail">
+        <a name="M000260"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000260.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000260.html');return false;">
+          <span class="method-name">set_forge</span><span class="method-args">(forge)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [String] forge
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000261" class="method-detail">
+        <a name="M000261"></a>
+
+        <div class="method-heading">
+          <a href="Puppetfile.src/M000261.html" target="Code" class="method-signature"
+            onclick="popupCode('Puppetfile.src/M000261.html');return false;">
+          <span class="method-name">set_moduledir</span><span class="method-args">(moduledir)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [String] moduledir
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (R10K::Git::Alternates)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/git/alternates.rb, line 13</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">git_dir</span>)
+    <span class="ruby-ivar">@file</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">git_dir</span>, <span class="ruby-value str">'objects'</span>, <span class="ruby-value str">'info'</span>, <span class="ruby-value str">'alternates'</span>))
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

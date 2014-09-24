@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: platform
+- !ruby/object:RI::MethodSummary 
+  name: windows?
+comment: 
+constants: []
+
+full_name: R10K::Util::Platform
+includes: []
+
+instance_methods: []
+
+name: Platform
+superclass: 

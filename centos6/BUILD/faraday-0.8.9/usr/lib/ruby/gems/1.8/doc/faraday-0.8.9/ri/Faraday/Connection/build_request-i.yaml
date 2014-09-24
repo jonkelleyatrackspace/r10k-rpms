@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: req if block_given?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Creates and configures the request object."
+- !ruby/struct:SM::Flow::P 
+  body: Returns the new Request.
+full_name: Faraday::Connection#build_request
+is_singleton: false
+name: build_request
+params: (method) {|req if block_given?| ...}
+visibility: public

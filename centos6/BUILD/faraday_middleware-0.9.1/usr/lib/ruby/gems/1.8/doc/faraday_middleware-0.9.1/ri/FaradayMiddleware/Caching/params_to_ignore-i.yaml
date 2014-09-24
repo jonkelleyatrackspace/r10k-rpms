@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::Caching#params_to_ignore
+is_singleton: false
+name: params_to_ignore
+params: ()
+visibility: public

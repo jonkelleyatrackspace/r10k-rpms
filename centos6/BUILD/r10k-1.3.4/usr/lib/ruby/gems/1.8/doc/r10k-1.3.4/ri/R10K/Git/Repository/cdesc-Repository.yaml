@@ -1,0 +1,63 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] basedir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The directory containing the repository\n"
+  name: basedir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] dirname"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The name of the directory\n"
+  name: dirname
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] git_dir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  Set the path to the git directory. For git repositories with working copies\n  this will be `$working_dir/.git`; for bare repositories this will be\n  `bare-repo.git`\n  @return [String] The path to the git directory\n"
+  name: git_dir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] remote"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The URL to the git repository\n"
+  name: remote
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define an abstract base class for git repositories.
+constants: []
+
+full_name: R10K::Git::Repository
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: remotes
+- !ruby/object:RI::MethodSummary 
+  name: resolve_commit
+- !ruby/object:RI::MethodSummary 
+  name: resolve_head
+- !ruby/object:RI::MethodSummary 
+  name: resolve_ref
+- !ruby/object:RI::MethodSummary 
+  name: resolve_remote_head
+- !ruby/object:RI::MethodSummary 
+  name: resolve_tag
+- !ruby/object:RI::MethodSummary 
+  name: rev_parse
+- !ruby/object:RI::MethodSummary 
+  name: tags
+name: Repository
+superclass: Object

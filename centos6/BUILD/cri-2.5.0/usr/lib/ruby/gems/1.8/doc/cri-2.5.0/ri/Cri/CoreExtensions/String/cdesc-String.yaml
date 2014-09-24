@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Cri::CoreExtensions::String
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: formatted_as_command
+- !ruby/object:RI::MethodSummary 
+  name: formatted_as_option
+- !ruby/object:RI::MethodSummary 
+  name: formatted_as_title
+- !ruby/object:RI::MethodSummary 
+  name: to_paragraphs
+- !ruby/object:RI::MethodSummary 
+  name: wrap_and_indent
+name: String
+superclass: 

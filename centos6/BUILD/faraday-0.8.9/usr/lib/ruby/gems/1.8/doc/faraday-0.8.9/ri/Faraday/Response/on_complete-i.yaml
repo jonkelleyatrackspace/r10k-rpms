@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: env
+comment: 
+full_name: Faraday::Response#on_complete
+is_singleton: false
+name: on_complete
+params: () {|env| ...}
+visibility: public

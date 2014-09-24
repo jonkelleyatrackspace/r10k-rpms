@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Ensures that the path prefix always has a leading but no trailing slash
+full_name: Faraday::Connection#path_prefix=
+is_singleton: false
+name: path_prefix=
+params: (value)
+visibility: public

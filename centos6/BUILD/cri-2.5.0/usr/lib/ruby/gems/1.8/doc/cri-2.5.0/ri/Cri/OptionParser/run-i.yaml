@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Parses the commandline arguments into options and arguments.
+- !ruby/struct:SM::Flow::P 
+  body: "During parsing, two errors can be raised:"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise IllegalOptionError if an unrecognised option was encountered,"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  i.e. an option that is not present in the list of option definitions\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise OptionRequiresAnArgumentError if an option was found that did not"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  have a value, even though this value was required.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Cri::OptionParser] The option parser self"
+full_name: Cri::OptionParser#run
+is_singleton: false
+name: run
+params: ()
+visibility: public

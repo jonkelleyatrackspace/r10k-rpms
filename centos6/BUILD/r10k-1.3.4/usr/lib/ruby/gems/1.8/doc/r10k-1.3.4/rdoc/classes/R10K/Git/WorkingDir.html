@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: R10K::Git::WorkingDir</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">R10K::Git::WorkingDir</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/r10k/git/working_dir_rb.html">
+                lib/r10k/git/working_dir.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Repository.html">
+                R10K::Git::Repository
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Implements sparse git repositories with shared objects
+</p>
+<p>
+Working directory instances use the git alternatives object store, so that
+working directories only contain checked out files and all object files are
+shared.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000040">checkout</a>&nbsp;&nbsp;
+      <a href="#M000037">cloned?</a>&nbsp;&nbsp;
+      <a href="#M000041">current</a>&nbsp;&nbsp;
+      <a href="#M000039">exist?</a>&nbsp;&nbsp;
+      <a href="#M000038">git?</a>&nbsp;&nbsp;
+      <a href="#M000034">new</a>&nbsp;&nbsp;
+      <a href="#M000042">outdated?</a>&nbsp;&nbsp;
+      <a href="#M000043">resolve_remote_head</a>&nbsp;&nbsp;
+      <a href="#M000035">sync</a>&nbsp;&nbsp;
+      <a href="#M000036">update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../Logging.html">R10K::Logging</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">cache</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] cache
+
+<pre>
+  @return [R10K::Git::Cache] The object cache backing this working directory
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ref</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] ref
+
+<pre>
+  @return [R10K::Git::Ref] The git reference to use check out in the given directory
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">remote</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] remote
+
+<pre>
+  @return [String] The actual remote used as an upstream for this module.
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000034.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(ref, remote, basedir, dirname = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="WorkingDir.html#M000034">new</a> shallow git working
+directory
+</p>
+<p>
+@param ref [String, <a href="Ref.html">R10K::Git::Ref</a>] @param remote
+[String] @param basedir [String] @param dirname [String]
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000040.html');return false;">
+          <span class="method-name">checkout</span><span class="method-args">(ref)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+check out the given ref
+</p>
+<p>
+@param ref [<a href="Ref.html">R10K::Git::Ref</a>] The git reference to
+check out
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000037.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000037.html');return false;">
+          <span class="method-name">cloned?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determine if repo has been cloned into a specific dir
+</p>
+<p>
+@return [true, false] If the repo has already been cloned
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000041.html');return false;">
+          <span class="method-name">current</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The currently checked out HEAD
+</p>
+<p>
+@return [R10k::Git::Head]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000039.html');return false;">
+          <span class="method-name">exist?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Does a directory exist where we expect a working dir to be? @return [true,
+false]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <span class="method-name">git?</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for cloned?
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000042.html');return false;">
+          <span class="method-name">outdated?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000043.html');return false;">
+          <span class="method-name">resolve_remote_head</span><span class="method-args">(pattern, remote = 'cache')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Prefer remote heads from the &#8216;cache&#8217; remote over the real
+remote
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000035.html');return false;">
+          <span class="method-name">sync</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Synchronize the local git repository.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="WorkingDir.src/M000036.html" target="Code" class="method-signature"
+            onclick="popupCode('WorkingDir.src/M000036.html');return false;">
+          <span class="method-name">update</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

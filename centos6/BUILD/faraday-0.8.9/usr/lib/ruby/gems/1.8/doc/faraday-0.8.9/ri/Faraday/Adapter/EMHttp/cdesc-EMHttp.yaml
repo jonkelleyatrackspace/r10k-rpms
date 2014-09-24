@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: setup_parallel_manager
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine adapter is useful for either asynchronous requests when in EM reactor loop or for making parallel requests in synchronous code.
+constants: []
+
+full_name: Faraday::Adapter::EMHttp
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Options
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: error_message
+- !ruby/object:RI::MethodSummary 
+  name: parallel?
+- !ruby/object:RI::MethodSummary 
+  name: perform_request
+- !ruby/object:RI::MethodSummary 
+  name: perform_single_request
+- !ruby/object:RI::MethodSummary 
+  name: raise_error
+name: EMHttp
+superclass: Faraday::Adapter

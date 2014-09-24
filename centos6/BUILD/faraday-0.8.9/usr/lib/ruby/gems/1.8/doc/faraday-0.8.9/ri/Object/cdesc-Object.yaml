@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: not pulling in active-support JUST for this method. And I love this method.
+constants: []
+
+full_name: Object
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: tap
+name: Object
+superclass: Object

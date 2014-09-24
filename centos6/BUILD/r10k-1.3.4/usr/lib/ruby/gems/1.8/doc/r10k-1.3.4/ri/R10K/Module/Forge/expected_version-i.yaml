@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [R10K::SemVer] The expected version that the module"
+full_name: R10K::Module::Forge#expected_version
+is_singleton: false
+name: expected_version
+params: ()
+visibility: public

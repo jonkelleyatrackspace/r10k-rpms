@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Initialize the middleware."
+- !ruby/struct:SM::Flow::P 
+  body: "options - An options Hash (default: {}):"
+- !ruby/struct:SM::Flow::VERB 
+  body: "          limit - A Numeric redirect limit (default: 3)\n          standards_compliant - A Boolean indicating whether to respect\n                                the HTTP spec when following 302\n                                (default: false)\n         cookie - Use either an array of strings\n                 (e.g. ['cookie1', 'cookie2']) to choose kept cookies\n                 or :all to keep all cookies.\n"
+full_name: FaradayMiddleware::FollowRedirects::new
+is_singleton: true
+name: new
+params: (app, options = {})
+visibility: public

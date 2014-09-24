@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] commit"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The git commit\n"
+  name: commit
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "commit: A 40-byte hex representation of a SHA1 referencing a specific commit @see https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html @api private"
+constants: []
+
+full_name: R10K::Git::Commit
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: fetch?
+name: Commit
+superclass: R10K::Git::Ref

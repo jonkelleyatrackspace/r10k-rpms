@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: An error class that accepts an optional hash.
+- !ruby/struct:SM::Flow::P 
+  body: "@overload initialize(mesg)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @param mesg [String] The exception mesg\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload initialize(mesg, options)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @param mesg [String] The exception mesg\n  @param options [Hash] A set of options to store on the exception\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@overload initialize(options)"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @param options [Hash] A set of options to store on the exception\n"
+constants: []
+
+full_name: R10K::R10KError
+includes: []
+
+instance_methods: []
+
+name: R10KError
+superclass: StandardError

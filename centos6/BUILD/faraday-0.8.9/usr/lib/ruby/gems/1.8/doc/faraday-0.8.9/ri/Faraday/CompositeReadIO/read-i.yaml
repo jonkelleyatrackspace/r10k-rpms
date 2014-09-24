@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Read from IOs in order until `length` bytes have been received.
+full_name: Faraday::CompositeReadIO#read
+is_singleton: false
+name: read
+params: (length = nil, outbuf = nil)
+visibility: public

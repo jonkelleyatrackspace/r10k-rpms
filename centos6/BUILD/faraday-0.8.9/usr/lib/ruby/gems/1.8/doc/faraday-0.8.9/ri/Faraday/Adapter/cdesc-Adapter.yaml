@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_LENGTH
+  value: "'Content-Length'.freeze"
+full_name: Faraday::Adapter
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: save_response
+name: Adapter
+superclass: Object

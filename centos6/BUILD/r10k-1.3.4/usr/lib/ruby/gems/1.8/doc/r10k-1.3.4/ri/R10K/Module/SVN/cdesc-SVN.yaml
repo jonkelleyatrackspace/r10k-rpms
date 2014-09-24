@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] expected_revision"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The SVN revision that the repo should have checked out\n"
+  name: expected_revision
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] full_path"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Pathname] The filesystem path to the SVN repo\n"
+  name: full_path
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] svn_path"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The path inside of the SVN repository to have checked out\n"
+  name: svn_path
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: implement?
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Module::SVN
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: exist?
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: sync
+name: SVN
+superclass: R10K::Module::Base

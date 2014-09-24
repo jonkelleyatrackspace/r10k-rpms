@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>remotes (R10K::Git::Repository)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/git/repository.rb, line 82</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remotes</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-identifier">git</span> [<span class="ruby-value str">'remote'</span>, <span class="ruby-value str">'-v'</span>], <span class="ruby-identifier">:git_dir</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">git_dir</span>
+
+    <span class="ruby-identifier">ret</span> = {}
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\(push\)/</span>)
+      <span class="ruby-identifier">name</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\s+/</span>)
+      <span class="ruby-identifier">ret</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">url</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">ret</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: R10K::Util::Purgeable
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: current_contents
+- !ruby/object:RI::MethodSummary 
+  name: pending_contents
+- !ruby/object:RI::MethodSummary 
+  name: purge!
+- !ruby/object:RI::MethodSummary 
+  name: stale_contents
+name: Purgeable
+superclass: 

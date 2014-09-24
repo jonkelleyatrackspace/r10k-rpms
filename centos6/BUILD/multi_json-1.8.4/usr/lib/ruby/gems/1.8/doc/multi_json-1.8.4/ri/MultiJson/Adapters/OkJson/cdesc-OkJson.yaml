@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ParseError
+  value: "::MultiJson::OkJson::Error"
+full_name: MultiJson::Adapters::OkJson
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: ConvertibleHashKeys
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: dump
+- !ruby/object:RI::MethodSummary 
+  name: load
+name: OkJson
+superclass: Adapter

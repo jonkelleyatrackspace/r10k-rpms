@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Represents a directory containing environments @api private
+constants: []
+
+full_name: R10K::Deployment::Basedir
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Util::Purgeable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: desired_contents
+- !ruby/object:RI::MethodSummary 
+  name: managed_directory
+name: Basedir
+superclass: Object

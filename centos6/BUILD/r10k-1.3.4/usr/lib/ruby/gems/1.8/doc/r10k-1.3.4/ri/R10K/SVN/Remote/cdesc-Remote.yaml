@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::SVN::Remote
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: branches
+- !ruby/object:RI::MethodSummary 
+  name: trunk
+name: Remote
+superclass: Object

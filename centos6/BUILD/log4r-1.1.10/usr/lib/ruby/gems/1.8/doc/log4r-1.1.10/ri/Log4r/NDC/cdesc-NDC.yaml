@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: check_thread_instance
+- !ruby/object:RI::MethodSummary 
+  name: clear
+- !ruby/object:RI::MethodSummary 
+  name: clone_stack
+- !ruby/object:RI::MethodSummary 
+  name: get
+- !ruby/object:RI::MethodSummary 
+  name: get_depth
+- !ruby/object:RI::MethodSummary 
+  name: inherit
+- !ruby/object:RI::MethodSummary 
+  name: peek
+- !ruby/object:RI::MethodSummary 
+  name: pop
+- !ruby/object:RI::MethodSummary 
+  name: push
+- !ruby/object:RI::MethodSummary 
+  name: remove
+- !ruby/object:RI::MethodSummary 
+  name: set_max_depth
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: See log4r/NDC.rb
+constants: []
+
+full_name: Log4r::NDC
+includes: []
+
+instance_methods: []
+
+name: NDC
+superclass: Object

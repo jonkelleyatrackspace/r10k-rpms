@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (R10K::TaskRunner)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/task_runner.rb, line 20</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+    <span class="ruby-identifier">catch</span> <span class="ruby-identifier">:abort</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">current</span> = <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">current</span>.<span class="ruby-identifier">task_runner</span> = <span class="ruby-keyword kw">self</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">current</span>.<span class="ruby-identifier">call</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Interrupt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span> <span class="ruby-value str">&quot;Aborted!&quot;</span>
+          <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">red</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@trace</span>
+          <span class="ruby-ivar">@succeeded</span> = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-identifier">throw</span> <span class="ruby-identifier">:abort</span>
+        <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+          <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;Task #{current} failed while running: #{e.message}&quot;</span>
+          <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">red</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@trace</span>
+
+          <span class="ruby-ivar">@errors</span>[<span class="ruby-identifier">current</span>] = <span class="ruby-identifier">e</span>
+          <span class="ruby-ivar">@succeeded</span> = <span class="ruby-keyword kw">false</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">shift</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

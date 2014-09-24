@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Prefer remote heads from the 'cache' remote over the real remote
+full_name: R10K::Git::WorkingDir#resolve_remote_head
+is_singleton: false
+name: resolve_remote_head
+params: (pattern, remote = 'cache')
+visibility: public

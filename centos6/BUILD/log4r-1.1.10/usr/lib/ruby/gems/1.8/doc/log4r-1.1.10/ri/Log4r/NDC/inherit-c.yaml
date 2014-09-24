@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Log4r::NDC::inherit
+is_singleton: true
+name: inherit
+params: ( a_stack )
+visibility: public

@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "!@attribute [r] result"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::Util::Subprocess::Result]\n"
+  name: result
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Util::Subprocess::SubprocessError
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: SubprocessError
+superclass: R10KError

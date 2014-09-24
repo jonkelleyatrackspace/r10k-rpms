@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: load_config
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Deployment
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: environments
+- !ruby/object:RI::MethodSummary 
+  name: fetch_sources
+- !ruby/object:RI::MethodSummary 
+  name: preload!
+- !ruby/object:RI::MethodSummary 
+  name: sources
+name: Deployment
+superclass: Object

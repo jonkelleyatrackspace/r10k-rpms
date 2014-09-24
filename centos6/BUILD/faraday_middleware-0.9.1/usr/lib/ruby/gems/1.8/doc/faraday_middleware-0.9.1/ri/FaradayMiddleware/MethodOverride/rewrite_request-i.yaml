@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Write the original HTTP method to header, change method to POST."
+full_name: FaradayMiddleware::MethodOverride#rewrite_request
+is_singleton: false
+name: rewrite_request
+params: (env, original_method)
+visibility: public

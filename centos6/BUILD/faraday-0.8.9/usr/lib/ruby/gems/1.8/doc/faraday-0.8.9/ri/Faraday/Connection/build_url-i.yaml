@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Takes a relative url for a request and combines it with the defaults set on the connection instance.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  conn = Faraday::Connection.new { ... }\n  conn.url_prefix = &quot;https://sushi.com/api?token=abc&quot;\n  conn.scheme      # =&gt; https\n  conn.path_prefix # =&gt; &quot;/api&quot;\n\n  conn.build_url(&quot;nigiri?page=2&quot;)      # =&gt; https://sushi.com/api/nigiri?token=abc&amp;page=2\n  conn.build_url(&quot;nigiri&quot;, :page =&gt; 2) # =&gt; https://sushi.com/api/nigiri?token=abc&amp;page=2\n"
+full_name: Faraday::Connection#build_url
+is_singleton: false
+name: build_url
+params: (url, extra_params = nil)
+visibility: public

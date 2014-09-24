@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Cri::CommandDSL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Cri::CommandDSL</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/cri/command_dsl_rb.html">
+                lib/cri/command_dsl.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="CommandDSL.html#M000039">command</a> DSL is a class that is
+used for building and modifying commands.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000055">add_option</a>&nbsp;&nbsp;
+      <a href="#M000042">aliases</a>&nbsp;&nbsp;
+      <a href="#M000046">be_hidden</a>&nbsp;&nbsp;
+      <a href="#M000039">command</a>&nbsp;&nbsp;
+      <a href="#M000044">description</a>&nbsp;&nbsp;
+      <a href="#M000050">flag</a>&nbsp;&nbsp;
+      <a href="#M000051">forbidden</a>&nbsp;&nbsp;
+      <a href="#M000041">name</a>&nbsp;&nbsp;
+      <a href="#M000038">new</a>&nbsp;&nbsp;
+      <a href="#M000048">opt</a>&nbsp;&nbsp;
+      <a href="#M000047">option</a>&nbsp;&nbsp;
+      <a href="#M000052">optional</a>&nbsp;&nbsp;
+      <a href="#M000049">required</a>&nbsp;&nbsp;
+      <a href="#M000053">run</a>&nbsp;&nbsp;
+      <a href="#M000054">runner</a>&nbsp;&nbsp;
+      <a href="#M000040">subcommand</a>&nbsp;&nbsp;
+      <a href="#M000043">summary</a>&nbsp;&nbsp;
+      <a href="#M000045">usage</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000038.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000038.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(command=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param [<a href="Command.html">Cri::Command</a>, nil] <a
+href="CommandDSL.html#M000039">command</a> The <a
+href="CommandDSL.html#M000039">command</a> to modify, or nil if a
+</p>
+<pre>
+  new command should be created
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000042.html');return false;">
+          <span class="method-name">aliases</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000042">aliases</a>.
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, Array] args The <a
+href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000042">aliases</a>
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000046.html');return false;">
+          <span class="method-name">be_hidden</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Marks the <a href="CommandDSL.html#M000039">command</a> as hidden. Hidden
+commands do not show up in the list of subcommands of the parent <a
+href="CommandDSL.html#M000039">command</a>, unless &#8212;verbose is passed
+(or `:verbose =&gt; true` is passed to the {<a
+href="Command.html#M000021">Cri::Command#help</a>} method). This can be
+used to mark commands as deprecated.
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000039.html');return false;">
+          <span class="method-name">command</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [<a href="Command.html">Cri::Command</a>] The built <a
+href="CommandDSL.html#M000039">command</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000044.html');return false;">
+          <span class="method-name">description</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000044">description</a>.
+</p>
+<p>
+@param [<a href="../String.html">String</a>] arg The <a
+href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000044">description</a>
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000050.html');return false;">
+          <span class="method-name">flag</span><span class="method-args">(short, long, desc, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a <a href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000047">option</a> with a <a
+href="CommandDSL.html#M000051">forbidden</a> argument to the <a
+href="CommandDSL.html#M000039">command</a>. If a block is given, it will be
+executed when the <a href="CommandDSL.html#M000047">option</a> is
+successfully parsed.
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] short The short
+<a href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] long The long <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>] desc The <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000044">description</a>
+</p>
+<p>
+@return [void]
+</p>
+<p>
+@see {<a href="CommandDSL.html#M000047">option</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <span class="method-name">forbidden</span><span class="method-args">(short, long, desc, &amp;block)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="CommandDSL.html#M000050">flag</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000041.html');return false;">
+          <span class="method-name">name</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000041">name</a>.
+</p>
+<p>
+@param [<a href="../String.html">String</a>] arg The <a
+href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <span class="method-name">opt</span><span class="method-args">(short, long, desc, params={}, &amp;block)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="CommandDSL.html#M000047">option</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000047.html');return false;">
+          <span class="method-name">option</span><span class="method-args">(short, long, desc, params={}, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a <a href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000047">option</a> to the <a
+href="CommandDSL.html#M000039">command</a>. If a block is given, it will be
+executed when the <a href="CommandDSL.html#M000047">option</a> is
+successfully parsed.
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] short The short
+<a href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] long The long <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>] desc The <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000044">description</a>
+</p>
+<p>
+@<a href="CommandDSL.html#M000047">option</a> params [:<a
+href="CommandDSL.html#M000051">forbidden</a>, :<a
+href="CommandDSL.html#M000049">required</a>, :<a
+href="CommandDSL.html#M000052">optional</a>] :argument Whether the
+</p>
+<pre>
+  argument is forbidden, required or optional
+</pre>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000052.html');return false;">
+          <span class="method-name">optional</span><span class="method-args">(short, long, desc, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a <a href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000047">option</a> with an <a
+href="CommandDSL.html#M000052">optional</a> argument to the <a
+href="CommandDSL.html#M000039">command</a>. If a block is given, it will be
+executed when the <a href="CommandDSL.html#M000047">option</a> is
+successfully parsed.
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] short The short
+<a href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] long The long <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>] desc The <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000044">description</a>
+</p>
+<p>
+@return [void]
+</p>
+<p>
+@see {<a href="CommandDSL.html#M000047">option</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000049.html');return false;">
+          <span class="method-name">required</span><span class="method-args">(short, long, desc, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a <a href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000047">option</a> with a <a
+href="CommandDSL.html#M000049">required</a> argument to the <a
+href="CommandDSL.html#M000039">command</a>. If a block is given, it will be
+executed when the <a href="CommandDSL.html#M000047">option</a> is
+successfully parsed.
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] short The short
+<a href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>, Symbol, nil] long The long <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000041">name</a>
+</p>
+<p>
+@param [<a href="../String.html">String</a>] desc The <a
+href="CommandDSL.html#M000047">option</a> <a
+href="CommandDSL.html#M000044">description</a>
+</p>
+<p>
+@return [void]
+</p>
+<p>
+@see {<a href="CommandDSL.html#M000047">option</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000053.html');return false;">
+          <span class="method-name">run</span><span class="method-args">(&amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000053">run</a> block to the given
+block. The given block should have two or three arguments (options,
+arguments, and optionally the <a
+href="CommandDSL.html#M000039">command</a>). Calling this will override
+existing <a href="CommandDSL.html#M000053">run</a> block or <a
+href="CommandDSL.html#M000054">runner</a> declarations (using {<a
+href="CommandDSL.html#M000053">run</a>} and {<a
+href="CommandDSL.html#M000054">runner</a>}, respectively).
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000054.html');return false;">
+          <span class="method-name">runner</span><span class="method-args">(klass)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Defines the <a href="CommandDSL.html#M000054">runner</a> class for this <a
+href="CommandDSL.html#M000039">command</a>. Calling this will override
+existing <a href="CommandDSL.html#M000053">run</a> block or <a
+href="CommandDSL.html#M000054">runner</a> declarations (using {<a
+href="CommandDSL.html#M000053">run</a>} and {<a
+href="CommandDSL.html#M000054">runner</a>}, respectively).
+</p>
+<p>
+@param [Class&lt;<a href="CommandRunner.html">CommandRunner</a>&gt;] klass
+The <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000054">runner</a> class (subclass
+</p>
+<pre>
+  of {CommandRunner}) that is used for executing this command.
+</pre>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000040.html');return false;">
+          <span class="method-name">subcommand</span><span class="method-args">(command=nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a <a href="CommandDSL.html#M000040">subcommand</a> to the current <a
+href="CommandDSL.html#M000039">command</a>. The <a
+href="CommandDSL.html#M000039">command</a> can either be given explicitly,
+or a block can be given that defines the <a
+href="CommandDSL.html#M000039">command</a>.
+</p>
+<p>
+@param [<a href="Command.html">Cri::Command</a>, nil] <a
+href="CommandDSL.html#M000039">command</a> The <a
+href="CommandDSL.html#M000039">command</a> to add as a <a
+href="CommandDSL.html#M000040">subcommand</a>,
+</p>
+<pre>
+  or nil if the block should be used to define the command that will be
+  added as a subcommand
+</pre>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000043.html');return false;">
+          <span class="method-name">summary</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000043">summary</a>.
+</p>
+<p>
+@param [<a href="../String.html">String</a>] arg The <a
+href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000043">summary</a>
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000045.html');return false;">
+          <span class="method-name">usage</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000045">usage</a>. The <a
+href="CommandDSL.html#M000045">usage</a> should not include the “<a
+href="CommandDSL.html#M000045">usage</a>:” prefix, nor should it include
+the <a href="CommandDSL.html#M000039">command</a> names of the
+supercommand.
+</p>
+<p>
+@param [<a href="../String.html">String</a>] arg The <a
+href="CommandDSL.html#M000038">new</a> <a
+href="CommandDSL.html#M000039">command</a> <a
+href="CommandDSL.html#M000045">usage</a>
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="CommandDSL.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('CommandDSL.src/M000055.html');return false;">
+          <span class="method-name">add_option</span><span class="method-args">(short, long, desc, argument, block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

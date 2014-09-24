@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Can we locate the commit in the related repository?
+full_name: R10K::Git::Ref#resolvable?
+is_singleton: false
+name: resolvable?
+params: ()
+visibility: public

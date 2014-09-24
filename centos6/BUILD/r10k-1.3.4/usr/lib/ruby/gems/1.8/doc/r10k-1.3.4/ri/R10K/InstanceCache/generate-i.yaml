@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new object, or return a memoized object.
+- !ruby/struct:SM::Flow::P 
+  body: "@param args [*Object] The arguments to pass to the initialize method"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Object] A memoized instance of the registered class"
+full_name: R10K::InstanceCache#generate
+is_singleton: false
+name: generate
+params: (*args)
+visibility: public

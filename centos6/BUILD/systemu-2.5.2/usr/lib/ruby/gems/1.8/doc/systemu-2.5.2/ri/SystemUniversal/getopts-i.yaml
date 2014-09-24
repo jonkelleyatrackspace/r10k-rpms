@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SystemUniversal#getopts
+is_singleton: false
+name: getopts
+params: (opts = {})
+visibility: public

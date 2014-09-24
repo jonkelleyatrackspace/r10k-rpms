@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Lazily construct an instance cache for R10K::Git::Cache objects @api private
+full_name: R10K::Git::Cache::instance_cache
+is_singleton: true
+name: instance_cache
+params: ()
+visibility: public

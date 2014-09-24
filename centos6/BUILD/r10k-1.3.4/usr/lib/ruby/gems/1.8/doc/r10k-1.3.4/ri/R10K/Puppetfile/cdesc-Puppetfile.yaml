@@ -1,0 +1,71 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] basedir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The base directory that contains the Puppetfile\n"
+  name: basedir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] forge"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The URL to use for the Puppet Forge\n"
+  name: forge
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] moduledir"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The directory to install the modules #{basedir}/modules\n"
+  name: moduledir
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] modules"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Array&lt;R10K::Module&gt;]\n"
+  name: modules
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attrbute [r] puppetfile_path"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The path to the Puppetfile\n"
+  name: puppetfile_path
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::Puppetfile
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Util::Purgeable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_module
+- !ruby/object:RI::MethodSummary 
+  name: desired_contents
+- !ruby/object:RI::MethodSummary 
+  name: load
+- !ruby/object:RI::MethodSummary 
+  name: load!
+- !ruby/object:RI::MethodSummary 
+  name: managed_directory
+- !ruby/object:RI::MethodSummary 
+  name: set_forge
+- !ruby/object:RI::MethodSummary 
+  name: set_moduledir
+name: Puppetfile
+superclass: Object

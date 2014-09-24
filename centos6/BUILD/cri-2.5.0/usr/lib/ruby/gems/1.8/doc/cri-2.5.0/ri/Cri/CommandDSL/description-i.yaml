@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the command description.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] arg The new command description"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandDSL#description
+is_singleton: false
+name: description
+params: (arg)
+visibility: public

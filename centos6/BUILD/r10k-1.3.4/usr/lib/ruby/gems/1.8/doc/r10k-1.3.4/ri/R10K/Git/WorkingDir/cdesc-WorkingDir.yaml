@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] cache"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::Git::Cache] The object cache backing this working directory\n"
+  name: cache
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] ref"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::Git::Ref] The git reference to use check out in the given directory\n"
+  name: ref
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] remote"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The actual remote used as an upstream for this module.\n"
+  name: remote
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implements sparse git repositories with shared objects
+- !ruby/struct:SM::Flow::P 
+  body: Working directory instances use the git alternatives object store, so that working directories only contain checked out files and all object files are shared.
+constants: []
+
+full_name: R10K::Git::WorkingDir
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: checkout
+- !ruby/object:RI::MethodSummary 
+  name: cloned?
+- !ruby/object:RI::MethodSummary 
+  name: current
+- !ruby/object:RI::MethodSummary 
+  name: exist?
+- !ruby/object:RI::MethodSummary 
+  name: git?
+- !ruby/object:RI::MethodSummary 
+  name: outdated?
+- !ruby/object:RI::MethodSummary 
+  name: resolve_remote_head
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: update
+name: WorkingDir
+superclass: R10K::Git::Repository

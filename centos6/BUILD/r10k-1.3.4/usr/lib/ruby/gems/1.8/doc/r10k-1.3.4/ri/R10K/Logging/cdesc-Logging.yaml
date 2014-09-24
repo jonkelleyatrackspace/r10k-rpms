@@ -1,0 +1,37 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: formatter
+- !ruby/object:RI::MethodSummary 
+  name: included
+- !ruby/object:RI::MethodSummary 
+  name: level
+- !ruby/object:RI::MethodSummary 
+  name: level=
+- !ruby/object:RI::MethodSummary 
+  name: levels
+- !ruby/object:RI::MethodSummary 
+  name: outputter
+- !ruby/object:RI::MethodSummary 
+  name: parse_level
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LOG_LEVELS
+  value: "%w{DEBUG2 DEBUG1 DEBUG INFO NOTICE WARN ERROR FATAL}"
+full_name: R10K::Logging
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Log4r
+- !ruby/object:RI::IncludedModule 
+  name: Log4r
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: logger_name
+name: Logging
+superclass: 

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Replace default request headers."
+full_name: Faraday::Connection#headers=
+is_singleton: false
+name: headers=
+params: (hash)
+visibility: public

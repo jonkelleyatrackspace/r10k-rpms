@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a new instance with the given remote or return an existing object with the given remote. This should be used over R10K::Git::Cache.new.
+- !ruby/struct:SM::Flow::P 
+  body: "@api public @param remote [String] The git remote to cache @return [R10K::Git::Cache] The requested cache object."
+full_name: R10K::Git::Cache::generate
+is_singleton: true
+name: generate
+params: (remote)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: check out the given ref
+- !ruby/struct:SM::Flow::P 
+  body: "@param ref [R10K::Git::Ref] The git reference to check out"
+full_name: R10K::Git::WorkingDir#checkout
+is_singleton: false
+name: checkout
+params: (ref)
+visibility: public

@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: generate
+- !ruby/object:RI::MethodSummary 
+  name: instance_cache
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Mirror a git repository for use shared git object repositories
+- !ruby/struct:SM::Flow::P 
+  body: "@see man git-clone(1)"
+constants: []
+
+full_name: R10K::Git::Cache
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Settings::Mixin
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: branches
+- !ruby/object:RI::MethodSummary 
+  name: cached?
+- !ruby/object:RI::MethodSummary 
+  name: path
+- !ruby/object:RI::MethodSummary 
+  name: sync
+- !ruby/object:RI::MethodSummary 
+  name: sync!
+name: Cache
+superclass: R10K::Git::Repository

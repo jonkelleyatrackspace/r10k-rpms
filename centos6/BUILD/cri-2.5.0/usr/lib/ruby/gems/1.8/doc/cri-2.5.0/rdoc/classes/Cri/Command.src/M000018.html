@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>command_named (Cri::Command)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/cri/command.rb, line 221</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">command_named</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">commands</span> = <span class="ruby-identifier">commands_named</span>(<span class="ruby-identifier">name</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self.name}: unknown command '#{name}'\n&quot;</span>
+        <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{self.name}: '#{name}' is ambiguous:&quot;</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;  #{commands.map { |c| c.name }.sort.join(' ') }&quot;</span>
+        <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">commands</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

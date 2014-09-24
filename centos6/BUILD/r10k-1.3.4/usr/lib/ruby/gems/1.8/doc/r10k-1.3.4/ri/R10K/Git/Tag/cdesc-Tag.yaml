@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] tag"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The git tag\n"
+  name: tag
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "tag: A ref under refs/tags/ namespace that points to an object of an arbitrary type (typically a tag points to either a tag or a commit object). In contrast to a head, a tag is not updated by the commit command. A tag is most typically used to mark a particular point in the commit ancestry chain."
+- !ruby/struct:SM::Flow::P 
+  body: "@see https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html @api private"
+constants: []
+
+full_name: R10K::Git::Tag
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: fetch?
+name: Tag
+superclass: R10K::Git::Ref

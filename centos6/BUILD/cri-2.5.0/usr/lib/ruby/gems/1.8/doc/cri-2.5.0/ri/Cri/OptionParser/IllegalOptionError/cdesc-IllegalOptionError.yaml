@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Error that will be raised when an unknown option is encountered.
+constants: []
+
+full_name: Cri::OptionParser::IllegalOptionError
+includes: []
+
+instance_methods: []
+
+name: IllegalOptionError
+superclass: Cri::Error

@@ -1,0 +1,37 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: param_name
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: A simple middleware that adds an access token to each request."
+- !ruby/struct:SM::Flow::P 
+  body: The token is added as both &quot;access_token&quot; query parameter and the &quot;Authorization&quot; HTTP request header. However, an explicit &quot;access_token&quot; parameter or &quot;Authorization&quot; header for the current request are not overriden.
+- !ruby/struct:SM::Flow::P 
+  body: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  # configure default token:\n  OAuth2.new(app, 'abc123')\n\n  # configure query parameter name:\n  OAuth2.new(app, 'abc123', :param_name =&gt; 'my_oauth_token')\n\n  # default token value is optional:\n  OAuth2.new(app, :param_name =&gt; 'my_oauth_token')\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PARAM_NAME
+  value: "'access_token'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: AUTH_HEADER
+  value: "'Authorization'.freeze"
+full_name: FaradayMiddleware::OAuth2
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: query_params
+name: OAuth2
+superclass: Faraday::Middleware

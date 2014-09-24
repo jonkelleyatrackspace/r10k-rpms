@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: register middleware classes under a short name."
+- !ruby/struct:SM::Flow::P 
+  body: "type - A Symbol specifying the kind of middleware (default: :middleware) mapping - A Hash mapping Symbol keys to classes. Classes can be expressed"
+- !ruby/struct:SM::Flow::VERB 
+  body: "          as fully qualified constant, or a Proc that will be lazily called\n          to return the former.\n"
+- !ruby/struct:SM::Flow::P 
+  body: Examples
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Faraday.register_middleware :aloha =&gt; MyModule::Aloha\n  Faraday.register_middleware :response, :boom =&gt; MyModule::Boom\n\n  # shortcuts are now available in Builder:\n  builder.use :aloha\n  builder.response :boom\n"
+- !ruby/struct:SM::Flow::P 
+  body: Returns nothing.
+full_name: Faraday::register_middleware
+is_singleton: true
+name: register_middleware
+params: (type, mapping = nil)
+visibility: public

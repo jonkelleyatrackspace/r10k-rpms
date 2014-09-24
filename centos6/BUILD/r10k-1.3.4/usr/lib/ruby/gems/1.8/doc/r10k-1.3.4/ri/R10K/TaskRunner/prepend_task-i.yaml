@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::TaskRunner#prepend_task
+is_singleton: false
+name: prepend_task
+params: (task)
+visibility: public

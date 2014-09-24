@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: req if block_given?
+comment: 
+full_name: Faraday::Connection#run_request
+is_singleton: false
+name: run_request
+params: (method, url, body, headers) {|req if block_given?| ...}
+visibility: public

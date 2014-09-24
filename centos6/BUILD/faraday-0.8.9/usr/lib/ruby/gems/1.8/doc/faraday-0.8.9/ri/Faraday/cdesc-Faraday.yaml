@@ -1,0 +1,83 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_adapter
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_connection
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: lib_path
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: root_path
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: default_connection
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: register_middleware
+- !ruby/object:RI::MethodSummary 
+  name: require_libs
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Rely on autoloading instead of explicit require; helps avoid the &quot;already initialized constant&quot; warning on Ruby 1.8.7 when NetHttp is refereced below. require 'faraday/adapter/net_http'
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: UploadIO
+  value: "::UploadIO"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: Parts
+  value: "::Parts"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "\"0.8.9\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: Timer
+  value: SystemTimer
+- !ruby/object:RI::Constant 
+  comment: 
+  name: Timer
+  value: Timeout
+full_name: Faraday
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: delete
+- !ruby/object:RI::MethodSummary 
+  name: has_key?
+- !ruby/object:RI::MethodSummary 
+  name: include?
+- !ruby/object:RI::MethodSummary 
+  name: key?
+- !ruby/object:RI::MethodSummary 
+  name: member?
+- !ruby/object:RI::MethodSummary 
+  name: merge
+- !ruby/object:RI::MethodSummary 
+  name: merge!
+- !ruby/object:RI::MethodSummary 
+  name: parse
+- !ruby/object:RI::MethodSummary 
+  name: replace
+- !ruby/object:RI::MethodSummary 
+  name: to_hash
+- !ruby/object:RI::MethodSummary 
+  name: update
+name: Faraday
+superclass: 

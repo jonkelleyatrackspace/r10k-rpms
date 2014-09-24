@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>net_http_connection (Faraday::Adapter::NetHttpPersistent)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter/net_http_persistent.rb, line 11</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">net_http_connection</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">proxy</span> = <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:request</span>][<span class="ruby-identifier">:proxy</span>]
+          <span class="ruby-identifier">proxy_uri</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:uri</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:uri</span>].<span class="ruby-identifier">dup</span> <span class="ruby-operator">:</span> <span class="ruby-operator">::</span><span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:uri</span>].<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">proxy_uri</span>.<span class="ruby-identifier">password</span> = <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-comment cmt"># awful patch for net-http-persistent 2.8 not unescaping user/password</span>
+          (<span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">proxy_uri</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>).<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword kw">do</span>
+            <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">:user</span>) { <span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:user</span>] }
+            <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">:password</span>) { <span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:password</span>] }
+          <span class="ruby-keyword kw">end</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">proxy</span>[<span class="ruby-identifier">:user</span>]
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Persistent</span>.<span class="ruby-identifier">new</span> <span class="ruby-value str">'Faraday'</span>, <span class="ruby-identifier">proxy_uri</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

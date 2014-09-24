@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: succeeded
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::TaskRunner
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: append_task
+- !ruby/object:RI::MethodSummary 
+  name: exit_value
+- !ruby/object:RI::MethodSummary 
+  name: insert_task_after
+- !ruby/object:RI::MethodSummary 
+  name: prepend_task
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: succeeded?
+name: TaskRunner
+superclass: Object

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Hash] The option definitions for the command itself and all its"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  ancestors\n"
+full_name: Cri::Command#global_option_definitions
+is_singleton: false
+name: global_option_definitions
+params: ()
+visibility: public

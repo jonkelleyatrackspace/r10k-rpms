@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Adapter::EMSynchrony::setup_parallel_manager
+is_singleton: true
+name: setup_parallel_manager
+params: (options = {})
+visibility: public

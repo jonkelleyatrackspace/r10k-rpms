@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: setup_parallel_manager
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::Typhoeus
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: configure_proxy
+- !ruby/object:RI::MethodSummary 
+  name: configure_ssl
+- !ruby/object:RI::MethodSummary 
+  name: configure_timeout
+- !ruby/object:RI::MethodSummary 
+  name: parallel?
+- !ruby/object:RI::MethodSummary 
+  name: perform_request
+- !ruby/object:RI::MethodSummary 
+  name: read_body
+- !ruby/object:RI::MethodSummary 
+  name: request
+- !ruby/object:RI::MethodSummary 
+  name: request_options
+name: Typhoeus
+superclass: Faraday::Adapter

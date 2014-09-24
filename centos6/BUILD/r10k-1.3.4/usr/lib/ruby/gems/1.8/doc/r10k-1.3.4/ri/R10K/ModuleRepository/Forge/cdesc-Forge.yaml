@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] :conn"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @api private\n  @return [Faraday]\n"
+  name: conn
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] forge"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The forge hostname to use for requests\n"
+  name: forge
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: R10K::ModuleRepository::Forge
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: latest_version
+- !ruby/object:RI::MethodSummary 
+  name: versions
+name: Forge
+superclass: Object

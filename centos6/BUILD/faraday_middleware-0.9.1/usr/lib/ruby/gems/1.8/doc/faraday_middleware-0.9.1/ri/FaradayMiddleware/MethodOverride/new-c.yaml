@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Initialize the middleware."
+- !ruby/struct:SM::Flow::P 
+  body: app - the Faraday app to wrap options - (optional)
+- !ruby/struct:SM::Flow::VERB 
+  body: "          :rewrite - Array of HTTP methods to rewrite\n                     (default: all but GET and POST)\n"
+full_name: FaradayMiddleware::MethodOverride::new
+is_singleton: true
+name: new
+params: (app, options = nil)
+visibility: public

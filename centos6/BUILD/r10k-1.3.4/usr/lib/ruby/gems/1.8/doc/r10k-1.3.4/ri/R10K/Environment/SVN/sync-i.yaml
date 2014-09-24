@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Perform an initial checkout of the SVN repository or update the repository.
+- !ruby/struct:SM::Flow::P 
+  body: If the environment is being created for the first time, it will automatically update all modules to ensure that the environment is complete.
+- !ruby/struct:SM::Flow::P 
+  body: "@api public @return [void]"
+full_name: R10K::Environment::SVN#sync
+is_singleton: false
+name: sync
+params: ()
+visibility: public

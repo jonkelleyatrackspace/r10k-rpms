@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Experimental adapter for net-http-persistent
+constants: []
+
+full_name: Faraday::Adapter::NetHttpPersistent
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: configure_ssl
+- !ruby/object:RI::MethodSummary 
+  name: net_http_connection
+- !ruby/object:RI::MethodSummary 
+  name: perform_request
+name: NetHttpPersistent
+superclass: NetHttp

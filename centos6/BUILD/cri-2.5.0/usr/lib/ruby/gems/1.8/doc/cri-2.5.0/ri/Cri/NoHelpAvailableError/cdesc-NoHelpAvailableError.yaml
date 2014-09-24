@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Error that will be raised when no help is available because the help command has no supercommand for which to show help.
+constants: []
+
+full_name: Cri::NoHelpAvailableError
+includes: []
+
+instance_methods: []
+
+name: NoHelpAvailableError
+superclass: Error

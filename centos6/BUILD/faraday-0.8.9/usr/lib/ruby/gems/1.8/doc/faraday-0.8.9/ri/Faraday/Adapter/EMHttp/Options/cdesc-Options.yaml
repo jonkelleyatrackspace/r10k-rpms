@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::EMHttp::Options
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: configure_compression
+- !ruby/object:RI::MethodSummary 
+  name: configure_proxy
+- !ruby/object:RI::MethodSummary 
+  name: configure_timeout
+- !ruby/object:RI::MethodSummary 
+  name: connection_config
+- !ruby/object:RI::MethodSummary 
+  name: read_body
+- !ruby/object:RI::MethodSummary 
+  name: request_config
+- !ruby/object:RI::MethodSummary 
+  name: request_options
+name: Options
+superclass: 

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: List all environments that should exist in the basedir for this source @note This implements a required method for the Purgeable mixin @return [Array&lt;String&gt;]
+full_name: R10K::Source::Git#desired_contents
+is_singleton: false
+name: desired_contents
+params: ()
+visibility: public

@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: create
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Used to setup urls, params, headers, and the request body in a sane manner.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  @connection.post do |req|\n    req.url 'http://localhost', 'a' =&gt; '1' # 'http://localhost?a=1'\n    req.headers['b'] = '2' # Header\n    req.params['c']  = '3' # GET Param\n    req['b']         = '2' # also Header\n    req.body = 'abc'\n  end\n"
+constants: []
+
+full_name: Faraday::Request
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: headers=
+- !ruby/object:RI::MethodSummary 
+  name: params=
+- !ruby/object:RI::MethodSummary 
+  name: to_env
+- !ruby/object:RI::MethodSummary 
+  name: url
+name: Request
+superclass: Struct.new(:method, :path, :params, :headers, :body, :options)

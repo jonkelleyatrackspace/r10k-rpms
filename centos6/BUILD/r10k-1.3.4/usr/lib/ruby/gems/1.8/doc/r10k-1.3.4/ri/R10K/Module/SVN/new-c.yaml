@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: R10K::Module::SVN::new
+is_singleton: true
+name: new
+params: (name, basedir, args)
+visibility: public

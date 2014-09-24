@@ -1,0 +1,25 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: opt
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adds a new option to the command. If a block is given, it will be executed when the option is successfully parsed.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String, Symbol, nil] short The short option name"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String, Symbol, nil] long The long option name"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] desc The option description"
+- !ruby/struct:SM::Flow::P 
+  body: "@option params [:forbidden, :required, :optional] :argument Whether the"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  argument is forbidden, required or optional\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandDSL#option
+is_singleton: false
+name: option
+params: (short, long, desc, params={}, &block)
+visibility: public

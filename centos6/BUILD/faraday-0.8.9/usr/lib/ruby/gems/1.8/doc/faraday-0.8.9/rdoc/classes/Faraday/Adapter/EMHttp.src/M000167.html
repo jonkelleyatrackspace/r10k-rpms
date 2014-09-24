@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>perform_single_request (Faraday::Adapter::EMHttp)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter/em_http.rb, line 114</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">perform_single_request</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-identifier">req</span> = <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-constant">HttpRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>[<span class="ruby-identifier">:url</span>], <span class="ruby-identifier">connection_config</span>(<span class="ruby-identifier">env</span>))
+        <span class="ruby-identifier">req</span>.<span class="ruby-identifier">setup_request</span>(<span class="ruby-identifier">env</span>[<span class="ruby-identifier">:method</span>], <span class="ruby-identifier">request_config</span>(<span class="ruby-identifier">env</span>)).<span class="ruby-identifier">callback</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">client</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">save_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">status</span>, <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resp_headers</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">client</span>.<span class="ruby-identifier">response_header</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">resp_headers</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        }
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

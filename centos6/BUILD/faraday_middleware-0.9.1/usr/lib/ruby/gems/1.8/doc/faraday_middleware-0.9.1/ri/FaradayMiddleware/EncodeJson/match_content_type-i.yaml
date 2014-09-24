@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: env[:body] unless env[:body].respond_to?(:to_str)
+comment: 
+full_name: FaradayMiddleware::EncodeJson#match_content_type
+is_singleton: false
+name: match_content_type
+params: (env) {|env[:body] unless env[:body].respond_to?(:to_str)| ...}
+visibility: public

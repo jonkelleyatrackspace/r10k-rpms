@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>execute (R10K::Execution)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/execution.rb, line 21</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">execute</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">opts</span> = {})
+
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-value str">&quot;R10K::Execution#execute is deprecated, use R10K::Util::Subprocess&quot;</span>
+
+    <span class="ruby-identifier">event</span> = (<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:event</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">cmd</span>)
+
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug1</span> <span class="ruby-node">&quot;Execute: #{event.inspect}&quot;</span>
+
+    <span class="ruby-identifier">status</span>, <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span> = <span class="ruby-identifier">systemu</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">opts</span>)
+
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug2</span> <span class="ruby-node">&quot;[#{event}] STDOUT: #{stdout.chomp}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">stdout</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug2</span> <span class="ruby-node">&quot;[#{event}] STDERR: #{stderr.chomp}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">empty?</span>
+
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;#{cmd.inspect} returned with non-zero exit value #{status.exitstatus}&quot;</span>
+      <span class="ruby-identifier">e</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">ExecutionFailure</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">exit_code</span> = <span class="ruby-identifier">status</span>
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">stdout</span>    = <span class="ruby-identifier">stdout</span>
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">stderr</span>    = <span class="ruby-identifier">stderr</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">stdout</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

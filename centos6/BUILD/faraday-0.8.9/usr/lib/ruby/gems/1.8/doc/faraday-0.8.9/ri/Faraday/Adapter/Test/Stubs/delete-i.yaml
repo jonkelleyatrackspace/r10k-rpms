@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Faraday::Adapter::Test::Stubs#delete
+is_singleton: false
+name: delete
+params: (path, &block)
+visibility: public

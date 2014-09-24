@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>normalized_query (Addressable::URI)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/addressable_patch.rb, line 10</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">normalized_query</span>
+      <span class="ruby-identifier">fresh</span> = <span class="ruby-ivar">@normalized_query</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">query</span> = <span class="ruby-identifier">normalized_query_without_ordering_fix</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">fresh</span>
+        <span class="ruby-ivar">@normalized_query</span> = <span class="ruby-identifier">query</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'&amp;'</span>, <span class="ruby-value">-1</span>).<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">q</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">q</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'='</span>)<span class="ruby-operator">||</span><span class="ruby-value">-1</span>)] }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">query</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: fetch_sources
+block_params: 
+comment: 
+full_name: R10K::Deployment#preload!
+is_singleton: false
+name: preload!
+params: ()
+visibility: public

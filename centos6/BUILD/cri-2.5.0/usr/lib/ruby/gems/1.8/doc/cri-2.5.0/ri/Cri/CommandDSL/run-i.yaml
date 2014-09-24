@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the run block to the given block. The given block should have two or three arguments (options, arguments, and optionally the command). Calling this will override existing run block or runner declarations (using {#run} and {#runner}, respectively).
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandDSL#run
+is_singleton: false
+name: run
+params: (&block)
+visibility: public

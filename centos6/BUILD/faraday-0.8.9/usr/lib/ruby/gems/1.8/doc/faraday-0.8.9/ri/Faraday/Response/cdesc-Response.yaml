@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: env
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Faraday::Response
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: apply_request
+- !ruby/object:RI::MethodSummary 
+  name: body
+- !ruby/object:RI::MethodSummary 
+  name: finish
+- !ruby/object:RI::MethodSummary 
+  name: finished?
+- !ruby/object:RI::MethodSummary 
+  name: headers
+- !ruby/object:RI::MethodSummary 
+  name: marshal_dump
+- !ruby/object:RI::MethodSummary 
+  name: marshal_load
+- !ruby/object:RI::MethodSummary 
+  name: on_complete
+- !ruby/object:RI::MethodSummary 
+  name: status
+- !ruby/object:RI::MethodSummary 
+  name: success?
+name: Response
+superclass: Object

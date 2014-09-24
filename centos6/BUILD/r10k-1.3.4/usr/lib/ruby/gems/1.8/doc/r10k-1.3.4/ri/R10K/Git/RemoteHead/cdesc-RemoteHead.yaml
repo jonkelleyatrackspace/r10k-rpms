@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+constants: []
+
+full_name: R10K::Git::RemoteHead
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: sha1
+name: RemoteHead
+superclass: R10K::Git::Head

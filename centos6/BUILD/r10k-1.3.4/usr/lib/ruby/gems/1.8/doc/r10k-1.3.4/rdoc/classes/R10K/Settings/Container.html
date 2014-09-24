@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: R10K::Settings::Container</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">R10K::Settings::Container</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/r10k/settings/container_rb.html">
+                lib/r10k/settings/container.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Defines a collection for application settings
+</p>
+<p>
+This implements a hierarchical interface to application settings.
+Containers can define an optional parent container that will be used for
+default options if those options aren&#8216;t set on the given container.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000212">[]</a>&nbsp;&nbsp;
+      <a href="#M000213">[]=</a>&nbsp;&nbsp;
+      <a href="#M000214">add_valid_key</a>&nbsp;&nbsp;
+      <a href="#M000211">new</a>&nbsp;&nbsp;
+      <a href="#M000215">valid_key?</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Container/InvalidKey.html" class="link">R10K::Settings::Container::InvalidKey</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">valid_keys</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+@!attribute [r] valid_keys
+
+<pre>
+  @return [Set&lt;Symbol&gt;] All valid keys defined on the container or parent container.
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000211" class="method-detail">
+        <a name="M000211"></a>
+
+        <div class="method-heading">
+          <a href="Container.src/M000211.html" target="Code" class="method-signature"
+            onclick="popupCode('Container.src/M000211.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(parent = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@param parent [<a href="Container.html">R10K::Settings::Container</a>] An
+optional parent container
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000212" class="method-detail">
+        <a name="M000212"></a>
+
+        <div class="method-heading">
+          <a href="Container.src/M000212.html" target="Code" class="method-signature"
+            onclick="popupCode('Container.src/M000212.html');return false;">
+          <span class="method-name">[]</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Look up a value in the container. The lookup checks the current container,
+and then falls back to the parent container if it&#8216;s given.
+</p>
+<p>
+@param key [Symbol] The lookup key
+</p>
+<p>
+@return [Object, nil] The retrieved value if present.
+</p>
+<p>
+@raise [<a
+href="Container/InvalidKey.html">R10K::Settings::Container::InvalidKey</a>]
+If the looked up key isn&#8216;t
+</p>
+<pre>
+  a valid key.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000213" class="method-detail">
+        <a name="M000213"></a>
+
+        <div class="method-heading">
+          <a href="Container.src/M000213.html" target="Code" class="method-signature"
+            onclick="popupCode('Container.src/M000213.html');return false;">
+          <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set a value on the container
+</p>
+<p>
+@param key [Symbol] The lookup key @param value [Object] The value to store
+in the container
+</p>
+<p>
+@raise [<a
+href="Container/InvalidKey.html">R10K::Settings::Container::InvalidKey</a>]
+If the looked up key isn&#8216;t
+</p>
+<pre>
+  a valid key.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000214" class="method-detail">
+        <a name="M000214"></a>
+
+        <div class="method-heading">
+          <a href="Container.src/M000214.html" target="Code" class="method-signature"
+            onclick="popupCode('Container.src/M000214.html');return false;">
+          <span class="method-name">add_valid_key</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Define a valid container key
+</p>
+<p>
+@note This should only be used by {<a
+href="../../R10K.html">R10K</a>::Settings::ClassSettings}
+</p>
+<p>
+@param key [Symbol] @return [void]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000215" class="method-detail">
+        <a name="M000215"></a>
+
+        <div class="method-heading">
+          <a href="Container.src/M000215.html" target="Code" class="method-signature"
+            onclick="popupCode('Container.src/M000215.html');return false;">
+          <span class="method-name">valid_key?</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Determine if a key is a valid setting.
+</p>
+<p>
+@param key [Symbol]
+</p>
+<p>
+@return [true, false]
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

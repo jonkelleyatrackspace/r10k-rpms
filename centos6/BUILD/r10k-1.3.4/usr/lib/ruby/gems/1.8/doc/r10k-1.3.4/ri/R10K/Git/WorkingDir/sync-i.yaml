@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Synchronize the local git repository.
+full_name: R10K::Git::WorkingDir#sync
+is_singleton: false
+name: sync
+params: ()
+visibility: public

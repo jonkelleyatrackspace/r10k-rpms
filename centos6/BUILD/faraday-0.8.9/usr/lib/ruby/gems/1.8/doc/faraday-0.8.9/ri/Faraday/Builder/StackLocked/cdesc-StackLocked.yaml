@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Error raised when trying to modify the stack after calling `lock!`
+constants: []
+
+full_name: Faraday::Builder::StackLocked
+includes: []
+
+instance_methods: []
+
+name: StackLocked
+superclass: RuntimeError

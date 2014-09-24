@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Class &lt; R10K::Util::Subprocess::Runner]"
+full_name: R10K::Util::Subprocess::runner
+is_singleton: true
+name: runner
+params: ()
+visibility: public

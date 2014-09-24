@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: SystemUniversal#relay
+is_singleton: false
+name: relay
+params: (srcdst)
+visibility: public

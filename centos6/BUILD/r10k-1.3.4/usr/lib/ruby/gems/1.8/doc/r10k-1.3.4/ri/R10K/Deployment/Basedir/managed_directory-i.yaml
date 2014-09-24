@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the path of the basedir @note This implements a required method for the Purgeable mixin @return [String]
+full_name: R10K::Deployment::Basedir#managed_directory
+is_singleton: false
+name: managed_directory
+params: ()
+visibility: public

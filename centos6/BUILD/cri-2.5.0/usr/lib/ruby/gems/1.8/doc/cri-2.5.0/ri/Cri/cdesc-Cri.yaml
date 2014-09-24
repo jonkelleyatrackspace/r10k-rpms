@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "encoding: utf-8"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: The current Cri version.
+  name: VERSION
+  value: "'2.5.0'"
+full_name: Cri
+includes: []
+
+instance_methods: []
+
+name: Cri
+superclass: 

@@ -1,0 +1,35 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Override the content-type of the response with &quot;application/json&quot; if the response body looks like it might be JSON, i.e. starts with an open bracket."
+- !ruby/struct:SM::Flow::P 
+  body: This is to fix responses from certain API providers that insist on serving JSON with wrong MIME-types such as &quot;text/javascript&quot;.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MIME_TYPE
+  value: "'application/json'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BRACKETS
+  value: "%w- [ { -"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: WHITESPACE
+  value: "[ \" \", \"\\n\", \"\\r\", \"\\t\" ]"
+full_name: FaradayMiddleware::ParseJson::MimeTypeFix
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: first_char
+- !ruby/object:RI::MethodSummary 
+  name: parse_response?
+- !ruby/object:RI::MethodSummary 
+  name: process_response
+name: MimeTypeFix
+superclass: ResponseMiddleware

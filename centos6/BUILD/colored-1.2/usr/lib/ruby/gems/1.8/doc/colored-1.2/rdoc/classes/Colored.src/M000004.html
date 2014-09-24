@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>color (Colored)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/colored.rb, line 83</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">color</span>(<span class="ruby-identifier">color_name</span>)
+    <span class="ruby-identifier">background</span> = <span class="ruby-identifier">color_name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/on_/</span>
+    <span class="ruby-identifier">color_name</span> = <span class="ruby-identifier">color_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-value str">'on_'</span>, <span class="ruby-value str">''</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">color_name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">COLORS</span>[<span class="ruby-identifier">color_name</span>]
+    <span class="ruby-node">&quot;\e[#{COLORS[color_name] + (background ? 10 : 0)}m&quot;</span> 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

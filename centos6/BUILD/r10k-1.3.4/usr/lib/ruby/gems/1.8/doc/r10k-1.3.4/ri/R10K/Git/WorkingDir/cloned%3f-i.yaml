@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: git?
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Determine if repo has been cloned into a specific dir
+- !ruby/struct:SM::Flow::P 
+  body: "@return [true, false] If the repo has already been cloned"
+full_name: R10K::Git::WorkingDir#cloned?
+is_singleton: false
+name: cloned?
+params: ()
+visibility: public

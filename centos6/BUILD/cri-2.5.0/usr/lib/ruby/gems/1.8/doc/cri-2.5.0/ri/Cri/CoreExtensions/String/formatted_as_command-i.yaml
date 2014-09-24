@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [String] The string, formatted to be used as the name of a command"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  in the help\n"
+full_name: Cri::CoreExtensions::String#formatted_as_command
+is_singleton: false
+name: formatted_as_command
+params: ()
+visibility: public

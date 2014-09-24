@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Log4r::RollingFileOutputter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/log4r/outputter/rollingfileoutputter.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>={})
+      <span class="ruby-keyword kw">super</span>( <span class="ruby-identifier">_name</span>, <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-identifier">:create</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>}) )
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:maxsize</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'maxsize'</span>) 
+        <span class="ruby-identifier">_maxsize</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">:maxsize</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'maxsize'</span>]).<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_maxsize</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Argument 'maxsize' must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_maxsize</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Argument 'maxsize' must be &gt; 0&quot;</span>, <span class="ruby-identifier">caller</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@maxsize</span> = <span class="ruby-identifier">_maxsize</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:maxtime</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'maxtime'</span>) 
+        <span class="ruby-identifier">_maxtime</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">:maxtime</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'maxtime'</span>]).<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_maxtime</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Argument 'maxtime' must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_maxtime</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Argument 'maxtime' must be &gt; 0&quot;</span>, <span class="ruby-identifier">caller</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@maxtime</span> = <span class="ruby-identifier">_maxtime</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:max_backups</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'max_backups'</span>) 
+        <span class="ruby-identifier">_max_backups</span> = (<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">:max_backups</span>] <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">'max_backups'</span>]).<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">_max_backups</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-value str">&quot;Argument 'max_backups' must be an Fixnum&quot;</span>, <span class="ruby-identifier">caller</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@max_backups</span> = <span class="ruby-identifier">_max_backups</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-ivar">@max_backups</span> = <span class="ruby-value">-1</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># @filename starts out as the file (including path) provided by the user, e.g. &quot;\usr\logs\error.log&quot;.</span>
+      <span class="ruby-comment cmt">#   It will get assigned the current log file (including sequence number)   </span>
+      <span class="ruby-comment cmt"># @log_dir is the directory in which we'll log, e.g. &quot;\usr\logs&quot;</span>
+      <span class="ruby-comment cmt"># @file_extension is the file's extension (if any) including any period, e.g. &quot;.log&quot;</span>
+      <span class="ruby-comment cmt"># @core_file_name is the part of the log file's name, sans sequence digits or extension, e.g. &quot;error&quot;</span>
+      <span class="ruby-ivar">@log_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@filename</span>)
+      <span class="ruby-ivar">@file_extension</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@filename</span>)   <span class="ruby-comment cmt"># Note: the File API doc comment states that this doesn't include the period, but its examples and behavior do include it. We'll depend on the latter.</span>
+      <span class="ruby-ivar">@core_file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@filename</span>, <span class="ruby-ivar">@file_extension</span>)
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-ivar">@trunc</span>)
+        <span class="ruby-identifier">purge_log_files</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@current_sequence_number</span> = <span class="ruby-identifier">get_current_sequence_number</span>()
+      <span class="ruby-identifier">makeNewFilename</span>
+      <span class="ruby-comment cmt"># Now @filename points to a properly sequenced filename, which may or may not yet exist.</span>
+      <span class="ruby-identifier">open_log_file</span>(<span class="ruby-value str">'a'</span>)
+      
+      <span class="ruby-comment cmt"># Note: it's possible we're already in excess of our time or size constraint for the current file;</span>
+      <span class="ruby-comment cmt"># no worries -- if a new file needs to be started, it'll happen during the write() call. </span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>command (R10K::CLI::Deploy::Module)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/r10k/cli/deploy.rb, line 79</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">command</span>
+        <span class="ruby-ivar">@cmd</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">name</span>  <span class="ruby-value str">'module'</span>
+          <span class="ruby-identifier">usage</span> <span class="ruby-value str">'module [module] &lt;module ...&gt;'</span>
+          <span class="ruby-identifier">summary</span> <span class="ruby-value str">'Deploy modules in all environments'</span>
+
+          <span class="ruby-identifier">description</span> <span class="ruby-value str">&quot;`r10k deploy module` Deploys and updates modules inside of Puppet environments.\nIt will load the Puppetfile configurations out of all environments, and will\ntry to deploy the given module names in all environments.\n&quot;</span>
+
+          <span class="ruby-identifier">required</span> <span class="ruby-identifier">:e</span>, <span class="ruby-identifier">:environment</span>, <span class="ruby-value str">'Update the modules in the given environment'</span>
+
+          <span class="ruby-identifier">run</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">cmd</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">deploy</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span>.<span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:config</span>])
+
+            <span class="ruby-identifier">task</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span><span class="ruby-operator">::</span><span class="ruby-constant">DeployModules</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">deploy</span>)
+            <span class="ruby-identifier">task</span>.<span class="ruby-identifier">module_names</span> = <span class="ruby-identifier">args</span>
+            <span class="ruby-identifier">task</span>.<span class="ruby-identifier">environment_names</span> = [<span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:environment</span>]] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:environment</span>]
+
+            <span class="ruby-identifier">runner</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskRunner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:trace</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:trace</span>])
+            <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">append_task</span> <span class="ruby-identifier">task</span>
+            <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">run</span>
+
+            <span class="ruby-identifier">exit</span> <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">exit_value</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

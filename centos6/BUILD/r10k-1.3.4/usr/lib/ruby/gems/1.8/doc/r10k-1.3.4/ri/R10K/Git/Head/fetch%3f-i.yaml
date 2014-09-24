@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If we are tracking a branch, we should always try to fetch a newer version of that branch.
+full_name: R10K::Git::Head#fetch?
+is_singleton: false
+name: fetch?
+params: ()
+visibility: public

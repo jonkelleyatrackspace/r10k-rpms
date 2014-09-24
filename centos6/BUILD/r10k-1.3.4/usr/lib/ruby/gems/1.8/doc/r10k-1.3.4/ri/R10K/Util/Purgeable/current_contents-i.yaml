@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Array&lt;String&gt;] The present directory entries in `self.managed_directory`"
+full_name: R10K::Util::Purgeable#current_contents
+is_singleton: false
+name: current_contents
+params: ()
+visibility: public

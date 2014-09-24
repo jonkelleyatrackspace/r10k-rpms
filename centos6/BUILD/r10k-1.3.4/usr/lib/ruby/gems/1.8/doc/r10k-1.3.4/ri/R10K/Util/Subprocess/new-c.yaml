@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Prepare the subprocess invocation.
+- !ruby/struct:SM::Flow::P 
+  body: "@param argv [Array&lt;String&gt;] The argument vector to execute"
+full_name: R10K::Util::Subprocess::new
+is_singleton: true
+name: new
+params: (argv)
+visibility: public

@@ -1,0 +1,50 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: Uses the simple_oauth library to sign requests according the OAuth protocol."
+- !ruby/struct:SM::Flow::P 
+  body: "The options for this middleware are forwarded to SimpleOAuth::Header: :consumer_key, :consumer_secret, :token, :token_secret. All these parameters are optional."
+- !ruby/struct:SM::Flow::P 
+  body: The signature is added to the &quot;Authorization&quot; HTTP request header. If the value for this header already exists, it is not overriden.
+- !ruby/struct:SM::Flow::P 
+  body: If no Content-Type header is specified, this middleware assumes that request body parameters should be included while signing the request. Otherwise, it only includes them if the Content-Type is &quot;application/x-www-form-urlencoded&quot;, as per OAuth 1.0.
+- !ruby/struct:SM::Flow::P 
+  body: For better performance while signing requests, this middleware should be positioned before UrlEncoded middleware on the stack, but after any other body-encoding middleware (such as EncodeJson).
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: AUTH_HEADER
+  value: "'Authorization'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_TYPE
+  value: "'Content-Type'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TYPE_URLENCODED
+  value: "'application/x-www-form-urlencoded'.freeze"
+full_name: FaradayMiddleware::OAuth
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: body_params
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: include_body_params?
+- !ruby/object:RI::MethodSummary 
+  name: oauth_header
+- !ruby/object:RI::MethodSummary 
+  name: oauth_options
+- !ruby/object:RI::MethodSummary 
+  name: sign_request?
+- !ruby/object:RI::MethodSummary 
+  name: signature_params
+name: OAuth
+superclass: Faraday::Middleware

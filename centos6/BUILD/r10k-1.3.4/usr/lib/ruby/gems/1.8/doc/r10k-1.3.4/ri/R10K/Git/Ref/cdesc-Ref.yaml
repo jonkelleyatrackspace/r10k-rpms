@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] ref"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The git reference\n"
+  name: ref
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [rw] repository"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::Git::Repository] A git repository that can be used to\n    resolve the git reference to a commit.\n"
+  name: repository
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "ref: A 40-byte hex representation of a SHA1 or a name that denotes a particular object. They may be stored in a file under $GIT_DIR/refs/ directory, or in the $GIT_DIR/packed-refs file."
+- !ruby/struct:SM::Flow::P 
+  body: "@see https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html @api private"
+constants: []
+
+full_name: R10K::Git::Ref
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: fetch?
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: resolvable?
+- !ruby/object:RI::MethodSummary 
+  name: sha1
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Ref
+superclass: Object

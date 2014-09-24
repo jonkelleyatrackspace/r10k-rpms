@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Forcibly remove all unmanaged content in `self.managed_directory`
+full_name: R10K::Util::Purgeable#purge!
+is_singleton: false
+name: purge!
+params: ()
+visibility: public

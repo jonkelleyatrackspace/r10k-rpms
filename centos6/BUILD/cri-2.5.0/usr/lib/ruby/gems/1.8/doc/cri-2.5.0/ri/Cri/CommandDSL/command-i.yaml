@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Cri::Command] The built command"
+full_name: Cri::CommandDSL#command
+is_singleton: false
+name: command
+params: ()
+visibility: public

@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Query for the newest published version of a module
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  forge = R10K::ModuleRepository::Forge.new\n  forge.latest_version('adrien/boolean')\n  #=&gt; &quot;1.0.1&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param module_name [String] The fully qualified module name @return [String] The latest published version of the given module"
+full_name: R10K::ModuleRepository::Forge#latest_version
+is_singleton: false
+name: latest_version
+params: (module_name)
+visibility: public

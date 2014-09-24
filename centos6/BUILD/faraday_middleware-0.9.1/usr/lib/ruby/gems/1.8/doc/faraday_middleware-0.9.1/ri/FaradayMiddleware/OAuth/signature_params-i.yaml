@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::OAuth#signature_params
+is_singleton: false
+name: signature_params
+params: (params)
+visibility: public

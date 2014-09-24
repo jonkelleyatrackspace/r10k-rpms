@@ -1,0 +1,49 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] remote"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The URL to the base directory of the SVN repository\n"
+  name: remote
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] svn_remote"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @api private\n  @return [R10K::SVN::Remote]\n"
+  name: svn_remote
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This class implements a source for SVN environments.
+- !ruby/struct:SM::Flow::P 
+  body: An SVN source generates environments by enumerating the branches and trunk for a given SVN remote. SVN repositories must conform to the conventional SVN repository structure with the directories trunk/, branches/, and optionally tags/ in the root of the repository. The trunk/ directory is specifically mapped to the production environment, branches are created as environments with the name of the given branch.
+- !ruby/struct:SM::Flow::P 
+  body: "@see http://svnbook.red-bean.com/en/1.7/svn.branchmerge.maint.html @since 1.3.0"
+constants: []
+
+full_name: R10K::Source::SVN
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Util::Purgeable
+- !ruby/object:RI::IncludedModule 
+  name: R10K::Logging
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: current_contents
+- !ruby/object:RI::MethodSummary 
+  name: desired_contents
+- !ruby/object:RI::MethodSummary 
+  name: environments
+- !ruby/object:RI::MethodSummary 
+  name: generate_environments
+- !ruby/object:RI::MethodSummary 
+  name: managed_directory
+name: SVN
+superclass: R10K::Source::Base

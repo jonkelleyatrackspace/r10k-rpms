@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Faraday::Adapter::Test::Stub
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: matches?
+- !ruby/object:RI::MethodSummary 
+  name: params_match?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Stub
+superclass: Struct.new(:path, :params, :body, :block)

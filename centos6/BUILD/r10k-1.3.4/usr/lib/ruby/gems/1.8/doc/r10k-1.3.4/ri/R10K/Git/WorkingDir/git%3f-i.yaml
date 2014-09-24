@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #cloned?"
+full_name: R10K::Git::WorkingDir#git?
+is_singleton: false
+name: git?
+params: ()
+visibility: public

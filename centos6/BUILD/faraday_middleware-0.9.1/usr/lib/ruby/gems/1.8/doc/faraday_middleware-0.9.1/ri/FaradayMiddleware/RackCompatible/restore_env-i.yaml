@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: rack to faraday-compatible
+full_name: FaradayMiddleware::RackCompatible#restore_env
+is_singleton: false
+name: restore_env
+params: (rack_env)
+visibility: public

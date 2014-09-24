@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: major
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: minor
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: special
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tiny
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: find_matching
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: pre
+- !ruby/object:RI::MethodSummary 
+  name: valid?
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: /^v?(\d+)\.(\d+)\.(\d+)(-[0-9A-Za-z-]*|)$/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIMPLE_RANGE
+  value: /^v?(\d+|[xX])(?:\.(\d+|[xX])(?:\.(\d+|[xX]))?)?$/
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MIN
+  value: SemVer.new('0.0.0-')
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MAX
+  value: SemVer.new('8.0.0')
+full_name: R10K::SemVer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Comparable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: matched_by?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: SemVer
+superclass: Numeric

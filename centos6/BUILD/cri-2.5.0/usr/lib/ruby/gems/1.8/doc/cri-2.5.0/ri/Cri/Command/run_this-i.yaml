@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Runs the actual command with the given commandline arguments, not invoking any subcommands. If the command does not have an execution block, an error ir raised.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Array&lt;String&gt;] opts_and_args A list of unparsed arguments"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] parent_opts A hash of options already handled by the"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  supercommand\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [NotImplementedError] if the command does not have an execution"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  block\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::Command#run_this
+is_singleton: false
+name: run_this
+params: (opts_and_args, parent_opts={})
+visibility: public

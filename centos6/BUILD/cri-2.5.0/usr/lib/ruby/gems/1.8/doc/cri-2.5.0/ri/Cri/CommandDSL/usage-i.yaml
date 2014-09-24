@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Sets the command usage. The usage should not include the \xE2\x80\x9Cusage:\xE2\x80\x9D prefix, nor should it include the command names of the supercommand."
+- !ruby/struct:SM::Flow::P 
+  body: "@param [String] arg The new command usage"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: Cri::CommandDSL#usage
+is_singleton: false
+name: usage
+params: (arg)
+visibility: public

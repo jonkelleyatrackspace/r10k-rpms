@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: FaradayMiddleware::RackCompatible#headers_to_rack
+is_singleton: false
+name: headers_to_rack
+params: (env)
+visibility: public

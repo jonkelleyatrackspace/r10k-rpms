@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define a setting and optional default on the extending class.
+- !ruby/struct:SM::Flow::P 
+  body: "@param key [Symbol] @param default [Object]"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [void]"
+full_name: R10K::Settings::Mixin::ClassMethods#def_setting_attr
+is_singleton: false
+name: def_setting_attr
+params: (key, default = nil)
+visibility: public

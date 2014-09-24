@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: response_headers if block_given?
+comment: 
+full_name: Faraday::Adapter#save_response
+is_singleton: false
+name: save_response
+params: (env, status, body, headers = nil) {|response_headers if block_given?| ...}
+visibility: public

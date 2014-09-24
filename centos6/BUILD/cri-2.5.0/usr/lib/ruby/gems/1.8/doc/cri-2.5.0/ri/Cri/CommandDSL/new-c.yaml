@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Cri::Command, nil] command The command to modify, or nil if a"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  new command should be created\n"
+full_name: Cri::CommandDSL::new
+is_singleton: true
+name: new
+params: (command=nil)
+visibility: public

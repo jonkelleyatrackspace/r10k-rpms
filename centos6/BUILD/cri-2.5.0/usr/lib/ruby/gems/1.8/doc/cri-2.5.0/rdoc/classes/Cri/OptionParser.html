@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Cri::OptionParser</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Cri::OptionParser</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/cri/option_parser_rb.html">
+                lib/cri/option_parser.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="OptionParser.html">Cri::OptionParser</a> is used for parsing
+commandline options.
+</p>
+<p>
+Option definitions are hashes with the keys `:short`, `:long` and
+`:argument` (optionally `:description` but this is not used by the option
+parser, only by the help generator). `:short` is the short, one-character
+option, without the `-` prefix. `:long` is the long, multi-character
+option, without the `&#8212;` prefix. `:argument` can be :required (if an
+argument should be provided to the option), :optional (if an argument may
+be provided) or :forbidden (if an argument should not be provided).
+</p>
+<p>
+A sample array of definition hashes could look like this:
+</p>
+<pre>
+    [
+      { :short =&gt; 'a', :long =&gt; 'all',  :argument =&gt; :forbidden },
+      { :short =&gt; 'p', :long =&gt; 'port', :argument =&gt; :required  },
+    ]
+</pre>
+<p>
+For example, the following commandline options (which should not be passed
+as a string, but as an array of strings):
+</p>
+<pre>
+    foo -xyz -a hiss -s -m please --level 50 --father=ani -n luke squeak
+</pre>
+<p>
+with the following option definitions:
+</p>
+<pre>
+    [
+      { :short =&gt; 'x', :long =&gt; 'xxx',    :argument =&gt; :forbidden },
+      { :short =&gt; 'y', :long =&gt; 'yyy',    :argument =&gt; :forbidden },
+      { :short =&gt; 'z', :long =&gt; 'zzz',    :argument =&gt; :forbidden },
+      { :short =&gt; 'a', :long =&gt; 'all',    :argument =&gt; :forbidden },
+      { :short =&gt; 's', :long =&gt; 'stuff',  :argument =&gt; :optional  },
+      { :short =&gt; 'm', :long =&gt; 'more',   :argument =&gt; :optional  },
+      { :short =&gt; 'l', :long =&gt; 'level',  :argument =&gt; :required  },
+      { :short =&gt; 'f', :long =&gt; 'father', :argument =&gt; :required  },
+      { :short =&gt; 'n', :long =&gt; 'name',   :argument =&gt; :required  }
+    ]
+</pre>
+<p>
+will be translated into:
+</p>
+<pre>
+    {
+      :arguments =&gt; [ 'foo', 'hiss', 'squeak' ],
+      :options =&gt; {
+        :xxx    =&gt; true,
+        :yyy    =&gt; true,
+        :zzz    =&gt; true,
+        :all    =&gt; true,
+        :stuff  =&gt; true,
+        :more   =&gt; 'please',
+        :level  =&gt; '50',
+        :father =&gt; 'ani',
+        :name   =&gt; 'luke'
+      }
+    }
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000032">arguments</a>&nbsp;&nbsp;
+      <a href="#M000031">new</a>&nbsp;&nbsp;
+      <a href="#M000030">parse</a>&nbsp;&nbsp;
+      <a href="#M000035">run</a>&nbsp;&nbsp;
+      <a href="#M000033">running?</a>&nbsp;&nbsp;
+      <a href="#M000034">stop</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="OptionParser/IllegalOptionError.html" class="link">Cri::OptionParser::IllegalOptionError</a><br />
+Class <a href="OptionParser/OptionRequiresAnArgumentError.html" class="link">Cri::OptionParser::OptionRequiresAnArgumentError</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">delegate</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The delegate to which events will be sent. The following methods will be
+send to the delegate:
+
+<ul>
+<li>`option_added(key, value, cmd)`
+
+</li>
+<li>`argument_added(argument, cmd)`
+
+</li>
+</ul>
+<p>
+@return [option_added, argument_added] The delegate
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">options</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The options that have already been parsed.
+
+<p>
+If the parser was stopped before it finished, this will not contain all
+options and `unprocessed_arguments_and_options` will contain what is left
+to be processed.
+</p>
+<p>
+@return [Hash] The already parsed options.
+</p>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">raw_arguments</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+@return [Array] The <a href="OptionParser.html#M000032">arguments</a> that
+have already been parsed, including
+
+<pre>
+  the -- separator.
+</pre>
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">unprocessed_arguments_and_options</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The options and <a href="OptionParser.html#M000032">arguments</a> that have
+not yet been processed. If the parser wasn’t stopped (using {<a
+href="OptionParser.html#M000034">stop</a>}), this list will be empty.
+
+<p>
+@return [Array] The not yet parsed options and <a
+href="OptionParser.html#M000032">arguments</a>.
+</p>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000031.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(arguments_and_options, definitions)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="OptionParser.html#M000031">new</a> parser with the given
+options/arguments and definitions.
+</p>
+<p>
+@param [Array&lt;<a href="../String.html">String</a>&gt;]
+arguments_and_options An array containing the
+</p>
+<pre>
+  commandline arguments (will probably be `ARGS` for a root command)
+</pre>
+<p>
+@param [Array&lt;Hash&gt;] definitions An array of option definitions
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000030.html');return false;">
+          <span class="method-name">parse</span><span class="method-args">(arguments_and_options, definitions)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Parses the commandline <a href="OptionParser.html#M000032">arguments</a>.
+See the instance `<a href="OptionParser.html#M000030">parse</a>` method for
+details.
+</p>
+<p>
+@param [Array&lt;<a href="../String.html">String</a>&gt;]
+arguments_and_options An array containing the
+</p>
+<pre>
+  commandline arguments (will probably be `ARGS` for a root command)
+</pre>
+<p>
+@param [Array&lt;Hash&gt;] definitions An array of option definitions
+</p>
+<p>
+@return [<a href="OptionParser.html">Cri::OptionParser</a>] The option
+parser self
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000032.html');return false;">
+          <span class="method-name">arguments</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="OptionParser.html#M000032">arguments</a> that have
+already been parsed.
+</p>
+<p>
+If the parser was stopped before it finished, this will not contain all
+options and `unprocessed_arguments_and_options` will contain what is left
+to be processed.
+</p>
+<p>
+@return [Array] The already parsed <a
+href="OptionParser.html#M000032">arguments</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000035.html');return false;">
+          <span class="method-name">run</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Parses the commandline <a href="OptionParser.html#M000032">arguments</a>
+into options and <a href="OptionParser.html#M000032">arguments</a>.
+</p>
+<p>
+During parsing, two errors can be raised:
+</p>
+<p>
+@raise <a
+href="OptionParser/IllegalOptionError.html">IllegalOptionError</a> if an
+unrecognised option was encountered,
+</p>
+<pre>
+  i.e. an option that is not present in the list of option definitions
+</pre>
+<p>
+@raise <a
+href="OptionParser/OptionRequiresAnArgumentError.html">OptionRequiresAnArgumentError</a>
+if an option was found that did not
+</p>
+<pre>
+  have a value, even though this value was required.
+</pre>
+<p>
+@return [<a href="OptionParser.html">Cri::OptionParser</a>] The option
+parser self
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000033.html');return false;">
+          <span class="method-name">running?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+@return [Boolean] true if the parser is running, false otherwise.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="OptionParser.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('OptionParser.src/M000034.html');return false;">
+          <span class="method-name">stop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Stops the parser. The parser will finish its current <a
+href="OptionParser.html#M000030">parse</a> cycle but will not start parsing
+<a href="OptionParser.html#M000031">new</a> options and/or <a
+href="OptionParser.html#M000032">arguments</a>.
+</p>
+<p>
+@return [void]
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

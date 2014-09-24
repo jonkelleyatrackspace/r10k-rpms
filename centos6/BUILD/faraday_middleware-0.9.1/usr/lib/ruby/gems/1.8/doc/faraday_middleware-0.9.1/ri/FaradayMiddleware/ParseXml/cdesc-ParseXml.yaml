@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Public: parses response bodies with MultiXml."
+constants: []
+
+full_name: FaradayMiddleware::ParseXml
+includes: []
+
+instance_methods: []
+
+name: ParseXml
+superclass: ResponseMiddleware

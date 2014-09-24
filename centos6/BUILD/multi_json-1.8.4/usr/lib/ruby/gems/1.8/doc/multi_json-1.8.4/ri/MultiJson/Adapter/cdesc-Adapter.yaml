@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cache
+- !ruby/object:RI::MethodSummary 
+  name: collect_dump_options
+- !ruby/object:RI::MethodSummary 
+  name: collect_load_options
+- !ruby/object:RI::MethodSummary 
+  name: collect_options
+- !ruby/object:RI::MethodSummary 
+  name: defaults
+- !ruby/object:RI::MethodSummary 
+  name: dump
+- !ruby/object:RI::MethodSummary 
+  name: load
+comment: 
+constants: []
+
+full_name: MultiJson::Adapter
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Singleton
+instance_methods: []
+
+name: Adapter
+superclass: Object

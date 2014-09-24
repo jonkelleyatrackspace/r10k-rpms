@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Locks the middleware stack to ensure no further modifications are possible.
+full_name: Faraday::Builder#lock!
+is_singleton: false
+name: lock!
+params: ()
+visibility: public
