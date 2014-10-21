@@ -5,15 +5,15 @@
 
 <html>
 <head>
-  <title>environments (R10K::Deployment)</title>
+  <title>load_config (R10K::Deployment)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/r10k/deployment.rb, line 53</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">environments</span>
-    <span class="ruby-identifier">load_environments</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@_environments</span>.<span class="ruby-identifier">nil?</span>
-    <span class="ruby-ivar">@_environments</span>
+  <pre><span class="ruby-comment cmt"># File lib/r10k/deployment.rb, line 18</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">config</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">Deployment</span><span class="ruby-operator">::</span><span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -5,26 +5,36 @@
 
 <html>
 <head>
-  <title>create_request (Faraday::Adapter::NetHttp)</title>
+  <title>call (Faraday::Adapter::NetHttp)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter/net_http.rb, line 54</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_request</span>(<span class="ruby-identifier">env</span>)
-        <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPGenericRequest</span>.<span class="ruby-identifier">new</span> \
-          <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:method</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>,    <span class="ruby-comment cmt"># request method</span>
-          <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>],                <span class="ruby-comment cmt"># is there request body</span>
-          <span class="ruby-identifier">:head</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:method</span>],       <span class="ruby-comment cmt"># is there response body</span>
-          <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:url</span>].<span class="ruby-identifier">request_uri</span>,       <span class="ruby-comment cmt"># request uri path</span>
-          <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:request_headers</span>]        <span class="ruby-comment cmt"># request headers</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday/adapter/net_http.rb, line 28</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-keyword kw">super</span>
+        <span class="ruby-identifier">http</span> = <span class="ruby-identifier">net_http_connection</span>(<span class="ruby-identifier">env</span>)
+        <span class="ruby-identifier">configure_ssl</span>(<span class="ruby-identifier">http</span>, <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:ssl</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:url</span>].<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'https'</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:ssl</span>]
 
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:read</span>)
-          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body_stream</span> = <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>]
-        <span class="ruby-keyword kw">else</span>
-          <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>]
+        <span class="ruby-identifier">req</span> = <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:request</span>]
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-identifier">req</span>[<span class="ruby-identifier">:timeout</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">req</span>[<span class="ruby-identifier">:timeout</span>]
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-identifier">req</span>[<span class="ruby-identifier">:open_timeout</span>]                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">req</span>[<span class="ruby-identifier">:open_timeout</span>]
+
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-identifier">http_response</span> = <span class="ruby-identifier">perform_request</span>(<span class="ruby-identifier">http</span>, <span class="ruby-identifier">env</span>)
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-operator">*</span><span class="ruby-constant">NET_HTTP_EXCEPTIONS</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionFailed</span>, <span class="ruby-identifier">$!</span>
         <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">request</span>
+
+        <span class="ruby-identifier">save_response</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">http_response</span>.<span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">http_response</span>.<span class="ruby-identifier">body</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">response_headers</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">http_response</span>.<span class="ruby-identifier">each_header</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">response_headers</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">env</span>
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">err</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Faraday</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeoutError</span>, <span class="ruby-identifier">err</span>
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

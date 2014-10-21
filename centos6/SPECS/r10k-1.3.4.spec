@@ -5,12 +5,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.3.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Puppet environment and module deployment
 Group: Development/Languages
 License: Internal
 URL: http://github.com/adrienthebo/r10k
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
 Requires: rubygem(colored) >= 1.2

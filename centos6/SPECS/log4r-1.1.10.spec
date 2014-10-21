@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.1.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Log4r, logging framework for ruby
 Group: Development/Languages
 License: Internal

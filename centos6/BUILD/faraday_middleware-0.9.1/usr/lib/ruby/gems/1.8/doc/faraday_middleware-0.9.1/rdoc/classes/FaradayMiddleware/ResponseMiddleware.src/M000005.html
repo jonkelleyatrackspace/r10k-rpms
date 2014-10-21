@@ -5,16 +5,14 @@
 
 <html>
 <head>
-  <title>inherited (FaradayMiddleware::ResponseMiddleware)</title>
+  <title>define_parser (FaradayMiddleware::ResponseMiddleware)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response_middleware.rb, line 17</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
-      <span class="ruby-keyword kw">super</span>
-      <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">load_error</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load_error</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:load_error=</span>
-      <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">parser</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parser</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response_middleware.rb, line 13</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">define_parser</span>(<span class="ruby-identifier">parser</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-ivar">@parser</span> = <span class="ruby-identifier">parser</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

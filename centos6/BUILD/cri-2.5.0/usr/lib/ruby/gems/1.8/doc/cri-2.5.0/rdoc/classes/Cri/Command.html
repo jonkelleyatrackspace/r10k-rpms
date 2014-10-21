@@ -94,23 +94,23 @@ itself.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000022">&lt;=&gt;</a>&nbsp;&nbsp;
-      <a href="#M000015">add_command</a>&nbsp;&nbsp;
-      <a href="#M000018">command_named</a>&nbsp;&nbsp;
-      <a href="#M000017">commands_named</a>&nbsp;&nbsp;
-      <a href="#M000009">define</a>&nbsp;&nbsp;
-      <a href="#M000016">define_command</a>&nbsp;&nbsp;
-      <a href="#M000014">global_option_definitions</a>&nbsp;&nbsp;
-      <a href="#M000023">handle_options</a>&nbsp;&nbsp;
-      <a href="#M000025">handle_parser_errors_while</a>&nbsp;&nbsp;
-      <a href="#M000021">help</a>&nbsp;&nbsp;
-      <a href="#M000013">modify</a>&nbsp;&nbsp;
-      <a href="#M000012">new</a>&nbsp;&nbsp;
-      <a href="#M000011">new_basic_help</a>&nbsp;&nbsp;
-      <a href="#M000010">new_basic_root</a>&nbsp;&nbsp;
-      <a href="#M000024">partition</a>&nbsp;&nbsp;
-      <a href="#M000019">run</a>&nbsp;&nbsp;
-      <a href="#M000020">run_this</a>&nbsp;&nbsp;
+      <a href="#M000050">&lt;=&gt;</a>&nbsp;&nbsp;
+      <a href="#M000043">add_command</a>&nbsp;&nbsp;
+      <a href="#M000046">command_named</a>&nbsp;&nbsp;
+      <a href="#M000045">commands_named</a>&nbsp;&nbsp;
+      <a href="#M000037">define</a>&nbsp;&nbsp;
+      <a href="#M000044">define_command</a>&nbsp;&nbsp;
+      <a href="#M000042">global_option_definitions</a>&nbsp;&nbsp;
+      <a href="#M000051">handle_options</a>&nbsp;&nbsp;
+      <a href="#M000053">handle_parser_errors_while</a>&nbsp;&nbsp;
+      <a href="#M000049">help</a>&nbsp;&nbsp;
+      <a href="#M000041">modify</a>&nbsp;&nbsp;
+      <a href="#M000040">new</a>&nbsp;&nbsp;
+      <a href="#M000039">new_basic_help</a>&nbsp;&nbsp;
+      <a href="#M000038">new_basic_root</a>&nbsp;&nbsp;
+      <a href="#M000052">partition</a>&nbsp;&nbsp;
+      <a href="#M000047">run</a>&nbsp;&nbsp;
+      <a href="#M000048">run_this</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -265,19 +265,19 @@ supercommand, or nil if the
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000009" class="method-detail">
-        <a name="M000009"></a>
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000009.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000009.html');return false;">
+          <a href="Command.src/M000037.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000037.html');return false;">
           <span class="method-name">define</span><span class="method-args">(string=nil, filename=nil, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Creates a <a href="Command.html#M000012">new</a> command using the DSL. If
+Creates a <a href="Command.html#M000040">new</a> command using the DSL. If
 a string is given, the command will be defined using the string; if a block
 is given, the block will be used instead.
 </p>
@@ -300,12 +300,12 @@ corresponding to the string parameter (only useful if a string is given)
         </div>
       </div>
 
-      <div id="method-M000012" class="method-detail">
-        <a name="M000012"></a>
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000012.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000012.html');return false;">
+          <a href="Command.src/M000040.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000040.html');return false;">
           <span class="method-name">new</span><span class="method-args">()</span>
           </a>
         </div>
@@ -314,43 +314,43 @@ corresponding to the string parameter (only useful if a string is given)
         </div>
       </div>
 
-      <div id="method-M000011" class="method-detail">
-        <a name="M000011"></a>
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000011.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000011.html');return false;">
+          <a href="Command.src/M000039.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000039.html');return false;">
           <span class="method-name">new_basic_help</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Returns a <a href="Command.html#M000012">new</a> command that implements
-showing <a href="Command.html#M000021">help</a>.
+Returns a <a href="Command.html#M000040">new</a> command that implements
+showing <a href="Command.html#M000049">help</a>.
 </p>
 <p>
 @return [<a href="Command.html">Cri::Command</a>] A basic <a
-href="Command.html#M000021">help</a> command
+href="Command.html#M000049">help</a> command
 </p>
         </div>
       </div>
 
-      <div id="method-M000010" class="method-detail">
-        <a name="M000010"></a>
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000010.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000010.html');return false;">
+          <a href="Command.src/M000038.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000038.html');return false;">
           <span class="method-name">new_basic_root</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Returns a <a href="Command.html#M000012">new</a> command that has support
-for the `-h`/`&#8212;<a href="Command.html#M000021">help</a>` option and
-also has a `<a href="Command.html#M000021">help</a>` subcommand. It is
+Returns a <a href="Command.html#M000040">new</a> command that has support
+for the `-h`/`&#8212;<a href="Command.html#M000049">help</a>` option and
+also has a `<a href="Command.html#M000049">help</a>` subcommand. It is
 intended to be modified (adding name, summary, description, other
 subcommands, …)
 </p>
@@ -362,12 +362,12 @@ subcommands, …)
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000022" class="method-detail">
-        <a name="M000022"></a>
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000022.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000022.html');return false;">
+          <a href="Command.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000050.html');return false;">
           <span class="method-name">&lt;=&gt;</span><span class="method-args">(other)</span>
           </a>
         </div>
@@ -379,12 +379,12 @@ Compares this command&#8216;s name to the other given command&#8216;s name.
         </div>
       </div>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000015.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000015.html');return false;">
+          <a href="Command.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000043.html');return false;">
           <span class="method-name">add_command</span><span class="method-args">(command)</span>
           </a>
         </div>
@@ -403,12 +403,12 @@ as a subcommand
         </div>
       </div>
 
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000018.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000018.html');return false;">
+          <a href="Command.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000046.html');return false;">
           <span class="method-name">command_named</span><span class="method-args">(name)</span>
           </a>
         </div>
@@ -434,12 +434,12 @@ given name
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000017.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000017.html');return false;">
+          <a href="Command.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000045.html');return false;">
           <span class="method-name">commands_named</span><span class="method-args">(name)</span>
           </a>
         </div>
@@ -460,19 +460,19 @@ commands matching the given name
         </div>
       </div>
 
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000016.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000016.html');return false;">
+          <a href="Command.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000044.html');return false;">
           <span class="method-name">define_command</span><span class="method-args">(name=nil, &amp;block)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Defines a <a href="Command.html#M000012">new</a> subcommand for the current
+Defines a <a href="Command.html#M000040">new</a> subcommand for the current
 command using the DSL.
 </p>
 <p>
@@ -488,12 +488,12 @@ subcommand, or nil if no name
         </div>
       </div>
 
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000014.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000014.html');return false;">
+          <a href="Command.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000042.html');return false;">
           <span class="method-name">global_option_definitions</span><span class="method-args">()</span>
           </a>
         </div>
@@ -508,12 +508,12 @@ subcommand, or nil if no name
         </div>
       </div>
 
-      <div id="method-M000021" class="method-detail">
-        <a name="M000021"></a>
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000021.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000021.html');return false;">
+          <a href="Command.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000049.html');return false;">
           <span class="method-name">help</span><span class="method-args">(params={})</span>
           </a>
         </div>
@@ -521,17 +521,17 @@ subcommand, or nil if no name
         <div class="method-description">
           <p>
 @return [<a href="../String.html">String</a>] The <a
-href="Command.html#M000021">help</a> text for this command
+href="Command.html#M000049">help</a> text for this command
 </p>
         </div>
       </div>
 
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000013.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000013.html');return false;">
+          <a href="Command.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000041.html');return false;">
           <span class="method-name">modify</span><span class="method-args">(&amp;block)</span>
           </a>
         </div>
@@ -551,12 +551,12 @@ parameters, the block will be executed in the context of the DSL.
         </div>
       </div>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000019.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000019.html');return false;">
+          <a href="Command.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000047.html');return false;">
           <span class="method-name">run</span><span class="method-args">(opts_and_args, parent_opts={})</span>
           </a>
         </div>
@@ -582,12 +582,12 @@ list of unparsed arguments
         </div>
       </div>
 
-      <div id="method-M000020" class="method-detail">
-        <a name="M000020"></a>
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000020.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000020.html');return false;">
+          <a href="Command.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000048.html');return false;">
           <span class="method-name">run_this</span><span class="method-args">(opts_and_args, parent_opts={})</span>
           </a>
         </div>
@@ -623,12 +623,12 @@ command does not have an execution
 
       <h3 class="section-bar">Protected Instance methods</h3>
 
-      <div id="method-M000023" class="method-detail">
-        <a name="M000023"></a>
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000023.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000023.html');return false;">
+          <a href="Command.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000051.html');return false;">
           <span class="method-name">handle_options</span><span class="method-args">(opts)</span>
           </a>
         </div>
@@ -637,12 +637,12 @@ command does not have an execution
         </div>
       </div>
 
-      <div id="method-M000025" class="method-detail">
-        <a name="M000025"></a>
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000025.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000025.html');return false;">
+          <a href="Command.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000053.html');return false;">
           <span class="method-name">handle_parser_errors_while</span><span class="method-args">(&amp;block)</span>
           </a>
         </div>
@@ -651,12 +651,12 @@ command does not have an execution
         </div>
       </div>
 
-      <div id="method-M000024" class="method-detail">
-        <a name="M000024"></a>
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
 
         <div class="method-heading">
-          <a href="Command.src/M000024.html" target="Code" class="method-signature"
-            onclick="popupCode('Command.src/M000024.html');return false;">
+          <a href="Command.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('Command.src/M000052.html');return false;">
           <span class="method-name">partition</span><span class="method-args">(opts_and_args)</span>
           </a>
         </div>

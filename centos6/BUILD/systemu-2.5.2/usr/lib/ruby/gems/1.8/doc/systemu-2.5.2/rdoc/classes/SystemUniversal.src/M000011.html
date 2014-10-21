@@ -5,23 +5,14 @@
 
 <html>
 <head>
-  <title>relay (SystemUniversal)</title>
+  <title>child_program (SystemUniversal)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 208</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">srcdst</span>
-    <span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-identifier">ignored</span> = <span class="ruby-identifier">srcdst</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">first</span>
-    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value str">'read'</span>
-      <span class="ruby-keyword kw">while</span>((<span class="ruby-identifier">buf</span> = <span class="ruby-identifier">src</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">8192</span>))); <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>; <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">else</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:each_line</span>)
-        <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each_line</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
-      <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 173</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">child_program</span> <span class="ruby-identifier">config</span>
+    <span class="ruby-value str">&quot;# encoding: utf-8\n\nPIPE = STDOUT.dup\nbegin\nconfig = Marshal.load(IO.read('\#{ config }'))\n\nargv = config['argv']\nenv = config['env']\ncwd = config['cwd']\nstdin = config['stdin']\nstdout = config['stdout']\nstderr = config['stderr']\n\nDir.chdir cwd if cwd\nenv.each{|k,v| ENV[k.to_s] = v.to_s} if env\n\nSTDIN.reopen stdin\nSTDOUT.reopen stdout\nSTDERR.reopen stderr\n\nPIPE.puts \&quot;pid: \\\#{ Process.pid }\&quot;\nPIPE.flush                        ### the process is ready yo!\nPIPE.close\n\nexec *argv\nrescue Exception =&gt; e\nPIPE.write Marshal.dump(e) rescue nil\nexit 42\nend\n&quot;</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

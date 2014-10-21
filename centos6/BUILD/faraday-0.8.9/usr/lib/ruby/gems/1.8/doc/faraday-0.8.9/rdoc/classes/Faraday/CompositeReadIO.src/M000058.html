@@ -5,14 +5,16 @@
 
 <html>
 <head>
-  <title>ensure_open_and_readable (Faraday::CompositeReadIO)</title>
+  <title>new (Faraday::CompositeReadIO)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/upload_io.rb, line 50</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ensure_open_and_readable</span>
-      <span class="ruby-comment cmt"># Rubinius compatibility</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday/upload_io.rb, line 13</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">parts</span>)
+      <span class="ruby-ivar">@parts</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">flatten</span>
+      <span class="ruby-ivar">@ios</span> = <span class="ruby-ivar">@parts</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">to_io</span> }
+      <span class="ruby-ivar">@index</span> = <span class="ruby-value">0</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -5,37 +5,23 @@
 
 <html>
 <head>
-  <title>tmpdir (SystemUniversal)</title>
+  <title>relay (SystemUniversal)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 221</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tmpdir</span> <span class="ruby-identifier">d</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">tmpdir</span>, <span class="ruby-identifier">max</span> = <span class="ruby-value">42</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>
-    <span class="ruby-identifier">i</span> = <span class="ruby-value">-1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">loop</span>{
-      <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-
-      <span class="ruby-identifier">tmp</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">d</span>, <span class="ruby-node">&quot;systemu_#{ @host }_#{ @ppid }_#{ @pid }_#{ rand }_#{ i += 1 }&quot;</span>
-
-      <span class="ruby-keyword kw">begin</span>
-        <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span> <span class="ruby-identifier">tmp</span>
-      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EEXIST</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">max</span>
-        <span class="ruby-keyword kw">next</span>
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 208</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">relay</span> <span class="ruby-identifier">srcdst</span>
+    <span class="ruby-identifier">src</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-identifier">ignored</span> = <span class="ruby-identifier">srcdst</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value str">'read'</span>
+      <span class="ruby-keyword kw">while</span>((<span class="ruby-identifier">buf</span> = <span class="ruby-identifier">src</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">8192</span>))); <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>; <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:each_line</span>)
+        <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each_line</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">src</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">buf</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">buf</span>}
       <span class="ruby-keyword kw">end</span>
-
-      <span class="ruby-keyword kw">break</span>(
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">b</span>
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-identifier">b</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">tmp</span>
-          <span class="ruby-keyword kw">ensure</span>
-            <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">tmp</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">SystemU</span>.<span class="ruby-identifier">turd</span>
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">else</span>
-          <span class="ruby-identifier">tmp</span>
-        <span class="ruby-keyword kw">end</span>
-      )
-    }
+    <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

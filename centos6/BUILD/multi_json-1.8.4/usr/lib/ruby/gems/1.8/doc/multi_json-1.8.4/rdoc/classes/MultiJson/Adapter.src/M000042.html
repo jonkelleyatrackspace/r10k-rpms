@@ -5,14 +5,15 @@
 
 <html>
 <head>
-  <title>dump (MultiJson::Adapter)</title>
+  <title>load (MultiJson::Adapter)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapter.rb, line 23</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>={})
-        <span class="ruby-identifier">instance</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">collect_dump_options</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">clone</span>)
+  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapter.rb, line 18</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span>={})
+        <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">self</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">blank?</span>(<span class="ruby-identifier">string</span>)
+        <span class="ruby-identifier">instance</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">collect_load_options</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">clone</span>)
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

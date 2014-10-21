@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 2.5.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: a library for building easy-to-use commandline tools
 Group: Development/Languages
 License: Internal

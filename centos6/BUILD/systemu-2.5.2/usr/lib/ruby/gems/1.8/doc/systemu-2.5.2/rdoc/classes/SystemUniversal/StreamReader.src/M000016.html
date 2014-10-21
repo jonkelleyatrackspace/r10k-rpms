@@ -5,15 +5,21 @@
 
 <html>
 <head>
-  <title>join (SystemUniversal::StreamReader)</title>
+  <title>new (SystemUniversal::StreamReader)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 300</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">join</span>
-        <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">join</span>
-        <span class="ruby-ivar">@data</span>
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 289</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>)
+        <span class="ruby-ivar">@data</span> = <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">reader</span> = <span class="ruby-identifier">java</span>.<span class="ruby-identifier">io</span>.<span class="ruby-constant">BufferedReader</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">java</span>.<span class="ruby-identifier">io</span>.<span class="ruby-constant">InputStreamReader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stream</span>)
+
+          <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-identifier">reader</span>.<span class="ruby-identifier">read_line</span>
+            <span class="ruby-ivar">@data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;\n&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

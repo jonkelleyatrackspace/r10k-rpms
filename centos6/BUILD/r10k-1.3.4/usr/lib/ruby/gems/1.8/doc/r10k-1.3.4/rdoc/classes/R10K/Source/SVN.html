@@ -83,17 +83,17 @@
     <div id="description">
       <p>
 This class implements a source for <a href="SVN.html">SVN</a> <a
-href="SVN.html#M000114">environments</a>.
+href="SVN.html#M000186">environments</a>.
 </p>
 <p>
 An <a href="SVN.html">SVN</a> source generates <a
-href="SVN.html#M000114">environments</a> by enumerating the branches and
+href="SVN.html#M000186">environments</a> by enumerating the branches and
 trunk for a given <a href="SVN.html">SVN</a> remote. <a
 href="SVN.html">SVN</a> repositories must conform to the conventional <a
 href="SVN.html">SVN</a> repository structure with the directories trunk/,
 branches/, and optionally tags/ in the root of the repository. The trunk/
 directory is specifically mapped to the production environment, branches
-are created as <a href="SVN.html#M000114">environments</a> with the name of
+are created as <a href="SVN.html#M000186">environments</a> with the name of
 the given branch.
 </p>
 <p>
@@ -111,12 +111,12 @@ href="http://svnbook.red-bean.com/en/1.7/svn.branchmerge.maint.html">svnbook.red
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000117">current_contents</a>&nbsp;&nbsp;
-      <a href="#M000118">desired_contents</a>&nbsp;&nbsp;
-      <a href="#M000114">environments</a>&nbsp;&nbsp;
-      <a href="#M000115">generate_environments</a>&nbsp;&nbsp;
-      <a href="#M000116">managed_directory</a>&nbsp;&nbsp;
-      <a href="#M000113">new</a>&nbsp;&nbsp;
+      <a href="#M000189">current_contents</a>&nbsp;&nbsp;
+      <a href="#M000190">desired_contents</a>&nbsp;&nbsp;
+      <a href="#M000186">environments</a>&nbsp;&nbsp;
+      <a href="#M000187">generate_environments</a>&nbsp;&nbsp;
+      <a href="#M000188">managed_directory</a>&nbsp;&nbsp;
+      <a href="#M000185">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -183,12 +183,12 @@ href="http://svnbook.red-bean.com/en/1.7/svn.branchmerge.maint.html">svnbook.red
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000113" class="method-detail">
-        <a name="M000113"></a>
+      <div id="method-M000185" class="method-detail">
+        <a name="M000185"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000113.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000113.html');return false;">
+          <a href="SVN.src/M000185.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000185.html');return false;">
           <span class="method-name">new</span><span class="method-args">(name, basedir, options = {})</span>
           </a>
         </div>
@@ -200,7 +200,7 @@ Initialize the given source.
 <p>
 @param name [String] The identifier for this source. @param basedir
 [String] The base directory where the generated <a
-href="SVN.html#M000114">environments</a> will be created. @param options
+href="SVN.html#M000186">environments</a> will be created. @param options
 [Hash] An additional set of options for this source.
 </p>
 <p>
@@ -218,12 +218,12 @@ href="SVN.html">SVN</a> repository
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000117" class="method-detail">
-        <a name="M000117"></a>
+      <div id="method-M000189" class="method-detail">
+        <a name="M000189"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000117.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000117.html');return false;">
+          <a href="SVN.src/M000189.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000189.html');return false;">
           <span class="method-name">current_contents</span><span class="method-args">()</span>
           </a>
         </div>
@@ -232,44 +232,44 @@ href="SVN.html">SVN</a> repository
         </div>
       </div>
 
-      <div id="method-M000118" class="method-detail">
-        <a name="M000118"></a>
+      <div id="method-M000190" class="method-detail">
+        <a name="M000190"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000118.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000118.html');return false;">
+          <a href="SVN.src/M000190.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000190.html');return false;">
           <span class="method-name">desired_contents</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-List all <a href="SVN.html#M000114">environments</a> that should exist in
+List all <a href="SVN.html#M000186">environments</a> that should exist in
 the basedir for this source @note This implements a required method for the
 Purgeable mixin @return [Array&lt;String&gt;]
 </p>
         </div>
       </div>
 
-      <div id="method-M000114" class="method-detail">
-        <a name="M000114"></a>
+      <div id="method-M000186" class="method-detail">
+        <a name="M000186"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000114.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000114.html');return false;">
+          <a href="SVN.src/M000186.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000186.html');return false;">
           <span class="method-name">environments</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Enumerate the <a href="SVN.html#M000114">environments</a> associated with
+Enumerate the <a href="SVN.html#M000186">environments</a> associated with
 this <a href="SVN.html">SVN</a> source.
 </p>
 <p>
 @return [Array&lt;<a
 href="../Environment/SVN.html">R10K::Environment::SVN</a>&gt;] An array of
-<a href="SVN.html#M000114">environments</a> created
+<a href="SVN.html#M000186">environments</a> created
 </p>
 <pre>
   from this source.
@@ -277,12 +277,12 @@ href="../Environment/SVN.html">R10K::Environment::SVN</a>&gt;] An array of
         </div>
       </div>
 
-      <div id="method-M000115" class="method-detail">
-        <a name="M000115"></a>
+      <div id="method-M000187" class="method-detail">
+        <a name="M000187"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000115.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000115.html');return false;">
+          <a href="SVN.src/M000187.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000187.html');return false;">
           <span class="method-name">generate_environments</span><span class="method-args">()</span>
           </a>
         </div>
@@ -290,7 +290,7 @@ href="../Environment/SVN.html">R10K::Environment::SVN</a>&gt;] An array of
         <div class="method-description">
           <p>
 Generate a list of currently available <a href="SVN.html">SVN</a> <a
-href="SVN.html#M000114">environments</a>
+href="SVN.html#M000186">environments</a>
 </p>
 <p>
 @todo respect environment name corrections
@@ -298,7 +298,7 @@ href="SVN.html#M000114">environments</a>
 <p>
 @api protected @return [Array&lt;<a
 href="../Environment/SVN.html">R10K::Environment::SVN</a>&gt;] An array of
-<a href="SVN.html#M000114">environments</a> created
+<a href="SVN.html#M000186">environments</a> created
 </p>
 <pre>
   from this source.
@@ -306,12 +306,12 @@ href="../Environment/SVN.html">R10K::Environment::SVN</a>&gt;] An array of
         </div>
       </div>
 
-      <div id="method-M000116" class="method-detail">
-        <a name="M000116"></a>
+      <div id="method-M000188" class="method-detail">
+        <a name="M000188"></a>
 
         <div class="method-heading">
-          <a href="SVN.src/M000116.html" target="Code" class="method-signature"
-            onclick="popupCode('SVN.src/M000116.html');return false;">
+          <a href="SVN.src/M000188.html" target="Code" class="method-signature"
+            onclick="popupCode('SVN.src/M000188.html');return false;">
           <span class="method-name">managed_directory</span><span class="method-args">()</span>
           </a>
         </div>

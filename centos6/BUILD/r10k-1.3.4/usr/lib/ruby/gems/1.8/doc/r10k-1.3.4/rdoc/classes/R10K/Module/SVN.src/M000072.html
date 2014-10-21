@@ -5,21 +5,14 @@
 
 <html>
 <head>
-  <title>sync (R10K::Module::SVN)</title>
+  <title>exist? (R10K::Module::SVN)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/r10k/module/svn.rb, line 50</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync</span>
-    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">status</span>
-    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:absent</span>
-      <span class="ruby-identifier">install</span>
-    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:mismatched</span>
-      <span class="ruby-identifier">reinstall</span>
-    <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:outdated</span>
-      <span class="ruby-identifier">update</span>
-    <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/r10k/module/svn.rb, line 61</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exist?</span>
+    <span class="ruby-ivar">@full_path</span>.<span class="ruby-identifier">exist?</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

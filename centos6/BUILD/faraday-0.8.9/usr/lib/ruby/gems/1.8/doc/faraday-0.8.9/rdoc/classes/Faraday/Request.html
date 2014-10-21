@@ -101,13 +101,13 @@ Used to setup urls, params, headers, and the request body in a sane manner.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000206">[]</a>&nbsp;&nbsp;
-      <a href="#M000207">[]=</a>&nbsp;&nbsp;
-      <a href="#M000202">create</a>&nbsp;&nbsp;
-      <a href="#M000204">headers=</a>&nbsp;&nbsp;
-      <a href="#M000203">params=</a>&nbsp;&nbsp;
-      <a href="#M000208">to_env</a>&nbsp;&nbsp;
-      <a href="#M000205">url</a>&nbsp;&nbsp;
+      <a href="#M000184">[]</a>&nbsp;&nbsp;
+      <a href="#M000185">[]=</a>&nbsp;&nbsp;
+      <a href="#M000180">create</a>&nbsp;&nbsp;
+      <a href="#M000182">headers=</a>&nbsp;&nbsp;
+      <a href="#M000181">params=</a>&nbsp;&nbsp;
+      <a href="#M000186">to_env</a>&nbsp;&nbsp;
+      <a href="#M000183">url</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -140,12 +140,12 @@ Class <a href="Request/UrlEncoded.html" class="link">Faraday::Request::UrlEncode
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000202" class="method-detail">
-        <a name="M000202"></a>
+      <div id="method-M000180" class="method-detail">
+        <a name="M000180"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000202.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000202.html');return false;">
+          <a href="Request.src/M000180.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000180.html');return false;">
           <span class="method-name">create</span><span class="method-args">(request_method) {|request if block_given?| ...}</span>
           </a>
         </div>
@@ -156,12 +156,12 @@ Class <a href="Request/UrlEncoded.html" class="link">Faraday::Request::UrlEncode
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000206" class="method-detail">
-        <a name="M000206"></a>
+      <div id="method-M000184" class="method-detail">
+        <a name="M000184"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000206.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000206.html');return false;">
+          <a href="Request.src/M000184.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000184.html');return false;">
           <span class="method-name">[]</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -170,12 +170,12 @@ Class <a href="Request/UrlEncoded.html" class="link">Faraday::Request::UrlEncode
         </div>
       </div>
 
-      <div id="method-M000207" class="method-detail">
-        <a name="M000207"></a>
+      <div id="method-M000185" class="method-detail">
+        <a name="M000185"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000207.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000207.html');return false;">
+          <a href="Request.src/M000185.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000185.html');return false;">
           <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
           </a>
         </div>
@@ -184,12 +184,12 @@ Class <a href="Request/UrlEncoded.html" class="link">Faraday::Request::UrlEncode
         </div>
       </div>
 
-      <div id="method-M000204" class="method-detail">
-        <a name="M000204"></a>
+      <div id="method-M000182" class="method-detail">
+        <a name="M000182"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000204.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000204.html');return false;">
+          <a href="Request.src/M000182.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000182.html');return false;">
           <span class="method-name">headers=</span><span class="method-args">(hash)</span>
           </a>
         </div>
@@ -201,12 +201,12 @@ Public: Replace request headers, preserving the existing hash type
         </div>
       </div>
 
-      <div id="method-M000203" class="method-detail">
-        <a name="M000203"></a>
+      <div id="method-M000181" class="method-detail">
+        <a name="M000181"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000203.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000203.html');return false;">
+          <a href="Request.src/M000181.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000181.html');return false;">
           <span class="method-name">params=</span><span class="method-args">(hash)</span>
           </a>
         </div>
@@ -218,12 +218,12 @@ Public: Replace params, preserving the existing hash type
         </div>
       </div>
 
-      <div id="method-M000208" class="method-detail">
-        <a name="M000208"></a>
+      <div id="method-M000186" class="method-detail">
+        <a name="M000186"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000208.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000208.html');return false;">
+          <a href="Request.src/M000186.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000186.html');return false;">
           <span class="method-name">to_env</span><span class="method-args">(connection)</span>
           </a>
         </div>
@@ -232,7 +232,7 @@ Public: Replace params, preserving the existing hash type
           <p>
 ENV Keys :method - a symbolized request method (:get, :post) :body - the
 request body that will eventually be converted to a string. :<a
-href="Request.html#M000205">url</a> - URI instance for the current request.
+href="Request.html#M000183">url</a> - URI instance for the current request.
 :status - HTTP response status code :request_headers - hash of HTTP Headers
 to be sent to the server :response_headers - Hash of HTTP headers from the
 server :parallel_manager - sent if the connection is in parallel mode
@@ -252,12 +252,12 @@ server :parallel_manager - sent if the connection is in parallel mode
         </div>
       </div>
 
-      <div id="method-M000205" class="method-detail">
-        <a name="M000205"></a>
+      <div id="method-M000183" class="method-detail">
+        <a name="M000183"></a>
 
         <div class="method-heading">
-          <a href="Request.src/M000205.html" target="Code" class="method-signature"
-            onclick="popupCode('Request.src/M000205.html');return false;">
+          <a href="Request.src/M000183.html" target="Code" class="method-signature"
+            onclick="popupCode('Request.src/M000183.html');return false;">
           <span class="method-name">url</span><span class="method-args">(path, params = nil)</span>
           </a>
         </div>

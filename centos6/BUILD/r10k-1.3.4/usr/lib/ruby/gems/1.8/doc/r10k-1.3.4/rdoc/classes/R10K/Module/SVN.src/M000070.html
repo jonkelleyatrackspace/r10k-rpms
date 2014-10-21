@@ -5,20 +5,24 @@
 
 <html>
 <head>
-  <title>new (R10K::Module::SVN)</title>
+  <title>status (R10K::Module::SVN)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/r10k/module/svn.rb, line 26</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">basedir</span>, <span class="ruby-identifier">args</span>)
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@basedir</span> = <span class="ruby-identifier">basedir</span>
-
-    <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">args</span>)
-
-    <span class="ruby-ivar">@full_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@basedir</span>, <span class="ruby-ivar">@name</span>))
-    <span class="ruby-ivar">@working_dir</span> = <span class="ruby-constant">R10K</span><span class="ruby-operator">::</span><span class="ruby-constant">SVN</span><span class="ruby-operator">::</span><span class="ruby-constant">WorkingDir</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@full_path</span>)
+  <pre><span class="ruby-comment cmt"># File lib/r10k/module/svn.rb, line 36</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">status</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">exist?</span>
+      <span class="ruby-identifier">:absent</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@working_dir</span>.<span class="ruby-identifier">is_svn?</span>
+      <span class="ruby-identifier">:mismatched</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@url</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@working_dir</span>.<span class="ruby-identifier">url</span>
+      <span class="ruby-identifier">:mismatched</span>
+    <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@expected_revision</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@working_dir</span>.<span class="ruby-identifier">revision</span>
+      <span class="ruby-identifier">:outdated</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">:insync</span>
+    <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

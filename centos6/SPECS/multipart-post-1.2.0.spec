@@ -5,12 +5,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A multipart form post accessory for Net::HTTP
 Group: Development/Languages
 License: Internal
 URL: https://github.com/nicksieger/multipart-post
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
 Requires: ruby(abi) = 1.8

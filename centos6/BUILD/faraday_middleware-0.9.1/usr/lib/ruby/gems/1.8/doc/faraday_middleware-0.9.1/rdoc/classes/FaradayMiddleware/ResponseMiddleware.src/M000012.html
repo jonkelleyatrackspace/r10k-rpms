@@ -5,14 +5,16 @@
 
 <html>
 <head>
-  <title>parse_response? (FaradayMiddleware::ResponseMiddleware)</title>
+  <title>process_response_type? (FaradayMiddleware::ResponseMiddleware)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response_middleware.rb, line 70</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_response?</span>(<span class="ruby-identifier">env</span>)
-      <span class="ruby-identifier">env</span>[<span class="ruby-identifier">:body</span>].<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:to_str</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response_middleware.rb, line 64</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_response_type?</span>(<span class="ruby-identifier">type</span>)
+      <span class="ruby-ivar">@content_types</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@content_types</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pattern</span>
+      }
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

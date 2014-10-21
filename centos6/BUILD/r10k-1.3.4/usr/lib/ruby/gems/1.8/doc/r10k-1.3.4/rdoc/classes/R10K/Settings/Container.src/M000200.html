@@ -5,14 +5,16 @@
 
 <html>
 <head>
-  <title>add_valid_key (R10K::Settings::Container)</title>
+  <title>[]= (R10K::Settings::Container)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/r10k/settings/container.rb, line 59</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_valid_key</span>(<span class="ruby-identifier">key</span>)
-    <span class="ruby-ivar">@valid_keys</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">key</span>)
+  <pre><span class="ruby-comment cmt"># File lib/r10k/settings/container.rb, line 47</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">validate_key!</span> <span class="ruby-identifier">key</span>
+
+    <span class="ruby-ivar">@settings</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -5,15 +5,18 @@
 
 <html>
 <head>
-  <title>load (MultiJson::Adapter)</title>
+  <title>defaults (MultiJson::Adapter)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapter.rb, line 18</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span>={})
-        <span class="ruby-identifier">raise</span> <span class="ruby-keyword kw">self</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">blank?</span>(<span class="ruby-identifier">string</span>)
-        <span class="ruby-identifier">instance</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">collect_load_options</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">clone</span>)
+  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapter.rb, line 10</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defaults</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">value</span>)
+        <span class="ruby-identifier">metaclass</span> = <span class="ruby-keyword kw">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">self</span>; <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">metaclass</span>.<span class="ruby-identifier">instance_eval</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;default_#{action}_options&quot;</span>){ <span class="ruby-identifier">value</span> }
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

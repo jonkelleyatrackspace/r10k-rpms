@@ -88,11 +88,11 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000015">close</a>&nbsp;&nbsp;
-      <a href="#M000014">closed?</a>&nbsp;&nbsp;
-      <a href="#M000017">get_levels_map</a>&nbsp;&nbsp;
-      <a href="#M000016">map_levels_by_name_to_syslog</a>&nbsp;&nbsp;
-      <a href="#M000013">new</a>&nbsp;&nbsp;
+      <a href="#M000084">close</a>&nbsp;&nbsp;
+      <a href="#M000083">closed?</a>&nbsp;&nbsp;
+      <a href="#M000086">get_levels_map</a>&nbsp;&nbsp;
+      <a href="#M000085">map_levels_by_name_to_syslog</a>&nbsp;&nbsp;
+      <a href="#M000082">new</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -167,12 +167,12 @@ string name &quot;DEBUG&quot; =&gt; &quot;DEBUG&quot;
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
+      <div id="method-M000082" class="method-detail">
+        <a name="M000082"></a>
 
         <div class="method-heading">
-          <a href="SyslogOutputter.src/M000013.html" target="Code" class="method-signature"
-            onclick="popupCode('SyslogOutputter.src/M000013.html');return false;">
+          <a href="SyslogOutputter.src/M000082.html" target="Code" class="method-signature"
+            onclick="popupCode('SyslogOutputter.src/M000082.html');return false;">
           <span class="method-name">new</span><span class="method-args">(_name, hash={})</span>
           </a>
         </div>
@@ -197,12 +197,12 @@ There are 3 hash arguments
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000084" class="method-detail">
+        <a name="M000084"></a>
 
         <div class="method-heading">
-          <a href="SyslogOutputter.src/M000015.html" target="Code" class="method-signature"
-            onclick="popupCode('SyslogOutputter.src/M000015.html');return false;">
+          <a href="SyslogOutputter.src/M000084.html" target="Code" class="method-signature"
+            onclick="popupCode('SyslogOutputter.src/M000084.html');return false;">
           <span class="method-name">close</span><span class="method-args">()</span>
           </a>
         </div>
@@ -211,12 +211,12 @@ There are 3 hash arguments
         </div>
       </div>
 
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
+      <div id="method-M000083" class="method-detail">
+        <a name="M000083"></a>
 
         <div class="method-heading">
-          <a href="SyslogOutputter.src/M000014.html" target="Code" class="method-signature"
-            onclick="popupCode('SyslogOutputter.src/M000014.html');return false;">
+          <a href="SyslogOutputter.src/M000083.html" target="Code" class="method-signature"
+            onclick="popupCode('SyslogOutputter.src/M000083.html');return false;">
           <span class="method-name">closed?</span><span class="method-args">()</span>
           </a>
         </div>
@@ -225,12 +225,12 @@ There are 3 hash arguments
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
 
         <div class="method-heading">
-          <a href="SyslogOutputter.src/M000017.html" target="Code" class="method-signature"
-            onclick="popupCode('SyslogOutputter.src/M000017.html');return false;">
+          <a href="SyslogOutputter.src/M000086.html" target="Code" class="method-signature"
+            onclick="popupCode('SyslogOutputter.src/M000086.html');return false;">
           <span class="method-name">get_levels_map</span><span class="method-args">()</span>
           </a>
         </div>
@@ -239,12 +239,12 @@ There are 3 hash arguments
         </div>
       </div>
 
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
 
         <div class="method-heading">
-          <a href="SyslogOutputter.src/M000016.html" target="Code" class="method-signature"
-            onclick="popupCode('SyslogOutputter.src/M000016.html');return false;">
+          <a href="SyslogOutputter.src/M000085.html" target="Code" class="method-signature"
+            onclick="popupCode('SyslogOutputter.src/M000085.html');return false;">
           <span class="method-name">map_levels_by_name_to_syslog</span><span class="method-args">( lmap = SYSLOG_LOG4R_MAP )</span>
           </a>
         </div>
@@ -260,11 +260,11 @@ syslog levels. By default, these are direct mapping of the log4r levels
 own custom levels, you should provide this underlying mapping, otherwise
 all messages will be mapped to the underlying syslog level of INFO by
 default. e.g. You have created custom levels called: <tt><a
-href="Configurator.html#M000054">Configurator.custom_levels</a>
+href="Configurator.html#M000095">Configurator.custom_levels</a>
 &quot;HIGH&quot;, &quot;MEDIUM&quot;, &quot;LOW&quot;</tt> To map these to
 &#8216;equivilent&#8217; syslog levels, after instantiatin a
 syslogoutputter: <tt><a
-href="SyslogOutputter.html#M000016">SyslogOutputter.map_levels_by_name_to_syslog</a>(
+href="SyslogOutputter.html#M000085">SyslogOutputter.map_levels_by_name_to_syslog</a>(
 { &quot;HIGH&quot; =&gt; &quot;ALERT&quot;, &quot;MEDIUM&quot; =&gt;
 &quot;WARN&quot;, &quot;LOW&quot; =&gt; &quot;INFO&quot; } )</tt>
 

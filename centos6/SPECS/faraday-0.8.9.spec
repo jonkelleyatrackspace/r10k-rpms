@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.8.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: HTTP/REST API client library
 Group: Development/Languages
 License: Internal

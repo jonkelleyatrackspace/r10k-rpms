@@ -5,7 +5,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.8.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: JSON Implementation for Ruby
 Group: Development/Languages
 License: Internal

@@ -5,14 +5,16 @@
 
 <html>
 <head>
-  <title>parent= (Log4r::Logger)</title>
+  <title>each (Log4r::Logger)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/log4r/logger.rb, line 107</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parent=</span>(<span class="ruby-identifier">parent</span>)
-      <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
+  <pre><span class="ruby-comment cmt"># File lib/log4r/staticlogger.rb, line 29</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">each</span>
+      <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">fullname</span>, <span class="ruby-identifier">logger</span> <span class="ruby-keyword kw">in</span> <span class="ruby-constant">Repository</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">loggers</span>
+        <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">fullname</span>, <span class="ruby-identifier">logger</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

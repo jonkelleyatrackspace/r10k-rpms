@@ -5,14 +5,18 @@
 
 <html>
 <head>
-  <title>call (FaradayMiddleware::FollowRedirects)</title>
+  <title>new (FaradayMiddleware::FollowRedirects)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response/follow_redirects.rb, line 64</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
-      <span class="ruby-identifier">perform_with_redirection</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">follow_limit</span>)
+  <pre><span class="ruby-comment cmt"># File lib/faraday_middleware/response/follow_redirects.rb, line 56</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">app</span>)
+      <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+
+      <span class="ruby-ivar">@replay_request_codes</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span> [<span class="ruby-value">307</span>]
+      <span class="ruby-ivar">@replay_request_codes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">302</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">standards_compliant?</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

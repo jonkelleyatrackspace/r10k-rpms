@@ -5,28 +5,14 @@
 
 <html>
 <head>
-  <title>new (SystemUniversal)</title>
+  <title>quote (SystemUniversal)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 49</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">argv</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
-    <span class="ruby-identifier">getopt</span> = <span class="ruby-identifier">getopts</span> <span class="ruby-identifier">opts</span>
-
-    <span class="ruby-ivar">@argv</span> = <span class="ruby-identifier">argv</span>
-    <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
-
-    <span class="ruby-ivar">@stdin</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-value str">'stdin'</span>, <span class="ruby-value str">'in'</span>, <span class="ruby-value str">'0'</span>, <span class="ruby-value">0</span>] ]
-    <span class="ruby-ivar">@stdout</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-value str">'stdout'</span>, <span class="ruby-value str">'out'</span>, <span class="ruby-value str">'1'</span>, <span class="ruby-value">1</span>] ]
-    <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">getopt</span>[ [<span class="ruby-value str">'stderr'</span>, <span class="ruby-value str">'err'</span>, <span class="ruby-value str">'2'</span>, <span class="ruby-value">2</span>] ]
-    <span class="ruby-ivar">@env</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'env'</span> ]
-    <span class="ruby-ivar">@cwd</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'cwd'</span> ]
-
-    <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'host'</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">host</span> ]
-    <span class="ruby-ivar">@ppid</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'ppid'</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ppid</span> ]
-    <span class="ruby-ivar">@pid</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'pid'</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">pid</span> ]
-    <span class="ruby-ivar">@ruby</span> = <span class="ruby-identifier">getopt</span>[ <span class="ruby-value str">'ruby'</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ruby</span> ]
-  <span class="ruby-keyword kw">end</span></pre>
+  <pre><span class="ruby-comment cmt"># File lib/systemu.rb, line 40</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">quote</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">words</span>)
+      <span class="ruby-identifier">words</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">inspect</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>)
+    <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

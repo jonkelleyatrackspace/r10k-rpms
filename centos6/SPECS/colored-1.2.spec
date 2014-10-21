@@ -5,12 +5,12 @@
 
 Name: rubygem-%{gem_name}
 Version: 1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Add some color to your life
 Group: Development/Languages
 License: Internal
 URL: http://github.com/defunkt/colored
-Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
+Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
 Requires: ruby(abi) = 1.8
