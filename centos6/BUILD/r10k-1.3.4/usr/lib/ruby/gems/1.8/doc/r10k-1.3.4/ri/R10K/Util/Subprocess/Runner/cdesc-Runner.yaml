@@ -1,0 +1,60 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [rw] cwd"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String] The directory to be used as the cwd when executing\n    the command.\n"
+  name: cwd
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: io
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] result"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [R10K::Util::Subprocess::Result]\n"
+  name: result
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] status"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Process::Status]\n"
+  name: status
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Define an abstract interface for external command runners.
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+constants: []
+
+full_name: R10K::Util::Subprocess::Runner
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: crashed?
+- !ruby/object:RI::MethodSummary 
+  name: exit_code
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: start
+- !ruby/object:RI::MethodSummary 
+  name: wait
+name: Runner
+superclass: Object

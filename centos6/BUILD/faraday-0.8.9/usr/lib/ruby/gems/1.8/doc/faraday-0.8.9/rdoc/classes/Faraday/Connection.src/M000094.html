@@ -5,14 +5,18 @@
 
 <html>
 <head>
-  <title>dup (Faraday::Connection)</title>
+  <title>path_prefix= (Faraday::Connection)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 311</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dup</span>
-      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">build_url</span>(<span class="ruby-value str">''</span>), <span class="ruby-identifier">:headers</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">:params</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">:builder</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">:ssl</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ssl</span>.<span class="ruby-identifier">dup</span>)
+  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 234</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path_prefix=</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-identifier">url_prefix</span>.<span class="ruby-identifier">path</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span>
+        <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-value str">'/'</span>
+        <span class="ruby-identifier">value</span> = <span class="ruby-value str">'/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'/'</span>
+        <span class="ruby-identifier">value</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

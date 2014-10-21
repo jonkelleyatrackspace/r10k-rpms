@@ -5,14 +5,14 @@
 
 <html>
 <head>
-  <title>new (Cri::CommandDSL)</title>
+  <title>be_hidden (Cri::CommandDSL)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/cri/command_dsl.rb, line 11</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">command</span>=<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-ivar">@command</span> = <span class="ruby-identifier">command</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Cri</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span>.<span class="ruby-identifier">new</span>
+  <pre><span class="ruby-comment cmt"># File lib/cri/command_dsl.rb, line 88</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">be_hidden</span>
+      <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">hidden</span> = <span class="ruby-keyword kw">true</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

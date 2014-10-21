@@ -5,14 +5,16 @@
 
 <html>
 <head>
-  <title>json_creatable? (JSON::GenericObject)</title>
+  <title>json_create (JSON::GenericObject)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/json/generic_object.rb, line 8</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">json_creatable?</span>
-        <span class="ruby-ivar">@json_creatable</span>
+  <pre><span class="ruby-comment cmt"># File lib/json/generic_object.rb, line 14</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">json_create</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">data</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-identifier">data</span>.<span class="ruby-identifier">delete</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">create_id</span>
+        <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">data</span>]
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implement a POSIX command runner by using fork/exec.
+- !ruby/struct:SM::Flow::P 
+  body: This implementation is optimized to run commands in the background, and has a few noteworthy implementation details.
+- !ruby/struct:SM::Flow::P 
+  body: "First off, when the child process is forked, it calls setsid() to detach from the controlling TTY. This has two main ramifications: sending signals will never be send to the forked process, and the forked process does not have access to stdin."
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+constants: []
+
+full_name: R10K::Util::Subprocess::POSIX::Runner
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: crashed?
+- !ruby/object:RI::MethodSummary 
+  name: exit_code
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: start
+- !ruby/object:RI::MethodSummary 
+  name: wait
+name: Runner
+superclass: R10K::Util::Subprocess::Runner

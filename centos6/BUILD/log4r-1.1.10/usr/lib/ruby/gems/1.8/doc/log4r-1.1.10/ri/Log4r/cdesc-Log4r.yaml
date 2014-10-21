@@ -4,74 +4,17 @@ attributes: []
 class_methods: []
 
 comment: 
-- !ruby/struct:SM::Flow::H 
-  level: 1
-  text: NDC
 - !ruby/struct:SM::Flow::P 
-  body: The NDC class implements a copy of the Nested Diagnostic Context, which is part of the Apache Log4j library. Nested Diagnostic Contexts were derived from Neil Harrison's article on &quot;Patterns for Logging Diagnostic Messages&quot;, part of the book &quot;Pattern Languages of Program Design 3&quot; edited by Martin et al.
-- !ruby/struct:SM::Flow::P 
-  body: NDCs in Log4r are thread safe.
-- !ruby/struct:SM::Flow::P 
-  body: "NDCs in log4r are close enough to NDCs in Log4j that I include its documentation directly:"
-- !ruby/struct:SM::Flow::P 
-  body: ... A Nested Diagnostic Context, or NDC in short, is an instrument to distinguish interleaved log output from different sources. Log output is typically interleaved when a server handles multiple clients near-simultaneously.
-- !ruby/struct:SM::Flow::P 
-  body: Interleaved log output can still be meaningful if each log entry from different contexts had a distinctive stamp. This is where NDCs come into play.
-- !ruby/struct:SM::Flow::P 
-  body: Note that NDCs are managed on a per thread basis. NDC operations such as push, pop(), clear(), getDepth() and setMaxDepth(int) affect the NDC of the current thread only. NDCs of other threads remain unaffected. ...
-- !ruby/struct:SM::Flow::P 
-  body: An important difference between NDCs in Log4r vs Log4j is that you do not have to called NDC.remove() when exiting a thread.
-- !ruby/struct:SM::Flow::P 
-  body: This class will automatically create Thread specific storage for the current thread on the first call to any of its methods, i.e.
-- !ruby/struct:SM::Flow::VERB 
-  body: "  NDC.push( &quot;client accept&quot; );\n"
-- !ruby/struct:SM::Flow::P 
-  body: New threads may inherit the NDC of the parent thread by making use of the clone_stack() and inherit() methods. By default, the NDC is not inherited automatically. This is unlike MDCs, which will inherit from the main thread.
-- !ruby/struct:SM::Flow::H 
-  level: 2
-  text: Other Info
-- !ruby/object:SM::Flow::LIST 
-  contents: 
-  - !ruby/struct:SM::Flow::LI 
-    label: "Version:"
-    body: $Id$
-  - !ruby/struct:SM::Flow::LI 
-    label: "Author:"
-    body: Colby Gutierrez-Kraybill &lt;colby(at)astro.berkeley.edu&gt;
-  type: :NOTE
+  body: ":nodoc:"
 constants: 
 - !ruby/object:RI::Constant 
   comment: 
-  name: SYSLOGNAMES
-  value: Hash.new
+  name: Log4rVersion
+  value: "[1, 1, 10].join '.'"
 - !ruby/object:RI::Constant 
   comment: 
-  name: MDCNAME
-  value: "\"log4rMDC\""
-- !ruby/object:RI::Constant 
-  comment: 
-  name: MDCNAMEMAXDEPTH
-  value: "\"log4rMDCMAXDEPTH\""
-- !ruby/object:RI::Constant 
-  comment: 
-  name: HAVE_REXML
-  value: "true"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: HAVE_REXML
-  value: "false"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: HAVE_ROMP
-  value: "true"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: HAVE_ROMP
-  value: "false"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: GDCNAME
-  value: "\"log4rGDC\""
+  name: VERSION
+  value: Log4rVersion
 - !ruby/object:RI::Constant 
   comment: 
   name: NDCNAME
@@ -86,20 +29,44 @@ constants:
   value: "256"
 - !ruby/object:RI::Constant 
   comment: 
+  name: GDCNAME
+  value: "\"log4rGDC\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HAVE_REXML
+  value: "true"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HAVE_REXML
+  value: "false"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HAVE_ROMP
+  value: "true"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HAVE_ROMP
+  value: "false"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MDCNAME
+  value: "\"log4rMDC\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MDCNAMEMAXDEPTH
+  value: "\"log4rMDCMAXDEPTH\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SYSLOGNAMES
+  value: Hash.new
+- !ruby/object:RI::Constant 
+  comment: 
   name: ALL
   value: "0"
 - !ruby/object:RI::Constant 
   comment: 
   name: LNAMES
   value: "['ALL']"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: Log4rVersion
-  value: "[1, 1, 10].join '.'"
-- !ruby/object:RI::Constant 
-  comment: 
-  name: VERSION
-  value: Log4rVersion
 full_name: Log4r
 includes: []
 

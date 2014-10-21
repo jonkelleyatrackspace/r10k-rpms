@@ -1,7 +1,7 @@
 # Generated from multipart-post-1.2.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name multipart-post
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
@@ -11,9 +11,9 @@ Group: Development/Languages
 License: Internal
 URL: https://github.com/nicksieger/multipart-post
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 BuildArch: noarch
@@ -73,5 +73,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 1.2.0-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 1.2.0-1
 - Initial package

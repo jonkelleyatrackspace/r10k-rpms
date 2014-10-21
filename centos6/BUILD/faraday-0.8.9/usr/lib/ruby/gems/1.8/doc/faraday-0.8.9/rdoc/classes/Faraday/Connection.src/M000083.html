@@ -5,22 +5,14 @@
 
 <html>
 <head>
-  <title>default_parallel_manager (Faraday::Connection)</title>
+  <title>headers= (Faraday::Connection)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 146</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_parallel_manager</span>
-      <span class="ruby-ivar">@default_parallel_manager</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">begin</span>
-        <span class="ruby-identifier">handler</span> = <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">handlers</span>.<span class="ruby-identifier">detect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">h</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">h</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:supports_parallel?</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">supports_parallel?</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">handler</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">setup_parallel_manager</span>
-        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword kw">then</span> <span class="ruby-keyword kw">yield</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 76</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">headers=</span>(<span class="ruby-identifier">hash</span>)
+      <span class="ruby-ivar">@headers</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">hash</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

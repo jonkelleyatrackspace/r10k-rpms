@@ -1,7 +1,7 @@
 # Generated from cri-2.5.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name cri
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 2.5.0
@@ -11,11 +11,11 @@ Group: Development/Languages
 License: Internal
 URL: http://stoneship.org/software/cri/
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
 Requires: rubygem(colored) => 1.2
 Requires: rubygem(colored) < 2
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 # BuildRequires: rubygem(minitest) => 5.3
@@ -81,5 +81,5 @@ popd
 %doc %{gem_instdir}/NEWS.md
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 2.5.0-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 2.5.0-1
 - Initial package

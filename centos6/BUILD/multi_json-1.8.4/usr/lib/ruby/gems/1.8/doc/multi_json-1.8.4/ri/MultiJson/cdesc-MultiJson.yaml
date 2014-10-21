@@ -10,12 +10,12 @@ comment:
 constants: 
 - !ruby/object:RI::Constant 
   comment: 
-  name: DecodeError
-  value: "LoadError # Legacy support"
-- !ruby/object:RI::Constant 
-  comment: 
   name: VERSION
   value: Version.to_s.freeze
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DecodeError
+  value: "LoadError # Legacy support"
 - !ruby/object:RI::Constant 
   comment: 
   name: ALIASES

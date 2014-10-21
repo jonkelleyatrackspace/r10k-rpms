@@ -1,7 +1,7 @@
 # Generated from faraday-0.8.9.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name faraday
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 0.8.9
@@ -11,11 +11,11 @@ Group: Development/Languages
 License: Internal
 URL: https://github.com/lostisland/faraday
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) >= 1.3.6
 Requires: rubygem(multipart-post) => 1.2.0
 Requires: rubygem(multipart-post) < 1.3
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel >= 1.3.6
 BuildRequires: ruby 
 # BuildRequires: rubygem(simplecov) 
@@ -74,5 +74,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 0.8.9-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 0.8.9-1
 - Initial package

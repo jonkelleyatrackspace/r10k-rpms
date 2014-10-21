@@ -5,14 +5,14 @@
 
 <html>
 <head>
-  <title>name (Cri::CommandDSL)</title>
+  <title>required (Cri::CommandDSL)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/cri/command_dsl.rb, line 41</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>(<span class="ruby-identifier">arg</span>)
-      <span class="ruby-ivar">@command</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">arg</span>
+  <pre><span class="ruby-comment cmt"># File lib/cri/command_dsl.rb, line 123</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">required</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_option</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-identifier">:required</span>, <span class="ruby-identifier">block</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

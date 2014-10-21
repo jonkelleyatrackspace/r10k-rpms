@@ -5,14 +5,14 @@
 
 <html>
 <head>
-  <title>| (JSON::GenericObject)</title>
+  <title>as_json (JSON::GenericObject)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/json/generic_object.rb, line 58</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">other</span>)
-      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>[<span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">to_hash</span>)]
+  <pre><span class="ruby-comment cmt"># File lib/json/generic_object.rb, line 62</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">as_json</span>(<span class="ruby-operator">*</span>)
+      { <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">create_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span> }.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">to_hash</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

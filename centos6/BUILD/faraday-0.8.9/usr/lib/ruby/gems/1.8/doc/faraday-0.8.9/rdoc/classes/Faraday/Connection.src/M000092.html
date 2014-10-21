@@ -5,20 +5,20 @@
 
 <html>
 <head>
-  <title>build_url (Faraday::Connection)</title>
+  <title>URI (Faraday::Connection)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 281</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">build_url</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">extra_params</span> = <span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">build_exclusive_url</span>(<span class="ruby-identifier">url</span>)
-
-      <span class="ruby-identifier">query_values</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">merge_query</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span>)
-      <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">extra_params</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">extra_params</span>
-      <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">query_values</span>.<span class="ruby-identifier">to_query</span>
-
-      <span class="ruby-identifier">uri</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday/connection.rb, line 194</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:host</span>)
+        <span class="ruby-identifier">url</span>
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:to_str</span>)
+        <span class="ruby-constant">Kernel</span>.<span class="ruby-constant">URI</span>(<span class="ruby-identifier">url</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;bad argument (expected URI object or URI string)&quot;</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # Generated from faraday_middleware-0.9.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name faraday_middleware
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 0.9.1
@@ -11,11 +11,11 @@ Group: Development/Languages
 License: Internal
 URL: https://github.com/lostisland/faraday_middleware
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) >= 1.3.5
 Requires: rubygem(faraday) >= 0.7.4
 Requires: rubygem(faraday) < 0.10
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel >= 1.3.5
 BuildRequires: ruby 
 BuildArch: noarch
@@ -73,5 +73,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 0.9.1-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 0.9.1-1
 - Initial package

@@ -1,0 +1,25 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Run processes on Windows.
+- !ruby/struct:SM::Flow::P 
+  body: "This implementation relies on Open3.capture3 to run commands and capture results. In contrast to the POSIX runner this cannot be used in an asynchronous manner as-is; implementing that will probably mean launching a thread and invoking #capture3 in that thread."
+constants: []
+
+full_name: R10K::Util::Subprocess::Windows::Runner
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: crashed?
+- !ruby/object:RI::MethodSummary 
+  name: exit_code
+- !ruby/object:RI::MethodSummary 
+  name: run
+name: Runner
+superclass: R10K::Util::Subprocess::Runner

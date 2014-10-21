@@ -97,9 +97,9 @@ depend on native code.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000203">execute</a>&nbsp;&nbsp;
-      <a href="#M000202">new</a>&nbsp;&nbsp;
-      <a href="#M000201">runner</a>&nbsp;&nbsp;
+      <a href="#M000158">execute</a>&nbsp;&nbsp;
+      <a href="#M000157">new</a>&nbsp;&nbsp;
+      <a href="#M000156">runner</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -120,7 +120,12 @@ depend on native code.
     <div id="class-list">
       <h3 class="section-bar">Classes and Modules</h3>
 
-      Class <a href="Subprocess/SubprocessError.html" class="link">R10K::Util::Subprocess::SubprocessError</a><br />
+      Module <a href="Subprocess/POSIX.html" class="link">R10K::Util::Subprocess::POSIX</a><br />
+Module <a href="Subprocess/Windows.html" class="link">R10K::Util::Subprocess::Windows</a><br />
+Class <a href="Subprocess/IO.html" class="link">R10K::Util::Subprocess::IO</a><br />
+Class <a href="Subprocess/Result.html" class="link">R10K::Util::Subprocess::Result</a><br />
+Class <a href="Subprocess/Runner.html" class="link">R10K::Util::Subprocess::Runner</a><br />
+Class <a href="Subprocess/SubprocessError.html" class="link">R10K::Util::Subprocess::SubprocessError</a><br />
 
     </div>
 
@@ -190,12 +195,12 @@ depend on native code.
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000202" class="method-detail">
-        <a name="M000202"></a>
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
 
         <div class="method-heading">
-          <a href="Subprocess.src/M000202.html" target="Code" class="method-signature"
-            onclick="popupCode('Subprocess.src/M000202.html');return false;">
+          <a href="Subprocess.src/M000157.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000157.html');return false;">
           <span class="method-name">new</span><span class="method-args">(argv)</span>
           </a>
         </div>
@@ -206,17 +211,17 @@ Prepare the subprocess invocation.
 </p>
 <p>
 @param argv [Array&lt;String&gt;] The argument vector to <a
-href="Subprocess.html#M000203">execute</a>
+href="Subprocess.html#M000158">execute</a>
 </p>
         </div>
       </div>
 
-      <div id="method-M000201" class="method-detail">
-        <a name="M000201"></a>
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
 
         <div class="method-heading">
-          <a href="Subprocess.src/M000201.html" target="Code" class="method-signature"
-            onclick="popupCode('Subprocess.src/M000201.html');return false;">
+          <a href="Subprocess.src/M000156.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000156.html');return false;">
           <span class="method-name">runner</span><span class="method-args">()</span>
           </a>
         </div>
@@ -231,12 +236,12 @@ href="Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>]
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000203" class="method-detail">
-        <a name="M000203"></a>
+      <div id="method-M000158" class="method-detail">
+        <a name="M000158"></a>
 
         <div class="method-heading">
-          <a href="Subprocess.src/M000203.html" target="Code" class="method-signature"
-            onclick="popupCode('Subprocess.src/M000203.html');return false;">
+          <a href="Subprocess.src/M000158.html" target="Code" class="method-signature"
+            onclick="popupCode('Subprocess.src/M000158.html');return false;">
           <span class="method-name">execute</span><span class="method-args">()</span>
           </a>
         </div>
@@ -246,8 +251,9 @@ href="Subprocess/Runner.html">R10K::Util::Subprocess::Runner</a>]
 Execute the given command and return the result of evaluation.
 </p>
 <p>
-@api public @raise [R10K::Util::Subprocess::SubprocessError] if
-raise_on_fail is
+@api public @raise [<a
+href="Subprocess/SubprocessError.html">R10K::Util::Subprocess::SubprocessError</a>]
+if raise_on_fail is
 </p>
 <pre>
   true and the command exited with a non-zero status.

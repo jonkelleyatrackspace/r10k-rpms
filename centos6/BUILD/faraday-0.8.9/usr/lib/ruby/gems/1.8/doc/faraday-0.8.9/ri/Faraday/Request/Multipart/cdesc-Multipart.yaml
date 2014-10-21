@@ -1,0 +1,27 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DEFAULT_BOUNDARY
+  value: "\"-----------RubyMultipartPost\".freeze"
+full_name: Faraday::Request::Multipart
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: create_multipart
+- !ruby/object:RI::MethodSummary 
+  name: has_multipart?
+- !ruby/object:RI::MethodSummary 
+  name: process_params
+- !ruby/object:RI::MethodSummary 
+  name: process_request?
+name: Multipart
+superclass: Request::UrlEncoded

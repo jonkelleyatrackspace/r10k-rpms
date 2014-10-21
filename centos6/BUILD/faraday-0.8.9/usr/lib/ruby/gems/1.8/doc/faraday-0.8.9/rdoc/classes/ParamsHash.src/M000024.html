@@ -5,17 +5,14 @@
 
 <html>
 <head>
-  <title>merge_query (ParamsHash)</title>
+  <title>to_query (ParamsHash)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/faraday/utils.rb, line 127</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">merge_query</span>(<span class="ruby-identifier">query</span>)
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">query</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">query</span>.<span class="ruby-identifier">empty?</span>
-          <span class="ruby-identifier">update</span> <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_nested_query</span>(<span class="ruby-identifier">query</span>)
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">self</span>
+  <pre><span class="ruby-comment cmt"># File lib/faraday/utils.rb, line 134</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_query</span>
+        <span class="ruby-constant">Utils</span>.<span class="ruby-identifier">build_nested_query</span>(<span class="ruby-keyword kw">self</span>)
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

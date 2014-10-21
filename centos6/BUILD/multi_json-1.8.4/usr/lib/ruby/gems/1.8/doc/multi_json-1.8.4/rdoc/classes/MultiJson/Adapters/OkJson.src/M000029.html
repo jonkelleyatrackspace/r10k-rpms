@@ -5,18 +5,14 @@
 
 <html>
 <head>
-  <title>load (MultiJson::Adapters::OkJson)</title>
+  <title>dump (MultiJson::Adapters::OkJson)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapters/ok_json.rb, line 11</span>
-      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span>={})
-        <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">read</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:read</span>)
-        <span class="ruby-identifier">result</span> = <span class="ruby-operator">::</span><span class="ruby-constant">MultiJson</span><span class="ruby-operator">::</span><span class="ruby-constant">OkJson</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-node">&quot;[#{string}]&quot;</span>).<span class="ruby-identifier">first</span>
-        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:symbolize_keys</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">symbolize_keys</span>(<span class="ruby-identifier">result</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>
-      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-comment cmt"># invalid byte sequence in UTF-8</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseError</span>
+  <pre><span class="ruby-comment cmt"># File lib/multi_json/adapters/ok_json.rb, line 19</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">options</span>={})
+        <span class="ruby-operator">::</span><span class="ruby-constant">MultiJson</span><span class="ruby-operator">::</span><span class="ruby-constant">OkJson</span>.<span class="ruby-identifier">valenc</span>(<span class="ruby-identifier">stringify_keys</span>(<span class="ruby-identifier">object</span>))
       <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

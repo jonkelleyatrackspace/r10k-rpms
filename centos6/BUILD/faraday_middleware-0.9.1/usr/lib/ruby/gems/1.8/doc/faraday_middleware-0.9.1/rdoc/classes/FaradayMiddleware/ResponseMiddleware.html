@@ -92,16 +92,16 @@ Internal: The base class for middleware that parses responses.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000053">call</a>&nbsp;&nbsp;
-      <a href="#M000050">define_parser</a>&nbsp;&nbsp;
-      <a href="#M000051">inherited</a>&nbsp;&nbsp;
-      <a href="#M000052">new</a>&nbsp;&nbsp;
-      <a href="#M000055">parse</a>&nbsp;&nbsp;
-      <a href="#M000058">parse_response?</a>&nbsp;&nbsp;
-      <a href="#M000059">preserve_raw?</a>&nbsp;&nbsp;
-      <a href="#M000054">process_response</a>&nbsp;&nbsp;
-      <a href="#M000057">process_response_type?</a>&nbsp;&nbsp;
-      <a href="#M000056">response_type</a>&nbsp;&nbsp;
+      <a href="#M000007">call</a>&nbsp;&nbsp;
+      <a href="#M000004">define_parser</a>&nbsp;&nbsp;
+      <a href="#M000005">inherited</a>&nbsp;&nbsp;
+      <a href="#M000006">new</a>&nbsp;&nbsp;
+      <a href="#M000009">parse</a>&nbsp;&nbsp;
+      <a href="#M000012">parse_response?</a>&nbsp;&nbsp;
+      <a href="#M000013">preserve_raw?</a>&nbsp;&nbsp;
+      <a href="#M000008">process_response</a>&nbsp;&nbsp;
+      <a href="#M000011">process_response_type?</a>&nbsp;&nbsp;
+      <a href="#M000010">response_type</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -149,12 +149,12 @@ Internal: The base class for middleware that parses responses.
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000050" class="method-detail">
-        <a name="M000050"></a>
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000050.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000050.html');return false;">
+          <a href="ResponseMiddleware.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000004.html');return false;">
           <span class="method-name">define_parser</span><span class="method-args">(parser = nil)</span>
           </a>
         </div>
@@ -166,12 +166,12 @@ Store a Proc that receives the body and returns the parsed result.
         </div>
       </div>
 
-      <div id="method-M000051" class="method-detail">
-        <a name="M000051"></a>
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000051.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000051.html');return false;">
+          <a href="ResponseMiddleware.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000005.html');return false;">
           <span class="method-name">inherited</span><span class="method-args">(subclass)</span>
           </a>
         </div>
@@ -180,12 +180,12 @@ Store a Proc that receives the body and returns the parsed result.
         </div>
       </div>
 
-      <div id="method-M000052" class="method-detail">
-        <a name="M000052"></a>
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000052.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000052.html');return false;">
+          <a href="ResponseMiddleware.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000006.html');return false;">
           <span class="method-name">new</span><span class="method-args">(app = nil, options = {})</span>
           </a>
         </div>
@@ -196,12 +196,12 @@ Store a Proc that receives the body and returns the parsed result.
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000053" class="method-detail">
-        <a name="M000053"></a>
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000053.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000053.html');return false;">
+          <a href="ResponseMiddleware.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000007.html');return false;">
           <span class="method-name">call</span><span class="method-args">(environment)</span>
           </a>
         </div>
@@ -210,12 +210,12 @@ Store a Proc that receives the body and returns the parsed result.
         </div>
       </div>
 
-      <div id="method-M000055" class="method-detail">
-        <a name="M000055"></a>
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000055.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000055.html');return false;">
+          <a href="ResponseMiddleware.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000009.html');return false;">
           <span class="method-name">parse</span><span class="method-args">(body)</span>
           </a>
         </div>
@@ -226,17 +226,17 @@ Parse the response body.
 </p>
 <p>
 Instead of overriding this method, consider using `<a
-href="ResponseMiddleware.html#M000050">define_parser</a>`.
+href="ResponseMiddleware.html#M000004">define_parser</a>`.
 </p>
         </div>
       </div>
 
-      <div id="method-M000058" class="method-detail">
-        <a name="M000058"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000058.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000058.html');return false;">
+          <a href="ResponseMiddleware.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000012.html');return false;">
           <span class="method-name">parse_response?</span><span class="method-args">(env)</span>
           </a>
         </div>
@@ -245,12 +245,12 @@ href="ResponseMiddleware.html#M000050">define_parser</a>`.
         </div>
       </div>
 
-      <div id="method-M000059" class="method-detail">
-        <a name="M000059"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000059.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000059.html');return false;">
+          <a href="ResponseMiddleware.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000013.html');return false;">
           <span class="method-name">preserve_raw?</span><span class="method-args">(env)</span>
           </a>
         </div>
@@ -259,12 +259,12 @@ href="ResponseMiddleware.html#M000050">define_parser</a>`.
         </div>
       </div>
 
-      <div id="method-M000054" class="method-detail">
-        <a name="M000054"></a>
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000054.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000054.html');return false;">
+          <a href="ResponseMiddleware.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000008.html');return false;">
           <span class="method-name">process_response</span><span class="method-args">(env)</span>
           </a>
         </div>
@@ -273,12 +273,12 @@ href="ResponseMiddleware.html#M000050">define_parser</a>`.
         </div>
       </div>
 
-      <div id="method-M000057" class="method-detail">
-        <a name="M000057"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000057.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000057.html');return false;">
+          <a href="ResponseMiddleware.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000011.html');return false;">
           <span class="method-name">process_response_type?</span><span class="method-args">(type)</span>
           </a>
         </div>
@@ -287,12 +287,12 @@ href="ResponseMiddleware.html#M000050">define_parser</a>`.
         </div>
       </div>
 
-      <div id="method-M000056" class="method-detail">
-        <a name="M000056"></a>
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
 
         <div class="method-heading">
-          <a href="ResponseMiddleware.src/M000056.html" target="Code" class="method-signature"
-            onclick="popupCode('ResponseMiddleware.src/M000056.html');return false;">
+          <a href="ResponseMiddleware.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('ResponseMiddleware.src/M000010.html');return false;">
           <span class="method-name">response_type</span><span class="method-args">(env)</span>
           </a>
         </div>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Public
+full_name: Faraday::Request::TokenAuthentication::header
+is_singleton: true
+name: header
+params: (token, options = nil)
+visibility: public

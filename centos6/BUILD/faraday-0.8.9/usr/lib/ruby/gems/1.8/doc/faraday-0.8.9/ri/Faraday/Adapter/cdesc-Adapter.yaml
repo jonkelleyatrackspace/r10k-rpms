@@ -18,4 +18,4 @@ instance_methods:
 - !ruby/object:RI::MethodSummary 
   name: save_response
 name: Adapter
-superclass: Object
+superclass: Middleware

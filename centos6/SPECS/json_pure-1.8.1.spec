@@ -1,7 +1,7 @@
 # Generated from json_pure-1.8.1.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name json_pure
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.8.1
@@ -11,9 +11,9 @@ Group: Development/Languages
 License: Internal
 URL: http://flori.github.com/json
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 # BuildRequires: rubygem(permutation) 
@@ -75,5 +75,5 @@ popd
 %doc %{gem_instdir}/README.rdoc
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 1.8.1-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 1.8.1-1
 - Initial package

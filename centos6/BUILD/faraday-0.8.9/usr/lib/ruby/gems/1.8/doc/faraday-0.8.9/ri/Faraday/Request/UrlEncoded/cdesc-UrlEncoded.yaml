@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mime_type
+  rw: RW
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_TYPE
+  value: "'Content-Type'.freeze"
+full_name: Faraday::Request::UrlEncoded
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: match_content_type
+- !ruby/object:RI::MethodSummary 
+  name: process_request?
+- !ruby/object:RI::MethodSummary 
+  name: request_type
+name: UrlEncoded
+superclass: Faraday::Middleware

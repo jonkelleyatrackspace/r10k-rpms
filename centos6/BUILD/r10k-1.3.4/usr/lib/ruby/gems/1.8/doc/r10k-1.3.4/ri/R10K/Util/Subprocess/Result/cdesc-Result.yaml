@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] argv"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Array&lt;String&gt;]\n"
+  name: argv
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] cmd"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String]\n"
+  name: cmd
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] exit_code"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [Integer]\n"
+  name: exit_code
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] stderr"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String]\n"
+  name: stderr
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "@!attribute [r] stdout"
+  - !ruby/struct:SM::Flow::VERB 
+    body: "  @return [String]\n"
+  name: stdout
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "@api private"
+constants: []
+
+full_name: R10K::Util::Subprocess::Result
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: failed?
+- !ruby/object:RI::MethodSummary 
+  name: success?
+name: Result
+superclass: Object

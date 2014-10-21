@@ -1,7 +1,7 @@
 # Generated from r10k-1.3.4.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name r10k
-%global rubyabi 1.8
-%define _unpackaged_files_terminate_build 0
+%define _unpackaged_files_terminate_build 0 
+%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.3.4
@@ -11,7 +11,7 @@ Group: Development/Languages
 License: Internal
 URL: http://github.com/adrienthebo/r10k
 Source0: http://rubygems.org/gems/%{gem_name}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 Requires: ruby(rubygems) 
 Requires: rubygem(colored) >= 1.2
 Requires: rubygem(cri) => 2.5.0
@@ -29,7 +29,7 @@ Requires: rubygem(faraday_middleware) => 0.9.0
 Requires: rubygem(faraday_middleware) < 0.10
 Requires: rubygem(faraday_middleware-multi_json) => 0.0.5
 Requires: rubygem(faraday_middleware-multi_json) < 0.1
-BuildRequires: ruby(abi) = %{rubyabi}
+Requires: ruby(abi) = 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 # BuildRequires: rubygem(rspec) => 2.14.0
@@ -103,5 +103,5 @@ popd
 %doc %{gem_docdir}
 
 %changelog
-* Wed Sep 24 2014 root <root@r10k-centos6-build> - 1.3.4-1
+* Tue Oct 21 2014  <rack@puppet-n01> - 1.3.4-1
 - Initial package

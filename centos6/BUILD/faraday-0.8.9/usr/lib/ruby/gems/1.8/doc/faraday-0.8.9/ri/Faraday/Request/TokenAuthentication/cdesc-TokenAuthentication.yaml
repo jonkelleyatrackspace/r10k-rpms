@@ -1,0 +1,18 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: header
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Faraday::Request::TokenAuthentication
+includes: []
+
+instance_methods: []
+
+name: TokenAuthentication
+superclass: Request::Authorization

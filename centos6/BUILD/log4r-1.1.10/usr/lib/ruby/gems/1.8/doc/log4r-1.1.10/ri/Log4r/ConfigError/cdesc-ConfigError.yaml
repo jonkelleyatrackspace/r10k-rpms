@@ -5,7 +5,7 @@ class_methods: []
 
 comment: 
 - !ruby/struct:SM::Flow::P 
-  body: Gets raised when Configurator encounters bad XML.
+  body: Gets raised when Configurator encounters bad YAML.
 constants: []
 
 full_name: Log4r::ConfigError
