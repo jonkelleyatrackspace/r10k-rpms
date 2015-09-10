@@ -1,23 +1,29 @@
-%global gem_name log4r
+%global gem_name semantic_puppet
 
 Name: rubygem-%{gem_name}
-Version: 1.1.10
-Release: 3%{?dist}
-Summary: Log4r, logging framework for ruby
+Version: 0.1.1
+Release: 1%{?dist}
+Summary: Useful tools for working with Semantic Versions
 Group: Development/Languages
 License: Internal
-URL: http://log4r.rubyforge.org
+URL: https://github.com/puppetlabs/semantic_puppet-gem
 Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) >= 1.8
 Requires: ruby(rubygems) 
 BuildRequires: ruby(abi) >= 1.8
 BuildRequires: rubygems-devel 
-BuildRequires: ruby 
+BuildRequires: ruby >= 1.8.7
+# BuildRequires: rubygem(rspec) 
+# BuildRequires: rubygem(simplecov) 
+# BuildRequires: rubygem(cane) 
+# BuildRequires: rubygem(yard) 
+# BuildRequires: rubygem(redcarpet) 
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
-See also: http://logging.apache.org/log4j.
+Tools used by Puppet to parse, validate, and compare Semantic Versions and
+Version Ranges and to query and resolve module dependencies.
 
 
 %package doc
@@ -62,17 +68,21 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/tests
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.yardopts
+%exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/spec
 %{gem_spec}
+%{gem_instdir}/semantic_puppet.gemspec
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc
-%doc %{gem_instdir}/examples
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/README.md
 
 %changelog
-* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.1.10-3
-- Dependency update
-* Tue Oct 21 2014  <rack@puppet-n01> - 1.1.10-1
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 0.1.1-1
 - Initial package
-
