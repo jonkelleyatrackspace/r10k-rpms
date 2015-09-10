@@ -1,23 +1,25 @@
-%global gem_name log4r
+%global gem_name faraday
 
 Name: rubygem-%{gem_name}
-Version: 1.1.10
-Release: 3%{?dist}
-Summary: Log4r, logging framework for ruby
+Version: 0.9.1
+Release: 1%{?dist}
+Summary: HTTP/REST API client library
 Group: Development/Languages
 License: Internal
-URL: http://log4r.rubyforge.org
+URL: https://github.com/lostisland/faraday
 Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) >= 1.8
-Requires: ruby(rubygems) 
+Requires: ruby(rubygems) >= 1.3.5
+Requires: rubygem(multipart-post) >= 1.2
+Requires: rubygem(multipart-post) < 3
 BuildRequires: ruby(abi) >= 1.8
-BuildRequires: rubygems-devel 
+BuildRequires: rubygems-devel >= 1.3.5
 BuildRequires: ruby 
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
-See also: http://logging.apache.org/log4j.
+HTTP/REST API client library.
 
 
 %package doc
@@ -61,18 +63,24 @@ popd
 %files
 %dir %{gem_instdir}
 %{gem_libdir}
+%exclude %{gem_instdir}/.document
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/test
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/tests
 %{gem_spec}
+%{gem_instdir}/Gemfile
+%{gem_instdir}/script
+%{gem_instdir}/faraday.gemspec
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc
-%doc %{gem_instdir}/examples
+%doc %{gem_instdir}/CHANGELOG.md
+%doc %{gem_instdir}/CONTRIBUTING.md
+%doc %{gem_instdir}/LICENSE.md
+%doc %{gem_instdir}/README.md
 
 %changelog
-* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.1.10-3
-- Dependency update
-* Tue Oct 21 2014  <rack@puppet-n01> - 1.1.10-1
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 0.9.1-1
+- Version bump to 0.9.1
+* Tue Oct 21 2014  <rack@puppet-n01> - 0.8.9-1
 - Initial package
-

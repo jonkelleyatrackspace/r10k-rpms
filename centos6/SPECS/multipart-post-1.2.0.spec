@@ -1,19 +1,16 @@
-# Generated from multipart-post-1.2.0.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name multipart-post
-%define _unpackaged_files_terminate_build 0 
-%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.2.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A multipart form post accessory for Net::HTTP
 Group: Development/Languages
 License: Internal
 URL: https://github.com/nicksieger/multipart-post
 Source0: %{gem_name}-%{version}.gem
-Requires: ruby(abi) = 1.8
+Requires: ruby(abi) >= 1.8
 Requires: ruby(rubygems) 
-Requires: ruby(abi) = 1.8
+BuildRequires: ruby(abi) >= 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 BuildArch: noarch
@@ -67,11 +64,23 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.travis.yml
+%exclude %{gem_instdir}/Gemfile
+%exclude %{gem_instdir}/Gemfile.lock
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/test
 %{gem_spec}
+%{gem_instdir}/multipart-post.gemspec
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/History.txt
+%doc %{gem_instdir}/Manifest.txt
+%doc %{gem_instdir}/README.txt
 
 %changelog
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.2.0-3
+- Dependency update
 * Tue Oct 21 2014  <rack@puppet-n01> - 1.2.0-1
 - Initial package

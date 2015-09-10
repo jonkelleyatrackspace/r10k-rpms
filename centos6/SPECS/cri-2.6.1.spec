@@ -1,15 +1,17 @@
-%global gem_name log4r
+%global gem_name cri
 
 Name: rubygem-%{gem_name}
-Version: 1.1.10
-Release: 3%{?dist}
-Summary: Log4r, logging framework for ruby
+Version: 2.6.1
+Release: 1%{?dist}
+Summary: a library for building easy-to-use commandline tools
 Group: Development/Languages
 License: Internal
-URL: http://log4r.rubyforge.org
+URL: http://stoneship.org/software/cri/
 Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) >= 1.8
 Requires: ruby(rubygems) 
+Requires: rubygem(colored) => 1.2
+Requires: rubygem(colored) < 2
 BuildRequires: ruby(abi) >= 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
@@ -17,7 +19,8 @@ BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
-See also: http://logging.apache.org/log4j.
+Cri allows building easy-to-use commandline interfaces with support for
+subcommands.
 
 
 %package doc
@@ -62,17 +65,21 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %exclude %{gem_cache}
-%exclude %{gem_instdir}/tests
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/test
+%exclude %{gem_instdir}/Gemfile.lock
 %{gem_spec}
+%{gem_instdir}/Gemfile
+%{gem_instdir}/cri.gemspec
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/doc
-%doc %{gem_instdir}/examples
+%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/README.adoc
+%doc %{gem_instdir}/NEWS.md
 
 %changelog
-* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.1.10-3
-- Dependency update
-* Tue Oct 21 2014  <rack@puppet-n01> - 1.1.10-1
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 2.6.1-1
+- Version bump to 2.6.1
+* Tue Oct 21 2014  <rack@puppet-n01> - 2.5.0-1
 - Initial package
-

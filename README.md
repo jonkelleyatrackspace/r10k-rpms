@@ -1,10 +1,10 @@
-r10k 1.3.4 Centos/RHEL Release RPMS
+r10k 1.5.1 Centos/RHEL Release RPMS
 =========
 By Jon Kelley
 
 r10k provides a general purpose toolset for deploying Puppet environments and modules. It implements the Puppetfile format and provides a native implementation of Puppet dynamic environments.
 
-https://github.com/adrienthebo/r10k
+https://github.com/puppetlabs/r10k
 
 
 

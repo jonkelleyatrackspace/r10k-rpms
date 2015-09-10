@@ -1,27 +1,29 @@
-# Generated from faraday_middleware-multi_json-0.0.6.gem by gem2rpm -*- rpm-spec -*-
-%global gem_name faraday_middleware-multi_json
+%global gem_name json_pure
+
+# FIXME this includes binary extension source and
+# Java code which is not being built
 
 Name: rubygem-%{gem_name}
-Version: 0.0.6
-Release: 3%{?dist}
-Summary: Response JSON parser using MultiJson and FaradayMiddleware
+Version: 1.8.2
+Release: 1%{?dist}
+Summary: JSON Implementation for Ruby
 Group: Development/Languages
 License: Internal
-URL: https://www.github.com/denro/faraday_middleware-multi_json
+URL: http://flori.github.com/json
 Source0: %{gem_name}-%{version}.gem
 Requires: ruby(abi) >= 1.8
 Requires: ruby(rubygems) 
-Requires: rubygem(faraday_middleware) 
-Requires: rubygem(multi_json) 
 BuildRequires: ruby(abi) >= 1.8
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
-# BuildRequires: rubygem(rspec) 
+# BuildRequires: rubygem(permutation) 
+# BuildRequires: rubygem(sdoc) => 0.3.16
+# BuildRequires: rubygem(sdoc) < 0.4
 BuildArch: noarch
 Provides: rubygem(%{gem_name}) = %{version}
 
 %description
-Faraday response parser using MultiJson.
+This is a JSON implementation in pure Ruby.
 
 
 %package doc
@@ -67,21 +69,36 @@ popd
 %{gem_libdir}
 %exclude %{gem_cache}
 %exclude %{gem_instdir}/.gitignore
-%exclude %{gem_instdir}/.rspec
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/Gemfile
 %exclude %{gem_instdir}/Rakefile
-%exclude %{gem_instdir}/spec
+%exclude %{gem_instdir}/diagrams
+%exclude %{gem_instdir}/ext/json/ext
+%exclude %{gem_instdir}/java
+%exclude %{gem_instdir}/tests
 %{gem_spec}
-%{gem_instdir}/faraday_middleware-multi_json.gemspec
+%{gem_instdir}/ext/json/extconf.rb
+%{gem_instdir}/install.rb
+%{gem_instdir}/json-java.gemspec
+%{gem_instdir}/json.gemspec
+%{gem_instdir}/json_pure.gemspec
+%{gem_instdir}/tools
 
 %files doc
 %doc %{gem_docdir}
-%doc %{gem_instdir}/LICENSE
-%doc %{gem_instdir}/README.md
+%doc %{gem_instdir}/CHANGES
+%doc %{gem_instdir}/COPYING
+%doc %{gem_instdir}/COPYING-json-jruby
+%doc %{gem_instdir}/GPL
+%doc %{gem_instdir}/README.rdoc
+%doc %{gem_instdir}/README-json-jruby.markdown
+%doc %{gem_instdir}/TODO
+%doc %{gem_instdir}/VERSION
+%doc %{gem_instdir}/data
 
 %changelog
-* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 0.0.6-3
-- Dependency update
-* Tue Oct 21 2014  <rack@puppet-n01> - 0.0.6-1
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.8.2-1
+- Version bump to 1.8.2
+- Note: this version does NOT include binary extension support
+* Tue Oct 21 2014  <rack@puppet-n01> - 1.8.1-1
 - Initial package

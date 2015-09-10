@@ -1,19 +1,18 @@
-# Generated from colored-1.2.gem by gem2rpm -*- rpm-spec -*-
 %global gem_name colored
-%define _unpackaged_files_terminate_build 0 
-%define _missing_doc_files_terminate_build 0
 
 Name: rubygem-%{gem_name}
 Version: 1.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Add some color to your life
 Group: Development/Languages
 License: Internal
 URL: http://github.com/defunkt/colored
 Source0: %{gem_name}-%{version}.gem
-Requires: ruby(abi) = 1.8
+Requires: ruby(abi) >= 1.8
+Requires: ruby(abi) < 1.9
 Requires: ruby(rubygems) 
-Requires: ruby(abi) = 1.8
+BuildRequires: ruby(abi) >= 1.8
+BuildRequires: ruby(abi) < 1.9
 BuildRequires: rubygems-devel 
 BuildRequires: ruby 
 BuildArch: noarch
@@ -70,11 +69,17 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %exclude %{gem_cache}
+%exclude %{gem_instdir}/Rakefile
+%exclude %{gem_instdir}/test/colored_test.rb
 %{gem_spec}
 
 %files doc
 %doc %{gem_docdir}
+%doc %{gem_instdir}/LICENSE
+%doc %{gem_instdir}/README
 
 %changelog
+* Thu Sep 10 2015 James Stuart <software@jstuart.org> - 1.2-3
+- Dependency updates
 * Tue Oct 21 2014  <rack@puppet-n01> - 1.2-1
 - Initial package
